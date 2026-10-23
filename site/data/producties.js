@@ -78,7 +78,7 @@ window.PRODUCTIES = [
       "https://open.spotify.com/track/7cLgvaseVIRSGY4EPehpw8"
     ],
     "foto": "data/foto/40077c21f8db819fbc38f8b8aa48730b.jpg",
-    "uitsnede": ""
+    "uitsnede": "boven"
   },
   {
     "titel": "O Kerstnacht",
