@@ -41,7 +41,7 @@ nav .stil{color:var(--s-zand)}
 
 /* hero: seizoenstitel + artwork */
 .hero{position:relative;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;min-height:min(46rem,calc(100vh - 76px))}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;min-height:min(46rem,calc(100vh - 76px))}
 .hero-text{padding:3.5rem 0 4rem;align-self:center}
 .seizoen{font-family:var(--serif);font-weight:400;color:var(--s-zand);font-size:clamp(2.1rem,5.2vw,4.1rem);letter-spacing:.32em;line-height:1.12;margin:0 0 2.75rem}
 .seizoen span{display:block}
@@ -51,7 +51,7 @@ nav .stil{color:var(--s-zand)}
 .next h2{font-size:clamp(1.6rem,3vw,2.3rem);margin:.35rem 0 .3rem}
 .next .waar{color:var(--s-zand);margin:0 0 1.25rem}
 .next .acties{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
-.art{align-self:end;justify-self:end;width:100%;max-width:34rem}
+.art{align-self:center;justify-self:end;width:100%;max-width:34rem}
 .art{position:relative}
 .art img{display:block;width:100%;height:auto}
 .art .dia{transition:opacity 1.8s ease}

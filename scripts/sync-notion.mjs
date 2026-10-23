@@ -200,6 +200,7 @@ for (const r of await queryAll(BEELDBANK_DB, [{ property: "Volgorde", direction:
     fotograaf: text(p.Fotograaf),
     jaar: p.Jaar?.number ?? null,
     onderwerp: p.Onderwerp?.select?.name || "",
+    uitsnede: (p.Uitsnede?.select?.name || "").toLowerCase(),
     gebruik: (p.Gebruik?.multi_select || []).map(o => o.name),
     volgorde: p.Volgorde?.number ?? null,
     concerten: (p.Concert?.relation || []).map(x => x.id),
