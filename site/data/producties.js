@@ -1,18 +1,26 @@
 window.PRODUCTIES = [
   {
     "titel": "Rhagium Inquisitor",
-    "label": "Op tournee, seizoen 2026–2027",
-    "makers": "Andries Boone, als kwartet of sextet",
-    "tekst": "Het programma van Andries Boone reist door de Vlaamse cultuurcentra, in een compacte kwartetversie of in de volle sextetbezetting.",
-    "extra": "Sextet: Andries Boone, Ward Dhoore, Anouk Sanczuk, Marieke Van Ransbeeck, Oscar Beerten, Dominique Vantomme.",
+    "label": "Nieuw album en tournee, seizoen 2027–2028",
+    "makers": "Andries Boone, live in kwartet- of sextetbezetting",
+    "tekst": "Op zijn vierde soloalbum versmelt Andries Boone akoestische en elektronische werelden. Viool, octaafviool, mandoline, nyckelharpa en barokmusette ontmoeten synths en sequencers, geïnspireerd door Scandinavische en Bretonse volksmuziek, de jachthoorntraditie én de elektronica van de jaren tachtig en negentig.",
+    "extra": "Het album Rhagium Inquisitor verschijnt op 13 november 2026. Alle speeldata op andriesboone.com.",
     "feiten": [
       [
         "Bezetting",
-        "Kwartet of sextet"
+        "Kwartet: Andries Boone (viool, octaafviool, mandoline, accordina), Ward Dhoore (akoestische gitaar, mandoline), Dominique Vantomme (synths, elektronica) en Anouk Sanczuk (viool). Sextet: aangevuld met Marieke Van Ransbeeck of Birgit Bornauw (barokmusette) en Firas Al Alwani (klarinet, basklarinet)."
+      ],
+      [
+        "Vorm",
+        "Concert"
       ],
       [
         "Speelduur",
         "1 set van 75 minuten"
+      ],
+      [
+        "Periode",
+        "September 2027 – mei 2028"
       ],
       [
         "Geschikt voor",
@@ -24,80 +32,80 @@ window.PRODUCTIES = [
       ],
       [
         "Prijs",
-        "Uitkoopsom op aanvraag, inclusief vervoer"
-      ]
-    ],
-    "knop": "Vraag een optie",
-    "foto": ""
-  },
-  {
-    "titel": "En waar de ster bleef stille staan",
-    "label": "Kersttournee 2027, data in optie",
-    "makers": "Reineke Van Hooreweghe, Toon Van Mierlo en een 15-koppig orkest",
-    "tekst": "Naar het verhaal van Felix Timmermans uit 1924. Drie schooiers trekken als driekoningen door het winterse Kempenlandschap: een vertelling over armoede, schuld en genade, sober en akoestisch gebracht.",
-    "extra": "Na het succes van hun vertelling rond Wannes Raps, en vijf voorstellingen in Landschapspark de Merode in december 2026.",
-    "feiten": [
-      [
-        "Vorm",
-        "Muzikale vertelling"
-      ],
-      [
-        "Periode",
-        "December 2027"
-      ],
-      [
-        "Geschikt voor",
-        "Kerken en zalen"
-      ],
-      [
-        "Prijs",
         "Op aanvraag"
       ]
     ],
     "knop": "Vraag een optie",
-    "foto": ""
-  },
-  {
-    "titel": "Echo",
-    "label": "Docuconcert",
-    "makers": "Griff Trio, met een jonge garde muzikanten",
-    "tekst": "Drie generaties folk op één podium: de pioniers die in de jaren zestig en zeventig de Belgische folkrevival vormgaven, Griff Trio dat hen opzocht, en jonge muzikanten die met hen aan tafel gingen. Documentaire en live muziek lopen in elkaar over.",
-    "extra": "Op 11 december 2026 te zien in de Zoerla.",
-    "feiten": [
-      [
-        "Vorm",
-        "Film en live muziek"
-      ],
-      [
-        "Geschikt voor",
-        "Cultuurcentra, muziekclubs, erfgoedavonden"
-      ],
-      [
-        "Techniek",
-        "Projectie en geluid, fiche op aanvraag"
-      ],
-      [
-        "Prijs",
-        "Op aanvraag"
-      ]
+    "contact": "boone@merodefestival.be",
+    "data": [],
+    "webadres": "rhagium-inquisitor",
+    "lang": [
+      {
+        "type": "p",
+        "html": "Andries Boone behoort al jaren tot het kruim van de Vlaamse folkscene. Zowel met het mandolinekwartet MANdolinMAN als met zijn solotrilogie <em>C.O.L.O.R.S</em> (2019), <em>T.I.M.E.L.A.P.S.E</em> (2021) en <em>C.O.N.V.E.R.S.A.T.I.O.N.S</em> (2023) maakte hij verrassende, eclectische en experimentele albums die moeiteloos de grenzen van de folk overstegen. Op 13 november 2026 verschijnt <strong>Rhagium Inquisitor</strong>, zijn vierde soloalbum."
+      },
+      {
+        "type": "p",
+        "html": "De titel verwijst naar de grijze ribbelboktor, een kleine kever die onder de schors van dode naaldbomen leeft en symbool staat voor de gelaagde klankwereld van de nieuwe plaat. Alle composities zijn geïnspireerd door fauna en flora van bij ons en kregen de Latijnse naam van een plant of dier mee, zoals <em>Viscum Album</em> (de maretak), <em>Accipiter Gentilis</em> (de havik) of <em>Lamprohiza Splendidula</em> (de glimworm)."
+      },
+      {
+        "type": "p",
+        "html": "Op het album versmelt Boone akoestische en elektronische werelden. Traditionele instrumenten als viool, octaafviool, mandoline, nyckelharpa, hardangerviool en barokmusette ontmoeten rock, moderne kamermuziek en elektronica. Boone speelde de meeste instrumenten zelf in, met bijdragen van onder meer Marieke Van Ransbeeck, Oscar Beerten, Steven De bruyn, Frank Deruytter, Gwen Cresens, Annebelle Dewitte, Johan Van Neste, Anouk Sanczuk en Koen Toté."
+      },
+      {
+        "type": "p",
+        "html": "Live wordt het album voorgesteld in kwartet- of sextetbezetting. Een concert bestaat uit één set van 75 minuten."
+      },
+      {
+        "type": "p",
+        "html": "<em>Deze productie kwam tot stand in samenwerking met WESP/Merodefestival en met steun van de Vlaamse overheid.</em>"
+      }
     ],
-    "knop": "Vraag een optie",
-    "foto": ""
+    "videos": [
+      {
+        "url": "https://vimeo.com/1077103295",
+        "titel": "Live in de kerk van Blauberg"
+      },
+      {
+        "url": "https://vimeo.com/andriesboone/tourfirstsnippets",
+        "titel": "Eerste beelden van de tournee"
+      }
+    ],
+    "spotify": [
+      "https://open.spotify.com/track/4t1pyHsrvXi6HaDLOW2mpA",
+      "https://open.spotify.com/track/5xHfA98lVW4Tau0MolI9BW",
+      "https://open.spotify.com/track/4cjnwBOvwQ1WGYzMeTaroU",
+      "https://open.spotify.com/track/7cLgvaseVIRSGY4EPehpw8"
+    ],
+    "foto": "data/foto/40077c21f8db819fbc38f8b8aa48730b.jpg",
+    "uitsnede": ""
   },
   {
-    "titel": "Aram",
-    "label": "Uit onze residenties",
-    "makers": "Shahab Azinmehr, Derya Türkan en Robbe Kieckens",
-    "tekst": "Iraanse, Turkse en Europese klanken in één gelaagde dialoog tussen traditie en vrije interpretatie. Gegroeid in een residentie bij WESP, in het kader van Klanken van de Steden.",
-    "extra": "",
+    "titel": "O Kerstnacht",
+    "label": "Kerstprogramma 2027, 2028",
+    "makers": "Eléonor & ensemble, met Philippe Laloy, Vincent Noiret en Maarten Decombel",
+    "tekst": "Middeleeuwse kerstliederen in een nieuw licht. Eléonor graaft vergeten kerstliederen uit de Lage Landen op, hertaald naar eigentijds Nederlands, op het kruispunt van oude muziek, jazz en folk: een warme, kunstige kerstavond waarin verleden en heden elkaar vinden.",
+    "extra": "Drie formules: in de theaterzaal, all-in op een bijzondere locatie, of akoestisch in een kleinere ruimte.",
     "feiten": [
       [
         "Bezetting",
-        "Trio: tar en setar, kemançe, percussie"
+        "Eléonor (Elly Aerden): zang en concept. Philippe Laloy: basfluit, sopraansax en arrangementen. Vincent Noiret: contrabas. Maarten Decombel: gitaar."
+      ],
+      [
+        "Vorm",
+        "Concert"
+      ],
+      [
+        "Periode",
+        "15 november 2027 – 31 december 2027"
       ],
       [
         "Geschikt voor",
-        "Kerken, kleine zalen, akoestische reeksen"
+        "Cultuurcentra, theaterzalen, kerken, kapellen en abdijen"
+      ],
+      [
+        "Techniek",
+        "Theaterformule: techniek volgens technische fiche. Locatieformule: volledig verzorgd door het ensemble, enkel stroom nodig."
       ],
       [
         "Prijs",
@@ -105,29 +113,138 @@ window.PRODUCTIES = [
       ]
     ],
     "knop": "Vraag een optie",
-    "foto": ""
+    "contact": "okerstnacht@merodefestival.be",
+    "data": [],
+    "webadres": "o-kerstnacht",
+    "lang": [
+      {
+        "type": "p",
+        "html": "Onze streken bezitten een uitzonderlijk rijke schat aan middeleeuwse kerstliederen. Toch raakten veel van die liederen in de vergetelheid, vaak omdat hun oud-Nederlandse teksten voor een hedendaags publiek nauwelijks nog te volgen zijn. <em>O Kerstnacht</em> graaft die verborgen parels weer op: minder bekende liederen met prachtige melodieën, voornamelijk uit de Lage Landen, met teksten die hertaald werden naar eigentijds Nederlands."
+      },
+      {
+        "type": "p",
+        "html": "Zo klinken eeuwenoude woorden opnieuw verstaanbaar en dichtbij. Muzikaal beweegt het programma zich op het kruispunt van oude muziek, jazz en folk. De christelijke kersttraditie krijgt een frisse, groovy en jazzy jas, met verfijnde arrangementen die het oude respecteren en het tegelijk een nieuw leven geven. Het resultaat is een warme, kunstige kerstavond waarin verleden en heden elkaar vinden."
+      },
+      {
+        "type": "h",
+        "html": "Formules"
+      },
+      {
+        "type": "p",
+        "html": "<strong>Theaterformule</strong> — Voor cultuurcentra, theaterzalen en schouwburgen. Het programma komt volledig tot zijn recht op een volwaardig podium, met geluid en licht afgestemd op de zaal. De organisator voorziet de techniek en een ondersteunende technieker volgens de technische fiche; het ensemble brengt een eigen geluidstechnieker mee."
+      },
+      {
+        "type": "p",
+        "html": "<strong>Locatieformule</strong> — Voor kerken, kapellen, abdijen en andere bijzondere plekken. Het ensemble komt all-in: met eigen geluids- en lichttechnieker en al het materiaal, van geluidsinstallatie tot sfeerverlichting. Opbouw, soundcheck en afbouw worden volledig verzorgd; de organisator stelt enkel de locatie en een stroomaansluiting ter beschikking."
+      },
+      {
+        "type": "p",
+        "html": "<strong>Akoestisch</strong> — In kleinere ruimtes speelt het ensemble zonder versterking. De akoestiek van de plek staat dan centraal: een ingetogen, warme setting, dicht bij het publiek."
+      },
+      {
+        "type": "p",
+        "html": "<em>Een programma van Eléonor, in samenwerking met Merodefestival.</em>"
+      }
+    ],
+    "videos": [
+      {
+        "url": "https://youtu.be/gLzRLa-f4Ko",
+        "titel": ""
+      },
+      {
+        "url": "https://youtu.be/0dl6wkokTyM",
+        "titel": ""
+      }
+    ],
+    "spotify": [],
+    "foto": "data/foto/40277c21f8db81729a07fd13517c7eb2.jpg",
+    "uitsnede": ""
   },
   {
-    "titel": "De Antwerpse Stadsgitaar",
-    "label": "In voorbereiding, 2027–2028",
-    "makers": "Jeroen Knapen, bij Muziekmuseum Vleeshuis",
-    "tekst": "Een nieuw project rond de Antwerpse stadsgitaar, met een EP, muzikale wandelingen, workshops en een tournee, richting het Antwerpse muziekjaar 2028.",
-    "extra": "",
+    "titel": "Naragonia & The Ship of Fools",
+    "label": "Nieuw album en tournee, 2027–2029",
+    "makers": "Naragonia, met blazers en ritmesectie",
+    "tekst": "Wie zit er vandaag op het narrenschip? Na hun uitverkochte jubileumconcert groeide Naragonia uit tot een negenkoppig schip met blazers en ritmesectie. Een avond tussen ingetogen liederen over ontheemding en muziek vol veerkracht en dans.",
+    "extra": "Het album The Ship of Fools verschijnt in april 2027. Daarna vaart het schip uit als festivalset (zomers 2027 en 2028) en als vertelvoorstelling voor culturele centra (2027–2028 en 2028–2029).",
     "feiten": [
       [
+        "Bezetting",
+        "Negen muzikanten, onder wie Pascale Rubens (zang, diatonische accordeon, viool), Toon Van Mierlo (diatonische accordeon, sopraansax, doedelzakken, verteller), Maarten Decombel (gitaar, zang) en Luc Pilartz (viool), met trompet, trombone, saxen, percussie en bas."
+      ],
+      [
         "Vorm",
-        "Concert, wandeling of workshop"
+        "Festivalset of vertelvoorstelling"
       ],
       [
         "Periode",
-        "2027–2028"
+        "Zomer 2027 – seizoen 2028–2029"
+      ],
+      [
+        "Geschikt voor",
+        "Festivals en culturele centra"
       ],
       [
         "Prijs",
         "Op aanvraag"
       ]
     ],
-    "knop": "Hou me op de hoogte",
-    "foto": ""
+    "knop": "Vraag je prospectiekaart",
+    "contact": "shipoffools@merodefestival.be",
+    "data": [
+      "Vrijdag 16 april 2027, 20.00 uur – try-out in CC De Ploter, Ternat (i.s.m. Westrand)",
+      "Vrijdag 4 juni 2027, 20.00 uur – try-out in CC Het Gasthuis, Aarschot"
+    ],
+    "webadres": "the-ship-of-fools",
+    "lang": [
+      {
+        "type": "p",
+        "html": "<em>Het begon met een feest in 2024.</em> Om twintig jaar Naragonia te vieren, liep 30CC Stadsschouwburg in Leuven helemaal vol: een uitverkochte zaal en een publiek dat niet meer stil kon zitten. Op de Beleuvenissen volgde een set die nog lang nazinderde. De band ging verder dan ooit: blazers erbij, een ritmesectie eronder, en plots klonk Naragonia groter, voller en wilder dan iemand had verwacht."
+      },
+      {
+        "type": "p",
+        "html": "Dat gevoel wilden ze vasthouden. Met steun van de Vlaamse overheid (Kunsten) groeide de feestbezetting uit tot een volwaardig nieuw programma: <strong>The Ship of Fools</strong>."
+      },
+      {
+        "type": "p",
+        "html": "De groep haalde haar naam ooit uit een oud verhaal. In de late middeleeuwen voeren narrenschepen naar Naragonia, het denkbeeldige land van de dwazen. Aan boord zaten wie niet in het gareel liep, wie te veel voelde of te anders dacht. Vijf eeuwen later blijkt dat beeld niet zo ver weg. Vandaag varen er opnieuw overvolle boten, met mensen die alles achterlieten. En dichter bij huis dobberen velen stil rond in hun eigen hoofd. The Ship of Fools vertelt dat verhaal niet met een opgeheven vinger, wel met de zachtheid van een lied. Wie is hier eigenlijk de dwaas: wie aan boord zit, of wie aan de kade blijft staan kijken?"
+      },
+      {
+        "type": "p",
+        "html": "De muziek wiegt tussen twee werelden: stille liederen over verlangen en ontheemding, en daartussen muziek vol veerkracht, dans en samenzijn. Want een narrenschip is ook een schip waarop mensen elkaar vasthouden."
+      },
+      {
+        "type": "p",
+        "html": "Naragonia staat al meer dan twintig jaar op internationale podia en werd in 2024 bekroond als Beste Live Band op de Flanders Folk Awards. Met trompet, trombone, sax en een wervelende bas aan boord krijgt hun klank tussen folk, jazz en wereldmuziek een extra laag."
+      },
+      {
+        "type": "h",
+        "html": "Twee gedaanten"
+      },
+      {
+        "type": "p",
+        "html": "<strong>Festivals, zomer 2027 en 2028</strong> — Een strakke set met veel groove. Blazers en ritmesectie gaan voluit, en het narrenschip wordt een dansvloer onder de open hemel."
+      },
+      {
+        "type": "p",
+        "html": "<strong>Culturele centra, seizoenen 2027–2028 en 2028–2029</strong> — Een vertelvoorstelling met een rustigere set, met Toon Van Mierlo als verteller. De verhalen achter de liederen krijgen alle ruimte."
+      },
+      {
+        "type": "p",
+        "html": "<em>Een productie van Merodefestival en Naragonia, met ondersteuning van de Vlaamse overheid, kunsten &amp; erfgoed en Brosella.</em>"
+      }
+    ],
+    "videos": [
+      {
+        "url": "https://youtu.be/dhtkN20G9Ts",
+        "titel": "Au fond de la mer"
+      },
+      {
+        "url": "https://youtu.be/9nZxD8xTX3c",
+        "titel": "Boxing in Bristol"
+      }
+    ],
+    "spotify": [],
+    "foto": "data/foto/40277c21f8db81289845ea3bb5931bc2.jpg",
+    "uitsnede": ""
   }
 ];
