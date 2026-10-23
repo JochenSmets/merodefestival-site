@@ -1,0 +1,70 @@
+/* Concertpagina’s — bovenop publiek.css */
+.chero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:end;padding-top:2.5rem}
+.chero-tekst{padding-bottom:3.5rem;align-self:center}
+.terug{font-family:var(--label);color:var(--s-zand);text-decoration:none;font-size:.95rem}
+.terug:hover{color:var(--s-oranje)}
+.datumregel{color:var(--s-oranje);margin:1.75rem 0 .5rem}
+.csub{font-style:italic;color:var(--s-zand);font-size:1.25rem;margin:0 0 .35rem}
+.chero h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.05;text-wrap:balance;margin:0 0 .75rem}
+.chero h1 .herkomst{font-size:.45em;color:var(--s-zand)}
+.chero .waar{color:var(--s-zand);margin:0 0 1.5rem}
+.acties{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+.chero .soldout{background:rgba(255,255,255,.14);color:var(--s-licht);padding:.55rem .95rem}
+.cbeeld{margin:0;align-self:end}
+.cbeeld img{display:block;width:100%;height:auto}
+.cbeeld.foto{align-self:center;padding-bottom:3rem}
+.cbeeld.foto img{width:auto;max-width:100%;max-height:min(34rem,70vh);height:auto;margin-left:auto;border-radius:3px}
+@media (max-width:820px){
+  .chero .wrap{grid-template-columns:1fr;gap:1rem}
+  .chero-tekst{padding-bottom:1rem}
+  .cbeeld{max-width:28rem;justify-self:center}
+}
+
+.cgrid{grid-template-columns:1fr 18rem!important;gap:4rem!important}
+.ctekst{max-width:40rem}
+.ctekst p{margin:0 0 1.1rem;font-size:1.2rem}
+.ctekst p:first-child{font-size:1.4rem;line-height:1.45}
+.luister{margin-top:2.75rem}
+.luister h2{font-size:1rem;color:var(--s-papier-zacht);margin-bottom:1rem}
+.videos{display:grid;gap:1rem}
+.videos.meer{grid-template-columns:1fr 1fr}
+.videos.meer .video:first-child{grid-column:1 / -1}
+.video{position:relative;aspect-ratio:16/9;border-radius:3px;overflow:hidden;background:var(--s-nacht)}
+.spotify{display:grid;gap:.75rem;margin-top:1.25rem}
+.spotify iframe{display:block;width:100%;border:0;border-radius:12px}
+@media (max-width:600px){.videos.meer{grid-template-columns:1fr}}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.praktisch{position:sticky;top:110px}
+.praktisch h2{font-size:1rem;color:var(--s-papier-zacht);margin-bottom:.75rem}
+.praktisch dl{margin:0 0 1.25rem}
+.praktisch dl div{padding:.6rem 0;border-bottom:1px solid var(--s-papier-lijn)}
+.praktisch dt{font-family:var(--label);font-size:.85rem;color:var(--s-papier-zacht)}
+.praktisch dd{margin:.15rem 0 0}
+.praktisch .btn{background:var(--s-papier-inkt);color:var(--s-papier)}
+.ics{font-family:var(--label);font-size:.95rem;margin:1rem 0 0}
+@media (max-width:860px){.cgrid{grid-template-columns:1fr!important;gap:2.5rem!important}.praktisch{position:static}}
+
+.ook h2{font-size:1.9rem;margin-bottom:1.5rem}
+.ook-lijst{list-style:none;margin:0 0 2rem;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.ook-lijst a{display:block;text-decoration:none;border-top:2px solid var(--s-oranje);padding-top:.9rem}
+.ook-lijst .label{display:block;color:var(--s-oranje);margin-bottom:.3rem}
+.ook-lijst .naam{font-size:1.3rem;font-weight:500;line-height:1.25}
+.ook-lijst a:hover .naam{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+@media (max-width:720px){.ook-lijst{grid-template-columns:1fr}}
+
+.ctekst blockquote{margin:1.5rem 0;padding:.25rem 0 .25rem 1.25rem;border-left:3px solid var(--s-oranje);font-style:italic;font-size:1.3rem;line-height:1.4}
+.ctekst ul{margin:0 0 1.1rem;padding-left:1.2rem;font-size:1.15rem}
+.ctekst li{margin-bottom:.4rem}
+.ctekst h3{font-size:1.3rem;margin:1.5rem 0 .5rem}
+.yt{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:var(--s-nacht) center/cover no-repeat}
+.yt .play{position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;border-radius:12px;background:var(--s-oranje);transition:transform .15s}
+.yt .play::after{content:"";position:absolute;left:27px;top:14px;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent var(--s-op-oranje)}
+.yt:hover .play,.yt:focus-visible .play{transform:scale(1.08)}
+
+/* foto’s uit de beeldbank */
+.cbeeld figcaption{font-family:var(--label);font-size:.78rem;color:var(--s-zand);margin-top:.4rem}
+.beelden{margin-top:2.5rem}
+.beeldgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(11rem,1fr));gap:.75rem;margin-top:.75rem}
+.beeldgrid figure{margin:0}
+.beeldgrid img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:2px}
+.beeldgrid figcaption{font-size:.8rem;color:var(--s-papier-zacht);margin-top:.25rem}

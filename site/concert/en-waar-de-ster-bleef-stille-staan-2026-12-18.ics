@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merodefestival//NL
+BEGIN:VEVENT
+UID:en-waar-de-ster-bleef-stille-staan-2026-12-18@merodefestival.be
+DTSTAMP:20261218T000000Z
+DTSTART;TZID=Europe/Brussels:20261218T200000
+DURATION:PT2H
+SUMMARY:En waar de ster bleef stille staan
+LOCATION:Sint-Trudokerk\, Webbekom
+URL:https://www.merodefestival.be/concert/en-waar-de-ster-bleef-stille-staan-2026-12-18.html
+END:VEVENT
+END:VCALENDAR

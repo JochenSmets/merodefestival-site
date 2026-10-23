@@ -1,0 +1,533 @@
+[
+  {
+    "seizoen": "2026–2027",
+    "concerten": [
+      {
+        "datum": "2026-09-26",
+        "artiest": "Rioghnach Connolly (NIR), met muzikale wandeling en buffet",
+        "kerk": "Sint-Laurentiuskerk, Zammel"
+      },
+      {
+        "datum": "2026-10-17",
+        "artiest": "Amber Haddad Trio + Simon Leleux & Manuel Hermia",
+        "kerk": "Sint-Luciakerk, Engsbergen",
+        "video": "U36qzH0NSPg"
+      },
+      {
+        "datum": "2026-11-14",
+        "artiest": "Gwen Cresens & Philippe Thuriot",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2026-12-05",
+        "artiest": "Sam Grassie, Dylan Fowler & Haroun Iqbal (SCO-WAL-BE)",
+        "kerk": "Sint-Pieterskerk, Testelt"
+      },
+      {
+        "datum": "2027-01-09",
+        "artiest": "Aram: Shahab Azinmehr, Derya Türkan & Robbe Kieckens",
+        "kerk": "Sint-Luciakerk, Engsbergen"
+      },
+      {
+        "datum": "2027-01-30",
+        "artiest": "The Weaving (IRL-ENG)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2027-02-20",
+        "artiest": "La Mal Coiffée (FR)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2027-03-20",
+        "artiest": "Laura Cortese’s Acoustic Evening IV met Eliza Carthy, Jake Blount & Sarah Kate Morgan",
+        "kerk": "O.-L.-Vrouw Onbevlekt Ontvangenkerk, Blauberg"
+      },
+      {
+        "datum": "2027-04-17",
+        "artiest": "Livia Giaffreda & Simone Frezza + Katerina Douka & Stamatis Pasopoulos",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2027-06-19",
+        "artiest": "Sara Salvérius & blazerskwartet: Adem",
+        "kerk": "O.-L.-Vrouw Onbevlekt Ontvangenkerk, Blauberg"
+      }
+    ],
+    "brochure": "img/brochures/2026-2027.jpg"
+  },
+  {
+    "seizoen": "2025–2026",
+    "concerten": [
+      {
+        "datum": "2025-09-27",
+        "artiest": "Enara Navaira (BE), seizoensopener met wandeling, film en maaltijd",
+        "kerk": "O.-L.-Vrouw Onbevlekt Ontvangenkerk, Blauberg",
+        "video": "xdijUKPdI3E"
+      },
+      {
+        "datum": "2025-10-18",
+        "artiest": "Thalas (BE) & Bao Sissoko (SEN)",
+        "kerk": "Sint-Pieterskerk, Testelt"
+      },
+      {
+        "datum": "2025-11-15",
+        "artiest": "Damast Duo XL: Hoort mi Aen",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2025-12-06",
+        "artiest": "Triveni (BE-SE-FIN): Two Winters, One Midnight Sun",
+        "kerk": "Sint-Pieterskerk, Langdorp",
+        "video": "Ep5SUqW6zf8"
+      },
+      {
+        "datum": "2026-01-17",
+        "artiest": "Myrddin, Helena Casella, Stijn Kuppens & Stefan Bracaval: Sonetos del Amor Oscuro",
+        "kerk": "Sint-Luciakerk, Engsbergen"
+      },
+      {
+        "datum": "2026-02-07",
+        "artiest": "Roseanne Reid (SCO)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2026-02-28",
+        "artiest": "Ghalia Benali trio",
+        "kerk": "Sint-Pieterskerk, Langdorp",
+        "video": "q1TWs3xHggM"
+      },
+      {
+        "datum": "2026-03-21",
+        "artiest": "Laura Cortese’s Acoustic Evening III met Bruce Molsky, Tyler Ramsey & Mairi Chaimbeul",
+        "kerk": "O.-L.-Vrouw Onbevlekt Ontvangenkerk, Blauberg",
+        "video": "zE11i25ituo"
+      },
+      {
+        "datum": "2026-04-25",
+        "artiest": "Angeline Morrison (UK): Sorrow Songs",
+        "kerk": "Sint-Luciakerk, Engsbergen"
+      },
+      {
+        "datum": "2026-06-20",
+        "artiest": "Lia Sampai (ES) + Noemie Palomo & Pascal Chardome",
+        "kerk": "Sint-Pieterskerk, Testelt"
+      }
+    ]
+  },
+  {
+    "seizoen": "2024–2025",
+    "concerten": [
+      {
+        "datum": "2024-09-28",
+        "artiest": "Flo & Friends (BE-TUR-POR), met muzikale wandeling en avondmaaltijd",
+        "kerk": "Sint-Pieterskerk, Testelt"
+      },
+      {
+        "datum": "2024-10-19",
+        "artiest": "Caamaño & Ameixeiras (ES)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2024-11-16",
+        "artiest": "Jonas Olsson Tribute band (SE-BE)",
+        "kerk": "O.-L.-Vrouw Onbevlekt Ontvangenkerk, Blauberg"
+      },
+      {
+        "datum": "2024-12-07",
+        "artiest": "Owen Spafford & Louis Campbell (UK)",
+        "kerk": "Sint-Luciakerk, Engsbergen",
+        "video": "4p7WtYojaXM"
+      },
+      {
+        "datum": "2025-01-18",
+        "artiest": "Rónán Ó Snodaigh & Myles O’Reilly (IRL)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2025-02-08",
+        "artiest": "Anmoor + Simon Leleux & Berlinde Deman",
+        "kerk": "Sint-Luciakerk, Engsbergen",
+        "video": "4SdUXvn9OcE"
+      },
+      {
+        "datum": "2025-02-22",
+        "artiest": "Angeline Morrison (UK): Sorrow Songs",
+        "kerk": "Sint-Laurentiuskerk, Zammel"
+      },
+      {
+        "datum": "2025-03-22",
+        "artiest": "Laura Cortese’s Acoustic Evening II met Kaia Kater, Anna Massie & Dirk Powell",
+        "kerk": "Sint-Pieterskerk, Langdorp",
+        "video": "CPgwtgtKuK0"
+      },
+      {
+        "datum": "2025-04-26",
+        "artiest": "Landless (IRL)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2025-06-21",
+        "artiest": "La Bergère (FR)",
+        "kerk": "Sint-Pieterskerk, Testelt",
+        "video": "y9M2hNjLKTo"
+      }
+    ]
+  },
+  {
+    "seizoen": "2023–2024",
+    "concerten": [
+      {
+        "datum": "2023-09-30",
+        "artiest": "Nisia (IT-BE) + Filippo Gambetta & Sergio Caputo (IT), met muzikale wandeling en avondmaaltijd",
+        "kerk": "Sint-Antonius-Abtkerk, Wolfsdonk",
+        "video": "vzc7LA8SNIc"
+      },
+      {
+        "datum": "2023-10-21",
+        "artiest": "Dunja Knebl (HR)",
+        "kerk": "Sint-Pieterskerk, Testelt"
+      },
+      {
+        "datum": "2023-11-18",
+        "artiest": "Andries Boone (BE) + Erwan Menguy quartet (BRET)",
+        "kerk": "Sint-Pieterskerk, Langdorp",
+        "video": "2Sq07VCyL1c"
+      },
+      {
+        "datum": "2023-12-09",
+        "artiest": "Martin Simpson (UK)",
+        "kerk": "Sint-Luciakerk, Engsbergen"
+      },
+      {
+        "datum": "2024-01-20",
+        "artiest": "Hella + Airboxes (BE)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2024-02-03",
+        "artiest": "Uxía (ES)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2024-02-24",
+        "artiest": "Osuna trio (BE)",
+        "kerk": "Sint-Luciakerk, Engsbergen"
+      },
+      {
+        "datum": "2024-03-09",
+        "artiest": "Lyre Lyre (SCO)",
+        "kerk": "Sint-Pieterskerk, Testelt",
+        "video": "ec_j7fbJEqw"
+      },
+      {
+        "datum": "2024-03-23",
+        "artiest": "Laura Cortese’s Acoustic Evening I met Kris Drever, Eli West & Nora Brown",
+        "kerk": "Sint-Servatiuskerk, Herselt"
+      },
+      {
+        "datum": "2024-04-20",
+        "artiest": "Jenn Butterworth & Laura-Beth Salter (UK)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2024-06-22",
+        "artiest": "Sara Salvérius & SunSunSun: Pendulum",
+        "kerk": "Sint-Antonius-Abtkerk, Wolfsdonk",
+        "video": "cs3k93iEG8w"
+      }
+    ]
+  },
+  {
+    "seizoen": "2022–2023",
+    "concerten": [
+      {
+        "datum": "2022-10-01",
+        "artiest": "Wouter Vandenabeele en vrienden: Hiraeth, met muzikale wandeling en avondmaaltijd",
+        "kerk": "Sint-Pieterskerk, Langdorp",
+        "video": "PqXd2qimif8"
+      },
+      {
+        "datum": "2022-10-22",
+        "artiest": "Quetzal Duo (BE-MEX) + Las Lloronas (BE-ES-DE)",
+        "kerk": "Sint-Pieterskerk, Langdorp",
+        "video": "zB20Y9nj8MU"
+      },
+      {
+        "datum": "2022-11-19",
+        "artiest": "Basta² (BE) + Ananta Roosens (BE) & Kaito Winse (BF)",
+        "kerk": "Sint-Luciakerk, Engsbergen",
+        "video": "fQobL7SM43c"
+      },
+      {
+        "datum": "2022-12-03",
+        "artiest": "Lady Maisery (UK)",
+        "kerk": "Sint-Servatiuskerk, Herselt",
+        "video": "NQyy360q16c"
+      },
+      {
+        "datum": "2023-01-21",
+        "artiest": "Birds of Passage (BE-SYR-DK)",
+        "kerk": "Sint-Luciakerk, Engsbergen"
+      },
+      {
+        "datum": "2023-02-04",
+        "artiest": "The Breath (NIR)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2023-03-04",
+        "artiest": "Alasdair Roberts (SCO)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2023-03-25",
+        "artiest": "Snaarmaarwaar & Sam Kelly (UK)",
+        "kerk": "Sint-Pieterskerk, Testelt"
+      },
+      {
+        "datum": "2023-04-22",
+        "artiest": "Halva: From Kishinev to Constantinople",
+        "kerk": "Sint-Servatiuskerk, Herselt",
+        "video": "6gx3cZem7L0"
+      },
+      {
+        "datum": "2023-06-24",
+        "artiest": "Saraï (FR)",
+        "kerk": "Sint-Pieterskerk, Testelt"
+      }
+    ]
+  },
+  {
+    "seizoen": "2021–2022",
+    "onvolledig": true,
+    "opmerking": "Een seizoen met nieuwe namen en de concerten die in 2020–2021 door corona moesten wachten.",
+    "concerten": [
+      {
+        "datum": "",
+        "artiest": "Lorcan Mac Mathúna trio (IRL)",
+        "kerk": "",
+        "video": "gkTXWCastqM"
+      },
+      {
+        "datum": "",
+        "artiest": "Illuminations / Resonance (FR)",
+        "kerk": "",
+        "video": "Dgvdc50htO4"
+      },
+      {
+        "datum": "",
+        "artiest": "Trio Tesi, Vaillant, Piccioni (IT-FR)",
+        "kerk": "",
+        "video": "mPXoDBy4RNY"
+      },
+      {
+        "datum": "",
+        "artiest": "Laura Cortese & Bert Ruymbeek",
+        "kerk": "",
+        "video": "29GhoC1CFNU"
+      },
+      {
+        "datum": "",
+        "artiest": "Marvara (BE-SE-DK)",
+        "kerk": ""
+      },
+      {
+        "datum": "2022-02-05",
+        "artiest": "EKKO + Jacques Stotzem (BE)",
+        "kerk": ""
+      },
+      {
+        "datum": "2022-04-23",
+        "artiest": "Alaw (WAL)",
+        "kerk": "",
+        "video": "Eja7pFZq7aI"
+      },
+      {
+        "datum": "2022-06-18",
+        "artiest": "Salt House (SCO)",
+        "kerk": "Sint-Antonius-Abtkerk, Wolfsdonk",
+        "video": "Eh7hHKT5GHg"
+      }
+    ]
+  },
+  {
+    "seizoen": "2020–2021",
+    "opmerking": "Programma zoals aangekondigd in september 2020. Door de coronamaatregelen werden de meeste concerten uitgesteld naar 2021–2022.",
+    "concerten": [
+      {
+        "datum": "2020-10-03",
+        "artiest": "Lucilla Galeazzi (IT), seizoensopener met wandeling en maaltijd",
+        "kerk": "Sint-Luciakerk, Engsbergen",
+        "video": "K3dcYmMNQps"
+      },
+      {
+        "datum": "2020-10-24",
+        "artiest": "Myrddin & Imre De Cauter (BE) + Antonio Paz (ES)",
+        "kerk": "Sint-Antonius-Abtkerk, Wolfsdonk"
+      },
+      {
+        "datum": "2020-11-14",
+        "artiest": "Whyte (UK) + duo Menneteau-Barbedette (FR)",
+        "kerk": "Sint-Antonius-Abtkerk, Wolfsdonk"
+      },
+      {
+        "datum": "2020-12-05",
+        "artiest": "Trio Tesi, Vaillant, Piccioni (IT-FR)",
+        "kerk": "Sint-Antonius-Abtkerk, Wolfsdonk"
+      },
+      {
+        "datum": "2021-01-23",
+        "artiest": "EKKO + Jacques Stotzem (BE)",
+        "kerk": "Zichem"
+      },
+      {
+        "datum": "2021-02-06",
+        "artiest": "Basta Trio met Berlinde Deman + Ananta Roosens",
+        "kerk": "Ramsel"
+      },
+      {
+        "datum": "2021-02-27",
+        "artiest": "The Rheingans Sisters (UK)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2021-03-20",
+        "artiest": "Illuminations / Resonance (FR)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      }
+    ]
+  },
+  {
+    "seizoen": "2019–2020",
+    "onvolledig": true,
+    "opmerking": "Door de coronamaatregelen kon het concert van Alaw in maart 2020 niet doorgaan; het werd ingehaald in april 2022.",
+    "concerten": [
+      {
+        "datum": "2019-09-21",
+        "artiest": "Stefan Timmermans & vrienden uit Valencia (ES-GR-BE), met wandeling en maaltijd",
+        "kerk": "",
+        "video": "744t0YoC2Hc"
+      },
+      {
+        "datum": "2019-10-19",
+        "artiest": "Tristan Driessens, Vardan Hovanissian & Emre Gültekin (BE-TUR-ARM)",
+        "kerk": "",
+        "video": "7IFX3WrUHIM"
+      },
+      {
+        "datum": "2019-11-16",
+        "artiest": "Trio Dhoore (BE) + Tom Moore & Archie Moss (UK)",
+        "kerk": "",
+        "video": "_QiJN2tM5U8"
+      },
+      {
+        "datum": "2019-12-07",
+        "artiest": "Ye Vagabonds (IRL)",
+        "kerk": "",
+        "video": "G_UjLgtSPmo"
+      },
+      {
+        "datum": "2020-01-18",
+        "artiest": "Tcha Limberger Trio",
+        "kerk": "",
+        "video": "j_lvQfQTLQ0"
+      },
+      {
+        "datum": "2020-02-15",
+        "artiest": "Leïla Amezian met strijkersensemble",
+        "kerk": "",
+        "video": "Hjl6zqG0sus"
+      },
+      {
+        "datum": "2020-03-14",
+        "artiest": "Alaw (WAL) — uitgesteld naar 23 april 2022",
+        "kerk": ""
+      }
+    ]
+  },
+  {
+    "seizoen": "2018–2019",
+    "concerten": [
+      {
+        "datum": "2018-09-22",
+        "artiest": "Ialma: Camino, seizoensopener met wandeling en paella",
+        "kerk": "Sint-Pieterskerk, Langdorp",
+        "video": "CTR7TtTSAnI"
+      },
+      {
+        "datum": "2018-10-13",
+        "artiest": "Kevin Seddiki (FR) & Ruben Machtelinckx",
+        "kerk": "Sint-Pieterskerk, Langdorp",
+        "video": "YjEycBU2dlM"
+      },
+      {
+        "datum": "2018-11-17",
+        "artiest": "Bert Van Laethem, Ivica Vucelja (SRB) & Mika Heinczinger (HU)",
+        "kerk": "Sint-Luciakerk, Engsbergen",
+        "video": "GPC4qeXQoZ0"
+      },
+      {
+        "datum": "2018-12-08",
+        "artiest": "Daoirí Farrell (IRL), Philip Masure & Dave Munnelly",
+        "kerk": "Sint-Pieterskerk, Langdorp",
+        "video": "wnIS4rckMQg"
+      },
+      {
+        "datum": "2019-01-25",
+        "artiest": "Sirus: Josefina Paulson & Jonas Åkerlund (SE) + Sophie Cavez & Baltazar Montanaro",
+        "kerk": "Sint-Pieterskerk, Langdorp",
+        "video": "Gn1AOWXDjkQ"
+      },
+      {
+        "datum": "2019-02-16",
+        "artiest": "Nawaris (IQ-BE)",
+        "kerk": "Sint-Pieterskerk, Langdorp",
+        "video": "52IlTLd3yQU"
+      },
+      {
+        "datum": "2019-03-23",
+        "artiest": "Martin Simpson (UK) + Les Guitares Magiques",
+        "kerk": "Sint-Pieterskerk, Langdorp",
+        "video": "Kx4PM8xFx5g"
+      }
+    ]
+  },
+  {
+    "seizoen": "2017–2018",
+    "onvolledig": true,
+    "opmerking": "Het eerste seizoen, in de Sint-Pieterskerk van Langdorp.",
+    "concerten": [
+      {
+        "datum": "",
+        "artiest": "ESTBEL (EST-BE)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2017-11-18",
+        "artiest": "Nisia + Odessalavie (IT-BE)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2017-12-16",
+        "artiest": "Griff Trio + Petri Prauda (FIN)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2018-01-19",
+        "artiest": "Snaarmaarwaar + Ewan McLennan (SCO)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2018-02-24",
+        "artiest": "GFVP + Hussein Rassim & Osama Abdulrasol (IQ)",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      },
+      {
+        "datum": "2018-03-23",
+        "artiest": "Naragonia + Sophie Cavez & Baltazar Montanaro",
+        "kerk": "Sint-Pieterskerk, Langdorp"
+      }
+    ]
+  }
+]

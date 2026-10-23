@@ -1,0 +1,14 @@
+# Alleen nodig als je de Worker via de opdrachtregel publiceert (npx wrangler deploy).
+# Via het Cloudflare-dashboard plak je gewoon worker.js.
+name = "pierrot-webhook"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+AGENDA_DB = "b62d94be5f6c4177a988fe14895952fc"
+
+# Tijdelijk logboek om het formaat van Pierrot te bekijken.
+# Maak eerst een KV-namespace aan en vul de id in.
+# [[kv_namespaces]]
+# binding = "LOG"
+# id = "..."

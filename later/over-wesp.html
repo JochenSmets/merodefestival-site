@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Over WESP – folkincubator achter Merodefestival</title>
+<meta name="description" content="WESP vzw is de organisatie achter Merodefestival: sectorvormend voor folk- en wereldmuziek in Vlaanderen. We presenteren, creëren, begeleiden en vertellen, met het landschap als vertrekpunt.">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ECEEE7; --surface:#F7F8F3; --ink:#1A211D; --muted:#56605A; --line:#CBD1C6;
+  --pine:#1F3B33; --on-pine:#E9EDE4; --on-pine-muted:#A9B8AE;
+  --heather:#7A4D73; --on-heather:#FFFFFF;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121815; --surface:#19211D; --ink:#E6EAE2; --muted:#9AA59E; --line:#2C3631;
+    --pine:#16302A; --on-pine:#E6EAE2; --on-pine-muted:#93A69A;
+    --heather:#C99BC2; --on-heather:#1A1219;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121815; --surface:#19211D; --ink:#E6EAE2; --muted:#9AA59E; --line:#2C3631;
+  --pine:#16302A; --on-pine:#E6EAE2; --on-pine-muted:#93A69A;
+  --heather:#C99BC2; --on-heather:#1A1219;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Alegreya",Georgia,serif;font-size:1.125rem;line-height:1.55}
+h1,h2,h3{font-family:"Alegreya",Georgia,serif;font-weight:500;line-height:1.12;margin:0}
+a{color:inherit}
+svg{max-width:100%}
+:focus-visible{outline:3px solid var(--heather);outline-offset:3px;border-radius:2px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+p{margin:0 0 1rem}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--pine)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--pine);color:var(--on-pine)}
+.bar{display:flex;align-items:center;gap:1.5rem;min-height:76px}
+.brand{font-family:"Alegreya",Georgia,serif;font-size:1.35rem;text-decoration:none;margin-right:auto;white-space:nowrap}
+.brand small{font-family:"Alatsi","Trebuchet MS",system-ui,sans-serif;font-size:.85rem;color:var(--on-pine-muted);margin-left:.4rem}
+nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+nav a{white-space:nowrap;text-decoration:none;font-weight:500;font-size:.98rem}
+nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-block;padding:.6rem 1.1rem;border-radius:999px;background:var(--heather);color:var(--on-heather);text-decoration:none;font-weight:600;white-space:nowrap}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.menu-toggle{display:none;background:none;border:0;color:inherit;font:inherit;font-weight:600;cursor:pointer;padding:.5rem}
+@media (max-width:1060px){
+  .menu-toggle{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--pine);display:none;padding:.5rem 1.25rem 1.25rem}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:.9rem}
+  .bar .btn{padding:.5rem .9rem}
+}
+
+section{padding:4.5rem 0}
+.lead{font-size:clamp(1.15rem,2vw,1.3rem);max-width:38rem}
+.muted{color:var(--muted)}
+
+/* hero met uitwaaierende kaart */
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6vw,4.25rem);margin-bottom:1.5rem;max-width:12ch}
+.radius{width:100%;max-width:480px;justify-self:center;color:var(--ink)}
+.radius .ring{fill:none;stroke:var(--line);stroke-width:1.5}
+.radius .core{fill:var(--pine)}
+.radius .core-t{fill:var(--on-pine);font-family:"Alegreya",Georgia,serif;font-size:17px}
+.radius .dot{fill:var(--heather)}
+.radius .place{font-family:"Alegreya",Georgia,serif;font-size:19px;fill:var(--ink)}
+.radius .sub{font-size:14px;fill:var(--muted);font-family:"Alatsi","Trebuchet MS",system-ui,sans-serif}
+.radius .link{stroke:var(--heather);stroke-width:1;stroke-dasharray:3 5;opacity:.6}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+
+/* methode */
+.methode{background:var(--pine);color:var(--on-pine)}
+.methode .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem}
+.methode h2{font-size:clamp(1.9rem,4vw,2.75rem)}
+.methode p{color:var(--on-pine)}
+.methode .weave{align-content:start;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 2rem}
+.methode .weave h3{font-size:1.3rem;margin-bottom:.3rem}
+.methode .weave p{color:var(--on-pine-muted);margin:0;font-size:.98rem}
+@media (max-width:760px){.methode .wrap,.methode .weave{grid-template-columns:1fr}}
+
+/* pijlers */
+.sec-title{font-size:clamp(1.9rem,4vw,2.75rem);margin-bottom:.75rem}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:2.5rem}
+.pillar{border-top:3px solid var(--heather);padding-top:1.25rem}
+.pillar h3{font-size:1.5rem;margin-bottom:.6rem}
+.pillar ul{margin:1rem 0 0;padding-left:1.1rem}
+.pillar li{margin-bottom:.45rem}
+@media (max-width:860px){.pillars{grid-template-columns:1fr}}
+
+/* projecten */
+.projects{background:var(--surface)}
+.plist{list-style:none;margin:2rem 0 0;padding:0;border-top:1px solid var(--line)}
+.plist li{display:grid;grid-template-columns:9rem 1fr auto;gap:1.5rem;padding:1.4rem 0;border-bottom:1px solid var(--line);align-items:baseline}
+.plist .yr{color:var(--muted);font-variant-numeric:tabular-nums}
+.plist h3{font-size:1.35rem;margin-bottom:.25rem}
+.plist p{margin:0;color:var(--muted);max-width:42rem}
+@media (max-width:680px){.plist li{grid-template-columns:1fr;gap:.35rem}}
+
+/* artiesten */
+.artists p.names{font-family:"Alegreya",Georgia,serif;font-size:clamp(1.25rem,2.6vw,1.65rem);line-height:1.5;max-width:52rem;margin-top:1.5rem}
+.artists .names span{color:var(--muted)}
+.callout{margin-top:2.5rem;background:var(--pine);color:var(--on-pine);padding:2rem;border-radius:4px;display:flex;gap:1.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.callout h3{font-size:1.5rem;margin-bottom:.35rem}
+.callout p{margin:0;color:var(--on-pine-muted);max-width:36rem}
+
+/* samenwerken */
+.work{display:grid;grid-template-columns:repeat(2,1fr);gap:0 3rem;margin-top:2rem}
+.work div{padding:1.4rem 0;border-top:1px solid var(--line)}
+.work h3{font-size:1.3rem;margin-bottom:.35rem}
+.work p{margin:0 0 .5rem;color:var(--muted)}
+.work a{font-weight:600}
+@media (max-width:760px){.work{grid-template-columns:1fr}}
+.partners{margin-top:3rem}
+.partners h3{font-family:"Alatsi","Trebuchet MS",system-ui,sans-serif;font-weight:600;font-size:1rem;margin-bottom:.5rem}
+.partners p{color:var(--muted);max-width:52rem}
+
+/* team */
+.team{background:var(--surface)}
+.team .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.team dl{margin:0}
+.team dt{font-weight:600;margin-top:1rem}
+.team dd{margin:0;color:var(--muted)}
+@media (max-width:760px){.team .wrap{grid-template-columns:1fr}}
+
+.band{margin:0}
+.band img{display:block;width:100%;height:clamp(16rem,48vh,32rem);object-fit:cover}
+.methode-img{display:block;width:100%;max-width:22rem;aspect-ratio:2/3;object-fit:cover;border-radius:4px;margin-top:1.5rem}
+.wide{margin:2.5rem 0 0}
+.wide img{display:block;width:100%;aspect-ratio:21/9;object-fit:cover;object-position:70% 35%;border-radius:4px}
+@media (max-width:600px){.wide img{aspect-ratio:4/3}}
+footer{background:var(--pine);color:var(--on-pine-muted);padding:3rem 0;font-size:.92rem}
+footer .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+footer h3{font-family:"Alatsi","Trebuchet MS",system-ui,sans-serif;font-weight:600;font-size:.95rem;color:var(--on-pine);margin-bottom:.5rem}
+footer p{margin:0 0 .4rem}
+@media (max-width:720px){footer .cols{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){
+  .radius .ring{transform-origin:250px 250px;animation:grow 1.1s ease-out both}
+  .radius .ring:nth-of-type(2){animation-delay:.15s}
+  .radius .ring:nth-of-type(3){animation-delay:.3s}
+  @keyframes grow{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+}
+
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand img{display:block;height:56px;width:auto}
+.brand small{margin-left:0}
+.foot-logo{display:block;height:110px;width:auto;margin-bottom:2.25rem}
+@media (max-width:520px){.brand img{height:46px}}
+
+/* labels en knoppen in Alatsi, zoals in de brochure */
+nav a,.btn,.status,.label,.jump a,.facts dt,.yr,.brand small,footer h3,.callout .btn,.menu-toggle{font-family:"Alatsi","Trebuchet MS",system-ui,sans-serif;font-weight:400}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><img src="img/logo-licht.png" alt="Merodefestival" width="82" height="56"><small>Over WESP</small></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="hoofdmenu">Menu</button>
+    <nav id="hoofdmenu" aria-label="Menu Over WESP">
+      <ul>
+        <li><a href="#methode">Merode-methode</a></li>
+        <li><a href="#wat">Wat we doen</a></li>
+        <li><a href="#projecten">Projecten</a></li>
+        <li><a href="#artiesten">Voor artiesten</a></li>
+        <li><a href="#samenwerken">Samenwerken</a></li>
+        <li><a href="producties.html">Producties</a></li>
+        <li><a href="#team">Team</a></li>
+      </ul>
+    </nav>
+    <a class="btn" id="naar-agenda" href="index.html">Naar de agenda</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <h1 id="hero-title">Folk die wortelt in een landschap</h1>
+        <p class="lead">WESP vzw is de organisatie achter Merodefestival. We zijn een sectorvormende werking voor folk- en wereldmuziek in Vlaanderen: we presenteren, creëren, begeleiden artiesten en vertellen hun verhaal.</p>
+        <p class="muted">Wat begon in de kerken en natuurgebieden van de Merode, groeit vandaag organisch verder naar Leuven, Holsbeek, Limburg, Antwerpen en Brussel.</p>
+      </div>
+      <svg class="radius" viewBox="0 0 500 500" role="img" aria-labelledby="map-title map-desc">
+        <title id="map-title">Hoe de werking uitwaaiert vanuit de Merode</title>
+        <desc id="map-desc">Vanuit Landschapspark de Merode naar Holsbeek (Holsbeek Sessies), Leuven (PARK Festival en Beleuvenissen), Limburg (Limburg Sessies), Antwerpen (Muziekmuseum Vleeshuis) en Brussel (Klanken van de Steden).</desc>
+        <circle class="ring" cx="250" cy="250" r="90"/>
+        <circle class="ring" cx="250" cy="250" r="160"/>
+        <circle class="ring" cx="250" cy="250" r="228"/>
+        <line class="link" x1="250" y1="250" x2="186" y2="314"/>
+        <line class="link" x1="250" y1="250" x2="158" y2="381"/>
+        <line class="link" x1="250" y1="250" x2="410" y2="250"/>
+        <line class="link" x1="250" y1="250" x2="89" y2="89"/>
+        <line class="link" x1="250" y1="250" x2="36" y2="328"/>
+        <circle class="core" cx="250" cy="250" r="52"/>
+        <text class="core-t" x="250" y="246" text-anchor="middle">de</text>
+        <text class="core-t" x="250" y="266" text-anchor="middle">Merode</text>
+        <circle class="dot" cx="186" cy="314" r="7"/>
+        <text class="place" x="198" y="330">Holsbeek</text>
+        <text class="sub" x="198" y="347">Holsbeek Sessies</text>
+        <circle class="dot" cx="158" cy="381" r="7"/>
+        <text class="place" x="170" y="398">Leuven</text>
+        <text class="sub" x="170" y="415">PARK Festival, Beleuvenissen</text>
+        <circle class="dot" cx="410" cy="250" r="7"/>
+        <text class="place" x="400" y="225" text-anchor="end">Limburg</text>
+        <text class="sub" x="400" y="290" text-anchor="end">Limburg Sessies</text>
+        <circle class="dot" cx="89" cy="89" r="7"/>
+        <text class="place" x="101" y="80">Antwerpen</text>
+        <text class="sub" x="101" y="112">Muziekmuseum Vleeshuis</text>
+        <circle class="dot" cx="36" cy="328" r="7"/>
+        <text class="place" x="22" y="306">Brussel</text>
+        <text class="sub" x="22" y="355">Klanken van de Steden</text>
+      </svg>
+    </div>
+  </section>
+
+  <figure class="band"><img src="img/demer.jpg" alt="Rivier tussen rietkragen en bomen onder een wolkenlucht in Landschapspark de Merode"></figure>
+
+  <section class="methode" id="methode" aria-labelledby="methode-title">
+    <div class="wrap">
+      <div>
+        <h2 id="methode-title">De Merode-methode</h2>
+        <p>Het landschap is bij ons nooit decor. Een abdij, een dorpskerk of een broekbos is een bewuste artistieke keuze die mee bepaalt hoe muziek klinkt, wat ze vertelt en wie ernaar komt luisteren.</p>
+        <p>Die manier van werken is de basis van alles wat we doen, van een kapelconcert tot een driejarig stadsproject.</p>
+        <img class="methode-img" src="img/altaar.jpg" alt="Duo met viool en accordeon voor een barok altaar in een verlichte dorpskerk" loading="lazy">
+      </div>
+      <ul class="weave">
+        <li><h3>Muziek</h3><p>Akoestisch, melodisch en verhalend. Traditie en eigen werk, makers van hier naast internationale namen.</p></li>
+        <li><h3>Landschap</h3><p>Muzikale wandelingen, concerten in natuurgebieden en luisterplekken in Landschapspark de Merode.</p></li>
+        <li><h3>Erfgoed</h3><p>Abdijen, kerken, kapellen en volkscafés, en de liederen en verhalen die erbij horen.</p></li>
+        <li><h3>Gemeenschap</h3><p>Kerkfabrieken, gemeenten, een veertigtal vrijwilligers en een publiek dat terugkomt.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="wat" aria-labelledby="wat-title">
+    <div class="wrap">
+      <h2 class="sec-title" id="wat-title">Wat we doen</h2>
+      <p class="lead muted">Drie sporen die elkaar versterken.</p>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Presenteren</h3>
+          <p>Concerten op uitzonderlijke plekken, het hele jaar door.</p>
+          <ul>
+            <li>Kerkconcerten in de Merode en het Merodefestival</li>
+            <li>Holsbeek Sessies en Limburg Sessies</li>
+            <li>PARK Festival en Beleuvenissen in Leuven</li>
+            <li>Programma’s met cultuurcentra, onder meer De Bogaard in Sint-Truiden en CC Gasthuis Aarschot</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>Creëren en begeleiden</h3>
+          <p>We coproduceren nieuw werk en staan naast artiesten.</p>
+          <ul>
+            <li>Residenties, onder meer voor Aram en Kalesma</li>
+            <li>Productie van De Antwerpse Stadsgitaar met Jeroen Knapen</li>
+            <li>Tourmanagement, zoals de tournee <i>Rhagium Inquisitor</i> van Andries Boone</li>
+            <li>Ondersteuning bij subsidies en spreiding</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>Verhalen vertellen</h3>
+          <p>Muziek die blijft, ook na het concert.</p>
+          <ul>
+            <li>Het boek <i>Ode aan de Merode</i></li>
+            <li>De wandelpodcast met folkmuzikanten</li>
+            <li><i>The Sound of the Abbey</i> op cd en vinyl</li>
+            <li>Videoportretten over volkscafés en volksliederen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projecten" aria-labelledby="proj-title">
+    <div class="wrap">
+      <h2 class="sec-title" id="proj-title">Projecten en netwerk</h2>
+      <ul class="plist">
+        <li><span class="yr">2026–2028</span><div><h3>Klanken van de Steden</h3><p>De muziekcultuur van migratiegemeenschappen in Antwerpen en Brussel, met residenties, concerten, portretten en wandelingen. Samen met Muziekpublique, MIM en Muziekmuseum Vleeshuis.</p></div><a href="https://www.klankenvandesteden.be">Website</a></li>
+        <li><span class="yr">2027–2028</span><div><h3>De Antwerpse Stadsgitaar</h3><p>Met Jeroen Knapen, bij Muziekmuseum Vleeshuis, richting het Antwerpse muziekjaar.</p></div><span></span></li>
+        <li><span class="yr">Doorlopend</span><div><h3>Folkwaarts</h3><p>Een bovenlokale werking rond folk met organisatoren uit Limburg en daarbuiten: gezamenlijke concerten, aankopen en vorming.</p></div><a href="https://www.folkwaarts.be">Website</a></li>
+        <li><span class="yr">Jaarlijks</span><div><h3>Flanders Folk Network</h3><p>Een netwerkavond voor folkprofessionals in Vlaanderen. Volgende editie op 8 juni 2027.</p></div><span></span></li>
+        <li><span class="yr">2026</span><div><h3>The Sound of the Abbey</h3><p>Opnames uit de Abdij van Park, met onder meer Naragonia Trio, Rénélius Ensemble en Andries Boone.</p></div><a href="https://www.merodefestival.be/sound">Meer</a></li>
+        <li><span class="yr">2025</span><div><h3>Derroll 100</h3><p>Expo, concerten en een boek rond banjospeler Derroll Adams, met Awa vzw, Muziekpublique, ’t Ey, Vleeshuis en MIM.</p></div><a href="https://www.derroll100.be">Website</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="artists" id="artiesten" aria-labelledby="art-title">
+    <div class="wrap">
+      <h2 class="sec-title" id="art-title">Voor artiesten</h2>
+      <p class="lead muted">We werken met makers die vertrekken vanuit traditie en een eigen stem zoeken, vaak over meerdere jaren.</p>
+      <p class="names">Sara Salvérius, Laura Cortese, Andries Boone, Naragonia, Griff Trio, Rénélius Ensemble, Myrddin, Wouter Vandenabeele, Airboxes, Bamako Express, WÖR, Kongero, Shalan Alhamwy <span>en vele anderen.</span></p>
+      <figure class="wide"><img src="img/duo.jpg" alt="Violiste en accordeoniste rug aan rug tijdens een concert" loading="lazy"></figure>
+      <div class="callout">
+        <div>
+          <h3>Werk je aan een project?</h3>
+          <p>Een creatie, een residentie op een bijzondere plek of hulp bij spreiding: vertel ons waar je mee bezig bent.</p>
+        </div>
+        <a class="btn" href="mailto:jochen@wespvzw.be?subject=Projectvoorstel">Stuur ons een bericht</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="samenwerken" aria-labelledby="sam-title" style="padding-top:1rem">
+    <div class="wrap">
+      <h2 class="sec-title" id="sam-title">Samenwerken</h2>
+      <div class="work">
+        <div><h3>Cultuurcentra en organisatoren</h3><p>Een concert, reeks of tournee op maat, of een programma dat we samen opbouwen.</p><a href="producties.html">Bekijk onze producties</a></div>
+        <div><h3>Bedrijven</h3><p>Muziek op een bijzondere plek voor jullie team, klanten of partners.</p><a href="https://www.merodefestival.be/b2b">Voor bedrijven</a></div>
+        <div><h3>Vrienden van Merodefestival</h3><p>Steun de werking en kom dichter bij de muziek.</p><a href="https://www.merodefestival.be/vrienden-van">Word vriend</a></div>
+        <div><h3>Partners</h3><p>Overheden, erfgoedsites en muziekorganisaties die mee bouwen.</p><a href="https://www.merodefestival.be/partners">Alle partners</a></div>
+      </div>
+      <div class="partners">
+        <h3>We werken onder meer samen met</h3>
+        <p>Landschapspark de Merode, Muziekpublique, Muziekcentrum Dranouter, Cluster, Brossella, Muziekmuseum Vleeshuis, MIM, Abdij van Park, Abdij van Averbode, Natuurpunt, Stad Leuven, Flanders Folk Network en Folkwaarts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team" id="team" aria-labelledby="team-title">
+    <div class="wrap">
+      <div>
+        <h2 class="sec-title" id="team-title">Team</h2>
+        <p class="lead muted">Een kleine kern, een groot netwerk en een veertigtal vrijwilligers.</p>
+      </div>
+      <dl>
+        <dt>Coördinatie en dagelijkse leiding</dt><dd>Jochen Smets</dd>
+        <dt>Artistiek team</dt><dd>Bart Aerts, Marc Vandemoortele, Jochen Smets</dd>
+        <dt>Vaste medewerkers</dt><dd>Maarten Deboes, Tim Janssen, Bert Huysentruyt, Jules De Roye, Reinhart Croon</dd>
+        <dt>Contact</dt><dd><a href="mailto:jochen@wespvzw.be">jochen@wespvzw.be</a>, <a href="tel:+32498758296">0498 75 82 96</a></dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><img class="foot-logo" src="img/logo-licht.png" alt="Merodefestival" width="162" height="110" loading="lazy"></div>
+  <div class="wrap cols">
+    <div>
+      <h3>WESP vzw</h3>
+      <p>Jozef Wautersstraat 4, 3010 Kessel-Lo</p>
+      <p>BE 0863 441 738</p>
+    </div>
+    <div>
+      <h3>Concerten</h3>
+      <p><a href="index.html">Agenda en tickets op merodefestival.be</a></p>
+    </div>
+    <div>
+      <h3>Met steun van</h3>
+      <p>De Vlaamse overheid, kunsten en erfgoed.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const toggle = document.querySelector(".menu-toggle"), nav = document.getElementById("hoofdmenu");
+toggle.addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  toggle.setAttribute("aria-expanded", open);
+});
+nav.addEventListener("click", e => { if (e.target.tagName === "A") { nav.classList.remove("open"); toggle.setAttribute("aria-expanded", false); }});
+</script>
+</body>
+</html>
