@@ -19,7 +19,7 @@ window.BEELDBANK = [
     "fotograaf": "",
     "jaar": null,
     "onderwerp": "Kerkconcert",
-    "uitsnede": "midden",
+    "uitsnede": "onder",
     "gebruik": [
       "Homepage-carrousel"
     ],
