@@ -582,7 +582,7 @@ window.AGENDA = [
     ],
     "spotify": [],
     "webadres": "",
-    "foto": "",
+    "foto": "data/foto/40077c21f8db81b9966bd2a565de05e8.jpg",
     "slug": "en-waar-de-ster-bleef-stille-staan-2026-12-19"
   },
   {
@@ -632,7 +632,7 @@ window.AGENDA = [
     ],
     "spotify": [],
     "webadres": "",
-    "foto": "",
+    "foto": "data/foto/40077c21f8db81a6aaacee216ad9c8e5.jpg",
     "slug": "en-waar-de-ster-bleef-stille-staan-2026-12-20"
   },
   {
