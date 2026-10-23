@@ -7,6 +7,7 @@
   --label:"Alatsi","Trebuchet MS",system-ui,sans-serif;
 }
 *,*::before,*::after{box-sizing:inherit}
+html,body{overflow-x:clip}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px)}
 body{margin:0;background:var(--s-nacht);color:var(--s-licht);font-family:var(--serif);font-size:1.15rem;line-height:1.55}
 h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1;margin:0}
@@ -171,7 +172,7 @@ footer ul{list-style:none;margin:0;padding:0}
 .pijl:hover{box-shadow:inset 0 0 0 1.5px var(--s-oranje);color:var(--s-oranje)}
 .ook-wesp .ook-lijst{list-style:none;margin:0;padding:0 0 1rem;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(15rem,17rem);gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--s-zand) transparent}
 .ook-wesp .ook-lijst:focus-visible{outline:2px solid var(--s-oranje);outline-offset:4px}
-.ook-wesp .ook-lijst li{scroll-snap-align:start}
+.ook-wesp .ook-lijst li{scroll-snap-align:start;position:relative}
 .ook-wesp .ook-lijst a{display:flex;flex-direction:column;gap:.15rem;text-decoration:none;height:100%;border-top:1px solid var(--s-zand);padding-top:.9rem}
 .ook-wesp .ook-lijst img,.ook-reeks{font-family:var(--label);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--s-zand)}
 .ook-datum{font-family:var(--label);color:var(--s-licht)}
