@@ -6,6 +6,7 @@ window.BEELDBANK = [
     "fotograaf": "",
     "jaar": null,
     "onderwerp": "Kerkconcert",
+    "uitsnede": "",
     "gebruik": [
       "Homepage-carrousel"
     ],
@@ -18,6 +19,7 @@ window.BEELDBANK = [
     "fotograaf": "",
     "jaar": null,
     "onderwerp": "Kerkconcert",
+    "uitsnede": "midden",
     "gebruik": [
       "Homepage-carrousel"
     ],
@@ -30,6 +32,7 @@ window.BEELDBANK = [
     "fotograaf": "",
     "jaar": null,
     "onderwerp": "Kerkconcert",
+    "uitsnede": "",
     "gebruik": [
       "Homepage-carrousel"
     ],
@@ -42,6 +45,7 @@ window.BEELDBANK = [
     "fotograaf": "",
     "jaar": null,
     "onderwerp": "Kerkconcert",
+    "uitsnede": "",
     "gebruik": [
       "Homepage-carrousel"
     ],
@@ -54,6 +58,7 @@ window.BEELDBANK = [
     "fotograaf": "",
     "jaar": null,
     "onderwerp": "Landschap",
+    "uitsnede": "",
     "gebruik": [
       "Homepage-carrousel"
     ],
@@ -66,6 +71,7 @@ window.BEELDBANK = [
     "fotograaf": "",
     "jaar": null,
     "onderwerp": "Wandeling",
+    "uitsnede": "",
     "gebruik": [
       "Homepage-carrousel"
     ],
@@ -78,6 +84,7 @@ window.BEELDBANK = [
     "fotograaf": "",
     "jaar": null,
     "onderwerp": "Sfeer",
+    "uitsnede": "",
     "gebruik": [
       "Homepage-carrousel"
     ],
@@ -90,6 +97,7 @@ window.BEELDBANK = [
     "fotograaf": "",
     "jaar": null,
     "onderwerp": "Festival",
+    "uitsnede": "",
     "gebruik": [
       "Homepage-carrousel"
     ],
