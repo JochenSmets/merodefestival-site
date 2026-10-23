@@ -149,6 +149,7 @@ function pagina(e, overige) {
         <li><a href="../index.html#agenda">Agenda</a></li>
         <li><a href="../index.html#festival">Festival 2027</a></li>
         <li><a href="../index.html#beleef">Beleef de Merode</a></li>
+        <li><a href="../producties.html">Producties</a></li>
         <li><a href="../vorige-edities.html">Vorige edities</a></li>
         <li><a href="../index.html#nieuwsbrief">Nieuwsbrief</a></li>
       </ul>
@@ -333,6 +334,7 @@ const editiesHtml = `<!DOCTYPE html>
 .ed-nav a:hover{border-color:var(--s-oranje);color:var(--s-oranje)}
 .editie{display:grid;grid-template-columns:12rem 1fr;gap:2.5rem;padding:3rem 0;border-top:1px solid var(--s-papier-lijn)}
 .editie:first-child{border-top:0}
+.editie>div{min-width:0}
 .editie .jaar{font-family:var(--label);font-size:clamp(3rem,7vw,4.5rem);line-height:.9;color:var(--s-oranje);filter:brightness(.85)}
 .editie .plek{display:block;margin-top:.5rem;font-size:1.15rem}
 .editie h2{font-size:1.5rem;margin:0 0 .75rem}
@@ -382,6 +384,7 @@ const editiesHtml = `<!DOCTYPE html>
         <li><a href="index.html#agenda">Agenda</a></li>
         <li><a href="index.html#festival">Festival 2027</a></li>
         <li><a href="index.html#beleef">Beleef de Merode</a></li>
+        <li><a href="producties.html">Producties</a></li>
         <li><a href="vorige-edities.html">Vorige edities</a></li>
         <li><a href="index.html#nieuwsbrief">Nieuwsbrief</a></li>
       </ul>
@@ -565,9 +568,202 @@ for (const b of beleef) {
 }
 
 
+// ---------- Producties (uit site/data/producties.json) ----------
+const producties = JSON.parse(await fs.readFile(path.join(ROOT, "data/producties.json"), "utf8"));
+const PR_OUT = path.join(ROOT, "productie");
+const prGebruikt = new Set();
+for (const p of producties) {
+  let s = slugify(p.webadres || p.titel), uniek = s, i = 2;
+  while (prGebruikt.has(uniek)) uniek = `${s}-${i++}`;
+  prGebruikt.add(uniek);
+  p.slug = uniek;
+}
+// Uitsnede uit Notion: welk deel van de foto zichtbaar blijft bij bijsnijden
+const UITSNEDE = { midden: "center", boven: "center top", onder: "center bottom", links: "left center", rechts: "right center" };
+const uitsnedeCss = u => u === "volledig tonen" ? "object-fit:contain" : `object-position:${UITSNEDE[u] || "center"}`;
+const mailAdres = p => (String(p.contact || "").match(/[\w.+-]+@[\w-]+(\.[\w-]+)+/) || ["info@merodefestival.be"])[0];
+const mailLink = p => `mailto:${mailAdres(p)}?subject=${encodeURIComponent(p.titel)}`;
+const regelsHtml = t => esc(t).replace(/\n/g, "<br>");
+
+function vimeo(url) {
+  const m = String(url || "").match(/vimeo\.com\/(?:video\/)?(\d{5,})(?:\/([0-9a-f]{6,}))?/);
+  return m ? { id: m[1], h: m[2] || "" } : null;
+}
+
+function videoHtml(v, titel) {
+  const label = v.titel || titel;
+  const yt = youtubeId(v.url), vm = !yt && vimeo(v.url);
+  const knop = yt ? `<button class="yt" type="button" data-id="${yt}" aria-label="Speel video af: ${esc(label)}" style="background-image:url(https://i.ytimg.com/vi/${yt}/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button>`
+    : `<button class="yt" type="button" data-vimeo="${vm.id}"${vm.h ? ` data-h="${vm.h}"` : ""} aria-label="Speel video af: ${esc(label)}"><span class="play" aria-hidden="true"></span></button>`;
+  return `<figure class="vid"><div class="video">${knop}</div>${v.titel ? `<figcaption class="vtitel">${esc(v.titel)}</figcaption>` : ""}</figure>`;
+}
+
+function productiePagina(p) {
+  const beeld = p.foto || S.artwork;
+  const speelbaar = (p.videos || []).filter(v => youtubeId(v.url) || vimeo(v.url));
+  const links = (p.videos || []).filter(v => !speelbaar.includes(v));
+  const sps = (p.spotify || []).map(spotifyEmbed).filter(Boolean);
+  const knop = `<a class="btn" href="${esc(mailLink(p))}">${esc(p.knop || "Vraag een optie")}</a>`;
+  return `<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${esc(p.titel)} | Producties | Merodefestival</title>
+<meta name="description" content="${esc(String(p.tekst || p.makers || p.titel).slice(0, 220))}">
+<link rel="canonical" href="${SITE}/productie/${p.slug}.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="${esc(p.titel)}">
+<meta property="og:description" content="${esc(p.makers || p.label || "")}">
+<meta property="og:image" content="${esc(`${SITE}/${beeld}`)}">
+<meta property="og:url" content="${SITE}/productie/${p.slug}.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../seizoen/seizoen.css">
+<link rel="stylesheet" href="../css/publiek.css">
+<link rel="stylesheet" href="../css/concert.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="../index.html"><img src="../${esc(S.logo)}" alt="Merodefestival" width="82" height="56"></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="hoofdmenu">Menu</button>
+    <nav id="hoofdmenu" aria-label="Hoofdmenu">
+      <ul>
+        <li><a href="../index.html#agenda">Agenda</a></li>
+        <li><a href="../index.html#festival">Festival 2027</a></li>
+        <li><a href="../index.html#beleef">Beleef de Merode</a></li>
+        <li><a href="../producties.html" aria-current="page">Producties</a></li>
+        <li><a href="../vorige-edities.html">Vorige edities</a></li>
+        <li><a href="../index.html#nieuwsbrief">Nieuwsbrief</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="${esc(S.ticketlink || "#")}">Tickets</a>
+  </div>
+</header>
+
+<main>
+  <section class="chero" aria-labelledby="titel">
+    <div class="wrap">
+      <div class="chero-tekst">
+        <a class="terug" href="../producties.html">← Producties</a>
+        ${p.label ? `<p class="label datumregel">${esc(p.label)}</p>` : ""}
+        <h1 id="titel">${esc(p.titel)}</h1>
+        ${p.makers ? `<p class="waar">${esc(p.makers)}</p>` : ""}
+        ${p.tekst ? `<p class="lead">${esc(p.tekst)}</p>` : ""}
+        <div class="acties">${knop}</div>
+      </div>
+      <figure class="cbeeld${p.foto ? " foto" : ""}">
+        <img src="../${esc(beeld)}" alt="${p.foto ? esc(p.titel) : esc(S.artworkAlt || "")}">
+      </figure>
+    </div>
+  </section>
+
+  <section class="papier" aria-label="Over deze productie">
+    <div class="wrap cgrid">
+      <article class="ctekst">
+        ${(p.lang || []).length ? blokkenHtml(p.lang) : p.tekst ? `<p>${esc(p.tekst)}</p>` : ""}
+        ${speelbaar.length || links.length || sps.length ? `<section class="luister" id="luister" aria-labelledby="luister-titel">
+          <h2 class="label" id="luister-titel">Kijk en luister</h2>
+          ${speelbaar.length ? `<div class="videos${speelbaar.length > 1 ? " meer" : ""}">${speelbaar.map(v => videoHtml(v, p.titel)).join("")}</div>` : ""}
+          ${links.length ? `<ul class="vlinks">${links.map(v => `<li><a href="${esc(v.url)}" target="_blank" rel="noopener"><span class="vico" aria-hidden="true">▶</span>${esc(v.titel || v.url.replace(/^https?:\/\/(www\.)?/, ""))}<span class="sr"> (opent in een nieuw tabblad)</span></a></li>`).join("")}</ul>` : ""}
+          ${sps.length ? `<div class="spotify">${sps.map(x => `<iframe src="https://open.spotify.com/embed/${x.type}/${x.id}?utm_source=generator&amp;theme=0" title="Spotify: ${esc(p.titel)}" height="${/track|episode/.test(x.type) ? 152 : 352}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`).join("")}</div>` : ""}
+        </section>` : ""}
+      </article>
+      <aside class="praktisch">
+        <h2 class="label">Praktisch</h2>
+        <dl>
+          ${(p.feiten || []).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${regelsHtml(v)}</dd></div>`).join("\n          ")}
+          ${(p.data || []).length ? `<div><dt>Data</dt><dd><ul class="data">${p.data.map(x => `<li>${esc(x)}</li>`).join("")}</ul></dd></div>` : ""}
+          <div><dt>Contact</dt><dd><a href="mailto:${esc(mailAdres(p))}">${esc(mailAdres(p))}</a></dd></div>
+        </dl>
+        ${p.extra ? `<p class="extra">${esc(p.extra)}</p>` : ""}
+        <div class="acties">${knop}</div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><img class="foot-logo" src="../${esc(S.logo)}" alt="Merodefestival" width="147" height="100" loading="lazy"></div>
+  <div class="wrap cols">
+    <div><h3>Contact</h3><p><a href="mailto:info@merodefestival.be">info@merodefestival.be</a></p><p><a href="tel:+32498758296">0498 75 82 96</a></p><p>Merodefestival is een project van WESP vzw, BE 0863 441 738, Jozef Wautersstraat 4, 3010 Kessel-Lo</p></div>
+    <div><h3>Volg ons</h3><ul><li><a href="https://www.facebook.com/merodefestival">Facebook</a></li><li><a href="https://www.instagram.com/merodefestival/">Instagram</a></li><li><a href="https://www.youtube.com/channel/UCahKa1lM3yaWEwXdV_bBJdw">YouTube</a></li></ul></div>
+    <div><h3>Met steun van</h3><p>De Vlaamse overheid, kunsten en erfgoed, de provincie Vlaams-Brabant, de Nationale Loterij en projectvereniging de Merode.</p><p>${esc(S.credit || "")}</p></div>
+  </div>
+</footer>
+
+<script>
+// Video's (YouTube en Vimeo) laden pas bij een klik.
+// Vanaf je eigen computer (file://) weigeren ze in te sluiten: dan openen we de video zelf.
+document.querySelectorAll(".yt").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var id = b.getAttribute("data-id"), vm = b.getAttribute("data-vimeo"), h = b.getAttribute("data-h");
+    if (location.protocol === "file:") { window.open(vm ? "https://vimeo.com/" + vm + (h ? "/" + h : "") : "https://www.youtube.com/watch?v=" + id, "_blank", "noopener"); return; }
+    var f = document.createElement("iframe");
+    f.src = vm ? "https://player.vimeo.com/video/" + vm + "?autoplay=1&dnt=1" + (h ? "&h=" + h : "")
+      : "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+    f.title = b.getAttribute("aria-label");
+    f.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
+    f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+    f.allowFullscreen = true;
+    b.replaceWith(f);
+  });
+});
+var t = document.querySelector(".menu-toggle"), n = document.getElementById("hoofdmenu");
+t.addEventListener("click", function () { var o = n.classList.toggle("open"); t.setAttribute("aria-expanded", o); });
+</script>
+</body>
+</html>
+`;
+}
+
+await fs.mkdir(PR_OUT, { recursive: true });
+for (const f of await fs.readdir(PR_OUT)) await fs.unlink(path.join(PR_OUT, f));
+for (const p of producties) await fs.writeFile(path.join(PR_OUT, `${p.slug}.html`), productiePagina(p));
+
+// Overzichtspagina producties.html, met dezelfde kop en voet als Vorige edities
+const prBody = `
+  <section class="pr-hero">
+    <div class="wrap">
+      <a class="terug" href="index.html">← Homepage</a>
+      <p class="label" style="margin-top:1.5rem">Voor programmatoren</p>
+      <h1>Producties</h1>
+      <p>Concerten en programma’s die Merodefestival mee maakt en op tournee stuurt. Elke productie kan geboekt worden door cultuurcentra, festivals en organisatoren van bijzondere locaties.</p>
+    </div>
+  </section>
+  <section class="papier">
+    <div class="wrap" style="display:block">
+      <ul class="plijst">
+        ${producties.map(p => `<li><a href="productie/${p.slug}.html">
+          <img class="pfoto" src="${esc(p.foto || S.artwork)}" alt="" loading="lazy" style="${p.foto ? uitsnedeCss(p.uitsnede) : "object-fit:contain"}">
+          ${p.label ? `<span class="plabel">${esc(p.label)}</span>` : ""}
+          <span class="ptitel">${esc(p.titel)}</span>
+          ${p.makers ? `<span class="pmakers">${esc(p.makers)}</span>` : ""}
+          ${p.tekst ? `<span class="ptekst">${esc(p.tekst)}</span>` : ""}
+          <span class="pmeer">Bekijk de productie</span>
+        </a></li>`).join("\n        ")}
+      </ul>
+      <p class="pr-contact">Interesse in een productie of een programma op maat? Mail <a href="mailto:info@merodefestival.be">info@merodefestival.be</a>.</p>
+    </div>
+  </section>`;
+const prKop = kopEd.replace(/<title>[^<]*<\/title>/, `<title>Producties | Merodefestival</title>`)
+  .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="Concerten en programma’s van Merodefestival op tournee, voor cultuurcentra, festivals en bijzondere locaties.">`)
+  .replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${SITE}/producties.html">`)
+  .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="Producties van Merodefestival">`)
+  .replace(/<style>[\s\S]*?<\/style>/, "")
+  .replace(`<a href="producties.html">`, `<a href="producties.html" aria-current="page">`);
+await fs.writeFile(path.join(ROOT, "producties.html"), prKop + "<main>" + prBody + "\n</main>" + voetEd);
+
 // Sitemap voor zoekmachines
-const urls = ["", "vorige-edities.html", ...beleef.map(b => `${b.slug}.html`), ...agenda.map(e => `concert/${e.slug}.html`)];
+const urls = ["", "producties.html", "vorige-edities.html", ...beleef.map(b => `${b.slug}.html`),
+  ...producties.map(p => `productie/${p.slug}.html`), ...agenda.map(e => `concert/${e.slug}.html`)];
 await fs.writeFile(path.join(ROOT, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${SITE}/${u}</loc></url>`).join("\n")}\n</urlset>\n`);
 
-console.log(`Concertpagina’s: ${agenda.length}`);
+console.log(`Concertpagina’s: ${agenda.length}, productiepagina’s: ${producties.length}`);

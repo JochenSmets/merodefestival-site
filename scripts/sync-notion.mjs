@@ -54,6 +54,8 @@ const text = p => !p ? "" :
   p.type === "title" ? p.title.map(t => t.plain_text).join("") :
   p.type === "rich_text" ? p.rich_text.map(t => t.plain_text).join("") :
   p.type === "url" ? (p.url || "") :
+  p.type === "email" ? (p.email || "") :
+  p.type === "phone_number" ? (p.phone_number || "") :
   p.type === "select" ? (p.select?.name || "") :
   p.type === "number" ? String(p.number ?? "") : "";
 
@@ -86,6 +88,13 @@ async function blokken(id) {
 
 // Meerdere links in één tekstveld: één per regel (of gescheiden door spaties)
 const lines = p => text(p).split(/\s+/).filter(x => /^https?:\/\//.test(x));
+// Video’s bij producties: één per regel, als “link | titel”
+const videoRegels = p => text(p).split(/\n/).map(r => {
+  const [url, ...titel] = r.split("|");
+  return { url: url.trim(), titel: titel.join("|").trim() };
+}).filter(v => /^https?:\/\//.test(v.url));
+// Gewone tekst met één item per regel (bv. speeldata)
+const regels = p => text(p).split(/\n/).map(r => r.trim()).filter(Boolean);
 
 // Een gedeelde Google Drive-link omzetten naar een rechtstreekse download.
 // Werkt voor links zoals drive.google.com/file/d/<id>/view en drive.google.com/open?id=<id>.
@@ -181,7 +190,14 @@ for (const r of await queryAll(PRODUCTIES_DB, [{ property: "Volgorde", direction
       ["Techniek", text(p.Techniek)], ["Prijs", text(p.Prijs)],
     ].filter(f => f[1]),
     knop: text(p.Knoptekst) || "Vraag een optie",
+    contact: text(p.Contact),
+    data: regels(p.Data),
+    webadres: text(p.Webadres),
+    lang: await blokken(r.id),
+    videos: videoRegels(p["Video’s"] || p["Video's"]),
+    spotify: lines(p.Spotify),
     foto: await foto(r, p.Foto, p.Fotolink),
+    uitsnede: (p.Uitsnede?.select?.name || "").toLowerCase(),
   });
 }
 await write("producties", producties);
