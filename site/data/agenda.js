@@ -6,14 +6,27 @@ window.AGENDA = [
     "place": "Sint-Luciakerk",
     "artist": "Amber Haddad Trio en Simon Leleux & Manuel Hermia",
     "kind": "Kerkconcert",
+    "sites": [],
+    "reeks": "",
     "price": "€ 22",
     "tickets": "https://wesp-vzw.pierrot.io/",
+    "volzet": false,
     "info": "https://www.merodefestival.be/blog/dubbelconcert-amber-haddad-trio-en-simon-leleux-manuel-hermia",
-    "text": "",
-    "foto": "img/band/amber-haddad.jpg",
     "sub": "",
     "origin": "",
-    "slug": "amber-haddad-trio-en-simon-leleux-manuel-hermia-2026-10-17",
+    "text": "",
+    "adres": "",
+    "duur": "",
+    "lang": [
+      {
+        "type": "p",
+        "html": "Zangeres Amber Haddad groeide op tussen twee werelden: een Libanese vader, een Belgische moeder. Na haar master aan het Conservatorium Maastricht, waar ze zich specialiseerde in Arabische muziek, goot ze die twee achtergronden samen in haar debuutalbum <em>Trust</em> (2022) — acht composities over innerlijke rust, geschreven vanuit ervaringen die ze zelf doorleefde. Op het podium wordt ze gedragen door de oud van Adil Benhsain en de contrabas van Marijn Van Buel."
+      },
+      {
+        "type": "p",
+        "html": "Simon Leleux en Manuel Hermia kennen elkaar al langer, maar bundelden pas in 2025 hun projecten — Hermia's <em>Murmure de l'Orient</em> en Leleux' Auster Loo Collective — tot het duo-album <em>Metanoïa</em>. Hermia bespeelt de bansuri, de noord-Indiase fluit, en klarinet en sopraansaxofoon; Leleux antwoordt met dohola, bendir en daf, Midden-Oosterse percussie-instrumenten. Metanoia betekent letterlijk &quot;verandering van blik&quot; — precies wat hun muziek teweegbrengt."
+      }
+    ],
     "videos": [
       "https://www.youtube.com/watch?v=U36qzH0NSPg",
       "https://www.youtube.com/watch?v=uk_gDWZ7Xjs"
@@ -22,21 +35,9 @@ window.AGENDA = [
       "https://open.spotify.com/artist/3AVprpd4wNwaye5KN1odk5",
       "https://open.spotify.com/album/07JpLKHNb2YOojBVKQ4qBU"
     ],
-    "lang": [
-      {
-        "type": "p",
-        "html": "Zangeres Amber Haddad groeide op tussen twee werelden: een Libanese vader, een Belgische moeder. Na haar master aan het Conservatorium Maastricht, waar ze zich specialiseerde in Arabische muziek, goot ze die twee achtergronden samen in haar debuutalbum <em>Trust</em> (2022) — acht composities over innerlijke rust, geschreven vanuit ervaringen die ze zelf doorleefde. Op het podium wordt ze gedragen door de oud van Adil Benhsain en de contrabas van Marijn Van Buel."
-      },
-      {
-        "type": "p",
-        "html": "Simon Leleux en Manuel Hermia kennen elkaar al langer, maar bundelden pas in 2025 hun projecten — Hermia's <em>Murmure de l'Orient</em> en Leleux' Auster Loo Collective — tot het duo-album <em>Metanoïa</em>. Hermia bespeelt de bansuri, de noord-Indiase fluit, en klarinet en sopraansaxofoon; Leleux antwoordt met dohola, bendir en daf, Midden-Oosterse percussie-instrumenten. Metanoia betekent letterlijk \"verandering van blik\" — precies wat hun muziek teweegbrengt."
-      }
-    ],
-    "sites": [],
-    "reeks": "",
-    "adres": "",
-    "duur": "",
-    "fotoAlt": "Amber Haddad Trio en Simon Leleux & Manuel Hermia"
+    "webadres": "",
+    "foto": "",
+    "slug": "amber-haddad-trio-en-simon-leleux-manuel-hermia-2026-10-17"
   },
   {
     "start": "2026-10-23",
@@ -45,17 +46,18 @@ window.AGENDA = [
     "place": "Kapel Onze-Lieve-Vrouw-ten-Eik",
     "artist": "Lydie Thonnard",
     "kind": "Kapelconcert, Klanken in de Kapel",
+    "sites": [],
+    "reeks": "Klanken in de Kapel",
     "price": "€ 6",
     "tickets": "https://klanken-in-de-kapel.eventsquare.store/nl/a3kiljicc7ja/5zievdnnle4h/cart",
-    "info": "",
-    "text": "In de Kapel Onze-Lieve-Vrouw-ten-Eik in Tongerlo gaat fluitiste, zangeres en bodypercussioniste Lydie Thonnard in dialoog met de ruimte en de stilte. Ze brengt een improvisatie in het moment, op een plek waar de Merode voelbaar en leefbaar is. Opwarmen doen we bij een soepje voor of na het concert.",
-    "foto": "",
     "cta": "Schrijf je in",
+    "volzet": false,
+    "info": "",
     "sub": "In dialoog met ruimte en stilte",
     "origin": "",
-    "slug": "lydie-thonnard-2026-10-23",
-    "videos": [],
-    "spotify": [],
+    "text": "In de Kapel Onze-Lieve-Vrouw-ten-Eik in Tongerlo gaat fluitiste, zangeres en bodypercussioniste Lydie Thonnard in dialoog met de ruimte en de stilte. Ze brengt een improvisatie in het moment, op een plek waar de Merode voelbaar en leefbaar is. Opwarmen doen we bij een soepje voor of na het concert.",
+    "adres": "Geelse Straat 92, 2260 Westerlo",
+    "duur": "1 uur",
     "lang": [
       {
         "type": "p",
@@ -78,10 +80,11 @@ window.AGENDA = [
         "html": "<em>Een organisatie van Merodefestival, Landschapspark de Merode vzw, Folkmjusic vzw en Toerisme Westerlo vzw, in het kader van Landschap van Stilte in Landschapspark de Merode.</em>"
       }
     ],
-    "sites": [],
-    "reeks": "Klanken in de Kapel",
-    "adres": "Geelse Straat 92, 2260 Westerlo",
-    "duur": "1 uur"
+    "videos": [],
+    "spotify": [],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db81928bf8f7341dcd158a.jpg",
+    "slug": "lydie-thonnard-2026-10-23"
   },
   {
     "start": "2026-10-24",
@@ -90,17 +93,18 @@ window.AGENDA = [
     "place": "Sint-Bavokapel",
     "artist": "Stijn Kuppens",
     "kind": "Kapelconcert, Klanken in de Kapel",
+    "sites": [],
+    "reeks": "Klanken in de Kapel",
     "price": "€ 6",
     "tickets": "https://pierrot.io/wesp-vzw/klanken-in-de-kapel",
-    "info": "",
-    "text": "In de Sint-Bavokapel in Eindhout (Trichelhoek) gaat cellist Stijn Kuppens in dialoog met de ruimte en de stilte. Hij brengt een improvisatie in het moment, op een plek waar de Merode voelbaar en leefbaar is. Opwarmen doen we bij een soepje voor of na het concert.",
-    "foto": "",
     "cta": "Schrijf je in",
+    "volzet": false,
+    "info": "",
     "sub": "In dialoog met ruimte en stilte",
     "origin": "",
-    "slug": "stijn-kuppens-2026-10-24",
-    "videos": [],
-    "spotify": [],
+    "text": "In de Sint-Bavokapel in Eindhout (Trichelhoek) gaat cellist Stijn Kuppens in dialoog met de ruimte en de stilte. Hij brengt een improvisatie in het moment, op een plek waar de Merode voelbaar en leefbaar is. Opwarmen doen we bij een soepje voor of na het concert.",
+    "adres": "Sint-Bavostraat 8, 2430 Eindhout (Laakdal)",
+    "duur": "45 minuten",
     "lang": [
       {
         "type": "p",
@@ -123,34 +127,37 @@ window.AGENDA = [
         "html": "<em>Een organisatie van Merodefestival, Landschapspark de Merode vzw, Folkmjusic vzw en gemeente Laakdal, in het kader van Landschap van Stilte in Landschapspark de Merode.</em>"
       }
     ],
-    "sites": [],
-    "reeks": "Klanken in de Kapel",
-    "adres": "Sint-Bavostraat 8, 2430 Eindhout (Laakdal)",
-    "duur": "45 minuten"
+    "videos": [],
+    "spotify": [],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db81f2bd6dfdb4b6d07ef5.jpg",
+    "slug": "stijn-kuppens-2026-10-24"
   },
   {
     "start": "2026-10-29",
     "time": "",
     "village": "Holsbeek",
-    "place": "Buurthuis",
+    "place": "Buurthuis Nieuwrode",
     "artist": "Eriksson Delcroix",
     "kind": "Sessie, Holsbeek Sessies",
-    "price": "",
-    "tickets": "",
-    "info": "",
-    "text": "",
-    "sub": "",
-    "origin": "",
-    "foto": "",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "Holsbeek Sessies"
     ],
     "reeks": "Holsbeek Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.holsbeeksessies.be",
+    "sub": "",
+    "origin": "",
+    "text": "",
     "adres": "",
-    "duur": ""
+    "duur": "",
+    "lang": [],
+    "videos": [],
+    "spotify": [],
+    "webadres": "",
+    "foto": ""
   },
   {
     "start": "2026-11-14",
@@ -159,20 +166,17 @@ window.AGENDA = [
     "place": "Sint-Pieterskerk",
     "artist": "Gwen Cresens & Philippe Thuriot",
     "kind": "Kerkconcert",
+    "sites": [],
+    "reeks": "",
     "price": "€ 22",
     "tickets": "https://wesp-vzw.pierrot.io/",
+    "volzet": false,
     "info": "https://www.merodefestival.be/blog/gwen",
-    "text": "Gwen Cresens en Philippe Thuriot tonen de veelzijdigheid van het accordeon in al zijn kleuren. Hun programma reikt van klassiek repertoire tot eigen bewerkingen en nieuwe composities. In duo ontstaat een intens samenspel. Een concert waarin het instrument volledig tot leven komt.",
-    "foto": "img/band/cresens-thuriot.jpg",
     "sub": "Twee accordeons, één adem",
     "origin": "",
-    "slug": "gwen-cresens-philippe-thuriot-2026-11-14",
-    "videos": [
-      "https://www.youtube.com/watch?v=RgV92xAWTH0"
-    ],
-    "spotify": [
-      "https://open.spotify.com/artist/7BIJhGB7mt9HoPJZqqostR"
-    ],
+    "text": "Gwen Cresens en Philippe Thuriot tonen de veelzijdigheid van het accordeon in al zijn kleuren. Hun programma reikt van klassiek repertoire tot eigen bewerkingen en nieuwe composities. In duo ontstaat een intens samenspel. Een concert waarin het instrument volledig tot leven komt.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -180,79 +184,94 @@ window.AGENDA = [
       },
       {
         "type": "quote",
-        "html": "\"De mooiste muziek ontstaat daar waar de grenzen vervagen.\" — Gwen Cresens"
+        "html": "&quot;De mooiste muziek ontstaat daar waar de grenzen vervagen.&quot; — Gwen Cresens"
       }
     ],
-    "sites": [],
-    "reeks": "",
-    "adres": "",
-    "duur": "",
-    "fotoAlt": "Gwen Cresens & Philippe Thuriot met hun accordeon"
+    "videos": [
+      "https://www.youtube.com/watch?v=RgV92xAWTH0"
+    ],
+    "spotify": [
+      "https://open.spotify.com/artist/7BIJhGB7mt9HoPJZqqostR"
+    ],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db817dadeffb7c14864a14.jpg",
+    "slug": "gwen-cresens-philippe-thuriot-2026-11-14"
   },
   {
     "start": "2026-11-26",
     "time": "",
     "village": "Holsbeek",
-    "place": "Buurthuis",
+    "place": "Buurthuis Nieuwrode",
     "artist": "Lenny & de Wespen",
     "kind": "Sessie, Holsbeek Sessies",
-    "price": "",
-    "tickets": "",
-    "info": "",
-    "text": "",
-    "sub": "",
-    "origin": "",
-    "foto": "",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "Holsbeek Sessies"
     ],
     "reeks": "Holsbeek Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.holsbeeksessies.be",
+    "sub": "",
+    "origin": "",
+    "text": "",
     "adres": "",
-    "duur": ""
+    "duur": "",
+    "lang": [],
+    "videos": [],
+    "spotify": [],
+    "webadres": "",
+    "foto": ""
   },
   {
     "start": "2026-11-27",
     "time": "",
     "village": "Antwerpen",
-    "place": "De Studio",
+    "place": "De Studio Antwerpen",
     "artist": "Aram: Shahab Azinmehr, Derya Türkan & Robbe Kieckens",
     "kind": "Concert, Klanken van de Steden",
-    "price": "",
-    "tickets": "",
-    "info": "",
-    "text": "",
-    "sub": "",
-    "origin": "",
-    "foto": "img/band/aram.jpg",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "Klanken van de Steden"
     ],
     "reeks": "Klanken van de Steden",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.klankenvandesteden.be",
+    "sub": "Tussen oost en west",
+    "origin": "",
+    "text": "In dit project komen Midden-Oosterse en Europese klanken samen. Met kemençe, zang, andere snaarinstrumenten en percussie ontstaat een gelaagde dialoog tussen traditie en vrije interpretatie. De musici zoeken naar gemeenschappelijke lijnen in hun muzikale achtergrond. Een concert dat bruggen slaat tussen verschillende werelden.",
     "adres": "",
     "duur": "",
-    "fotoAlt": "Aram: Shahab Azinmehr, Derya Türkan en Robbe Kieckens in een park"
+    "lang": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=SbaXN03F1Bo"
+    ],
+    "spotify": [],
+    "webadres": "",
+    "foto": ""
   },
   {
-    "start": "2026-12-05",
-    "time": "20.00 uur",
-    "village": "Testelt",
-    "place": "Sint-Pieterskerk",
+    "start": "2026-12-03",
+    "time": "",
+    "village": "Sint-Truiden",
+    "place": "Academiezaal Sint-Truiden",
     "artist": "Sam Grassie, Dylan Fowler & Haroun Iqbal",
-    "kind": "Kerkconcert",
-    "price": "€ 22",
-    "tickets": "https://wesp-vzw.pierrot.io/",
-    "info": "https://www.merodefestival.be/blog/sam-grassie-sco-dylan-fowler-wal-haroun-iqbal-be",
-    "text": "Sam Grassie is een jonge Schotse gitarist en singer-songwriter die furore maakt binnen de hedendaagse Angelsaksische folkscene. Welshman Dylan Fowler is een internationaal bekende grootmeester op akoestische en klassieke gitaar. Klara-twintiger Haroun Iqbal is componist en multi-instrumentalist met invloeden uit jazz, Indiase en West-Afrikaanse muziek. Samen creëren ze een uitzonderlijk gitarenconcert, waarbij ze hun composities, met traditionele invloeden en improvisatie, zowel solo als in samenspel voorstellen.",
-    "foto": "img/band/grassie-fowler-iqbal.jpg",
+    "kind": "Concert, Limburg Sessies",
+    "sites": [
+      "Limburg Sessies"
+    ],
+    "reeks": "Limburg Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "limburgsessies.be",
     "sub": "Gitaren van hier tot daar",
     "origin": "sco-wal-bel",
-    "slug": "sam-grassie-2026-12-05",
+    "text": "Sam Grassie is een jonge Schotse gitarist en singer-songwriter die furore maakt binnen de hedendaagse Angelsaksische folkscene. Welshman Dylan Fowler is een internationaal bekende grootmeester op akoestische en klassieke gitaar. Klara-twintiger Haroun Iqbal is componist en multi-instrumentalist met invloeden uit jazz, Indiase en West-Afrikaanse muziek. Samen creëren ze een uitzonderlijk gitarenconcert.",
+    "adres": "",
+    "duur": "",
+    "lang": [],
     "videos": [
       "https://www.youtube.com/watch?v=LQYB7dcnsbs",
       "https://www.youtube.com/watch?v=KFgCzlQazkQ",
@@ -263,6 +282,27 @@ window.AGENDA = [
       "https://open.spotify.com/album/63hJkoE6T7wVVe7gLN4TZS",
       "https://open.spotify.com/artist/2EIip4bHQ5ZRYbO3VXL2xu"
     ],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db8104bd39c89044f809af.jpg"
+  },
+  {
+    "start": "2026-12-05",
+    "time": "20.00 uur",
+    "village": "Testelt",
+    "place": "Sint-Pieterskerk",
+    "artist": "Sam Grassie, Dylan Fowler & Haroun Iqbal",
+    "kind": "Kerkconcert",
+    "sites": [],
+    "reeks": "",
+    "price": "€ 22",
+    "tickets": "https://wesp-vzw.pierrot.io/",
+    "volzet": false,
+    "info": "https://www.merodefestival.be/blog/sam-grassie-sco-dylan-fowler-wal-haroun-iqbal-be",
+    "sub": "Gitaren van hier tot daar",
+    "origin": "sco-wal-bel",
+    "text": "Sam Grassie is een jonge Schotse gitarist en singer-songwriter die furore maakt binnen de hedendaagse Angelsaksische folkscene. Welshman Dylan Fowler is een internationaal bekende grootmeester op akoestische en klassieke gitaar. Klara-twintiger Haroun Iqbal is componist en multi-instrumentalist met invloeden uit jazz, Indiase en West-Afrikaanse muziek. Samen creëren ze een uitzonderlijk gitarenconcert, waarbij ze hun composities, met traditionele invloeden en improvisatie, zowel solo als in samenspel voorstellen.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -274,7 +314,7 @@ window.AGENDA = [
       },
       {
         "type": "quote",
-        "html": "\"One of the finest folk guitarists of his generation.\" — Bert Jansch Foundation"
+        "html": "&quot;One of the finest folk guitarists of his generation.&quot; — Bert Jansch Foundation"
       },
       {
         "type": "p",
@@ -282,7 +322,7 @@ window.AGENDA = [
       },
       {
         "type": "quote",
-        "html": "\"Music with heart, soul, and a bullish determination to ignore recognised boundaries.\" — Chris Jones, BBC"
+        "html": "&quot;Music with heart, soul, and a bullish determination to ignore recognised boundaries.&quot; — Chris Jones, BBC"
       },
       {
         "type": "p",
@@ -290,14 +330,22 @@ window.AGENDA = [
       },
       {
         "type": "quote",
-        "html": "\"Een gitarist die vlotjes alle muzikale grenzen verlegt.\" — Klara"
+        "html": "&quot;Een gitarist die vlotjes alle muzikale grenzen verlegt.&quot; — Klara"
       }
     ],
-    "sites": [],
-    "reeks": "",
-    "adres": "",
-    "duur": "",
-    "fotoAlt": "Sam Grassie, Dylan Fowler en Haroun Iqbal met gitaar"
+    "videos": [
+      "https://www.youtube.com/watch?v=LQYB7dcnsbs",
+      "https://www.youtube.com/watch?v=KFgCzlQazkQ",
+      "https://www.youtube.com/watch?v=ykP5RNFEzgw"
+    ],
+    "spotify": [
+      "https://open.spotify.com/album/2exwUhgaSf2Pn8ajk647zn",
+      "https://open.spotify.com/album/63hJkoE6T7wVVe7gLN4TZS",
+      "https://open.spotify.com/artist/2EIip4bHQ5ZRYbO3VXL2xu"
+    ],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db81728dffdad5b18abc45.jpg",
+    "slug": "sam-grassie-2026-12-05"
   },
   {
     "start": "2026-12-11",
@@ -306,17 +354,17 @@ window.AGENDA = [
     "place": "De Zoerla",
     "artist": "Griff Trio: Echo + En waar de ster bleef stille staan",
     "kind": "Docuconcert, Folkwaarts",
-    "price": "",
+    "sites": [],
+    "reeks": "Folkwaarts",
+    "price": "€ 16",
     "tickets": "https://pierrot.io/wesp-vzw/echo-en-waar-de-ster-bleef-stille-staan",
+    "volzet": false,
     "info": "",
-    "text": "Een dubbelconcert. Echo brengt drie generaties folk samen: pioniers van de Belgische folkrevival, Griff Trio dat hen opzocht, en twintigers uit de huidige folkscene. Documentaire en live muziek lopen in elkaar over. Daarna brengen Reineke Van Hooreweghe en Toon Van Mierlo met een 15-koppig orkest hun muzikale vertelling naar Felix Timmermans.",
     "sub": "Dubbelconcert: drie generaties folk en een kerstvertelling",
     "origin": "",
-    "foto": "",
-    "videos": [
-      "https://www.youtube.com/watch?v=OBTDxec_tQg"
-    ],
-    "spotify": [],
+    "text": "Een dubbelconcert. Echo brengt drie generaties folk samen: pioniers van de Belgische folkrevival, Griff Trio dat hen opzocht, en twintigers uit de huidige folkscene. Documentaire en live muziek lopen in elkaar over. Daarna brengen Reineke Van Hooreweghe en Toon Van Mierlo met een 15-koppig orkest hun muzikale vertelling naar Felix Timmermans.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -355,10 +403,12 @@ window.AGENDA = [
         "html": "<em>Een organisatie van Westelfolk, Merodefestival en Griff Trio.</em>"
       }
     ],
-    "sites": [],
-    "reeks": "Folkwaarts",
-    "adres": "",
-    "duur": "",
+    "videos": [
+      "https://www.youtube.com/watch?v=OBTDxec_tQg"
+    ],
+    "spotify": [],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db81469f3ad2c4779240b6.jpg",
     "slug": "griff-trio-2026-12-11"
   },
   {
@@ -368,17 +418,17 @@ window.AGENDA = [
     "place": "Abdij van Averbode",
     "artist": "En waar de ster bleef stille staan",
     "kind": "Kerstvertelling, Folkwaarts",
-    "price": "",
+    "sites": [],
+    "reeks": "Folkwaarts",
+    "price": "€ 12",
     "tickets": "https://pierrot.io/wesp-vzw/eldr",
+    "volzet": true,
     "info": "",
-    "text": "Een verhaal van Felix Timmermans, verteld door Reineke Van Hooreweghe, met een 15-koppig orkest onder leiding van Toon Van Mierlo. Drie schooiers trekken als driekoningen van deur tot deur door het winterse Kempenlandschap: een muzikale vertelling over armoede, schuld en genade, sober en akoestisch.",
     "sub": "Een kerstvertelling naar Felix Timmermans",
     "origin": "",
-    "foto": "",
-    "videos": [
-      "https://www.youtube.com/watch?v=OBTDxec_tQg"
-    ],
-    "spotify": [],
+    "text": "Een verhaal van Felix Timmermans, verteld door Reineke Van Hooreweghe, met een 15-koppig orkest onder leiding van Toon Van Mierlo. Drie schooiers trekken als driekoningen van deur tot deur door het winterse Kempenlandschap: een muzikale vertelling over armoede, schuld en genade, sober en akoestisch.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -394,18 +444,19 @@ window.AGENDA = [
       },
       {
         "type": "p",
-        "html": "Het orkest bestaat uit Johan Behaeghel, Mieke Delanote, Mieke De Pooter, Hilde Diels, Wouter Mangelschots, Lise Mergaerts, Lore Moons, Maïté Weuts, Casper Teirlinck, Hanne Van Assche, Marie Van Doninck, Toon Van Mierlo, Fien Verbeke en Jolien Wils."
+        "html": "Het orkest bestaat uit Johan Behaeghel, Mieke Delanote, Mieke De Pooter, Hilde Diels, Wouter Mangelschots, Lise Mergaerts, Lore Moons, Maité Weuts, Casper Teirlinck, Hanne Van Assche, Marie Van Doninck, Toon Van Mierlo, Fien Verbeke en Jolien Wils."
       },
       {
         "type": "p",
         "html": "<em>Een organisatie van Merodefestival, Folkmjusic vzw, Stamineeke Webbekom, Westelfolk, Dafodil en Celtic Art Gallery Ham, in het kader van Folkwaarts, met ondersteuning van cultuur en erfgoed de Merode.</em>"
       }
     ],
-    "sites": [],
-    "reeks": "Folkwaarts",
-    "adres": "",
-    "duur": "",
-    "volzet": true,
+    "videos": [
+      "https://www.youtube.com/watch?v=OBTDxec_tQg"
+    ],
+    "spotify": [],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db81f8a595c6331e265dc7.jpg",
     "slug": "en-waar-de-ster-bleef-stille-staan-2026-12-12"
   },
   {
@@ -415,46 +466,24 @@ window.AGENDA = [
     "place": "Kerk",
     "artist": "Laura Cortese & Bert Ruymbeek",
     "kind": "Kerkconcert, Holsbeek Sessies",
-    "price": "",
-    "tickets": "",
-    "info": "",
-    "text": "",
-    "sub": "",
-    "origin": "",
-    "foto": "",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "Holsbeek Sessies"
     ],
     "reeks": "Holsbeek Sessies",
-    "adres": "",
-    "duur": ""
-  },
-  {
-    "start": "2026-12-13",
-    "time": "16.00 uur",
-    "village": "Belsele",
-    "place": "Muziekclub ’t Ey",
-    "artist": "Griff Trio: Echo",
-    "kind": "Docuconcert, Echo",
     "price": "",
-    "tickets": "https://pierrot.io/muziekclub-t-ey/griff-trio-de-folklegenden-concert",
-    "info": "https://tey.be/programma/2026/12/13/griff-trio",
-    "text": "Echo brengt drie generaties folk samen: pioniers van de Belgische folkrevival, Griff Trio dat hen opzocht, en twintigers uit de huidige folkscene. Documentaire en live muziek lopen in elkaar over.",
-    "sub": "Drie generaties folk",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.holsbeeksessies.be",
+    "sub": "",
     "origin": "",
-    "foto": "",
+    "text": "",
+    "adres": "",
+    "duur": "",
+    "lang": [],
     "videos": [],
     "spotify": [],
-    "lang": [],
-    "sites": [
-      "WESP"
-    ],
-    "reeks": "Echo",
-    "adres": "",
-    "duur": ""
+    "webadres": "",
+    "foto": ""
   },
   {
     "start": "2026-12-18",
@@ -463,17 +492,19 @@ window.AGENDA = [
     "place": "Sint-Trudokerk",
     "artist": "En waar de ster bleef stille staan",
     "kind": "Kerstvertelling, Folkwaarts",
+    "sites": [
+      "Merodefestival"
+    ],
+    "reeks": "Folkwaarts",
     "price": "",
     "tickets": "https://pierrot.io/wesp-vzw/eldr",
+    "volzet": true,
     "info": "",
-    "text": "Een verhaal van Felix Timmermans, verteld door Reineke Van Hooreweghe, met een 15-koppig orkest onder leiding van Toon Van Mierlo. Drie schooiers trekken als driekoningen van deur tot deur door het winterse Kempenlandschap: een muzikale vertelling over armoede, schuld en genade, sober en akoestisch.",
     "sub": "Een kerstvertelling naar Felix Timmermans",
     "origin": "",
-    "foto": "",
-    "videos": [
-      "https://www.youtube.com/watch?v=OBTDxec_tQg"
-    ],
-    "spotify": [],
+    "text": "Een verhaal van Felix Timmermans, verteld door Reineke Van Hooreweghe, met een 15-koppig orkest onder leiding van Toon Van Mierlo. Drie schooiers trekken als driekoningen van deur tot deur door het winterse Kempenlandschap: een muzikale vertelling over armoede, schuld en genade, sober en akoestisch.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -496,38 +527,13 @@ window.AGENDA = [
         "html": "<em>Een organisatie van Merodefestival, Folkmjusic vzw, Stamineeke Webbekom, Westelfolk, Dafodil en Celtic Art Gallery Ham, in het kader van Folkwaarts, met ondersteuning van cultuur en erfgoed de Merode.</em>"
       }
     ],
-    "sites": [
-      "Merodefestival"
+    "videos": [
+      "https://www.youtube.com/watch?v=OBTDxec_tQg"
     ],
-    "reeks": "Folkwaarts",
-    "adres": "",
-    "duur": "",
-    "volzet": true,
-    "slug": "en-waar-de-ster-bleef-stille-staan-2026-12-18"
-  },
-  {
-    "start": "2026-12-18",
-    "time": "20.30 uur",
-    "village": "Dranouter",
-    "place": "’Nouter Club",
-    "artist": "Griff Trio: Echo",
-    "kind": "Docuconcert, Echo",
-    "price": "",
-    "tickets": "https://shop.paylogic.com/19a1b9bc41ed442499fe64079d1ee7c6/",
-    "info": "https://nouter.be/events/griff-trio-flemish-folk-legends/",
-    "text": "Echo brengt drie generaties folk samen: pioniers van de Belgische folkrevival, Griff Trio dat hen opzocht, en twintigers uit de huidige folkscene. Documentaire en live muziek lopen in elkaar over.",
-    "sub": "Drie generaties folk",
-    "origin": "",
-    "foto": "",
-    "videos": [],
     "spotify": [],
-    "lang": [],
-    "sites": [
-      "WESP"
-    ],
-    "reeks": "Echo",
-    "adres": "",
-    "duur": ""
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db815ca5bbc629c93cc0f4.jpg",
+    "slug": "en-waar-de-ster-bleef-stille-staan-2026-12-18"
   },
   {
     "start": "2026-12-19",
@@ -536,17 +542,19 @@ window.AGENDA = [
     "place": "Wiekslag",
     "artist": "En waar de ster bleef stille staan",
     "kind": "Kerstvertelling, Folkwaarts",
+    "sites": [
+      "Merodefestival"
+    ],
+    "reeks": "Folkwaarts",
     "price": "",
     "tickets": "https://pierrot.io/wesp-vzw/eldr",
+    "volzet": true,
     "info": "",
-    "text": "Een verhaal van Felix Timmermans, verteld door Reineke Van Hooreweghe, met een 15-koppig orkest onder leiding van Toon Van Mierlo. Drie schooiers trekken als driekoningen van deur tot deur door het winterse Kempenlandschap: een muzikale vertelling over armoede, schuld en genade, sober en akoestisch.",
     "sub": "Een kerstvertelling naar Felix Timmermans",
     "origin": "",
-    "foto": "",
-    "videos": [
-      "https://www.youtube.com/watch?v=OBTDxec_tQg"
-    ],
-    "spotify": [],
+    "text": "Een verhaal van Felix Timmermans, verteld door Reineke Van Hooreweghe, met een 15-koppig orkest onder leiding van Toon Van Mierlo. Drie schooiers trekken als driekoningen van deur tot deur door het winterse Kempenlandschap: een muzikale vertelling over armoede, schuld en genade, sober en akoestisch.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -569,13 +577,12 @@ window.AGENDA = [
         "html": "<em>Een organisatie van Merodefestival, Folkmjusic vzw, Stamineeke Webbekom, Westelfolk, Dafodil en Celtic Art Gallery Ham, in het kader van Folkwaarts, met ondersteuning van cultuur en erfgoed de Merode.</em>"
       }
     ],
-    "sites": [
-      "Merodefestival"
+    "videos": [
+      "https://www.youtube.com/watch?v=OBTDxec_tQg"
     ],
-    "reeks": "Folkwaarts",
-    "adres": "",
-    "duur": "",
-    "volzet": true,
+    "spotify": [],
+    "webadres": "",
+    "foto": "",
     "slug": "en-waar-de-ster-bleef-stille-staan-2026-12-19"
   },
   {
@@ -585,17 +592,19 @@ window.AGENDA = [
     "place": "Strokapel",
     "artist": "En waar de ster bleef stille staan",
     "kind": "Kerstvertelling, Folkwaarts",
+    "sites": [
+      "Merodefestival"
+    ],
+    "reeks": "Folkwaarts",
     "price": "",
     "tickets": "https://pierrot.io/wesp-vzw/eldr",
+    "volzet": true,
     "info": "",
-    "text": "Een verhaal van Felix Timmermans, verteld door Reineke Van Hooreweghe, met een 15-koppig orkest onder leiding van Toon Van Mierlo. Drie schooiers trekken als driekoningen van deur tot deur door het winterse Kempenlandschap: een muzikale vertelling over armoede, schuld en genade, sober en akoestisch.",
     "sub": "Een kerstvertelling naar Felix Timmermans",
     "origin": "",
-    "foto": "",
-    "videos": [
-      "https://www.youtube.com/watch?v=OBTDxec_tQg"
-    ],
-    "spotify": [],
+    "text": "Een verhaal van Felix Timmermans, verteld door Reineke Van Hooreweghe, met een 15-koppig orkest onder leiding van Toon Van Mierlo. Drie schooiers trekken als driekoningen van deur tot deur door het winterse Kempenlandschap: een muzikale vertelling over armoede, schuld en genade, sober en akoestisch.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -618,13 +627,12 @@ window.AGENDA = [
         "html": "<em>Een organisatie van Merodefestival, Folkmjusic vzw, Stamineeke Webbekom, Westelfolk, Dafodil en Celtic Art Gallery Ham, in het kader van Folkwaarts, met ondersteuning van cultuur en erfgoed de Merode.</em>"
       }
     ],
-    "sites": [
-      "Merodefestival"
+    "videos": [
+      "https://www.youtube.com/watch?v=OBTDxec_tQg"
     ],
-    "reeks": "Folkwaarts",
-    "adres": "",
-    "duur": "",
-    "volzet": true,
+    "spotify": [],
+    "webadres": "",
+    "foto": "",
     "slug": "en-waar-de-ster-bleef-stille-staan-2026-12-20"
   },
   {
@@ -634,18 +642,17 @@ window.AGENDA = [
     "place": "Sint-Luciakerk",
     "artist": "Aram: Shahab Azinmehr, Derya Türkan & Robbe Kieckens",
     "kind": "Kerkconcert",
+    "sites": [],
+    "reeks": "",
     "price": "€ 22",
     "tickets": "https://wesp-vzw.pierrot.io/",
+    "volzet": false,
     "info": "https://www.merodefestival.be/blog/aram-shahab-azinmehr-iran-derya-turkan-tur-robbe-kieckens",
-    "text": "In dit project komen Midden-Oosterse en Europese klanken samen. Met kemençe, zang, andere snaarinstrumenten en percussie ontstaat een gelaagde dialoog tussen traditie en vrije interpretatie. De musici zoeken naar gemeenschappelijke lijnen in hun muzikale achtergrond. Een concert dat bruggen slaat tussen verschillende werelden.",
-    "foto": "img/band/aram.jpg",
     "sub": "Tussen oost en west",
     "origin": "",
-    "slug": "aram-2027-01-09",
-    "videos": [
-      "https://www.youtube.com/watch?v=SbaXN03F1Bo"
-    ],
-    "spotify": [],
+    "text": "In dit project komen Midden-Oosterse en Europese klanken samen. Met kemençe, zang, andere snaarinstrumenten en percussie ontstaat een gelaagde dialoog tussen traditie en vrije interpretatie. De musici zoeken naar gemeenschappelijke lijnen in hun muzikale achtergrond. Een concert dat bruggen slaat tussen verschillende werelden.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -653,7 +660,7 @@ window.AGENDA = [
       },
       {
         "type": "p",
-        "html": "Shahab Azinmehr studeerde oorspronkelijk restauratie van historische monumenten in Teheran, voor hij zich volledig op muziek stortte. Hij leerde tar en setar bij meesters als Mohammad Musavi en Dariush Talâ'i, en toert internationaal mee met het Orpheus XXI-ensemble onder leiding van Jordi Savall — al is het net zo goed zijn stem waarmee hij het publiek raakt. Robbe Kieckens, percussionist op tombak, daf en bendir, ontmoette hem enkele jaren geleden — een klik die volgens beiden \"even fijn is op muzikaal als op persoonlijk vlak.\""
+        "html": "Shahab Azinmehr studeerde oorspronkelijk restauratie van historische monumenten in Teheran, voor hij zich volledig op muziek stortte. Hij leerde tar en setar bij meesters als Mohammad Musavi en Dariush Talâ'i, en toert internationaal mee met het Orpheus XXI-ensemble onder leiding van Jordi Savall — al is het net zo goed zijn stem waarmee hij het publiek raakt. Robbe Kieckens, percussionist op tombak, daf en bendir, ontmoette hem enkele jaren geleden — een klik die volgens beiden &quot;even fijn is op muzikaal als op persoonlijk vlak.&quot;"
       },
       {
         "type": "p",
@@ -664,11 +671,40 @@ window.AGENDA = [
         "html": "Drie muzikanten, drie tradities — Perzisch, Turks en Vlaams — die elkaar niet imiteren, maar via poëzie, melodie en percussie naar een gemeenschappelijke taal zoeken."
       }
     ],
-    "sites": [],
-    "reeks": "",
+    "videos": [
+      "https://www.youtube.com/watch?v=SbaXN03F1Bo"
+    ],
+    "spotify": [],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db81258fd6ddd3b41cace3.jpg",
+    "slug": "aram-2027-01-09"
+  },
+  {
+    "start": "2027-01-12",
+    "end": "2027-01-14",
+    "time": "",
+    "village": "Holsbeek",
+    "place": "Buurthuis",
+    "artist": "Kindersessies met Rémi Decker (Zigoto)",
+    "kind": "Kindersessie, Holsbeek Sessies",
+    "sites": [
+      "Holsbeek Sessies"
+    ],
+    "reeks": "Holsbeek Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.holsbeeksessies.be",
+    "sub": "",
+    "origin": "",
+    "text": "",
     "adres": "",
     "duur": "",
-    "fotoAlt": "Aram: Shahab Azinmehr, Derya Türkan en Robbe Kieckens in een park"
+    "lang": [],
+    "videos": [],
+    "spotify": [],
+    "webadres": "",
+    "foto": ""
   },
   {
     "start": "2027-01-14",
@@ -677,22 +713,24 @@ window.AGENDA = [
     "place": "Buurthuis",
     "artist": "Robb Johnson",
     "kind": "Sessie, Holsbeek Sessies",
-    "price": "",
-    "tickets": "",
-    "info": "",
-    "text": "",
-    "sub": "",
-    "origin": "",
-    "foto": "",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "Holsbeek Sessies"
     ],
     "reeks": "Holsbeek Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.holsbeeksessies.be",
+    "sub": "",
+    "origin": "",
+    "text": "",
     "adres": "",
-    "duur": ""
+    "duur": "",
+    "lang": [],
+    "videos": [],
+    "spotify": [],
+    "webadres": "",
+    "foto": ""
   },
   {
     "start": "2027-01-24",
@@ -701,47 +739,54 @@ window.AGENDA = [
     "place": "Kerk",
     "artist": "Bao Sissoko & Haroun Iqbal",
     "kind": "Kerkconcert, Holsbeek Sessies",
-    "price": "",
-    "tickets": "",
-    "info": "",
-    "text": "",
-    "sub": "",
-    "origin": "",
-    "foto": "",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "Holsbeek Sessies"
     ],
     "reeks": "Holsbeek Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.holsbeeksessies.be",
+    "sub": "",
+    "origin": "",
+    "text": "",
     "adres": "",
-    "duur": ""
+    "duur": "",
+    "lang": [],
+    "videos": [],
+    "spotify": [],
+    "webadres": "",
+    "foto": ""
   },
   {
     "start": "2027-01-28",
     "time": "",
     "village": "Sint-Truiden",
-    "place": "",
+    "place": "Academiezaal ",
     "artist": "The Weaving",
     "kind": "Concert, Limburg Sessies",
-    "price": "",
-    "tickets": "",
-    "info": "",
-    "text": "",
-    "sub": "",
-    "origin": "",
-    "foto": "img/band/the-weaving.jpg",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "Limburg Sessies"
     ],
     "reeks": "Limburg Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.limburgsessies.be",
+    "sub": "Tussen County Kerry en Yorkshire",
+    "origin": "irl-eng",
+    "text": "Het jonge, talentvolle trio The Weaving bewijst dat Ierse en Engelse folk nog springlevend is. Méabh Begley (accordeon, zang), Owen Spafford (viool) en Cait Ni Riain (piano, zang) brengen muziek met wortels in Kerry, Tipperary en Yorkshire. Ze spelen dansmelodieën en liederen die ze vanuit hun eigen achtergrond benaderen, met ruimte voor samenspel en meerstemmigheid.",
     "adres": "",
     "duur": "",
-    "fotoAlt": "The Weaving in een Iers landschap"
+    "lang": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=HYXwKIw4FjY"
+    ],
+    "spotify": [
+      "https://open.spotify.com/artist/19uXXk4wreh3f02OcWZyb5"
+    ],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db81268146cbea23d42b9b.jpg"
   },
   {
     "start": "2027-01-30",
@@ -750,20 +795,17 @@ window.AGENDA = [
     "place": "Sint-Pieterskerk",
     "artist": "The Weaving",
     "kind": "Kerkconcert",
+    "sites": [],
+    "reeks": "",
     "price": "€ 22",
     "tickets": "https://wesp-vzw.pierrot.io/",
+    "volzet": false,
     "info": "https://www.merodefestival.be/blog/the-weaving-irl-uk",
-    "text": "Het jonge, talentvolle trio The Weaving bewijst dat Ierse en Engelse folk nog springlevend is. Méabh Begley (accordeon, zang), Owen Spafford (viool) en Cait Ni Riain (piano, zang) brengen muziek met wortels in Kerry, Tipperary en Yorkshire. Ze spelen dansmelodieën en liederen die ze vanuit hun eigen achtergrond benaderen, met ruimte voor samenspel en meerstemmigheid.",
-    "foto": "img/band/the-weaving.jpg",
     "sub": "Tussen County Kerry en Yorkshire",
     "origin": "irl-eng",
-    "slug": "the-weaving-2027-01-30",
-    "videos": [
-      "https://www.youtube.com/watch?v=HYXwKIw4FjY"
-    ],
-    "spotify": [
-      "https://open.spotify.com/artist/19uXXk4wreh3f02OcWZyb5"
-    ],
+    "text": "Het jonge, talentvolle trio The Weaving bewijst dat Ierse en Engelse folk nog springlevend is. Méabh Begley (accordeon, zang), Owen Spafford (viool) en Cait Ni Riain (piano, zang) brengen muziek met wortels in Kerry, Tipperary en Yorkshire. Ze spelen dansmelodieën en liederen die ze vanuit hun eigen achtergrond benaderen, met ruimte voor samenspel en meerstemmigheid.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -774,11 +816,45 @@ window.AGENDA = [
         "html": "Hun tweede album, <em>Dlúth agus Inneach / Warp &amp; Weft</em> (uitgebracht februari 2026), verwijst met zijn titel naar het weefproces zelf: kettingdraad en inslag die samen een stof vormen. Precies zo werken zij drie tradities — Kerry, Tipperary, Yorkshire — tot één geheel."
       }
     ],
-    "sites": [],
-    "reeks": "",
+    "videos": [
+      "https://www.youtube.com/watch?v=HYXwKIw4FjY"
+    ],
+    "spotify": [
+      "https://open.spotify.com/artist/19uXXk4wreh3f02OcWZyb5"
+    ],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db81f78e40d7de08f22749.jpg",
+    "slug": "the-weaving-2027-01-30"
+  },
+  {
+    "start": "2027-02-19",
+    "time": "",
+    "village": "Herkenrode",
+    "place": "Abdijsite Herkenrode",
+    "artist": "La Mal Coiffée",
+    "kind": "Concert, Limburg Sessies",
+    "sites": [
+      "Limburg Sessies"
+    ],
+    "reeks": "Limburg Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.limburgsessies.be",
+    "sub": "Zuid-Franse stemmenstorm",
+    "origin": "fr",
+    "text": "La Mal Coiffée is een vocaal kwartet uit Zuid-Frankrijk dat zich toelegt op Occitaanse polyfonie. De groep combineert meerstemmige zang met percussie en werkt met teksten uit de regionale traditie. Hun repertoire verbindt historische bronnen met nieuwe composities. Live ligt de nadruk op ritme, taal en collectieve zang.",
     "adres": "",
     "duur": "",
-    "fotoAlt": "The Weaving in een Iers landschap"
+    "lang": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=WrZislKYl-k"
+    ],
+    "spotify": [
+      "https://open.spotify.com/artist/31YQrpDSa3uuLecHuTrZOq"
+    ],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db8169a089ecfd79a1dbb0.jpg"
   },
   {
     "start": "2027-02-20",
@@ -787,20 +863,17 @@ window.AGENDA = [
     "place": "Sint-Pieterskerk",
     "artist": "La Mal Coiffée",
     "kind": "Kerkconcert",
+    "sites": [],
+    "reeks": "",
     "price": "€ 22",
     "tickets": "https://wesp-vzw.pierrot.io/",
+    "volzet": false,
     "info": "https://www.merodefestival.be/blog/la-mal-coiffee-fr",
-    "text": "La Mal Coiffée is een vocaal kwartet uit Zuid-Frankrijk dat zich toelegt op Occitaanse polyfonie. De groep combineert meerstemmige zang met percussie en werkt met teksten uit de regionale traditie. Hun repertoire verbindt historische bronnen met nieuwe composities. Live ligt de nadruk op ritme, taal en collectieve zang.",
-    "foto": "img/band/la-mal-coiffee.jpg",
     "sub": "Zuid-Franse stemmenstorm",
     "origin": "fr",
-    "slug": "la-mal-coiffee-2027-02-20",
-    "videos": [
-      "https://www.youtube.com/watch?v=WrZislKYl-k"
-    ],
-    "spotify": [
-      "https://open.spotify.com/artist/31YQrpDSa3uuLecHuTrZOq"
-    ],
+    "text": "La Mal Coiffée is een vocaal kwartet uit Zuid-Frankrijk dat zich toelegt op Occitaanse polyfonie. De groep combineert meerstemmige zang met percussie en werkt met teksten uit de regionale traditie. Hun repertoire verbindt historische bronnen met nieuwe composities. Live ligt de nadruk op ritme, taal en collectieve zang.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -808,42 +881,48 @@ window.AGENDA = [
       },
       {
         "type": "p",
-        "html": "Hun recentste albums <em>Roge</em> en <em>Rojas</em> gaan over verzet, ongehoorzaamheid en volksgeschiedenis van de Languedoc; de Franse pers omschreef hun muziek als \"un coup de gueule\" — letterlijk een schreeuw uit de keel. Dit is geen nostalgische folklore, maar een levende taal die weigert te verdwijnen."
+        "html": "Hun recentste albums <em>Roge</em> en <em>Rojas</em> gaan over verzet, ongehoorzaamheid en volksgeschiedenis van de Languedoc; de Franse pers omschreef hun muziek als &quot;un coup de gueule&quot; — letterlijk een schreeuw uit de keel. Dit is geen nostalgische folklore, maar een levende taal die weigert te verdwijnen."
       },
       {
         "type": "quote",
-        "html": "\"La Mal Coiffée spreekt voor alle onderdrukte culturen. Krachtig.\" — Anne Berthod, Télérama"
+        "html": "&quot;La Mal Coiffée spreekt voor alle onderdrukte culturen. Krachtig.&quot; — Anne Berthod, Télérama"
       }
     ],
-    "sites": [],
-    "reeks": "",
-    "adres": "",
-    "duur": "",
-    "fotoAlt": "De vier zangeressen van La Mal Coiffée"
+    "videos": [
+      "https://www.youtube.com/watch?v=WrZislKYl-k"
+    ],
+    "spotify": [
+      "https://open.spotify.com/artist/31YQrpDSa3uuLecHuTrZOq"
+    ],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db818496b1cf1a87e54e8c.jpg",
+    "slug": "la-mal-coiffee-2027-02-20"
   },
   {
     "start": "2027-03-03",
     "time": "",
     "village": "Sint-Truiden",
-    "place": "",
+    "place": "Academiezaal",
     "artist": "Troissoeur",
     "kind": "Concert, Limburg Sessies",
-    "price": "",
-    "tickets": "",
-    "info": "",
-    "text": "",
-    "sub": "",
-    "origin": "",
-    "foto": "",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "Limburg Sessies"
     ],
     "reeks": "Limburg Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.limburgsessies.be",
+    "sub": "",
+    "origin": "",
+    "text": "",
     "adres": "",
-    "duur": ""
+    "duur": "",
+    "lang": [],
+    "videos": [],
+    "spotify": [],
+    "webadres": "",
+    "foto": ""
   },
   {
     "start": "2027-03-04",
@@ -852,22 +931,24 @@ window.AGENDA = [
     "place": "Buurthuis",
     "artist": "Vera Coomans & Thomas Devos",
     "kind": "Sessie, Holsbeek Sessies",
-    "price": "",
-    "tickets": "",
-    "info": "",
-    "text": "",
-    "sub": "",
-    "origin": "",
-    "foto": "",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "Holsbeek Sessies"
     ],
     "reeks": "Holsbeek Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.holsbeeksessies.be",
+    "sub": "",
+    "origin": "",
+    "text": "",
     "adres": "",
-    "duur": ""
+    "duur": "",
+    "lang": [],
+    "videos": [],
+    "spotify": [],
+    "webadres": "",
+    "foto": ""
   },
   {
     "start": "2027-03-05",
@@ -876,22 +957,24 @@ window.AGENDA = [
     "place": "Buurthuis",
     "artist": "John Blek",
     "kind": "Sessie, Holsbeek Sessies",
-    "price": "",
-    "tickets": "",
-    "info": "https://www.holsbeeksessies.be/john",
-    "text": "",
-    "sub": "",
-    "origin": "",
-    "foto": "",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "Holsbeek Sessies"
     ],
     "reeks": "Holsbeek Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "https://www.holsbeeksessies.be/john",
+    "sub": "",
+    "origin": "irl",
+    "text": "John Blek is een Ierse singer-songwriter uit Cork. Hij schrijft poëtische songs, gebaseerd op de Ierse, Engelse en Amerikaanse traditie, die hij solo vertolkt met zijn prachtige stem en virtuoze gitaarspel. Breekbaar en sober, maar tegelijk krachtig en melodieus.",
     "adres": "",
-    "duur": ""
+    "duur": "",
+    "lang": [],
+    "videos": [],
+    "spotify": [],
+    "webadres": "",
+    "foto": ""
   },
   {
     "start": "2027-03-20",
@@ -900,27 +983,17 @@ window.AGENDA = [
     "place": "O.L.V. Onbevlekt Ontvangen-kerk",
     "artist": "Laura Cortese’s Acoustic Evening IV, met Eliza Carthy, Jake Blount & Sarah Kate Morgan",
     "kind": "Kerkconcert",
+    "sites": [],
+    "reeks": "",
     "price": "€ 22",
     "tickets": "https://wesp-vzw.pierrot.io/",
+    "volzet": false,
     "info": "https://www.merodefestival.be/blog/laura-cortese-s-acoustic-evening-iv-met-eliza-carthy-jake-blount-sarah",
-    "text": "Voor deze vierde editie van Acoustic Evening nodigt Laura Cortese drie uitgesproken stemmen uit de internationale folk uit: Eliza Carthy, Jake Blount en Sarah Kate Morgan. Samen brengen ze een programma waarin traditie en eigen werk elkaar afwisselen, gedragen door zang en snaarinstrumenten. De focus ligt op het lied, meerstemmigheid en de directe kracht van akoestisch samenspel. Een avond waarin Britse en Amerikaanse folk elkaar ontmoeten in een intieme setting.",
-    "foto": "img/band/laura-cortese.jpg",
     "sub": "Folk in akoestische ontmoeting",
     "origin": "usa-eng-uk",
-    "slug": "laura-corteses-acoustic-evening-iv-2027-03-20",
-    "videos": [
-      "https://www.youtube.com/watch?v=CPgwtgtKuK0",
-      "https://www.youtube.com/watch?v=sr5hJDlcRsQ",
-      "https://www.youtube.com/watch?v=ZaP7c7bkvJg",
-      "https://www.youtube.com/watch?v=uMPFEXq1eSU",
-      "https://www.youtube.com/watch?v=fSVS84eZ2Lg"
-    ],
-    "spotify": [
-      "https://open.spotify.com/artist/5T5BMVZGSvhRXSx3alNp2n",
-      "https://open.spotify.com/artist/3ZSRiAJKs42ymp2KYA80Qh",
-      "https://open.spotify.com/artist/63yfJDmaBbifNzvWUUdpv1",
-      "https://open.spotify.com/artist/4UCdRwhNwF470fGAfVfNQa"
-    ],
+    "text": "Voor deze vierde editie van Acoustic Evening nodigt Laura Cortese drie uitgesproken stemmen uit de internationale folk uit: Eliza Carthy, Jake Blount en Sarah Kate Morgan. Samen brengen ze een programma waarin traditie en eigen werk elkaar afwisselen, gedragen door zang en snaarinstrumenten. De focus ligt op het lied, meerstemmigheid en de directe kracht van akoestisch samenspel. Een avond waarin Britse en Amerikaanse folk elkaar ontmoeten in een intieme setting.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -959,27 +1032,44 @@ window.AGENDA = [
         "html": "<strong>Sarah Kate Morgan</strong> werd geboren in Tennessee en groeide op met de klanken van de Appalachian dulcimer die haar grootvader bouwde. Op dat instrument ontwikkelde ze een frisse speelstijl, zowel om haar zang te begeleiden als om tunes te spelen. Ze woont in Hindman, Kentucky, en zet zich in voor de levende traditie van haar regio: square dancing, samenzang en muziekworkshops."
       }
     ],
-    "sites": [],
-    "reeks": "",
-    "adres": "",
-    "duur": "",
-    "fotoAlt": "Laura Cortese’s Acoustic Evening IV"
+    "videos": [
+      "https://www.youtube.com/watch?v=CPgwtgtKuK0",
+      "https://www.youtube.com/watch?v=sr5hJDlcRsQ",
+      "https://www.youtube.com/watch?v=ZaP7c7bkvJg",
+      "https://www.youtube.com/watch?v=uMPFEXq1eSU",
+      "https://www.youtube.com/watch?v=fSVS84eZ2Lg"
+    ],
+    "spotify": [
+      "https://open.spotify.com/artist/5T5BMVZGSvhRXSx3alNp2n",
+      "https://open.spotify.com/artist/3ZSRiAJKs42ymp2KYA80Qh",
+      "https://open.spotify.com/artist/63yfJDmaBbifNzvWUUdpv1",
+      "https://open.spotify.com/artist/4UCdRwhNwF470fGAfVfNQa"
+    ],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db817c9c87e2a5913157b9.jpg",
+    "slug": "laura-corteses-acoustic-evening-iv-2027-03-20"
   },
   {
-    "start": "2027-04-17",
-    "time": "20.00 uur",
-    "village": "Langdorp",
-    "place": "Sint-Pieterskerk",
+    "start": "2027-04-16",
+    "time": "",
+    "village": "Herkenrode",
+    "place": "Abdijsite Herkenrode",
     "artist": "Livia Giaffreda & Simone Frezza, Katerina Douka & Stamatis Pasopoulos",
-    "kind": "Kerkconcert",
-    "price": "€ 22",
-    "tickets": "https://wesp-vzw.pierrot.io/",
-    "info": "https://www.merodefestival.be/blog/livia",
-    "text": "Livia Giaffreda is zangeres en percussioniste met een focus op Italiaanse en mediterrane tradities. Ze werkt met stem en frame drum en brengt zowel traditionele liederen als eigen interpretaties. Haar repertoire vertrekt vanuit orale tradities en krijgt een hedendaagse invulling, ondersteund door accordeonist Simone Frezza.\n\nKaterina Douka & Stamatis Pasopoulos brengen een programma met Grieks repertoire voor zang en accordeon. Centraal staat de rebetiko, de stedelijke volksmuziek die ontstond in de havens van het Griekse schiereiland. In deze muziek klinken thema’s als migratie, verlies en verlangen door. Het duo benadert dit repertoire met respect voor de traditie en met aandacht voor tekst, melodie en samenspel.",
-    "foto": "img/band/livia-katerina.jpg",
+    "kind": "Concert, Limburg Sessies",
+    "sites": [
+      "Limburg Sessies"
+    ],
+    "reeks": "Limburg Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.limburgsessies.be",
     "sub": "Van Italië tot in Griekenland",
     "origin": "ita-gr",
-    "slug": "livia-giaffreda-simone-frezza-2027-04-17",
+    "text": "Livia Giaffreda is zangeres en percussioniste met een focus op Italiaanse en mediterrane tradities, ondersteund op accordeon. Katerina Douka & Stamatis Pasopoulos brengen een programma met Grieks repertoire voor zang en accordeon, met de rebetiko als middelpunt: de stedelijke volksmuziek die ontstond in de havens van het Griekse schiereiland.",
+    "adres": "",
+    "duur": "",
+    "lang": [],
     "videos": [
       "https://www.youtube.com/watch?v=YJyYm2zCgbY",
       "https://www.youtube.com/watch?v=fYc09oxXtHs"
@@ -988,6 +1078,27 @@ window.AGENDA = [
       "https://open.spotify.com/artist/15nwnIo0usKUODezBdcBhz",
       "https://open.spotify.com/artist/1687KDBhdbPnWerLxMQbVE"
     ],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db81e391eccfaffc69e5a6.jpg"
+  },
+  {
+    "start": "2027-04-17",
+    "time": "20.00 uur",
+    "village": "Langdorp",
+    "place": "Sint-Pieterskerk",
+    "artist": "Livia Giaffreda & Simone Frezza, Katerina Douka & Stamatis Pasopoulos",
+    "kind": "Kerkconcert",
+    "sites": [],
+    "reeks": "",
+    "price": "€ 22",
+    "tickets": "https://wesp-vzw.pierrot.io/",
+    "volzet": false,
+    "info": "https://www.merodefestival.be/blog/livia",
+    "sub": "Van Italië tot in Griekenland",
+    "origin": "ita-gr",
+    "text": "Livia Giaffreda is zangeres en percussioniste met een focus op Italiaanse en mediterrane tradities. Ze werkt met stem en frame drum en brengt zowel traditionele liederen als eigen interpretaties. Haar repertoire vertrekt vanuit orale tradities en krijgt een hedendaagse invulling, ondersteund door accordeonist Simone Frezza.\n\nKaterina Douka & Stamatis Pasopoulos brengen een programma met Grieks repertoire voor zang en accordeon. Centraal staat de rebetiko, de stedelijke volksmuziek die ontstond in de havens van het Griekse schiereiland. In deze muziek klinken thema’s als migratie, verlies en verlangen door. Het duo benadert dit repertoire met respect voor de traditie en met aandacht voor tekst, melodie en samenspel.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -998,11 +1109,17 @@ window.AGENDA = [
         "html": "Katerina Douka begon te zingen en dansen in een studentendansgroep in Thessaloniki, voor ze zich in 2007 volledig op rebetiko stortte — de stedelijke volksmuziek die ontstond in de havenwijken van Griekenland, doordrongen van migratie en verlangen. Sinds 2010 vormt ze met Stamatis Pasopoulos het duo <em>ραδυόφωνο</em> (radiofoon), gewijd aan liederen uit de jaren 1930: twintig jaar muzikaal partnerschap."
       }
     ],
-    "sites": [],
-    "reeks": "",
-    "adres": "",
-    "duur": "",
-    "fotoAlt": "Livia Giaffreda & Simone Frezza en Katerina Douka & Stamatis Pasopoulos"
+    "videos": [
+      "https://www.youtube.com/watch?v=YJyYm2zCgbY",
+      "https://www.youtube.com/watch?v=fYc09oxXtHs"
+    ],
+    "spotify": [
+      "https://open.spotify.com/artist/15nwnIo0usKUODezBdcBhz",
+      "https://open.spotify.com/artist/1687KDBhdbPnWerLxMQbVE"
+    ],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db817b8ad0f182f99978be.jpg",
+    "slug": "livia-giaffreda-simone-frezza-2027-04-17"
   },
   {
     "start": "2027-04-25",
@@ -1011,49 +1128,52 @@ window.AGENDA = [
     "place": "Kerk",
     "artist": "Liesbeth Devos & Gwen Cresens",
     "kind": "Kerkconcert, Holsbeek Sessies",
-    "price": "",
-    "tickets": "",
-    "info": "",
-    "text": "",
-    "sub": "",
-    "origin": "",
-    "foto": "",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "Holsbeek Sessies"
     ],
     "reeks": "Holsbeek Sessies",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.holsbeeksessies.be",
+    "sub": "",
+    "origin": "",
+    "text": "",
     "adres": "",
-    "duur": ""
+    "duur": "",
+    "lang": [],
+    "videos": [],
+    "spotify": [],
+    "webadres": "",
+    "foto": ""
   },
   {
     "start": "2027-05-05",
+    "end": "2027-05-09",
     "time": "",
     "village": "Diest en de Merode",
     "place": "Citadel Diest en wandelroutes",
     "artist": "Merodefestival 2027",
     "kind": "Festival, Merodefestival",
-    "price": "",
-    "tickets": "",
-    "info": "",
-    "text": "Tijdens het Hemelvaartweekend wandel je overdag met muzikanten door de mooiste natuurgebieden van de Merode. ’s Avonds speelt internationale folk op de Citadel van Diest. Het volledige programma volgt in het voorjaar.",
-    "sub": "Het Hemelvaartweekend in de Merode",
-    "origin": "",
-    "foto": "",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "Merodefestival"
     ],
     "reeks": "Merodefestival",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "",
+    "sub": "Het Hemelvaartweekend in de Merode",
+    "origin": "",
+    "text": "Tijdens het Hemelvaartweekend wandel je overdag met muzikanten door de mooiste natuurgebieden van de Merode. ’s Avonds speelt internationale folk op de Citadel van Diest. Het volledige programma volgt in het voorjaar.",
     "adres": "",
     "duur": "",
-    "end": "2027-05-09",
-    "slug": "merodefestival-2027",
-    "webadres": "merodefestival-2027"
+    "lang": [],
+    "videos": [],
+    "spotify": [],
+    "webadres": "merodefestival-2027",
+    "foto": "",
+    "slug": "merodefestival-2027"
   },
   {
     "start": "2027-06-19",
@@ -1062,20 +1182,17 @@ window.AGENDA = [
     "place": "O.L.V. Onbevlekt Ontvangen-kerk",
     "artist": "Sara Salvérius & blazerskwartet: Adem",
     "kind": "Kerkconcert",
+    "sites": [],
+    "reeks": "",
     "price": "€ 22",
     "tickets": "https://wesp-vzw.pierrot.io/",
+    "volzet": false,
     "info": "https://www.merodefestival.be/blog/sara-salverius-en-blazerskwartet-adem",
-    "text": "Met Adem brengt Sara Salvérius haar accordeon samen met een kwartet blazers, elk met een eigen achtergrond en klankwereld. Het project vertrekt vanuit de gedeelde ademhaling als bron van klank en muzikale dialoog.\n\nSamen verkennen ze de wind die door hun instrumenten raast, soms op de weemoedige toon van een gefluisterd laatste woord, soms met het uitbundige karakter van een fanfare. Tussen compositie en improvisatie vieren ze het leven, het afscheid en de dood, in een zoektocht naar de cadans die elk leven ritme geeft. Want alles is adem.",
-    "foto": "img/band/sara-salverius.jpg",
     "sub": "Nieuwe klankkleuren",
     "origin": "",
-    "slug": "sara-salverius-blazerskwartet-2027-06-19",
-    "videos": [
-      "https://www.youtube.com/watch?v=cs3k93iEG8w"
-    ],
-    "spotify": [
-      "https://open.spotify.com/artist/47NEOWW0cCwroElf3j4FR9"
-    ],
+    "text": "Met Adem brengt Sara Salvérius haar accordeon samen met een kwartet blazers, elk met een eigen achtergrond en klankwereld. Het project vertrekt vanuit de gedeelde ademhaling als bron van klank en muzikale dialoog.\n\nSamen verkennen ze de wind die door hun instrumenten raast, soms op de weemoedige toon van een gefluisterd laatste woord, soms met het uitbundige karakter van een fanfare. Tussen compositie en improvisatie vieren ze het leven, het afscheid en de dood, in een zoektocht naar de cadans die elk leven ritme geeft. Want alles is adem.",
+    "adres": "",
+    "duur": "",
     "lang": [
       {
         "type": "p",
@@ -1090,11 +1207,15 @@ window.AGENDA = [
         "html": "Sara Salvérius is een graag geziene gast op podia in binnen- en buitenland. Klara roemde haar debuutalbum als een van de opvallendste releases van het jaar. Sindsdien werd haar werk veelvuldig bekroond, onder meer met de Flanders Folk Award voor Beste Album in 2022 en voor Beste Live Band in 2025. Met <em>Verhalen zonder woorden</em> wonnen Sara Salvérius &amp; Jean-Philippe Poncin de publieksprijs van de Belgian Worldwide Music Awards in 2026."
       }
     ],
-    "sites": [],
-    "reeks": "",
-    "adres": "",
-    "duur": "",
-    "fotoAlt": "Sara Salvérius met het blazerskwartet"
+    "videos": [
+      "https://www.youtube.com/watch?v=cs3k93iEG8w"
+    ],
+    "spotify": [
+      "https://open.spotify.com/artist/47NEOWW0cCwroElf3j4FR9"
+    ],
+    "webadres": "",
+    "foto": "data/foto/40077c21f8db81feab75d31ac8e1fec4.jpg",
+    "slug": "sara-salverius-blazerskwartet-2027-06-19"
   },
   {
     "start": "2027-07-04",
@@ -1103,21 +1224,23 @@ window.AGENDA = [
     "place": "Abdij van Park",
     "artist": "PARK Festival 2027",
     "kind": "Festival, PARK Festival",
-    "price": "",
-    "tickets": "",
-    "info": "",
-    "text": "Een dag folk en wereldmuziek op drie podia in en rond de Abdij van Park.",
-    "sub": "Folk en wereldmuziek in de Abdij van Park",
-    "origin": "",
-    "foto": "",
-    "videos": [],
-    "spotify": [],
-    "lang": [],
     "sites": [
       "WESP"
     ],
     "reeks": "PARK Festival",
+    "price": "",
+    "tickets": "",
+    "volzet": false,
+    "info": "www.abdijvanpark.be/park",
+    "sub": "Folk en wereldmuziek in de Abdij van Park",
+    "origin": "",
+    "text": "Een dag folk en wereldmuziek op drie podia in en rond de Abdij van Park.",
     "adres": "",
-    "duur": ""
+    "duur": "",
+    "lang": [],
+    "videos": [],
+    "spotify": [],
+    "webadres": "",
+    "foto": ""
   }
 ];

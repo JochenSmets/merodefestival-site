@@ -82,7 +82,7 @@ window.PRODUCTIES = [
       ]
     ],
     "knop": "Vraag een optie",
-    "foto": "img/jong.jpg"
+    "foto": ""
   },
   {
     "titel": "Aram",
