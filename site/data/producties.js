@@ -64,12 +64,12 @@ window.PRODUCTIES = [
     ],
     "videos": [
       {
-        "url": "https://vimeo.com/1077103295",
-        "titel": "Live in de kerk van Blauberg"
+        "url": "https://vimeo.com/1231680612/2276477c4b",
+        "titel": "Kwartet live (Huiskamerkuren Zomergem & De Krop Kampenhout)"
       },
       {
-        "url": "https://vimeo.com/andriesboone/tourfirstsnippets",
-        "titel": "Eerste beelden van de tournee"
+        "url": "https://vimeo.com/1077103295",
+        "titel": "Live in de kerk van Blauberg"
       }
     ],
     "spotify": [
@@ -78,6 +78,7 @@ window.PRODUCTIES = [
       "https://open.spotify.com/track/4cjnwBOvwQ1WGYzMeTaroU",
       "https://open.spotify.com/track/7cLgvaseVIRSGY4EPehpw8"
     ],
+    "soundcloud": [],
     "foto": "data/foto/40077c21f8db819fbc38f8b8aa48730b.jpg",
     "uitsnede": "boven"
   },
@@ -159,6 +160,7 @@ window.PRODUCTIES = [
       }
     ],
     "spotify": [],
+    "soundcloud": [],
     "foto": "data/foto/40277c21f8db81729a07fd13517c7eb2.jpg",
     "uitsnede": "boven"
   },
@@ -247,7 +249,251 @@ window.PRODUCTIES = [
       }
     ],
     "spotify": [],
+    "soundcloud": [],
     "foto": "data/foto/40277c21f8db81289845ea3bb5931bc2.jpg",
+    "uitsnede": ""
+  },
+  {
+    "titel": "Derroll 100",
+    "soort": "Playlist",
+    "label": "Playlist, 2025",
+    "makers": "Acht songschrijvers over Derroll Adams, geproducet door Laura Cortese",
+    "tekst": "Op 27 november 2025 werd banjoman Derroll Adams honderd. Laura Cortese vroeg acht songschrijvers uit Europa en Noord-Amerika om elk een nieuw nummer te maken vanuit zijn leven en zijn liedjes, van Meskerem Mees en Kaia Kater tot Rowan Rheingans en Johannes Wannyn.",
+    "extra": "Bij Derroll 100 verscheen ook het boek Derroll Adams. The Streetwise Banjo van Marc Vandemoortele. Meer op derroll100.be.",
+    "feiten": [
+      [
+        "Bezetting",
+        "Songschrijvers: Cara Luft, Rachel Baiman, Johannes Wannyn, Meskerem Mees, Rowan Rheingans, Laura Cortese, Björn Eriksson en Kaia Kater.\nMuzikanten: Gertjan Van Hellemont (gitaren, piano), Jan Dhaene (drums), Trui Amerlinck (bas, cello), Laura Cortese (viool), Bart Vervaeck (pedal steel).\nProductie: Laura Cortese. Mix en mastering: Jonas Everaert."
+      ],
+      [
+        "Vorm",
+        "Playlist, 8 nummers"
+      ],
+      [
+        "Periode",
+        "Verschenen op 27 november 2025"
+      ]
+    ],
+    "knop": "Beluister op Spotify",
+    "contact": "info@merodefestival.be",
+    "data": [],
+    "webadres": "derroll-100",
+    "lang": [
+      {
+        "type": "p",
+        "html": "In 2025 was het honderd jaar geleden dat de Amerikaanse folk- en countryzanger <strong>Derroll Adams</strong> (1925–2000) werd geboren. Vanaf de jaren vijftig bracht hij Amerikaanse muziek naar Europa, en naar Antwerpen en Brussel. Met zijn diepe stem en zachte banjoklank raakte hij mensen recht in het hart: niet door virtuositeit, maar door warmte, eerlijkheid en een vleugje melancholie. Hij inspireerde generaties muzikanten, van Donovan en Allan Taylor tot Wannes Van de Velde en Roland Van Campenhout."
+      },
+      {
+        "type": "p",
+        "html": "Voor <strong>Derroll 100</strong> verzamelde Laura Cortese acht songschrijvers die elk een nummer maakten vanuit Derroll. Ze vertrokken van zijn liedjes, zijn banjospel of zijn levensverhaal, van Portland via de Beat-scene in Californië en Expo ’58 tot de Brusselse cafés en De Muze in Antwerpen. De nummers werden in België opgenomen met een vaste band en verschenen eerst als singles, en op 27 november 2025, Derrolls honderdste verjaardag, als volledige playlist."
+      },
+      {
+        "type": "h",
+        "html": "De nummers"
+      },
+      {
+        "type": "li",
+        "html": "<strong>The Rock</strong> — Meskerem Mees"
+      },
+      {
+        "type": "li",
+        "html": "<strong>For Rebecca</strong> — Björn Eriksson"
+      },
+      {
+        "type": "li",
+        "html": "<strong>A Way to Pass the Time</strong> — Rowan Rheingans"
+      },
+      {
+        "type": "li",
+        "html": "<strong>Something Borrowed Nothing New</strong> — Laura Cortese"
+      },
+      {
+        "type": "li",
+        "html": "<strong>One Fire at a Time</strong> — Rachel Baiman"
+      },
+      {
+        "type": "li",
+        "html": "<strong>My Lonely Days Are Gone</strong> — Johannes Wannyn"
+      },
+      {
+        "type": "li",
+        "html": "<strong>Portland Town</strong> — Cara Luft"
+      },
+      {
+        "type": "li",
+        "html": "<strong>Numbers</strong> — Kaia Kater"
+      },
+      {
+        "type": "p",
+        "html": "<em>Derroll 100 is een project van Merodefestival en Awa vzw, met steun van de Vlaamse overheid, kunsten &amp; erfgoed.</em>"
+      }
+    ],
+    "videos": [],
+    "spotify": [
+      "https://open.spotify.com/playlist/370qczLJJBVviXKRwyvRHv"
+    ],
+    "soundcloud": [],
+    "foto": "data/foto/40377c21f8db8114bdcbfb2b5d836410.jpg",
+    "uitsnede": ""
+  },
+  {
+    "titel": "The Sound of the Abbey",
+    "soort": "Playlist",
+    "label": "Album, cd en vinyl",
+    "makers": "Dertien artiesten en ensembles in residentie in Abdij van Park",
+    "tekst": "Drie jaar muzikale residenties in Abdij van Park, vlak bij Leuven: dertien artiesten en ensembles creëerden elk een nummer voor een plek in de abdij, van de bibliotheek en de pandgang tot het hoogkoor, en namen het ter plaatse op.",
+    "extra": "Het album is te beluisteren op Spotify en te koop als cd en vinyl.",
+    "feiten": [
+      [
+        "Vorm",
+        "Album, 13 nummers, met een video bij elk nummer"
+      ]
+    ],
+    "knop": "Reserveer de cd of vinyl",
+    "contact": "info@merodefestival.be",
+    "data": [],
+    "webadres": "the-sound-of-the-abbey",
+    "lang": [
+      {
+        "type": "p",
+        "html": "Abdij van Park, een oase van rust vlak bij Leuven, draagt negenhonderd jaar geschiedenis mee. Haar bibliotheken, koor, pandgang, refter en abtskwartier hebben eeuwenlang gezang, stilte en verhalen opgeslagen. <strong>The Sound of the Abbey</strong> is het resultaat van drie jaar muzikale residenties in de abdij: dertien artiesten en ensembles creëerden evenveel nummers, opgenomen binnen haar muren."
+      },
+      {
+        "type": "h",
+        "html": "Traditie in vernieuwing, vernieuwing in traditie"
+      },
+      {
+        "type": "p",
+        "html": "De abdij inspireerde een breed palet aan muzikanten. Rénélius Ensemble, een Roma-ensemble uit Leuven, vindt in de abdijrefter het ritme van het kloosterleven. Naragonia Trio herwerkt een 17de-eeuwse toccata van Kapsberger in de abdijbibliotheek. 3’Ain laat de galm van de pandgang resoneren. Andries Boone, Sandra Van der Gucht en Anouk Sanczuk weven mandoline, klavecimbel en octaafviool samen in het hoogkoor van de abdijkerk."
+      },
+      {
+        "type": "h",
+        "html": "Meteen opgenomen"
+      },
+      {
+        "type": "p",
+        "html": "De muzikanten dachten na, speelden en stemden hun muziek af op de ruimte. De nummers werden op een spontane manier meteen ter plaatse opgenomen. Merodefestival selecteerde de muzikanten en organiseerde het project samen met Abdij van Park. Bert Huysentruyt nam de nummers op, mixte ze en maakte van elke song een video. Pieter De Wagter van Equus Mastering verzorgde de mastering, Maarten De Nayer van Skrew Studio het ontwerp."
+      },
+      {
+        "type": "p",
+        "html": "<em>The Sound of the Abbey is een samenwerking met Abdij van Park.</em>"
+      }
+    ],
+    "videos": [
+      {
+        "url": "https://youtu.be/axyjxZuWk-U",
+        "titel": "Rénélius Ensemble — Réfuge"
+      },
+      {
+        "url": "https://youtu.be/P-vpQeZgiTc",
+        "titel": "Aurélie Charneux — L’Ape Millenaria"
+      },
+      {
+        "url": "https://youtu.be/dCoPw-nzSTM",
+        "titel": "Charlotte Pelgen & Bipolar Bows — Poor Boy"
+      },
+      {
+        "url": "https://youtu.be/W41c-iJFfzs",
+        "titel": "3’Ain — Batich Ahmar (Park-versie)"
+      },
+      {
+        "url": "https://youtu.be/U36qzH0NSPg",
+        "titel": "Amber Haddad Trio — Tawazen"
+      },
+      {
+        "url": "https://youtu.be/tcoQypg2NcM",
+        "titel": "Naragonia Trio — Toccata van Kapsberger"
+      },
+      {
+        "url": "https://youtu.be/WCPpDZzBLSs",
+        "titel": "Kabál — Hanter-Bro"
+      },
+      {
+        "url": "https://youtu.be/9gh3p3Szs_8",
+        "titel": "Andries Boone, Sandra Van der Gucht & Anouk Sanczuk — Sacristia Invisibilis"
+      },
+      {
+        "url": "https://youtu.be/g1hUkhdyXsk",
+        "titel": "Myrddin & Stijn Kuppens — Zielespys"
+      },
+      {
+        "url": "https://youtu.be/5ZcEJCvcr4U",
+        "titel": "Triveni — Als de tuin de winter in slaap wiegt…"
+      },
+      {
+        "url": "https://youtu.be/lcQ9jSkhSwU",
+        "titel": "Hartwin & the Unfolders — Overfall"
+      },
+      {
+        "url": "https://youtu.be/xdijUKPdI3E",
+        "titel": "Enara Navaira — Thila"
+      },
+      {
+        "url": "https://youtu.be/7m4q5VEpHzk",
+        "titel": "Airboxes — Abdij 1"
+      }
+    ],
+    "spotify": [
+      "https://open.spotify.com/album/56VHc6R5ZEgncAgRFlj41s"
+    ],
+    "soundcloud": [],
+    "foto": "data/foto/40377c21f8db814b941ce6e673e317c8.jpg",
+    "uitsnede": ""
+  },
+  {
+    "titel": "Ode aan de Merode",
+    "soort": "Playlist",
+    "label": "Playlist, boek en cd",
+    "makers": "Negen artiesten en ensembles in residentie in de Merode",
+    "tekst": "Negen artiesten, duo’s en ensembles uit de Vlaamse folk- en wereldmuziekscene trokken op residentie in de Merode. Hun ontdekkingstocht langs natuur en erfgoed leverde vijftien nieuwe nummers op, telkens een ode aan de Merode.",
+    "extra": "Het boek en de cd zijn te koop bij de Merodelabelhouders, de toeristische diensten van de Merode en in de Standaard Boekhandel, of online.",
+    "feiten": [
+      [
+        "Vorm",
+        "Playlist en cd, 15 nummers, met een boek"
+      ]
+    ],
+    "knop": "Bestel het boek en de cd",
+    "contact": "info@merodefestival.be",
+    "data": [],
+    "webadres": "ode-aan-de-merode",
+    "lang": [
+      {
+        "type": "p",
+        "html": "Negen getalenteerde artiesten, duo’s en ensembles uit de Vlaamse folk- en wereldmuziekscene werden ontvangen in residentie in de Abdij van Averbode, in charmante vakantiewoningen en gastvrije B&amp;B’s. Hun ontdekkingstocht langs de natuur en het erfgoed van Landschapspark de Merode inspireerde hen tot vijftien prachtige muziekstukken, telkens een “Ode aan de Merode”. De verhalen en de wandelingen vind je in het boek, de muziek op de cd."
+      },
+      {
+        "type": "h",
+        "html": "Artiesten in residentie"
+      },
+      {
+        "type": "p",
+        "html": "Een sterke selectie folk- en wereldmuziekartiesten zakte af naar het Merodegebied, verbleef er in residentie en werkte aan nieuwe muziek. Zo ontstonden ‘de Merodewals’ van GFVP, ‘de Merode’ van Sara Salvérius, ‘Mer(en)ode’ van Laura Cortese en twaalf andere nummers, geïnspireerd op hun verblijf in het gebied."
+      },
+      {
+        "type": "h",
+        "html": "Wandelingen en gesprekken"
+      },
+      {
+        "type": "p",
+        "html": "In elk van de Merodegemeenten werd een wandeling uitgewerkt die natuur, erfgoed, ondernemerschap, stilte, rust en ruimte laat ervaren. Met de artiesten en met Merodemakers, zoals erfgoedhouders, ondernemers, domeinwachters en therapeuten, gingen we in gesprek over de muziek en over wat Landschapspark de Merode uniek maakt. Die gesprekken kregen een neerslag in het boek."
+      },
+      {
+        "type": "p",
+        "html": "<em>Ode aan de Merode is een samenwerking van Landschapspark de Merode en Merodefestival, met financiële steun van de Vlaamse overheid (kunsten &amp; erfgoed) en Sabam for Culture.</em>"
+      }
+    ],
+    "videos": [
+      {
+        "url": "https://youtu.be/FZ__Vy6LhIY",
+        "titel": "Ode aan de Merode"
+      }
+    ],
+    "spotify": [],
+    "soundcloud": [
+      "https://api.soundcloud.com/playlists/1967045592"
+    ],
+    "foto": "data/foto/40377c21f8db81038299f66ba1a9536f.jpg",
     "uitsnede": ""
   }
 ];
