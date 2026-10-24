@@ -270,7 +270,7 @@ list.innerHTML = upcoming.map((e,i) => {
       <p class="meta"><span class="soort">${esc(e.kind)}</span> · ${esc([e.place, e.village].filter(Boolean).join(", "))}${e.time ? " · " + esc(e.time) : ""}</p>
       <div class="links">
         ${e.text ? `<details><summary>Meer info</summary>${String(e.text).split(/\n\s*\n/).map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}
-        ${pagina ? `<a href="${esc(pagina)}${(e.videos || []).length || (e.spotify || []).length ? "#luister" : ""}">${(e.videos || []).length || (e.spotify || []).length ? "Kijk en luister" : "Meer over dit concert"}</a>` : ""}
+        ${pagina ? `<a href="${esc(pagina)}${(e.videos || []).length || (e.spotify || []).length || (e.soundcloud || []).length ? "#luister" : ""}">${(e.videos || []).length || (e.spotify || []).length || (e.soundcloud || []).length ? "Kijk en luister" : "Meer over dit concert"}</a>` : ""}
       </div>
     </div>
     <div class="act">${e.price && !e.volzet ? `<span class="price">${esc(e.price)}</span>` : ""}${ticketHtml(e, false)}</div>

@@ -54,6 +54,57 @@ function youtubeId(url) {
   return m ? m[1] : null;
 }
 
+// Vimeo: vimeo.com/123, vimeo.com/123/<verborgen deel> of player.vimeo.com/video/123?h=<verborgen deel>
+function vimeo(url) {
+  const m = String(url || "").match(/vimeo\.com\/(?:video\/|channels\/[\w-]+\/)?(\d{5,})(?:\/([0-9a-f]{6,}))?/);
+  if (!m) return null;
+  return { id: m[1], h: m[2] || (String(url).match(/[?&]h=([0-9a-f]{6,})/) || [])[1] || "" };
+}
+
+// Korte links (vimeo.com/naam/video, on.soundcloud.com, spotify.link) volgen we tot het echte adres,
+// en van Vimeo halen we de miniatuur en het verborgen deel op. Lukt dat niet, dan bouwen we gewoon verder.
+const ECHT = {}, VIMEO = {};
+async function opzoeken(url) {
+  if (url in ECHT) return;
+  ECHT[url] = url;
+  try {
+    if (/on\.soundcloud\.com|spotify\.link|spotify\.app\.link/.test(url) || (/vimeo\.com\//.test(url) && !vimeo(url))) {
+      const r = await fetch(url, { redirect: "follow" });
+      ECHT[url] = r.url.split(/[?#]/)[0];
+    }
+    if (/vimeo\.com\//.test(ECHT[url])) {
+      const v0 = vimeo(ECHT[url]);
+      const r = await fetch("https://vimeo.com/api/oembed.json?width=640&url=" + encodeURIComponent(v0 ? `https://vimeo.com/${v0.id}${v0.h ? "/" + v0.h : ""}` : ECHT[url]));
+      const o = r.ok ? await r.json() : {};
+      const v = v0 || (o.video_id ? { id: String(o.video_id), h: "" } : null);
+      if (v) VIMEO[url] = { ...v, h: v.h || (String(o.html || "").match(/[?&;]h=([0-9a-f]{6,})/) || [])[1] || "", thumb: o.thumbnail_url || "" };
+    }
+  } catch (err) { console.warn(`Kon ${url} niet opzoeken: ${err.message}`); }
+  if (!VIMEO[url] && vimeo(url)) VIMEO[url] = { ...vimeo(url), thumb: "" };
+}
+
+// Een video: afspeelknop met miniatuur; bij een klik komt de speler van YouTube (nocookie) of Vimeo in de plaats.
+function videoHtml(v, titel) {
+  const label = v.titel || titel;
+  const yt = youtubeId(v.url), vm = !yt && VIMEO[v.url];
+  if (!yt && !vm) return "";
+  const beeld = yt ? `https://i.ytimg.com/vi/${yt}/hqdefault.jpg` : vm.thumb;
+  const data = yt ? `data-id="${yt}"` : `data-vimeo="${vm.id}"${vm.h ? ` data-h="${vm.h}"` : ""}`;
+  return `<figure class="vid"><div class="video"><button class="yt" type="button" ${data} aria-label="Speel video af: ${esc(label)}"${beeld ? ` style="background-image:url(${esc(beeld)})"` : ""}><span class="play" aria-hidden="true"></span></button></div>${v.titel ? `<figcaption class="vtitel">${esc(v.titel)}</figcaption>` : ""}</figure>`;
+}
+const speelbaar = v => !!(youtubeId(v.url) || VIMEO[v.url]);
+
+// Links uit de velden Spotify en SoundCloud: altijd een ingesloten speler, nooit een externe link.
+function spelersHtml(links, titel) {
+  return (links || []).map(u => ECHT[u] || u).map(u => {
+    const sp = spotifyEmbed(u);
+    if (sp) return `<iframe class="speler" src="https://open.spotify.com/embed/${sp.type}/${sp.id}" title="Spotify: ${esc(titel)}" height="${/track|episode/.test(sp.type) ? 152 : 352}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`;
+    if (/(^|\.)soundcloud\.com\//.test(u.replace(/^https?:\/\//, "")))
+      return `<iframe class="speler" src="https://w.soundcloud.com/player/?url=${encodeURIComponent(u)}&amp;visual=false" title="SoundCloud: ${esc(titel)}" height="450" loading="lazy" allow="autoplay"></iframe>`;
+    return "";
+  }).join("");
+}
+
 function ics(e) {
   const t = tijd(e.time);
   const dag = e.start.replace(/-/g, "");
@@ -107,8 +158,8 @@ function pagina(e, overige) {
   const beeldAbs = `${SITE}/${e.foto || S.artwork}`;
   const alineas = String(e.text || "").split(/\n\s*\n/).filter(Boolean);
   const omschrijving = (e.sub ? e.sub + ". " : "") + (alineas[0] || `${e.kind} in ${e.place}, ${e.village}.`);
-  const yts = (e.videos || []).map(youtubeId).filter(Boolean);
-  const sps = (e.spotify || []).map(spotifyEmbed).filter(Boolean);
+  const vids = (e.videos || []).map(url => ({ url })).filter(speelbaar);
+  const spelers = spelersHtml([...(e.spotify || []), ...(e.soundcloud || [])], e.artist);
   const kerk = /kerkconcert/i.test(e.kind);
   const route = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.adres || [e.place, e.village].filter(Boolean).join(", "))}`;
   const ticket = e.volzet ? `<span class="soldout">Volzet</span>`
@@ -186,10 +237,10 @@ function pagina(e, overige) {
           <h2 class="label" id="beelden-titel">Foto’s</h2>
           <div class="beeldgrid">${extraBeelden.map(b => `<figure><a href="../${esc(b.src)}" target="_blank" rel="noopener"><img src="../${esc(b.src)}" alt="${esc(b.alt)}" loading="lazy"></a>${b.fotograaf ? `<figcaption>Foto: ${esc(b.fotograaf)}</figcaption>` : ""}</figure>`).join("")}</div>
         </section>` : ""}
-        ${yts.length || sps.length ? `<section class="luister" id="luister" aria-labelledby="luister-titel">
+        ${vids.length || spelers ? `<section class="luister" id="luister" aria-labelledby="luister-titel">
           <h2 class="label" id="luister-titel">Kijk en luister</h2>
-          ${yts.length ? `<div class="videos${yts.length > 1 ? " meer" : ""}">${yts.map((id, i) => `<div class="video"><button class="yt" type="button" data-id="${id}" aria-label="Speel video ${i + 1} af: ${esc(e.artist)}" style="background-image:url(https://i.ytimg.com/vi/${id}/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div>`).join("")}</div>` : ""}
-          ${sps.length ? `<div class="spotify">${sps.map(x => `<iframe src="https://open.spotify.com/embed/${x.type}/${x.id}?utm_source=generator&amp;theme=0" title="Spotify: ${esc(e.artist)}" height="${/album|playlist|show/.test(x.type) ? 352 : 152}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`).join("")}</div>` : ""}
+          ${vids.length ? `<div class="videos${vids.length > 1 ? " meer" : ""}">${vids.map(v => videoHtml(v, e.artist)).join("")}</div>` : ""}
+          ${spelers ? `<div class="spotify">${spelers}</div>` : ""}
         </section>` : ""}
       </article>
       <aside class="praktisch">
@@ -253,14 +304,15 @@ function pagina(e, overige) {
       if (el) el.innerHTML = '<span class="soldout">Dit concert is voorbij</span>';
     });
   }
-  // Video's laden pas bij een klik (sneller, en geen YouTube-cookies vooraf).
-  // Vanaf je eigen computer (file://) weigert YouTube in te sluiten: dan openen we YouTube zelf.
+  // Video's (YouTube en Vimeo) laden pas bij een klik (sneller, en geen cookies vooraf).
+  // Vanaf je eigen computer (file://) weigeren ze in te sluiten: dan openen we de video zelf.
   document.querySelectorAll(".yt").forEach(function (b) {
     b.addEventListener("click", function () {
-      var id = b.getAttribute("data-id");
-      if (location.protocol === "file:") { window.open("https://www.youtube.com/watch?v=" + id, "_blank", "noopener"); return; }
+      var id = b.getAttribute("data-id"), vm = b.getAttribute("data-vimeo"), h = b.getAttribute("data-h");
+      if (location.protocol === "file:") { window.open(vm ? "https://vimeo.com/" + vm + (h ? "/" + h : "") : "https://www.youtube.com/watch?v=" + id, "_blank", "noopener"); return; }
       var f = document.createElement("iframe");
-      f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+      f.src = vm ? "https://player.vimeo.com/video/" + vm + "?" + (h ? "h=" + h + "&" : "") + "autoplay=1&dnt=1"
+        : "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
       f.title = b.getAttribute("aria-label");
       f.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
       f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
@@ -278,6 +330,7 @@ function pagina(e, overige) {
 }
 
 // Oude pagina's opruimen en nieuwe schrijven
+await Promise.all(agenda.flatMap(e => [...(e.videos || []), ...(e.spotify || []), ...(e.soundcloud || [])]).map(opzoeken));
 await fs.mkdir(OUT, { recursive: true });
 for (const f of await fs.readdir(OUT)) await fs.unlink(path.join(OUT, f));
 
@@ -585,24 +638,11 @@ const mailAdres = p => (String(p.contact || "").match(/[\w.+-]+@[\w-]+(\.[\w-]+)
 const mailLink = p => `mailto:${mailAdres(p)}?subject=${encodeURIComponent(p.titel)}`;
 const regelsHtml = t => esc(t).replace(/\n/g, "<br>");
 
-function vimeo(url) {
-  const m = String(url || "").match(/vimeo\.com\/(?:video\/)?(\d{5,})(?:\/([0-9a-f]{6,}))?/);
-  return m ? { id: m[1], h: m[2] || "" } : null;
-}
-
-function videoHtml(v, titel) {
-  const label = v.titel || titel;
-  const yt = youtubeId(v.url), vm = !yt && vimeo(v.url);
-  const knop = yt ? `<button class="yt" type="button" data-id="${yt}" aria-label="Speel video af: ${esc(label)}" style="background-image:url(https://i.ytimg.com/vi/${yt}/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button>`
-    : `<button class="yt" type="button" data-vimeo="${vm.id}"${vm.h ? ` data-h="${vm.h}"` : ""} aria-label="Speel video af: ${esc(label)}"><span class="play" aria-hidden="true"></span></button>`;
-  return `<figure class="vid"><div class="video">${knop}</div>${v.titel ? `<figcaption class="vtitel">${esc(v.titel)}</figcaption>` : ""}</figure>`;
-}
-
 function productiePagina(p) {
   const beeld = p.foto || S.artwork;
-  const speelbaar = (p.videos || []).filter(v => youtubeId(v.url) || vimeo(v.url));
-  const links = (p.videos || []).filter(v => !speelbaar.includes(v));
-  const sps = (p.spotify || []).map(spotifyEmbed).filter(Boolean);
+  const vids = (p.videos || []).filter(speelbaar);
+  const links = (p.videos || []).filter(v => !vids.includes(v));
+  const spelers = spelersHtml([...(p.spotify || []), ...(p.soundcloud || [])], p.titel);
   const knop = `<a class="btn" href="${esc(mailLink(p))}">${esc(p.knop || "Vraag een optie")}</a>`;
   return `<!DOCTYPE html>
 <html lang="nl">
@@ -668,11 +708,11 @@ function productiePagina(p) {
     <div class="wrap cgrid">
       <article class="ctekst">
         ${(p.lang || []).length ? blokkenHtml(p.lang) : p.tekst ? `<p>${esc(p.tekst)}</p>` : ""}
-        ${speelbaar.length || links.length || sps.length ? `<section class="luister" id="luister" aria-labelledby="luister-titel">
+        ${vids.length || links.length || spelers ? `<section class="luister" id="luister" aria-labelledby="luister-titel">
           <h2 class="label" id="luister-titel">Kijk en luister</h2>
-          ${speelbaar.length ? `<div class="videos${speelbaar.length > 1 ? " meer" : ""}">${speelbaar.map(v => videoHtml(v, p.titel)).join("")}</div>` : ""}
+          ${vids.length ? `<div class="videos${vids.length > 1 ? " meer" : ""}">${vids.map(v => videoHtml(v, p.titel)).join("")}</div>` : ""}
           ${links.length ? `<ul class="vlinks">${links.map(v => `<li><a href="${esc(v.url)}" target="_blank" rel="noopener"><span class="vico" aria-hidden="true">▶</span>${esc(v.titel || v.url.replace(/^https?:\/\/(www\.)?/, ""))}<span class="sr"> (opent in een nieuw tabblad)</span></a></li>`).join("")}</ul>` : ""}
-          ${sps.length ? `<div class="spotify">${sps.map(x => `<iframe src="https://open.spotify.com/embed/${x.type}/${x.id}?utm_source=generator&amp;theme=0" title="Spotify: ${esc(p.titel)}" height="${/track|episode/.test(x.type) ? 152 : 352}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`).join("")}</div>` : ""}
+          ${spelers ? `<div class="spotify">${spelers}</div>` : ""}
         </section>` : ""}
       </article>
       <aside class="praktisch">
@@ -706,7 +746,7 @@ document.querySelectorAll(".yt").forEach(function (b) {
     var id = b.getAttribute("data-id"), vm = b.getAttribute("data-vimeo"), h = b.getAttribute("data-h");
     if (location.protocol === "file:") { window.open(vm ? "https://vimeo.com/" + vm + (h ? "/" + h : "") : "https://www.youtube.com/watch?v=" + id, "_blank", "noopener"); return; }
     var f = document.createElement("iframe");
-    f.src = vm ? "https://player.vimeo.com/video/" + vm + "?autoplay=1&dnt=1" + (h ? "&h=" + h : "")
+    f.src = vm ? "https://player.vimeo.com/video/" + vm + "?" + (h ? "h=" + h + "&" : "") + "autoplay=1&dnt=1"
       : "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
     f.title = b.getAttribute("aria-label");
     f.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
@@ -723,6 +763,7 @@ t.addEventListener("click", function () { var o = n.classList.toggle("open"); t.
 `;
 }
 
+await Promise.all(producties.flatMap(p => [...(p.videos || []).map(v => v.url), ...(p.spotify || []), ...(p.soundcloud || [])]).map(opzoeken));
 await fs.mkdir(PR_OUT, { recursive: true });
 for (const f of await fs.readdir(PR_OUT)) await fs.unlink(path.join(PR_OUT, f));
 for (const p of producties) await fs.writeFile(path.join(PR_OUT, `${p.slug}.html`), productiePagina(p));

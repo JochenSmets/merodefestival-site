@@ -67,8 +67,8 @@
         
         <section class="luister" id="luister" aria-labelledby="luister-titel">
           <h2 class="label" id="luister-titel">Kijk en luister</h2>
-          <div class="videos"><div class="video"><button class="yt" type="button" data-id="cs3k93iEG8w" aria-label="Speel video 1 af: Sara Salvérius &amp; blazerskwartet: Adem" style="background-image:url(https://i.ytimg.com/vi/cs3k93iEG8w/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
-          <div class="spotify"><iframe src="https://open.spotify.com/embed/artist/47NEOWW0cCwroElf3j4FR9?utm_source=generator&amp;theme=0" title="Spotify: Sara Salvérius &amp; blazerskwartet: Adem" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+          <div class="videos"><figure class="vid"><div class="video"><button class="yt" type="button" data-id="cs3k93iEG8w" aria-label="Speel video af: Sara Salvérius &amp; blazerskwartet: Adem" style="background-image:url(https://i.ytimg.com/vi/cs3k93iEG8w/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div></figure></div>
+          <div class="spotify"><iframe class="speler" src="https://open.spotify.com/embed/artist/47NEOWW0cCwroElf3j4FR9" title="Spotify: Sara Salvérius &amp; blazerskwartet: Adem" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
         </section>
       </article>
       <aside class="praktisch">
@@ -134,14 +134,15 @@
       if (el) el.innerHTML = '<span class="soldout">Dit concert is voorbij</span>';
     });
   }
-  // Video's laden pas bij een klik (sneller, en geen YouTube-cookies vooraf).
-  // Vanaf je eigen computer (file://) weigert YouTube in te sluiten: dan openen we YouTube zelf.
+  // Video's (YouTube en Vimeo) laden pas bij een klik (sneller, en geen cookies vooraf).
+  // Vanaf je eigen computer (file://) weigeren ze in te sluiten: dan openen we de video zelf.
   document.querySelectorAll(".yt").forEach(function (b) {
     b.addEventListener("click", function () {
-      var id = b.getAttribute("data-id");
-      if (location.protocol === "file:") { window.open("https://www.youtube.com/watch?v=" + id, "_blank", "noopener"); return; }
+      var id = b.getAttribute("data-id"), vm = b.getAttribute("data-vimeo"), h = b.getAttribute("data-h");
+      if (location.protocol === "file:") { window.open(vm ? "https://vimeo.com/" + vm + (h ? "/" + h : "") : "https://www.youtube.com/watch?v=" + id, "_blank", "noopener"); return; }
       var f = document.createElement("iframe");
-      f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+      f.src = vm ? "https://player.vimeo.com/video/" + vm + "?" + (h ? "h=" + h + "&" : "") + "autoplay=1&dnt=1"
+        : "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
       f.title = b.getAttribute("aria-label");
       f.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
       f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");

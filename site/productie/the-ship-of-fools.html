@@ -104,7 +104,7 @@ document.querySelectorAll(".yt").forEach(function (b) {
     var id = b.getAttribute("data-id"), vm = b.getAttribute("data-vimeo"), h = b.getAttribute("data-h");
     if (location.protocol === "file:") { window.open(vm ? "https://vimeo.com/" + vm + (h ? "/" + h : "") : "https://www.youtube.com/watch?v=" + id, "_blank", "noopener"); return; }
     var f = document.createElement("iframe");
-    f.src = vm ? "https://player.vimeo.com/video/" + vm + "?autoplay=1&dnt=1" + (h ? "&h=" + h : "")
+    f.src = vm ? "https://player.vimeo.com/video/" + vm + "?" + (h ? "h=" + h + "&" : "") + "autoplay=1&dnt=1"
       : "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
     f.title = b.getAttribute("aria-label");
     f.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");

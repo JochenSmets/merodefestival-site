@@ -74,7 +74,7 @@
 .vid{margin:0;min-width:0}
 .videos.meer .vid:first-child{grid-column:1 / -1}
 .vtitel{font-size:.95rem;margin:.4rem 0 0;color:var(--s-papier-zacht)}
-.yt[data-vimeo]{background:var(--s-nacht-2)}
+.yt[data-vimeo]{background-color:var(--s-nacht-2)}
 .vlinks{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.5rem}
 .vlinks a{display:flex;gap:.75rem;align-items:center;padding:.7rem .9rem;border:1px solid var(--s-papier-lijn);border-radius:12px;text-decoration:none;overflow-wrap:anywhere}
 .vlinks a:hover{text-decoration:underline;text-underline-offset:3px}

@@ -168,6 +168,7 @@ for (const r of await queryAll(AGENDA_DB, [{ property: "Datum", direction: "asce
     lang: await blokken(r.id),
     videos: lines(p["Video’s"]),
     spotify: lines(p.Spotify),
+    soundcloud: lines(p.SoundCloud || p.Soundcloud),
     webadres: text(p.Webadres),
     foto: await foto(r, p.Foto, p.Fotolink),
     _id: r.id,
@@ -198,6 +199,7 @@ for (const r of await queryAll(PRODUCTIES_DB, [{ property: "Volgorde", direction
     lang: await blokken(r.id),
     videos: videoRegels(p["Video’s"] || p["Video's"]),
     spotify: lines(p.Spotify),
+    soundcloud: lines(p.SoundCloud || p.Soundcloud),
     foto: await foto(r, p.Foto, p.Fotolink),
     uitsnede: (p.Uitsnede?.select?.name || "").toLowerCase(),
   });
