@@ -1,0 +1,2 @@
+Zet hier de affiches als <jaar>.jpg (bv. 2024.jpg).
+De pagina Vorige edities toont ze dan automatisch bij het juiste jaar.

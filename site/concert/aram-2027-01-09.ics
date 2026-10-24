@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Merodefestival//NL
+BEGIN:VEVENT
+UID:aram-2027-01-09@merodefestival.be
+DTSTAMP:20270109T000000Z
+DTSTART;TZID=Europe/Brussels:20270109T200000
+DURATION:PT2H
+SUMMARY:Aram: Shahab Azinmehr\, Derya Türkan & Robbe Kieckens
+LOCATION:Sint-Luciakerk\, Engsbergen
+URL:https://www.merodefestival.be/concert/aram-2027-01-09.html
+END:VEVENT
+END:VCALENDAR

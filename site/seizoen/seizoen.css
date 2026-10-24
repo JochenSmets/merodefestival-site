@@ -1,0 +1,22 @@
+/* Seizoen 2026–2027 — artwork Reinhart Croon.
+   Nieuw seizoen? Pas enkel deze kleuren, seizoen.js en de twee beelden in deze map aan. */
+:root{
+  --s-nacht:#1C140F;        /* achtergrond van de brochure */
+  --s-nacht-2:#2A1E16;
+  --s-licht:#EFE7DA;        /* tekst op donker */
+  --s-zand:#A3957A;         /* titel "kerk – concerten" */
+  --s-oranje:#F47815;       /* accent */
+  --s-op-oranje:#1C140F;
+  --s-papier:#FBCD9F;       /* perzik papier */
+  --s-papier-inkt:#2B1D14;
+  --s-papier-zacht:#6B5443;
+  --s-papier-lijn:#E2AE82;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --s-papier:#2A1E16;
+    --s-papier-inkt:#F2E4D2;
+    --s-papier-zacht:#C2A98F;
+    --s-papier-lijn:#4A3628;
+  }
+}

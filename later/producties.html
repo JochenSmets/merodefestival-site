@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Producties – folk en wereldmuziek boeken bij WESP</title>
+<meta name="description" content="Voorstellingen, tournees en formats op maat van WESP vzw / Merodefestival, voor cultuurcentra, gemeenten en organisatoren.">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ECEEE7; --surface:#F7F8F3; --ink:#1A211D; --muted:#56605A; --line:#CBD1C6;
+  --pine:#1F3B33; --on-pine:#E9EDE4; --on-pine-muted:#A9B8AE;
+  --heather:#7A4D73; --on-heather:#FFFFFF; --heather-soft:#E6DCE4;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121815; --surface:#19211D; --ink:#E6EAE2; --muted:#9AA59E; --line:#2C3631;
+    --pine:#16302A; --on-pine:#E6EAE2; --on-pine-muted:#93A69A;
+    --heather:#C99BC2; --on-heather:#1A1219; --heather-soft:#2E2430;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121815; --surface:#19211D; --ink:#E6EAE2; --muted:#9AA59E; --line:#2C3631;
+  --pine:#16302A; --on-pine:#E6EAE2; --on-pine-muted:#93A69A;
+  --heather:#C99BC2; --on-heather:#1A1219; --heather-soft:#2E2430;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Alegreya",Georgia,serif;font-size:1.125rem;line-height:1.55}
+h1,h2,h3{font-family:"Alegreya",Georgia,serif;font-weight:500;line-height:1.12;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--heather);outline-offset:3px;border-radius:2px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+p{margin:0 0 1rem}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--pine)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--pine);color:var(--on-pine)}
+.bar{display:flex;align-items:center;gap:1.5rem;min-height:76px}
+.brand{font-family:"Alegreya",Georgia,serif;font-size:1.35rem;text-decoration:none;margin-right:auto}
+.brand small{font-family:"Alatsi","Trebuchet MS",system-ui,sans-serif;font-size:.85rem;color:var(--on-pine-muted);margin-left:.4rem}
+nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-weight:500;font-size:.98rem}
+nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-block;padding:.6rem 1.1rem;border-radius:999px;background:var(--heather);color:var(--on-heather);text-decoration:none;font-weight:600;white-space:nowrap}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.menu-toggle{display:none;background:none;border:0;color:inherit;font:inherit;font-weight:600;cursor:pointer;padding:.5rem}
+@media (max-width:860px){
+  .menu-toggle{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--pine);display:none;padding:.5rem 1.25rem 1.25rem}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:.9rem}
+  .bar .btn{padding:.5rem .9rem}
+}
+
+section{padding:4.5rem 0}
+.muted{color:var(--muted)}
+.lead{font-size:clamp(1.15rem,2vw,1.3rem);max-width:40rem}
+
+/* hero */
+.hero{padding-bottom:3rem}
+.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;column-gap:3rem;align-items:start}
+.hero .wrap>*{grid-column:1}
+.hero .hero-img{grid-column:2;grid-row:1 / span 3;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;align-self:center}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero .hero-img{grid-column:1;grid-row:auto;margin-top:2rem}}
+.prod-img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:4px;margin-top:.5rem}
+.fgrid img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px;margin-bottom:1rem}
+.hero h1{font-size:clamp(2.4rem,6vw,4.25rem);max-width:15ch;margin-bottom:1.5rem}
+.jump{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem;list-style:none;padding:0}
+.jump a{display:inline-block;padding:.45rem .9rem;border-radius:999px;background:var(--heather-soft);text-decoration:none;font-weight:500;font-size:.95rem}
+.jump a:hover{background:var(--heather);color:var(--on-heather)}
+
+/* producties */
+.prod{display:grid;grid-template-columns:1.35fr 1fr;gap:3rem;padding:3rem 0;border-top:1px solid var(--line)}
+.prod:last-child{border-bottom:1px solid var(--line)}
+.prod h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.35rem}
+.makers{font-weight:500;margin-bottom:1.25rem}
+.prod .desc{max-width:36rem}
+.facts{margin:0;background:var(--surface);padding:1.5rem;border-radius:4px;align-self:start}
+.facts div{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--line)}
+.facts div:last-of-type{border-bottom:0}
+.facts dt{color:var(--muted);font-size:.95rem}
+.facts dd{margin:0}
+.facts .btn{margin-top:1rem}
+.status{display:inline-block;font-size:.85rem;font-weight:600;color:var(--heather);margin-bottom:.75rem}
+@media (max-width:820px){.prod{grid-template-columns:1fr;gap:1.5rem}.facts div{grid-template-columns:7rem 1fr}}
+
+/* formats */
+.formats{background:var(--pine);color:var(--on-pine)}
+.formats h2{font-size:clamp(1.9rem,4vw,2.75rem);margin-bottom:.75rem}
+.formats .lead{color:var(--on-pine-muted)}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:2.5rem}
+.fgrid div{border-top:3px solid var(--heather);padding-top:1.25rem}
+.fgrid h3{font-size:1.45rem;margin-bottom:.5rem}
+.fgrid p{color:var(--on-pine-muted);margin:0 0 .75rem}
+.fgrid .proof{color:var(--on-pine);font-size:.95rem}
+@media (max-width:860px){.fgrid{grid-template-columns:1fr}}
+
+/* werkwijze: echte volgorde */
+.steps{list-style:none;margin:2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;counter-reset:s}
+.steps li{counter-increment:s}
+.steps li::before{content:counter(s);display:block;font-family:"Alegreya",Georgia,serif;font-size:2.4rem;color:var(--heather);line-height:1;margin-bottom:.5rem}
+.steps h3{font-size:1.2rem;margin-bottom:.35rem}
+.steps p{color:var(--muted);margin:0;font-size:.98rem}
+@media (max-width:820px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+.contact{background:var(--heather);color:var(--on-heather);padding:3rem 0}
+.contact .wrap{display:flex;gap:1.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.contact h2{font-size:clamp(1.6rem,3.5vw,2.2rem)}
+.contact p{margin:.35rem 0 0}
+.contact .btn{background:var(--on-heather);color:var(--heather)}
+
+footer{background:var(--pine);color:var(--on-pine-muted);padding:3rem 0;font-size:.92rem}
+footer .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+footer h3{font-family:"Alatsi","Trebuchet MS",system-ui,sans-serif;font-weight:600;font-size:.95rem;color:var(--on-pine);margin-bottom:.5rem}
+footer p{margin:0 0 .4rem}
+@media (max-width:720px){footer .cols{grid-template-columns:1fr}}
+
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand img{display:block;height:56px;width:auto}
+.brand small{margin-left:0}
+.foot-logo{display:block;height:110px;width:auto;margin-bottom:2.25rem}
+@media (max-width:520px){.brand img{height:46px}}
+
+/* labels en knoppen in Alatsi, zoals in de brochure */
+nav a,.btn,.status,.label,.jump a,.facts dt,.yr,.brand small,footer h3,.callout .btn,.menu-toggle{font-family:"Alatsi","Trebuchet MS",system-ui,sans-serif;font-weight:400}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><img src="img/logo-licht.png" alt="Merodefestival" width="82" height="56"><small>Producties</small></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="hoofdmenu">Menu</button>
+    <nav id="hoofdmenu" aria-label="Menu Producties">
+      <ul>
+        <li><a href="#producties">Voorstellingen</a></li>
+        <li><a href="#formats">Formats op maat</a></li>
+        <li><a href="#werkwijze">Werkwijze</a></li>
+        <li><a href="over-wesp.html">Over WESP</a></li>
+        <li><a href="index.html">Agenda</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="mailto:jochen@wespvzw.be?subject=Optie%20op%20een%20productie">Vraag een optie</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <h1 id="hero-title">Folk voor jouw zaal, kerk of dorp</h1>
+      <p class="lead">Voor cultuurcentra, gemeenten en organisatoren. We brengen voorstellingen die we zelf mee creëerden en begeleiden, en bouwen formats op maat van jouw plek.</p>
+      <ul class="jump" id="jump" aria-label="Spring naar een productie"></ul>
+      <img class="hero-img" src="img/trio.jpg" alt="Trio met accordeon, hakkebord en viool in een kerk met glasramen">
+    </div>
+  </section>
+
+  <section id="producties" aria-label="Voorstellingen" style="padding-top:0">
+    <div class="wrap" id="prod-list"></div>
+  </section>
+
+  <section class="formats" id="formats" aria-labelledby="formats-title">
+    <div class="wrap">
+      <h2 id="formats-title">Formats op maat</h2>
+      <p class="lead">Geen voorstelling uit de kast, wel een programma dat vertrekt vanuit jouw plek. We vullen het bestaande aanbod aan, nooit dubbel.</p>
+      <div class="fgrid">
+        <div>
+          <img src="img/wandel.jpg" alt="Wandelaars op een bospad" loading="lazy">
+          <h3>Muzikale wandeling</h3>
+          <p>Een wandeling door natuur of dorp met muzikanten onderweg, eventueel met maaltijd en avondconcert.</p>
+          <p class="proof">Elk jaar op het Merodefestival en bij de kerkconcerten.</p>
+        </div>
+        <div>
+          <img src="img/kerk.jpg" alt="Kwartet speelt voor het altaar van een dorpskerk" loading="lazy">
+          <h3>Concertreeks op een plek met karakter</h3>
+          <p>Enkele akoestische concerten per jaar in een kerk, kapel, abdij of zaal die zelf een verhaal heeft.</p>
+          <p class="proof">Zoals de Holsbeek Sessies, de Limburg Sessies en de reeksen met CC De Bogaard en CC Gasthuis Aarschot.</p>
+        </div>
+        <div>
+          <img src="img/altaar.jpg" alt="Duo met viool en accordeon voor een barok altaar" loading="lazy" style="object-position:center 82%">
+          <h3>Ingetogen kapelconcert</h3>
+          <p>Kort, stil en dichtbij: 45 minuten muziek in dialoog met de ruimte, met een soepje voor of na.</p>
+          <p class="proof">Zoals tijdens Landschap van Stilte in de Merode.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="werkwijze" aria-labelledby="werk-title">
+    <div class="wrap">
+      <h2 class="sec" id="werk-title" style="font-size:clamp(1.9rem,4vw,2.75rem)">Zo werken we samen</h2>
+      <ol class="steps">
+        <li><h3>Kennismaking</h3><p>We bekijken je plek, je publiek en wat er al op het programma staat.</p></li>
+        <li><h3>Voorstel</h3><p>Een productie of format met datum, bezetting en prijs.</p></li>
+        <li><h3>Contract</h3><p>Eén aanspreekpunt voor contract, techniek en facturatie.</p></li>
+        <li><h3>Promotie en avond</h3><p>We leveren beeld en tekst, de artiesten en, als je wil, vrijwilligers.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div>
+        <h2 id="contact-title">Interesse in een productie?</h2>
+        <p>Jochen Smets, <a href="mailto:jochen@wespvzw.be">jochen@wespvzw.be</a>, <a href="tel:+32498758296">0498 75 82 96</a></p>
+      </div>
+      <a class="btn" href="mailto:jochen@wespvzw.be?subject=Optie%20op%20een%20productie">Vraag een optie</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><img class="foot-logo" src="img/logo-licht.png" alt="Merodefestival" width="162" height="110" loading="lazy"></div>
+  <div class="wrap cols">
+    <div>
+      <h3>WESP vzw</h3>
+      <p>Jozef Wautersstraat 4, 3010 Kessel-Lo</p>
+      <p>BE 0863 441 738</p>
+    </div>
+    <div>
+      <h3>Ook op deze site</h3>
+      <p><a href="index.html">Agenda en tickets</a></p>
+      <p><a href="over-wesp.html">Over WESP</a></p>
+    </div>
+    <div>
+      <h3>Met steun van</h3>
+      <p>De Vlaamse overheid, kunsten en erfgoed.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="data/producties.js"></script>
+<script>
+// De producties komen uit Notion (data/producties.js, ververst elk uur).
+const MAIL = "jochen@wespvzw.be";
+const esc = t => String(t ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const slug = t => t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const prods = window.PRODUCTIES || [];
+document.getElementById("prod-list").innerHTML = prods.map(p => `
+  <article class="prod" id="${slug(p.titel)}">
+    <div>
+      ${p.label ? `<span class="status">${esc(p.label)}</span>` : ""}
+      <h2>${esc(p.titel)}</h2>
+      ${p.makers ? `<p class="makers">${esc(p.makers)}</p>` : ""}
+      ${p.tekst ? `<p class="desc">${esc(p.tekst)}</p>` : ""}
+      ${p.extra ? `<p class="desc muted">${esc(p.extra)}</p>` : ""}
+      ${p.foto ? `<img class="prod-img" src="${esc(p.foto)}" alt="${esc(p.titel)}" loading="lazy">` : ""}
+    </div>
+    <dl class="facts">
+      ${p.feiten.map(([k,v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}
+      <a class="btn" href="mailto:${MAIL}?subject=${encodeURIComponent(p.titel)}">${esc(p.knop)}</a>
+    </dl>
+  </article>`).join("");
+document.getElementById("jump").innerHTML =
+  prods.map(p => `<li><a href="#${slug(p.titel)}">${esc(p.titel)}</a></li>`).join("") +
+  `<li><a href="#formats">Formats op maat</a></li>`;
+</script>
+<script>
+const toggle = document.querySelector(".menu-toggle"), nav = document.getElementById("hoofdmenu");
+toggle.addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  toggle.setAttribute("aria-expanded", open);
+});
+nav.addEventListener("click", e => { if (e.target.tagName === "A") { nav.classList.remove("open"); toggle.setAttribute("aria-expanded", false); }});
+</script>
+</body>
+</html>

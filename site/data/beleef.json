@@ -1,0 +1,265 @@
+[
+  {
+    "slug": "ode-aan-de-merode",
+    "label": "Boek en cd",
+    "titel": "Ode aan de Merode",
+    "ondertitel": "9 × Landschapspark de Merode in woord, muziek, beeld en wandelingen",
+    "intro": "Negen getalenteerde artiesten, duo’s en ensembles uit de Vlaamse folk- en wereldmuziekscene werden ontvangen in residentie in de Abdij van Averbode, in charmante vakantiewoningen en gastvrije B&B’s. Hun ontdekkingstocht langs de natuur en het erfgoed van Landschapspark de Merode inspireerde hen tot vijftien prachtige muziekstukken, telkens een “Ode aan de Merode”. De verhalen en de wandelingen vind je in het boek, de muziek op de cd.",
+    "knop": {
+      "tekst": "Bestel het boek en de cd",
+      "url": "https://pierrot.io/wesp-vzw/odeaandemerode"
+    },
+    "blokken": [
+      {
+        "titel": "Artiesten in residentie",
+        "tekst": "Een sterke selectie folk- en wereldmuziekartiesten zakte af naar het Merodegebied, verbleef er in residentie en werkte aan nieuwe muziek. Zo ontstonden ‘de Merodewals’ van GFVP, ‘de Merode’ van Sara Salvérius, ‘Mer(en)ode’ van Laura Cortese en twaalf andere nummers, geïnspireerd op hun verblijf in het gebied. Van het geheel is er een afspeellijst en een cd."
+      },
+      {
+        "titel": "Wandelingen",
+        "tekst": "In elk van de Merodegemeenten werd een wandeling uitgewerkt die natuur, erfgoed, ondernemerschap, stilte, rust en ruimte laat ervaren: in Hertberg, Averbode Bos & Heide, Langdorp, Gerhagen, Eindhout, Westmeerbeek, Dassenaarde en Westerlo, met in Zammel een vooruitblik op het meerdaagse wandelpad."
+      },
+      {
+        "titel": "Gesprekken over het landschapspark en folkmuziek",
+        "tekst": "Met de artiesten en met Merodemakers, zoals erfgoedhouders, ondernemers, domeinwachters en therapeuten, gingen we in gesprek over de muziek en over wat Landschapspark de Merode uniek maakt. Die gesprekken kregen een neerslag in het boek."
+      },
+      {
+        "titel": "Waar koop je het boek?",
+        "tekst": "Bij de Merodelabelhouders, de toeristische diensten in het Merodegebied en in de Standaard Boekhandels in heel Vlaanderen. In Leuven vind je het boek bij Plato, Barboek, Boekarest, FNAC, de Sax en Cyaan & Co. Of bestel boek en cd online, dan sturen we ze op.",
+        "links": [
+          [
+            "Merodelabelhouders",
+            "https://www.bezoekdemerode.be/onze-troeven/labelhouders"
+          ],
+          [
+            "Toeristische diensten",
+            "https://www.bezoekdemerode.be/onze-troeven/toeristisch-onthaal-landschapspark-de-merode"
+          ]
+        ]
+      }
+    ],
+    "luister": {
+      "soundcloud": "https://api.soundcloud.com/playlists/1967045592",
+      "youtube": [
+        "FZ__Vy6LhIY"
+      ]
+    },
+    "extra": {
+      "titel": "Bezoek de Merode",
+      "tekst": "Beleef de Merode zoals onze artiesten en onze Merodemakers.",
+      "url": "https://www.bezoekdemerode.be/",
+      "knop": "Bezoek de Merode"
+    },
+    "credits": "Ode aan de Merode is een samenwerking van Landschapspark de Merode en Merodefestival, met financiële steun van de Vlaamse overheid (kunsten & erfgoed) en Sabam for Culture.",
+    "beelden": [
+      {
+        "src": "img/beleef/boek-3.webp",
+        "alt": "Het boek Ode aan de Merode"
+      },
+      {
+        "src": "img/beleef/boek-4.webp",
+        "alt": "Boek en cd van Ode aan de Merode"
+      }
+    ]
+  },
+  {
+    "slug": "podcast",
+    "label": "Podcast",
+    "titel": "Muzikale wandelingen in Landschapspark de Merode",
+    "ondertitel": "Een wandelpodcast met folkmuzikanten",
+    "intro": "We laten folkmuzikanten tijdens een wandeling in Landschapspark de Merode aan het woord over hun muzikale achtergrond, hun interesses en hun carrière, en ze vertellen wat folk voor hen betekent. Tussendoor brengen ze enkele songs in de natuur of op erfgoedsites.",
+    "knop": {
+      "tekst": "Beluister op Spotify",
+      "url": "https://open.spotify.com/show/6J6idgbWpyW4UWitT4aWie"
+    },
+    "afleveringen": [
+      {
+        "nr": 4,
+        "titel": "Hussein Rassim",
+        "plek": "Trichelbroek",
+        "tekst": "Op een regenachtige winterdag in 2023 gaat oudspeler Hussein Rassim met Lennaert Maes op pad in het Trichelbroek. Ze wandelen langs de Nete naar de Sint-Bavokapel en via een enorme turfput en de Laak terug naar het startpunt. Hussein vertelt over zijn vlucht uit Irak, hoe hij als muzikant snel zijn weg vond in Brussel, en hoe hij in 2017 een van zijn allereerste concerten gaf in de Sint-Bavokapel.",
+        "spotify": "https://open.spotify.com/show/6J6idgbWpyW4UWitT4aWie",
+        "beeld": "img/beleef/podcast-3.webp"
+      },
+      {
+        "nr": 3,
+        "titel": "Maarten Decombel",
+        "plek": "Averbode Bos & Heide",
+        "tekst": "In de warme zomer van 2022 wandelt gitarist en mandolaspeler Maarten Decombel met Jochen Smets door Averbode Bos & Heide: van het Weefbergven naar de bijna negenhonderd jaar oude abdij en de unieke Lekdreef, en over de ruige Weefberg terug. Maarten vertelt wie hem beïnvloedde en hoe hij folkmuzikant werd, onder meer bij Spilar, Naragonia Quartet en MandolinMan.",
+        "spotify": "https://open.spotify.com/show/6J6idgbWpyW4UWitT4aWie",
+        "beeld": "img/beleef/podcast-4.webp"
+      },
+      {
+        "nr": 2,
+        "titel": "Pascale Rubens",
+        "plek": "De Demerbroeken tussen Zichem en Testelt",
+        "tekst": "Pascale Rubens, de vrouwelijke helft van Naragonia, woont zelf in de Meroderegio. Op een snikhete junidag in 2022 wandelt ze met Jochen Smets door de Demerbroeken van Zichem naar Testelt. Onderweg vertelt ze over leven en werk, over wat de balfolkscene voor haar betekent en hoe Naragonia songs schrijft. Ze brengt vier nummers solo in de natuur.",
+        "spotify": "https://open.spotify.com/episode/0tMjiXD6BtadPgDo1GalzL",
+        "beeld": "img/beleef/podcast-5.webp"
+      },
+      {
+        "nr": 1,
+        "titel": "Laura Cortese & Bert Ruymbeek",
+        "plek": "Langdorp, langs de Demer",
+        "tekst": "In maart 2022 waren Laura en Bert op residentie in B&B de Meren. Lennaert Maes wandelt met hen van de B&B langs de Heimolen naar de Demervallei, door het dorpscentrum van Langdorp en door de bossen terug. Ze praten over hun muzikale achtergrond, de liefde, folkmuziek en hoe het Merodegebied hen inspireerde, en brengen nieuwe songs aan de Heimolen en in de kerk van Langdorp.",
+        "spotify": "https://open.spotify.com/episode/48rRQ3MqFhWF73xjcxYY2F",
+        "beeld": "img/beleef/podcast-6.webp"
+      }
+    ],
+    "apple": "https://podcasts.apple.com/us/podcast/muzikale-wandelingen-in-landschapspark-de-merode/id1623051525",
+    "credits": "Presentatie: Lennaert Maes of Jochen Smets. Opname, mix en films: Bert Huysentruyt. Montage: Bert Huysentruyt, Jochen Smets en Marc Vandemoortele. Met steun van Sabam for Culture, Landschapspark de Merode en de Vlaamse overheid (kunsten & erfgoed).",
+    "beelden": [
+      {
+        "src": "img/beleef/podcast-4.webp",
+        "alt": "Maarten Decombel speelt gitaar naast een vlonderpad in Averbode Bos & Heide"
+      }
+    ]
+  },
+  {
+    "slug": "the-sound-of-the-abbey",
+    "label": "Cd en vinyl",
+    "titel": "The Sound of the Abbey",
+    "ondertitel": "De abdij klinkt",
+    "intro": "Abdij van Park, een oase van rust vlak bij Leuven, draagt negenhonderd jaar geschiedenis mee. Haar bibliotheken, koor, pandgang, refter en abtskwartier hebben eeuwenlang gezang, stilte en verhalen opgeslagen. The Sound of the Abbey is het resultaat van drie jaar muzikale residenties in de abdij: dertien artiesten en ensembles creëerden evenveel nummers, opgenomen binnen haar muren.",
+    "knop": {
+      "tekst": "Reserveer de cd of vinyl",
+      "url": "https://tally.so/r/q4vO7G"
+    },
+    "blokken": [
+      {
+        "titel": "Traditie in vernieuwing, vernieuwing in traditie",
+        "tekst": "De abdij inspireerde een breed palet aan muzikanten. Rénélius Ensemble, een Roma-ensemble uit Leuven, vindt in de abdijrefter het ritme van het kloosterleven. Naragonia Trio herwerkt een 17de-eeuwse toccata van Kapsberger in de abdijbibliotheek. 3’Ain laat de galm van de pandgang resoneren. Andries Boone, Sandra Van der Gucht en Anouk Sanczuk weven mandoline, klavecimbel en octaafviool samen in het hoogkoor van de abdijkerk."
+      },
+      {
+        "titel": "Meteen opgenomen",
+        "tekst": "De muzikanten dachten na, speelden en stemden hun muziek af op de ruimte. De nummers werden op een spontane manier meteen ter plaatse opgenomen. Merodefestival selecteerde de muzikanten en organiseerde het project samen met Abdij van Park. Bert Huysentruyt nam de nummers op, mixte ze en maakte van elke song een video. Pieter De Wagter van Equus Mastering verzorgde de mastering, Maarten De Nayer van Skrew Studio het ontwerp."
+      }
+    ],
+    "tracklist": [
+      {
+        "titel": "Rénélius Ensemble — Réfuge",
+        "video": "axyjxZuWk-U"
+      },
+      {
+        "titel": "Aurélie Charneux — L’Ape Millenaria",
+        "video": "P-vpQeZgiTc"
+      },
+      {
+        "titel": "Charlotte Pelgen & Bipolar Bows — Poor Boy",
+        "video": "dCoPw-nzSTM"
+      },
+      {
+        "titel": "3’Ain — BatichAchmar (Park-versie)",
+        "video": "W41c-iJFfzs"
+      },
+      {
+        "titel": "Amber Haddad Trio — Tawazen",
+        "video": "U36qzH0NSPg"
+      },
+      {
+        "titel": "Naragonia Trio — Toccata van Kapsberger",
+        "video": "tcoQypg2NcM"
+      },
+      {
+        "titel": "Kabál — Hanter-Bro",
+        "video": "WCPpDZzBLSs"
+      },
+      {
+        "titel": "Andries Boone, Sandra Van der Gucht & Anouk Sanczuk — Sacristia Invisibilis",
+        "video": "9gh3p3Szs_8"
+      },
+      {
+        "titel": "Myrddin & Stijn Kuppens — Zielespys",
+        "video": "g1hUkhdyXsk"
+      },
+      {
+        "titel": "Triveni — Als de tuin de winter in slaap wiegt…",
+        "video": "5ZcEJCvcr4U"
+      },
+      {
+        "titel": "Hartwin & the Unfolders — Overfall",
+        "video": "lcQ9jSkhSwU"
+      },
+      {
+        "titel": "Enara Navaira — Thila",
+        "video": "xdijUKPdI3E"
+      },
+      {
+        "titel": "Airboxes — Abdij 1",
+        "video": "7m4q5VEpHzk"
+      }
+    ],
+    "pers": [
+      [
+        "Recensie op damusic.be",
+        "https://damusic.be/cd/various-artists-the-sound-of-the-abbey"
+      ],
+      [
+        "Recensie op RootsWorld",
+        "https://rootsworld.com/reviews/abbey-26.shtml"
+      ]
+    ],
+    "credits": "The Sound of the Abbey is een samenwerking met Abdij van Park.",
+    "beelden": [
+      {
+        "src": "img/beleef/sound-3.webp",
+        "alt": "Hoes en vinylplaat van The Sound of the Abbey"
+      }
+    ],
+    "knop2": {
+      "tekst": "Luister op Spotify",
+      "url": "https://open.spotify.com/album/56VHc6R5ZEgncAgRFlj41s"
+    },
+    "spotifyEmbed": "https://open.spotify.com/embed/album/56VHc6R5ZEgncAgRFlj41s"
+  },
+  {
+    "slug": "volkscafes",
+    "label": "Documentaire",
+    "titel": "De volkscafés van de Merode",
+    "ondertitel": "Een driedelige documentaire",
+    "intro": "Merodefestival bezoekt drie oude volkscafés van de Merode. Singer-songwriter Lennaert Maes gaat in gesprek met de uitbaters en brengt op het einde een lied voor hen. Zo ontstonden drie verstilde, ontroerende en warmmenselijke portretten van elk zowat 25 minuten, over plaatselijk erfgoed dat ons dreigt te ontglippen. Vin, Maurice, Yvonne en Simone vertellen in hun eigen sappige dialect over de rol van het café in de buurt, over het spaarkaske, geheime liefdes en teerfeesten.",
+    "blokken": [
+      {
+        "titel": "Een opdracht",
+        "tekst": "Met deze documentaires vereeuwigt Merodefestival de plekken en hun uitbaters in een filmische en muzikale ode. Vin en Yvonne zijn intussen niet meer onder ons; zij overleden enkele maanden na de opnames. Dat toont hoe belangrijk zulke tijdsdocumenten zijn. We dragen de reeks graag aan hen op."
+      }
+    ],
+    "afleveringen": [
+      {
+        "nr": 1,
+        "titel": "Lang leve de Stips!",
+        "plek": "De Stips, Testelt",
+        "tekst": "Maurice en Vin hielden maar liefst 62 jaar café de Stips open. Op hun 87ste stopten ze, toen de coronacrisis de cafés verplicht deed sluiten.",
+        "youtube": "WtU4FgOUeQk"
+      },
+      {
+        "nr": 2,
+        "titel": "Lang leve de Nachtegaal!",
+        "plek": "De Nachtegaal, Ramsel",
+        "tekst": "Von hield café de Nachtegaal open tot haar 92ste, tot ze in september 2022 overleed.",
+        "youtube": "9u0Ko44AG1g"
+      },
+      {
+        "nr": 3,
+        "titel": "Lang leve café Moderne!",
+        "plek": "Café Moderne, Deurne",
+        "tekst": "Simone is 71 en houdt café Moderne nog altijd open. Het is de plek waar ‘Duune’ samenkomt, jong en oud, en het enige van de vroeger dertien cafés in Deurne dat nog bestaat.",
+        "youtube": "Jaon4n3bvuE"
+      }
+    ],
+    "credits": "Met steun van Cultuur & Erfgoed de Merode, Landschapspark de Merode en de Vlaamse overheid (kunsten & erfgoed).",
+    "beelden": [
+      {
+        "src": "img/beleef/volkscafes-3.webp",
+        "alt": "Maurice en Vin in café de Stips in Testelt"
+      },
+      {
+        "src": "img/beleef/volkscafes-4.webp",
+        "alt": "Von aan een tafel in café de Nachtegaal in Ramsel"
+      },
+      {
+        "src": "img/beleef/volkscafes-5.webp",
+        "alt": "Simone achter de tapkast van café Moderne in Deurne"
+      }
+    ]
+  }
+]

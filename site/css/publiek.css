@@ -1,0 +1,226 @@
+/* Gedeelde stijl van de publiekspagina’s (homepage en concertpagina’s). */
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --serif:"Alegreya",Georgia,"Times New Roman",serif;
+  --label:"Alatsi","Trebuchet MS",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px)}
+body{margin:0;background:var(--s-nacht);color:var(--s-licht);font-family:var(--serif);font-size:1.15rem;line-height:1.55}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1;margin:0}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--s-oranje);outline-offset:3px;border-radius:2px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem}
+.label{font-family:var(--label);font-size:.92rem;letter-spacing:.02em}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--s-nacht)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--s-nacht);border-bottom:1px solid var(--s-nacht-2)}
+.bar{display:flex;align-items:center;gap:1.5rem;min-height:76px}
+.brand{margin-right:auto;display:flex}
+.brand img{display:block;height:56px;width:auto}
+nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0}
+nav a{font-family:var(--label);text-decoration:none;font-size:1rem;white-space:nowrap}
+nav a:hover{color:var(--s-oranje)}
+nav .stil{color:var(--s-zand)}
+.btn{display:inline-block;padding:.55rem 1.15rem;border-radius:999px;background:var(--s-oranje);color:var(--s-op-oranje);text-decoration:none;font-family:var(--label);font-size:1rem;white-space:nowrap;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.menu-toggle{display:none;background:none;border:0;color:inherit;font-family:var(--label);font-size:1rem;cursor:pointer;padding:.5rem}
+@media (max-width:900px){
+  .menu-toggle{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--s-nacht);display:none;padding:.5rem 1.25rem 1.25rem}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:.9rem}
+  .brand img{height:48px}
+}
+
+/* hero: seizoenstitel + artwork */
+.hero{position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;min-height:min(46rem,calc(100vh - 76px))}
+.hero-text{padding:3.5rem 0 4rem;align-self:center}
+.seizoen{font-family:var(--serif);font-weight:400;color:var(--s-zand);font-size:clamp(2.1rem,5.2vw,4.1rem);letter-spacing:.32em;line-height:1.12;margin:0 0 2.75rem}
+.seizoen span{display:block}
+.seizoen em{font-style:normal;color:var(--s-oranje)}
+.next{border-left:3px solid var(--s-oranje);padding-left:1.25rem}
+.next .label{color:var(--s-oranje)}
+.next h2{font-size:clamp(1.6rem,3vw,2.3rem);margin:.35rem 0 .3rem}
+.next .waar{color:var(--s-zand);margin:0 0 1.25rem}
+.next .acties{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+.art{align-self:center;justify-self:end;width:100%;max-width:34rem}
+.art{position:relative}
+.art img{display:block;width:100%;height:auto}
+.art .dia{transition:opacity 1.8s ease}
+.art #artwork:not(.actief){opacity:0}
+.art .foto-dia{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
+  -webkit-mask-image:radial-gradient(ellipse 62% 60% at 50% 50%,#000 35%,transparent 100%);
+  mask-image:radial-gradient(ellipse 62% 60% at 50% 50%,#000 35%,transparent 100%)}
+.art .foto-dia.actief{opacity:1}
+.art-pauze{position:absolute;left:.25rem;bottom:.4rem;z-index:2;width:1.9rem;height:1.9rem;border:0;border-radius:50%;background:rgba(0,0,0,.35);color:var(--s-zand);font-size:.65rem;cursor:pointer;opacity:.6}
+.art-pauze:hover,.art-pauze:focus-visible{opacity:1;outline:2px solid var(--s-oranje);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.art .dia{transition:none}}
+.credit{position:absolute;right:1.25rem;bottom:.6rem;font-size:.8rem;color:var(--s-zand);font-family:var(--label)}
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr;min-height:0}
+  .hero-text{padding:2.5rem 0 1rem}
+  .art{max-width:26rem;justify-self:center}
+}
+
+/* agenda op perzik papier */
+.papier{background:var(--s-papier);color:var(--s-papier-inkt);padding:4.5rem 0}
+.papier .wrap{display:grid;grid-template-columns:19rem 1fr;gap:3.5rem;align-items:start}
+.intro{position:sticky;top:110px}
+.intro h2{font-size:1.9rem;margin-bottom:1rem}
+.intro p{font-style:italic;margin:0 0 1rem;color:var(--s-papier-zacht)}
+.kruisjes{white-space:nowrap;letter-spacing:.35em;color:var(--s-papier-zacht);font-family:var(--label);margin:1.5rem 0}
+.prijzen{margin:0 0 1.25rem}
+.prijzen div{display:flex;justify-content:space-between;gap:1rem;padding:.4rem 0;border-bottom:1px solid var(--s-papier-lijn)}
+.prijzen dt{font-style:italic}
+.prijzen dd{margin:0;font-family:var(--label);white-space:nowrap}
+.papier .btn{background:var(--s-papier-inkt);color:var(--s-papier)}
+@media (max-width:860px){.papier .wrap{grid-template-columns:1fr;gap:2.5rem}.intro{position:static}}
+
+.events{list-style:none;margin:0;padding:0}
+.event{display:grid;grid-template-columns:4.75rem 5.5rem 1fr auto;gap:1.25rem;align-items:start;padding:.4rem 0 1.4rem}
+.thumb img{display:block;width:100%;height:auto;border-radius:2px}
+.thumb:empty{display:none}
+.thumb:empty + div{grid-column:2 / span 2}
+.event + .event::before{content:"× × ×";grid-column:1 / -1;text-align:center;letter-spacing:.4em;color:var(--s-papier-zacht);font-family:var(--label);margin-bottom:1rem}
+.date{font-family:var(--label);line-height:1.1;padding-top:.2rem}
+.date .d{font-size:2rem;display:block}
+.date .m{font-size:.9rem;color:var(--s-papier-zacht)}
+.sub{font-style:italic;color:var(--s-papier-zacht);margin:0 0 .15rem}
+.artist{font-size:1.4rem;font-weight:500;line-height:1.2;margin:0}
+.herkomst{font-style:italic;font-weight:400;font-size:.85em;color:var(--s-papier-zacht);white-space:nowrap}
+.meta{font-family:var(--label);font-size:.95rem;margin:.35rem 0 0}
+.meta .soort{color:var(--s-oranje);filter:brightness(.85)}
+details{margin-top:.6rem}
+summary{cursor:pointer;font-family:var(--label);font-size:.95rem;text-decoration:underline;text-underline-offset:3px;width:max-content}
+details[open] summary{margin-bottom:.6rem}
+details p{margin:0 0 .75rem;max-width:40rem}
+details img{display:block;width:100%;max-width:34rem;border-radius:3px;margin:.25rem 0 .75rem}
+.act{display:flex;align-items:center;gap:.9rem;padding-top:.3rem}
+.price{font-family:var(--label);color:var(--s-papier-zacht)}
+.soldout{display:inline-block;padding:.4rem .8rem;border-radius:3px;background:var(--s-papier-lijn);color:var(--s-papier-inkt);font-family:var(--label);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase}
+.hero .soldout{background:rgba(255,255,255,.14);color:var(--s-licht);padding:.55rem .95rem}
+.event.is-full .artist{opacity:.6}
+.event.extra{display:none}
+.events.alles .event.extra{display:grid}
+.toon-alles{margin-top:1.5rem;background:transparent!important;color:var(--s-papier-inkt)!important;box-shadow:inset 0 0 0 1.5px currentColor}
+@media (max-width:640px){
+  .event{grid-template-columns:3.5rem 4rem 1fr}
+  .act{grid-column:2 / -1;flex-wrap:wrap}
+  .thumb:empty + div{grid-column:2 / -1}
+}
+
+/* festival + beleef */
+section.donker{padding:4.5rem 0}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:3rem}
+.duo figure{margin:0}
+.duo img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:3px}
+.duo figcaption{color:var(--s-zand);font-size:.95rem;font-style:italic;margin-top:.45rem}
+.split{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem}
+.split h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1rem}
+.split p{margin:0 0 1.2rem;max-width:36rem}
+.beleef{list-style:none;margin:0;padding:0}
+.beleef li{padding:1rem 0;border-bottom:1px solid var(--s-nacht-2)}
+.beleef li:first-child{border-top:1px solid var(--s-nacht-2)}
+.beleef a{font-size:1.35rem;font-weight:500;text-decoration:none}
+.beleef a:hover{color:var(--s-oranje)}
+.beleef p{margin:.15rem 0 0;color:var(--s-zand);font-size:1rem}
+@media (max-width:820px){.split,.duo{grid-template-columns:1fr}}
+
+.wesp{border-top:1px solid var(--s-nacht-2);padding:3rem 0}
+.wesp .wrap{display:flex;gap:2rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.wesp p{margin:0;max-width:44rem;font-size:1.2rem;font-style:italic}
+
+.nieuws{background:var(--s-papier);color:var(--s-papier-inkt);padding:2.5rem 0}
+.nieuws .wrap{display:flex;gap:1.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.nieuws h2{font-size:1.8rem}
+.nieuws p{margin:.25rem 0 0;color:var(--s-papier-zacht)}
+.nieuws .btn{background:var(--s-papier-inkt);color:var(--s-papier)}
+
+footer{padding:3rem 0;font-size:1rem;color:var(--s-zand)}
+footer .foot-logo{display:block;height:64px;width:auto;margin-bottom:2rem;filter:grayscale(1) brightness(2.2);opacity:.4}
+footer .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+footer h3{font-family:var(--label);font-weight:400;font-size:1rem;color:var(--s-licht);margin-bottom:.5rem}
+footer p{margin:0 0 .4rem}
+footer ul{list-style:none;margin:0;padding:0}
+@media (max-width:720px){footer .cols{grid-template-columns:1fr}}
+.artist a{text-decoration:none}
+.artist a:hover{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.meer{margin:.5rem 0 0;font-family:var(--label);font-size:.95rem}
+.meer a{text-underline-offset:3px}
+.links{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;align-items:baseline;margin-top:.55rem;font-family:var(--label);font-size:.95rem}
+.links details{margin:0}
+.links details[open]{flex-basis:100%;font-family:var(--serif);font-size:1.05rem}
+.links details[open] summary{font-family:var(--label);font-size:.95rem}
+.links > a{text-underline-offset:3px}
+
+/* Ook van WESP: bewust apart van de eigen agenda */
+.ook-wesp{padding:3.5rem 0;border-bottom:1px solid var(--s-nacht-2)}
+.ook-kop{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.ook-kop h2{font-size:1.7rem}
+.ook-kop p{margin:0;color:var(--s-zand);font-style:italic}
+.ook-kop{align-items:end}
+.ook-pijlen{display:flex;gap:.5rem;margin-left:auto}
+.pijl{width:2.6rem;height:2.6rem;border-radius:50%;border:0;background:transparent;color:var(--s-licht);box-shadow:inset 0 0 0 1.5px var(--s-zand);font-size:1.1rem;cursor:pointer}
+.pijl:hover{box-shadow:inset 0 0 0 1.5px var(--s-oranje);color:var(--s-oranje)}
+.ook-wesp .ook-lijst{list-style:none;margin:0;padding:0 0 1rem;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(15rem,17rem);gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--s-zand) transparent}
+.ook-wesp .ook-lijst:focus-visible{outline:2px solid var(--s-oranje);outline-offset:4px}
+.ook-wesp .ook-lijst li{scroll-snap-align:start;position:relative}
+.ook-wesp .ook-lijst a{display:flex;flex-direction:column;gap:.15rem;text-decoration:none;height:100%;border-top:1px solid var(--s-zand);padding-top:.9rem}
+.ook-wesp .ook-lijst img,.ook-reeks{font-family:var(--label);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--s-zand)}
+.ook-datum{font-family:var(--label);color:var(--s-licht)}
+.ook-naam{font-size:1.2rem;font-weight:500;line-height:1.25}
+.ook-waar{color:var(--s-zand);font-size:1rem}
+.ook-meer{margin-top:auto;padding-top:.6rem;font-family:var(--label);font-size:.9rem;color:var(--s-oranje)}
+.ook-wesp .ook-lijst a:hover .ook-naam{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+@media (max-width:760px){.ook-wesp .ook-lijst{grid-auto-columns:75%}.ook-pijlen{display:none}}
+
+/* Festival: één brede sectie */
+.fest{padding:5rem 0 4rem}
+.fest-kop{max-width:70rem}
+.fest-datum{color:var(--s-oranje);margin:0 0 .6rem}
+.fest h2{font-size:clamp(2.6rem,7vw,5rem);letter-spacing:-.01em;margin-bottom:1.25rem}
+.fest-intro{font-size:clamp(1.2rem,2.2vw,1.45rem);max-width:44rem;margin:0 0 1.75rem;color:var(--s-licht)}
+.fest .acties{display:flex;flex-wrap:wrap;gap:.75rem}
+.fest-beelden{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:3rem}
+.fest-beelden figure{margin:0}
+.fest-beelden img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:3px}
+.fest-beelden figcaption{color:var(--s-zand);font-style:italic;font-size:.98rem;margin-top:.45rem}
+@media (max-width:720px){.fest-beelden{grid-template-columns:1fr}}
+
+/* Vorige edities: jaartallen als tijdlijn */
+.edities-teaser{padding:4rem 0}
+.edities-teaser .wrap{display:block}
+.edities-kop{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
+.edities-kop h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:.5rem}
+.edities-kop p{margin:0;max-width:38rem;font-style:italic;color:var(--s-papier-zacht)}
+.jaren{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(8.5rem,1fr));border-top:1px solid var(--s-papier-lijn)}
+.jaren li{display:flex}
+.jaren a{display:block;flex:1;padding:1rem .75rem 1rem 0;text-decoration:none;border-bottom:1px solid var(--s-papier-lijn)}
+.jaren .jaar{display:block;font-family:var(--label);font-size:1.9rem;line-height:1}
+.jaren .plek{display:block;font-size:.95rem;color:var(--s-papier-zacht);margin-top:.3rem;line-height:1.3}
+.jaren a:hover .jaar{color:var(--s-oranje)}
+
+/* Beleef de Merode: vier kaarten naast elkaar */
+.beleef-sectie{padding:4.5rem 0}
+.beleef-sectie h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:.5rem}
+.beleef-intro{margin:0 0 2rem;color:var(--s-zand);font-style:italic}
+.beleef-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.beleef-grid a{display:flex;flex-direction:column;gap:.4rem;height:100%;padding:1.4rem;background:var(--s-nacht-2);border-radius:3px;text-decoration:none;border-top:3px solid var(--s-oranje)}
+.beleef-grid .label{color:var(--s-oranje)}
+.beleef-grid .naam{font-size:1.35rem;font-weight:500;line-height:1.2}
+.beleef-grid .uitleg{color:var(--s-zand);font-size:1rem}
+.beleef-grid a:hover .naam{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+@media (max-width:960px){.beleef-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.beleef-grid{grid-template-columns:1fr}}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* nooit zijwaarts scrollen door een uitstekend element */
+html,body{overflow-x:clip}
