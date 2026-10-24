@@ -512,8 +512,7 @@
     ],
     "foto": "data/foto/40377c21f8db80398761eecd17dc631f.png",
     "fotos": [
-      "data/foto/40377c21f8db80398761eecd17dc631f-1.png",
-      "data/foto/40377c21f8db80398761eecd17dc631f-2.png"
+      "data/foto/40377c21f8db80398761eecd17dc631f-1.png"
     ]
   },
   {
@@ -694,7 +693,7 @@
         "html": "<em>Huis der Weemoed is een productie van Merodefestival (WESP vzw), in samenwerking met Landschapspark de Merode en de betrokken lokale besturen, beheerders en erfgoedpartners.</em>"
       }
     ],
-    "foto": "",
+    "foto": "data/foto/40377c21f8db81ef9548e46279d11b72.png",
     "fotos": []
   },
   {
@@ -804,7 +803,7 @@
         "html": "<em>Klanken in de kapel is een organisatie van Merodefestival, in samenwerking met Landschapspark de Merode en vzw Folkmjusic.</em>"
       }
     ],
-    "foto": "",
+    "foto": "data/foto/40377c21f8db8134990ee04c9a3c9d9c.jpg",
     "fotos": []
   },
   {
@@ -922,7 +921,7 @@
         "html": "<em>Muzikale wandelingen is een concept van Merodefestival (WESP vzw), met steun van de Vlaamse overheid, kunsten &amp; erfgoed.</em>"
       }
     ],
-    "foto": "",
+    "foto": "data/foto/40377c21f8db8166b0cdc71b23da9ceb.png",
     "fotos": []
   }
 ]
