@@ -408,7 +408,7 @@ window.AGENDA = [
     ],
     "spotify": [],
     "webadres": "",
-    "foto": "data/foto/40077c21f8db81469f3ad2c4779240b6.png",
+    "foto": "data/foto/40077c21f8db81469f3ad2c4779240b6.jpg",
     "slug": "griff-trio-2026-12-11"
   },
   {
