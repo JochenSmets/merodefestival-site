@@ -32,19 +32,37 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
   // ---------- spelers en video's ----------
   const ytId = u => (u.match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/))([\w-]{11})/) || [])[1];
   const vimeo = u => {
-    const m = u.match(/vimeo\.com\/(?:video\/)?(\d{6,})(?:\/([0-9a-f]{8,}))?/);
+    const m = String(u || "").match(/vimeo\.com\/(?:video\/|channels\/[\w-]+\/)?(\d{6,})(?:\/([0-9a-f]{8,}))?/);
     if (!m) return null;
     const h = m[2] || (u.match(/[?&]h=([0-9a-f]+)/) || [])[1];
     return { id: m[1], h };
   };
+  // Vimeo: miniatuur en verborgen deel opzoeken bij Vimeo. Een link met een eigen naam
+  // (vimeo.com/naam/video) volgen we tot het nummer. Lukt dat niet, dan bouwen we gewoon verder.
+  const VIMEO = {};
+  const vimeoLinks = [...new Set(lijst.flatMap(p => (p.videos || []).map(v => v.url)).filter(u => /vimeo\.com\//.test(u || "")))];
+  await Promise.all(vimeoLinks.map(async u => {
+    let vm = vimeo(u), thumb = "";
+    try {
+      if (!vm) vm = vimeo((await fetch(u, { redirect: "follow" })).url);
+      const r = await fetch("https://vimeo.com/api/oembed.json?width=640&url=" +
+        encodeURIComponent(vm ? `https://vimeo.com/${vm.id}${vm.h ? "/" + vm.h : ""}` : u));
+      const o = r.ok ? await r.json() : {};
+      if (!vm && o.video_id) vm = { id: String(o.video_id) };
+      if (vm && !vm.h) vm.h = (String(o.html || "").match(/[?&;]h=([0-9a-f]{6,})/) || [])[1];
+      thumb = o.thumbnail_url || "";
+    } catch (err) { console.warn(`Vimeo-link ${u} niet opgezocht: ${err.message}`); }
+    if (vm) VIMEO[u] = { ...vm, thumb };
+  }));
+
   const video = v => {
     const t = v.titel || "";
     const label = esc("Speel video af" + (t ? ": " + t : ""));
     const tekst = t ? `<p class="vtitel">${esc(t)}</p>` : "";
     const yt = ytId(v.url);
     if (yt) return `<div class="vblok"><div class="video"><button class="yt" type="button" data-id="${yt}" aria-label="${label}" style="background-image:url(https://i.ytimg.com/vi/${yt}/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div>${tekst}</div>`;
-    const vm = vimeo(v.url);
-    if (vm) return `<div class="vblok"><div class="video"><button class="yt" type="button" data-vimeo="${vm.id}"${vm.h ? ` data-h="${vm.h}"` : ""} aria-label="${label}"><span class="play" aria-hidden="true"></span></button></div>${tekst}</div>`;
+    const vm = VIMEO[v.url] || vimeo(v.url);
+    if (vm) return `<div class="vblok"><div class="video"><button class="yt" type="button" data-vimeo="${vm.id}"${vm.h ? ` data-h="${vm.h}"` : ""} aria-label="${label}"${vm.thumb ? ` style="background-image:url(${esc(vm.thumb)})"` : ""}><span class="play" aria-hidden="true"></span></button></div>${tekst}</div>`;
     return `<div class="vblok"><p><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(t || v.url)} ↗</a></p></div>`;
   };
   const allow = 'allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"';

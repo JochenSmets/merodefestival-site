@@ -21,6 +21,7 @@
 }
 
 .cgrid{grid-template-columns:1fr 18rem!important;gap:4rem!important}
+.cgrid > *{min-width:0}
 .ctekst{max-width:40rem}
 .ctekst p{margin:0 0 1.1rem;font-size:1.2rem}
 .ctekst p:first-child{font-size:1.4rem;line-height:1.45}
