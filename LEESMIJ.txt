@@ -1,0 +1,14 @@
+Update: productiepagina's
+
+Kopieer de mappen "scripts" en "site" en het bestand README.md uit deze map naar je map merodefestival-site
+(kies telkens "Vervang"). Er worden alleen deze bestanden vervangen of toegevoegd:
+
+  scripts/sync-notion.mjs        (vervangen)
+  scripts/build-pages.mjs        (vervangen)
+  scripts/build-producties.mjs   (nieuw)
+  site/css/producties.css        (nieuw)
+  site/index.html                (vervangen: menu met Producties)
+  README.md                      (vervangen)
+
+Daarna in GitHub Desktop: Commit to main, Push origin.
+Dan in GitHub: Actions > Notion -> website > Run workflow.

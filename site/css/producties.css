@@ -1,0 +1,46 @@
+/* Producties: overzicht en detailpagina’s (aanvulling op publiek.css en concert.css) */
+.lead{font-size:1.2rem;color:var(--s-licht);max-width:36rem;margin:0 0 1.5rem}
+.ctekst h2{font-size:1.5rem;margin:2rem 0 .6rem}
+.ctekst h3{font-size:1.2rem;margin:1.5rem 0 .4rem}
+.ctekst blockquote{margin:1.2rem 0;padding-left:1rem;border-left:3px solid var(--s-oranje);font-style:italic}
+.lijst{margin:.2rem 0 1rem;padding-left:1.3rem}.lijst li{margin-bottom:.35rem}
+.extra{font-style:italic;color:var(--s-papier-zacht);font-size:1rem}
+.data{margin:0;padding-left:1.1rem}.data li{margin-bottom:.4rem}
+.vtitel{display:block;font-size:.95rem;margin:.4rem 0 0;color:var(--s-papier-zacht)}
+
+/* Overzicht */
+.pr-hero{padding:4rem 0 3rem}
+.pr-hero h1{font-size:clamp(2.4rem,6vw,4.2rem);margin:.4rem 0 1rem}
+.pr-hero p{max-width:40rem;font-size:1.2rem;color:var(--s-licht)}
+.pr-sectie .wrap{display:block}
+.soorten{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 2.5rem}
+.soorten a{display:inline-flex;gap:.45rem;align-items:center;padding:.45rem .95rem;border-radius:999px;font-family:var(--label);font-size:.95rem;text-decoration:none;box-shadow:inset 0 0 0 1.5px var(--s-papier-lijn)}
+.soorten a:hover{background:var(--s-papier-inkt);color:var(--s-papier);box-shadow:none}
+.soorten a span{font-size:.8rem;opacity:.75}
+.soort{margin-top:4rem}.soort:first-of-type{margin-top:0}
+.soort h2{font-size:clamp(1.8rem,3.5vw,2.4rem);margin:0 0 .3rem}
+.soort-intro{margin:0 0 1.5rem;font-style:italic;color:var(--s-papier-zacht)}
+.kaarten{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));gap:2rem 1.75rem}
+.kaart{display:flex;flex-direction:column;gap:.3rem;height:100%;text-decoration:none}
+.kaart img,.kaart .ph{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;margin-bottom:.6rem}
+.kaart img.contain{object-fit:contain}
+.kaart img.transp{object-fit:contain;object-position:center bottom;background:#EEE2CE}
+.klabel{font-family:var(--label);font-size:.85rem;color:var(--s-papier-zacht)}
+.ktitel{font-size:1.6rem;line-height:1.15}
+.kmakers{font-style:italic;color:var(--s-papier-zacht);font-size:1rem}
+.ktekst{font-size:1.02rem;margin-top:.3rem}
+.kmeer{margin-top:auto;padding-top:.6rem;font-family:var(--label);font-size:.9rem;text-decoration:underline;text-underline-offset:4px}
+.kaart:hover .ktitel{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.ph{display:grid;place-items:center;text-align:center;padding:1rem;background:linear-gradient(135deg,#6a4b2f,#3b2a1a);color:#e9d8bd;font-family:var(--label);font-size:1rem}
+
+/* Detail */
+.cbeeld.transp img{background:#EEE2CE}
+.speler{display:block;width:100%;border:0;border-radius:12px;margin:0 0 .75rem;background:var(--s-nacht-2)}
+.pvideos{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem 1rem;margin-top:1rem}
+.pvideos .vblok:first-child{grid-column:1 / -1}
+@media (max-width:600px){.pvideos{grid-template-columns:1fr}}
+.galerij3{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:2rem 0;align-items:start}
+.galerij3.twee{grid-template-columns:repeat(2,1fr)}
+.galerij3 figure{margin:0}
+.galerij3 img{display:block;width:100%;height:auto;border-radius:3px}
+@media (max-width:560px){.galerij3,.galerij3.twee{grid-template-columns:1fr}}

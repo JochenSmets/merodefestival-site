@@ -173,3 +173,16 @@ anders de website van de reeks uit `site/data/reeksen.js`, anders de ticketlink,
 Bovenaan de homepage wisselt het seizoensbeeld van Reinhart zacht af met foto’s uit de kerken.
 Dat zijn de rijen in de Beeldbank met *Onderwerp* = Kerkconcert, *Gebruik* = Homepage-carrousel en *Online* aangevinkt,
 in de volgorde van *Volgorde*. Een foto erbij of eruit regel je dus gewoon in Notion.
+
+## Producties
+
+De database **Producties (website)** in Notion bepaalt de pagina `producties.html` en per rij met *Online* aangevinkt een pagina `productie-<webadres>.html`.
+
+- **Soort** bepaalt de rubriek: Podiumproductie, Installatie, Playlist of Concept op maat. Een rubriek zonder items verschijnt niet.
+- **Volgorde** bepaalt de volgorde binnen een rubriek (laag getal = eerst).
+- De korte tekst op de kaart komt uit *Tekst*, de uitgebreide tekst uit de Notion-pagina zelf (koppen, lijsten, vet en cursief werken).
+- **Video’s**: één regel per video, als `link | titel`. YouTube en Vimeo spelen in de pagina. Een Vimeo-link met verborgen deel (`vimeo.com/1231680612/2276477c4b`) werkt ook. Een Vimeo-link zonder nummer wordt een gewone link.
+- **Spotify** en **SoundCloud**: één link per regel, wordt een ingesloten speler.
+- **Foto**: de eerste foto is de hoofdfoto, alle volgende komen als reeks onder de tekst. Een foto met doorzichtige achtergrond (PNG/WebP) blijft doorzichtig en staat op een lichte achtergrond.
+- **Uitsnede** (midden, boven, onder, links, rechts, volledig tonen) bepaalt welk deel van de foto op de kaart zichtbaar blijft.
+- **Knoptekst** en **Knoplink**: zonder link opent de knop een mail naar *Contact* (standaard info@merodefestival.be).

@@ -196,14 +196,10 @@ document.getElementById("credit").textContent = S.credit || "";
   const fotos = (window.BEELDBANK || []).filter(b => b.onderwerp === "Kerkconcert" && (b.gebruik || []).includes("Homepage-carrousel"))
     .sort((a, b) => (a.volgorde ?? 99) - (b.volgorde ?? 99));
   if (!fotos.length) return;
-  // Uitsnede uit de Beeldbank: welk deel van de foto zichtbaar blijft
-  const UITSNEDE = { midden: "center", boven: "center top", onder: "center bottom", links: "left center", rechts: "right center" };
   const dias = [art];
   fotos.forEach(f => {
     const img = document.createElement("img");
     img.className = "dia foto-dia"; img.src = f.src; img.alt = f.alt || ""; img.loading = "lazy";
-    if (f.uitsnede === "volledig tonen") img.style.objectFit = "contain";
-    else img.style.objectPosition = UITSNEDE[f.uitsnede] || "center";
     img.dataset.credit = f.fotograaf ? "Foto: " + f.fotograaf : "";
     box.insertBefore(img, knop); dias.push(img);
   });
@@ -270,7 +266,7 @@ list.innerHTML = upcoming.map((e,i) => {
       <p class="meta"><span class="soort">${esc(e.kind)}</span> · ${esc([e.place, e.village].filter(Boolean).join(", "))}${e.time ? " · " + esc(e.time) : ""}</p>
       <div class="links">
         ${e.text ? `<details><summary>Meer info</summary>${String(e.text).split(/\n\s*\n/).map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}
-        ${pagina ? `<a href="${esc(pagina)}${(e.videos || []).length || (e.spotify || []).length || (e.soundcloud || []).length ? "#luister" : ""}">${(e.videos || []).length || (e.spotify || []).length || (e.soundcloud || []).length ? "Kijk en luister" : "Meer over dit concert"}</a>` : ""}
+        ${pagina ? `<a href="${esc(pagina)}${(e.videos || []).length || (e.spotify || []).length ? "#luister" : ""}">${(e.videos || []).length || (e.spotify || []).length ? "Kijk en luister" : "Meer over dit concert"}</a>` : ""}
       </div>
     </div>
     <div class="act">${e.price && !e.volzet ? `<span class="price">${esc(e.price)}</span>` : ""}${ticketHtml(e, false)}</div>

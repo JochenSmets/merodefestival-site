@@ -54,57 +54,6 @@ function youtubeId(url) {
   return m ? m[1] : null;
 }
 
-// Vimeo: vimeo.com/123, vimeo.com/123/<verborgen deel> of player.vimeo.com/video/123?h=<verborgen deel>
-function vimeo(url) {
-  const m = String(url || "").match(/vimeo\.com\/(?:video\/|channels\/[\w-]+\/)?(\d{5,})(?:\/([0-9a-f]{6,}))?/);
-  if (!m) return null;
-  return { id: m[1], h: m[2] || (String(url).match(/[?&]h=([0-9a-f]{6,})/) || [])[1] || "" };
-}
-
-// Korte links (vimeo.com/naam/video, on.soundcloud.com, spotify.link) volgen we tot het echte adres,
-// en van Vimeo halen we de miniatuur en het verborgen deel op. Lukt dat niet, dan bouwen we gewoon verder.
-const ECHT = {}, VIMEO = {};
-async function opzoeken(url) {
-  if (url in ECHT) return;
-  ECHT[url] = url;
-  try {
-    if (/on\.soundcloud\.com|spotify\.link|spotify\.app\.link/.test(url) || (/vimeo\.com\//.test(url) && !vimeo(url))) {
-      const r = await fetch(url, { redirect: "follow" });
-      ECHT[url] = r.url.split(/[?#]/)[0];
-    }
-    if (/vimeo\.com\//.test(ECHT[url])) {
-      const v0 = vimeo(ECHT[url]);
-      const r = await fetch("https://vimeo.com/api/oembed.json?width=640&url=" + encodeURIComponent(v0 ? `https://vimeo.com/${v0.id}${v0.h ? "/" + v0.h : ""}` : ECHT[url]));
-      const o = r.ok ? await r.json() : {};
-      const v = v0 || (o.video_id ? { id: String(o.video_id), h: "" } : null);
-      if (v) VIMEO[url] = { ...v, h: v.h || (String(o.html || "").match(/[?&;]h=([0-9a-f]{6,})/) || [])[1] || "", thumb: o.thumbnail_url || "" };
-    }
-  } catch (err) { console.warn(`Kon ${url} niet opzoeken: ${err.message}`); }
-  if (!VIMEO[url] && vimeo(url)) VIMEO[url] = { ...vimeo(url), thumb: "" };
-}
-
-// Een video: afspeelknop met miniatuur; bij een klik komt de speler van YouTube (nocookie) of Vimeo in de plaats.
-function videoHtml(v, titel) {
-  const label = v.titel || titel;
-  const yt = youtubeId(v.url), vm = !yt && VIMEO[v.url];
-  if (!yt && !vm) return "";
-  const beeld = yt ? `https://i.ytimg.com/vi/${yt}/hqdefault.jpg` : vm.thumb;
-  const data = yt ? `data-id="${yt}"` : `data-vimeo="${vm.id}"${vm.h ? ` data-h="${vm.h}"` : ""}`;
-  return `<figure class="vid"><div class="video"><button class="yt" type="button" ${data} aria-label="Speel video af: ${esc(label)}"${beeld ? ` style="background-image:url(${esc(beeld)})"` : ""}><span class="play" aria-hidden="true"></span></button></div>${v.titel ? `<figcaption class="vtitel">${esc(v.titel)}</figcaption>` : ""}</figure>`;
-}
-const speelbaar = v => !!(youtubeId(v.url) || VIMEO[v.url]);
-
-// Links uit de velden Spotify en SoundCloud: altijd een ingesloten speler, nooit een externe link.
-function spelersHtml(links, titel) {
-  return (links || []).map(u => ECHT[u] || u).map(u => {
-    const sp = spotifyEmbed(u);
-    if (sp) return `<iframe class="speler" src="https://open.spotify.com/embed/${sp.type}/${sp.id}" title="Spotify: ${esc(titel)}" height="${/track|episode/.test(sp.type) ? 152 : 352}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`;
-    if (/(^|\.)soundcloud\.com\//.test(u.replace(/^https?:\/\//, "")))
-      return `<iframe class="speler" src="https://w.soundcloud.com/player/?url=${encodeURIComponent(u)}&amp;visual=false" title="SoundCloud: ${esc(titel)}" height="450" loading="lazy" allow="autoplay"></iframe>`;
-    return "";
-  }).join("");
-}
-
 function ics(e) {
   const t = tijd(e.time);
   const dag = e.start.replace(/-/g, "");
@@ -158,8 +107,8 @@ function pagina(e, overige) {
   const beeldAbs = `${SITE}/${e.foto || S.artwork}`;
   const alineas = String(e.text || "").split(/\n\s*\n/).filter(Boolean);
   const omschrijving = (e.sub ? e.sub + ". " : "") + (alineas[0] || `${e.kind} in ${e.place}, ${e.village}.`);
-  const vids = (e.videos || []).map(url => ({ url })).filter(speelbaar);
-  const spelers = spelersHtml([...(e.spotify || []), ...(e.soundcloud || [])], e.artist);
+  const yts = (e.videos || []).map(youtubeId).filter(Boolean);
+  const sps = (e.spotify || []).map(spotifyEmbed).filter(Boolean);
   const kerk = /kerkconcert/i.test(e.kind);
   const route = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.adres || [e.place, e.village].filter(Boolean).join(", "))}`;
   const ticket = e.volzet ? `<span class="soldout">Volzet</span>`
@@ -237,10 +186,10 @@ function pagina(e, overige) {
           <h2 class="label" id="beelden-titel">Foto’s</h2>
           <div class="beeldgrid">${extraBeelden.map(b => `<figure><a href="../${esc(b.src)}" target="_blank" rel="noopener"><img src="../${esc(b.src)}" alt="${esc(b.alt)}" loading="lazy"></a>${b.fotograaf ? `<figcaption>Foto: ${esc(b.fotograaf)}</figcaption>` : ""}</figure>`).join("")}</div>
         </section>` : ""}
-        ${vids.length || spelers ? `<section class="luister" id="luister" aria-labelledby="luister-titel">
+        ${yts.length || sps.length ? `<section class="luister" id="luister" aria-labelledby="luister-titel">
           <h2 class="label" id="luister-titel">Kijk en luister</h2>
-          ${vids.length ? `<div class="videos${vids.length > 1 ? " meer" : ""}">${vids.map(v => videoHtml(v, e.artist)).join("")}</div>` : ""}
-          ${spelers ? `<div class="spotify">${spelers}</div>` : ""}
+          ${yts.length ? `<div class="videos${yts.length > 1 ? " meer" : ""}">${yts.map((id, i) => `<div class="video"><button class="yt" type="button" data-id="${id}" aria-label="Speel video ${i + 1} af: ${esc(e.artist)}" style="background-image:url(https://i.ytimg.com/vi/${id}/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div>`).join("")}</div>` : ""}
+          ${sps.length ? `<div class="spotify">${sps.map(x => `<iframe src="https://open.spotify.com/embed/${x.type}/${x.id}?utm_source=generator&amp;theme=0" title="Spotify: ${esc(e.artist)}" height="${/album|playlist|show/.test(x.type) ? 352 : 152}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`).join("")}</div>` : ""}
         </section>` : ""}
       </article>
       <aside class="praktisch">
@@ -304,15 +253,14 @@ function pagina(e, overige) {
       if (el) el.innerHTML = '<span class="soldout">Dit concert is voorbij</span>';
     });
   }
-  // Video's (YouTube en Vimeo) laden pas bij een klik (sneller, en geen cookies vooraf).
-  // Vanaf je eigen computer (file://) weigeren ze in te sluiten: dan openen we de video zelf.
+  // Video's laden pas bij een klik (sneller, en geen YouTube-cookies vooraf).
+  // Vanaf je eigen computer (file://) weigert YouTube in te sluiten: dan openen we YouTube zelf.
   document.querySelectorAll(".yt").forEach(function (b) {
     b.addEventListener("click", function () {
-      var id = b.getAttribute("data-id"), vm = b.getAttribute("data-vimeo"), h = b.getAttribute("data-h");
-      if (location.protocol === "file:") { window.open(vm ? "https://vimeo.com/" + vm + (h ? "/" + h : "") : "https://www.youtube.com/watch?v=" + id, "_blank", "noopener"); return; }
+      var id = b.getAttribute("data-id");
+      if (location.protocol === "file:") { window.open("https://www.youtube.com/watch?v=" + id, "_blank", "noopener"); return; }
       var f = document.createElement("iframe");
-      f.src = vm ? "https://player.vimeo.com/video/" + vm + "?" + (h ? "h=" + h + "&" : "") + "autoplay=1&dnt=1"
-        : "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+      f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
       f.title = b.getAttribute("aria-label");
       f.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
       f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
@@ -330,7 +278,6 @@ function pagina(e, overige) {
 }
 
 // Oude pagina's opruimen en nieuwe schrijven
-await Promise.all(agenda.flatMap(e => [...(e.videos || []), ...(e.spotify || []), ...(e.soundcloud || [])]).map(opzoeken));
 await fs.mkdir(OUT, { recursive: true });
 for (const f of await fs.readdir(OUT)) await fs.unlink(path.join(OUT, f));
 
@@ -509,10 +456,11 @@ const editiesHtml = `<!DOCTYPE html>
 <script>
 document.querySelectorAll(".yt").forEach(function (b) {
   b.addEventListener("click", function () {
-    var id = b.getAttribute("data-id");
-    if (location.protocol === "file:") { window.open("https://www.youtube.com/watch?v=" + id, "_blank", "noopener"); return; }
+    var id = b.getAttribute("data-id"), vm = b.getAttribute("data-vimeo"), h = b.getAttribute("data-h");
+    if (location.protocol === "file:") { window.open(vm ? "https://vimeo.com/" + vm : "https://www.youtube.com/watch?v=" + id, "_blank", "noopener"); return; }
     var f = document.createElement("iframe");
-    f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+    f.src = vm ? "https://player.vimeo.com/video/" + vm + "?" + (h ? "h=" + h + "&" : "") + "autoplay=1"
+              : "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
     f.title = b.getAttribute("aria-label");
     f.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
     f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
@@ -621,206 +569,13 @@ for (const b of beleef) {
 }
 
 
-// ---------- Producties (uit site/data/producties.json) ----------
-const producties = JSON.parse(await fs.readFile(path.join(ROOT, "data/producties.json"), "utf8"));
-const PR_OUT = path.join(ROOT, "productie");
-const prGebruikt = new Set();
-for (const p of producties) {
-  let s = slugify(p.webadres || p.titel), uniek = s, i = 2;
-  while (prGebruikt.has(uniek)) uniek = `${s}-${i++}`;
-  prGebruikt.add(uniek);
-  p.slug = uniek;
-}
-// Uitsnede uit Notion: welk deel van de foto zichtbaar blijft bij bijsnijden
-const UITSNEDE = { midden: "center", boven: "center top", onder: "center bottom", links: "left center", rechts: "right center" };
-const uitsnedeCss = u => u === "volledig tonen" ? "object-fit:contain" : `object-position:${UITSNEDE[u] || "center"}`;
-const mailAdres = p => (String(p.contact || "").match(/[\w.+-]+@[\w-]+(\.[\w-]+)+/) || ["info@merodefestival.be"])[0];
-const mailLink = p => `mailto:${mailAdres(p)}?subject=${encodeURIComponent(p.titel)}`;
-const regelsHtml = t => esc(t).replace(/\n/g, "<br>");
-
-function productiePagina(p) {
-  const beeld = p.foto || S.artwork;
-  const vids = (p.videos || []).filter(speelbaar);
-  const links = (p.videos || []).filter(v => !vids.includes(v));
-  const spelers = spelersHtml([...(p.spotify || []), ...(p.soundcloud || [])], p.titel);
-  const knop = `<a class="btn" href="${esc(mailLink(p))}">${esc(p.knop || "Vraag een optie")}</a>`;
-  return `<!DOCTYPE html>
-<html lang="nl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>${esc(p.titel)} | Producties | Merodefestival</title>
-<meta name="description" content="${esc(String(p.tekst || p.makers || p.titel).slice(0, 220))}">
-<link rel="canonical" href="${SITE}/productie/${p.slug}.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="${esc(p.titel)}">
-<meta property="og:description" content="${esc(p.makers || p.label || "")}">
-<meta property="og:image" content="${esc(`${SITE}/${beeld}`)}">
-<meta property="og:url" content="${SITE}/productie/${p.slug}.html">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
-<link rel="apple-touch-icon" href="../img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../seizoen/seizoen.css">
-<link rel="stylesheet" href="../css/publiek.css">
-<link rel="stylesheet" href="../css/concert.css">
-</head>
-<body>
-
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="../index.html"><img src="../${esc(S.logo)}" alt="Merodefestival" width="82" height="56"></a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="hoofdmenu">Menu</button>
-    <nav id="hoofdmenu" aria-label="Hoofdmenu">
-      <ul>
-        <li><a href="../index.html#agenda">Agenda</a></li>
-        <li><a href="../index.html#festival">Festival 2027</a></li>
-        <li><a href="../index.html#beleef">Beleef de Merode</a></li>
-        <li><a href="../producties.html" aria-current="page">Producties</a></li>
-        <li><a href="../vorige-edities.html">Vorige edities</a></li>
-        <li><a href="../index.html#nieuwsbrief">Nieuwsbrief</a></li>
-      </ul>
-    </nav>
-    <a class="btn" href="${esc(S.ticketlink || "#")}">Tickets</a>
-  </div>
-</header>
-
-<main>
-  <section class="chero" aria-labelledby="titel">
-    <div class="wrap">
-      <div class="chero-tekst">
-        <a class="terug" href="../producties.html">← Producties</a>
-        ${p.label ? `<p class="label datumregel">${esc(p.label)}</p>` : ""}
-        <h1 id="titel">${esc(p.titel)}</h1>
-        ${p.makers ? `<p class="waar">${esc(p.makers)}</p>` : ""}
-        ${p.tekst ? `<p class="lead">${esc(p.tekst)}</p>` : ""}
-        <div class="acties">${knop}</div>
-      </div>
-      <figure class="cbeeld${p.foto ? " foto" : ""}">
-        <img src="../${esc(beeld)}" alt="${p.foto ? esc(p.titel) : esc(S.artworkAlt || "")}">
-      </figure>
-    </div>
-  </section>
-
-  <section class="papier" aria-label="Over deze productie">
-    <div class="wrap cgrid">
-      <article class="ctekst">
-        ${(p.lang || []).length ? blokkenHtml(p.lang) : p.tekst ? `<p>${esc(p.tekst)}</p>` : ""}
-        ${vids.length || links.length || spelers ? `<section class="luister" id="luister" aria-labelledby="luister-titel">
-          <h2 class="label" id="luister-titel">Kijk en luister</h2>
-          ${vids.length ? `<div class="videos${vids.length > 1 ? " meer" : ""}">${vids.map(v => videoHtml(v, p.titel)).join("")}</div>` : ""}
-          ${links.length ? `<ul class="vlinks">${links.map(v => `<li><a href="${esc(v.url)}" target="_blank" rel="noopener"><span class="vico" aria-hidden="true">▶</span>${esc(v.titel || v.url.replace(/^https?:\/\/(www\.)?/, ""))}<span class="sr"> (opent in een nieuw tabblad)</span></a></li>`).join("")}</ul>` : ""}
-          ${spelers ? `<div class="spotify">${spelers}</div>` : ""}
-        </section>` : ""}
-      </article>
-      <aside class="praktisch">
-        <h2 class="label">Praktisch</h2>
-        <dl>
-          ${(p.feiten || []).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${regelsHtml(v)}</dd></div>`).join("\n          ")}
-          ${(p.data || []).length ? `<div><dt>Data</dt><dd><ul class="data">${p.data.map(x => `<li>${esc(x)}</li>`).join("")}</ul></dd></div>` : ""}
-          <div><dt>Contact</dt><dd><a href="mailto:${esc(mailAdres(p))}">${esc(mailAdres(p))}</a></dd></div>
-        </dl>
-        ${p.extra ? `<p class="extra">${esc(p.extra)}</p>` : ""}
-        <div class="acties">${knop}</div>
-      </aside>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap"><img class="foot-logo" src="../${esc(S.logo)}" alt="Merodefestival" width="147" height="100" loading="lazy"></div>
-  <div class="wrap cols">
-    <div><h3>Contact</h3><p><a href="mailto:info@merodefestival.be">info@merodefestival.be</a></p><p><a href="tel:+32498758296">0498 75 82 96</a></p><p>Merodefestival is een project van WESP vzw, BE 0863 441 738, Jozef Wautersstraat 4, 3010 Kessel-Lo</p></div>
-    <div><h3>Volg ons</h3><ul><li><a href="https://www.facebook.com/merodefestival">Facebook</a></li><li><a href="https://www.instagram.com/merodefestival/">Instagram</a></li><li><a href="https://www.youtube.com/channel/UCahKa1lM3yaWEwXdV_bBJdw">YouTube</a></li></ul></div>
-    <div><h3>Met steun van</h3><p>De Vlaamse overheid, kunsten en erfgoed, de provincie Vlaams-Brabant, de Nationale Loterij en projectvereniging de Merode.</p><p>${esc(S.credit || "")}</p></div>
-  </div>
-</footer>
-
-<script>
-// Video's (YouTube en Vimeo) laden pas bij een klik.
-// Vanaf je eigen computer (file://) weigeren ze in te sluiten: dan openen we de video zelf.
-document.querySelectorAll(".yt").forEach(function (b) {
-  b.addEventListener("click", function () {
-    var id = b.getAttribute("data-id"), vm = b.getAttribute("data-vimeo"), h = b.getAttribute("data-h");
-    if (location.protocol === "file:") { window.open(vm ? "https://vimeo.com/" + vm + (h ? "/" + h : "") : "https://www.youtube.com/watch?v=" + id, "_blank", "noopener"); return; }
-    var f = document.createElement("iframe");
-    f.src = vm ? "https://player.vimeo.com/video/" + vm + "?" + (h ? "h=" + h + "&" : "") + "autoplay=1&dnt=1"
-      : "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
-    f.title = b.getAttribute("aria-label");
-    f.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
-    f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-    f.allowFullscreen = true;
-    b.replaceWith(f);
-  });
-});
-var t = document.querySelector(".menu-toggle"), n = document.getElementById("hoofdmenu");
-t.addEventListener("click", function () { var o = n.classList.toggle("open"); t.setAttribute("aria-expanded", o); });
-</script>
-</body>
-</html>
-`;
-}
-
-await Promise.all(producties.flatMap(p => [...(p.videos || []).map(v => v.url), ...(p.spotify || []), ...(p.soundcloud || [])]).map(opzoeken));
-await fs.mkdir(PR_OUT, { recursive: true });
-for (const f of await fs.readdir(PR_OUT)) await fs.unlink(path.join(PR_OUT, f));
-for (const p of producties) await fs.writeFile(path.join(PR_OUT, `${p.slug}.html`), productiePagina(p));
-
-// Overzichtspagina producties.html, met dezelfde kop en voet als Vorige edities.
-// Gegroepeerd per Soort uit Notion; een lege rubriek krijgt enkel een grijze knop.
-const prSoorten = [
-  { id: "podium", soort: "podiumproductie", naam: "Podiumproducties", intro: "Concerten en voorstellingen voor cultuurcentra, festivals en bijzondere locaties." },
-  { id: "installaties", soort: "installatie", naam: "Installaties", intro: "Klank- en beeldinstallaties voor kerken, erfgoedsites en andere bijzondere plekken." },
-  { id: "playlists", soort: "playlist", naam: "Playlists", intro: "Muziekselecties van Merodefestival om te beluisteren." },
-].map(s => ({ ...s, items: producties.filter(p => (p.soort || "podiumproductie").toLowerCase() === s.soort) }));
-const prEerste = prSoorten.findIndex(s => s.items.length);
-const prBody = `
-  <section class="pr-hero">
-    <div class="wrap">
-      <a class="terug" href="index.html">← Homepage</a>
-      <p class="label" style="margin-top:1.5rem">Voor programmatoren</p>
-      <h1>Producties</h1>
-      <p>Concerten en programma’s die Merodefestival mee maakt en op tournee stuurt. Elke productie kan geboekt worden door cultuurcentra, festivals en organisatoren van bijzondere locaties.</p>
-    </div>
-  </section>
-  <section class="papier">
-    <div class="wrap" style="display:block">
-      <nav class="soorten" aria-label="Soort productie">
-        ${prSoorten.map((s, i) => s.items.length
-          ? `<a${i === prEerste ? ` class="actief"` : ""} href="#${s.id}">${s.naam} <span>${s.items.length}</span></a>`
-          : `<span class="leeg" title="Nog geen ${s.naam.toLowerCase()}">${s.naam} <span>0</span></span>`).join("\n        ")}
-      </nav>
-      ${prSoorten.filter(s => s.items.length).map(s => `<section class="soort" id="${s.id}">
-        <h2>${s.naam}</h2>
-        <p class="soort-intro">${s.intro}</p>
-        <ul class="kaarten">
-          ${s.items.map(p => `<li><a class="kaart" href="productie/${p.slug}.html">
-            <img src="${esc(p.foto || S.artwork)}" alt="" loading="lazy" style="${p.foto ? uitsnedeCss(p.uitsnede) : "object-fit:contain"}">
-            ${p.label ? `<span class="klabel">${esc(p.label)}</span>` : ""}
-            <span class="ktitel">${esc(p.titel)}</span>
-            ${p.makers ? `<span class="kmakers">${esc(p.makers)}</span>` : ""}
-            ${p.tekst ? `<span class="ktekst">${esc(p.tekst)}</span>` : ""}
-            <span class="kmeer">Bekijk de productie →</span>
-          </a></li>`).join("\n          ")}
-        </ul>
-      </section>`).join("\n      ")}
-      <p class="pr-contact">Interesse in een productie of een programma op maat? Mail <a href="mailto:info@merodefestival.be">info@merodefestival.be</a>.</p>
-    </div>
-  </section>`;
-const prKop = kopEd.replace(/<title>[^<]*<\/title>/, `<title>Producties | Merodefestival</title>`)
-  .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="Concerten en programma’s van Merodefestival op tournee, voor cultuurcentra, festivals en bijzondere locaties.">`)
-  .replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${SITE}/producties.html">`)
-  .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="Producties van Merodefestival">`)
-  .replace(/<style>[\s\S]*?<\/style>/, "")
-  .replace(`<a href="producties.html">`, `<a href="producties.html" aria-current="page">`);
-await fs.writeFile(path.join(ROOT, "producties.html"), prKop + "<main>" + prBody + "\n</main>" + voetEd);
-
 // Sitemap voor zoekmachines
-const urls = ["", "producties.html", "vorige-edities.html", ...beleef.map(b => `${b.slug}.html`),
-  ...producties.map(p => `productie/${p.slug}.html`), ...agenda.map(e => `concert/${e.slug}.html`)];
+// ---------- Producties (uit site/data/producties.json) ----------
+import { bouwProducties } from "./build-producties.mjs";
+const productiePaginas = await bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd });
+
+const urls = ["", "vorige-edities.html", ...beleef.map(b => `${b.slug}.html`), ...productiePaginas, ...agenda.map(e => `concert/${e.slug}.html`)];
 await fs.writeFile(path.join(ROOT, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${SITE}/${u}</loc></url>`).join("\n")}\n</urlset>\n`);
 
-console.log(`Concertpagina’s: ${agenda.length}, productiepagina’s: ${producties.length}`);
+console.log(`Concertpagina’s: ${agenda.length}`);
