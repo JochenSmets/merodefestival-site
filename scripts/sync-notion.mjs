@@ -180,6 +180,8 @@ for (const r of await queryAll(PRODUCTIES_DB, [{ property: "Volgorde", direction
   const p = r.properties;
   producties.push({
     titel: text(p.Titel),
+    // Soort: Podiumproductie, Installatie of Playlist (leeg = Podiumproductie)
+    soort: text(p.Soort) || "Podiumproductie",
     label: text(p.Label),
     makers: text(p.Makers),
     tekst: text(p.Tekst),

@@ -727,7 +727,14 @@ await fs.mkdir(PR_OUT, { recursive: true });
 for (const f of await fs.readdir(PR_OUT)) await fs.unlink(path.join(PR_OUT, f));
 for (const p of producties) await fs.writeFile(path.join(PR_OUT, `${p.slug}.html`), productiePagina(p));
 
-// Overzichtspagina producties.html, met dezelfde kop en voet als Vorige edities
+// Overzichtspagina producties.html, met dezelfde kop en voet als Vorige edities.
+// Gegroepeerd per Soort uit Notion; een lege rubriek krijgt enkel een grijze knop.
+const prSoorten = [
+  { id: "podium", soort: "podiumproductie", naam: "Podiumproducties", intro: "Concerten en voorstellingen voor cultuurcentra, festivals en bijzondere locaties." },
+  { id: "installaties", soort: "installatie", naam: "Installaties", intro: "Klank- en beeldinstallaties voor kerken, erfgoedsites en andere bijzondere plekken." },
+  { id: "playlists", soort: "playlist", naam: "Playlists", intro: "Muziekselecties van Merodefestival om te beluisteren." },
+].map(s => ({ ...s, items: producties.filter(p => (p.soort || "podiumproductie").toLowerCase() === s.soort) }));
+const prEerste = prSoorten.findIndex(s => s.items.length);
 const prBody = `
   <section class="pr-hero">
     <div class="wrap">
@@ -739,16 +746,25 @@ const prBody = `
   </section>
   <section class="papier">
     <div class="wrap" style="display:block">
-      <ul class="plijst">
-        ${producties.map(p => `<li><a href="productie/${p.slug}.html">
-          <img class="pfoto" src="${esc(p.foto || S.artwork)}" alt="" loading="lazy" style="${p.foto ? uitsnedeCss(p.uitsnede) : "object-fit:contain"}">
-          ${p.label ? `<span class="plabel">${esc(p.label)}</span>` : ""}
-          <span class="ptitel">${esc(p.titel)}</span>
-          ${p.makers ? `<span class="pmakers">${esc(p.makers)}</span>` : ""}
-          ${p.tekst ? `<span class="ptekst">${esc(p.tekst)}</span>` : ""}
-          <span class="pmeer">Bekijk de productie</span>
-        </a></li>`).join("\n        ")}
-      </ul>
+      <nav class="soorten" aria-label="Soort productie">
+        ${prSoorten.map((s, i) => s.items.length
+          ? `<a${i === prEerste ? ` class="actief"` : ""} href="#${s.id}">${s.naam} <span>${s.items.length}</span></a>`
+          : `<span class="leeg" title="Nog geen ${s.naam.toLowerCase()}">${s.naam} <span>0</span></span>`).join("\n        ")}
+      </nav>
+      ${prSoorten.filter(s => s.items.length).map(s => `<section class="soort" id="${s.id}">
+        <h2>${s.naam}</h2>
+        <p class="soort-intro">${s.intro}</p>
+        <ul class="kaarten">
+          ${s.items.map(p => `<li><a class="kaart" href="productie/${p.slug}.html">
+            <img src="${esc(p.foto || S.artwork)}" alt="" loading="lazy" style="${p.foto ? uitsnedeCss(p.uitsnede) : "object-fit:contain"}">
+            ${p.label ? `<span class="klabel">${esc(p.label)}</span>` : ""}
+            <span class="ktitel">${esc(p.titel)}</span>
+            ${p.makers ? `<span class="kmakers">${esc(p.makers)}</span>` : ""}
+            ${p.tekst ? `<span class="ktekst">${esc(p.tekst)}</span>` : ""}
+            <span class="kmeer">Bekijk de productie →</span>
+          </a></li>`).join("\n          ")}
+        </ul>
+      </section>`).join("\n      ")}
       <p class="pr-contact">Interesse in een productie of een programma op maat? Mail <a href="mailto:info@merodefestival.be">info@merodefestival.be</a>.</p>
     </div>
   </section>`;
