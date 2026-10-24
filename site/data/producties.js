@@ -80,7 +80,7 @@ window.PRODUCTIES = [
     "geschikt": "Cultuurcentra, theaterzalen, kerken, kapellen en abdijen",
     "prijs": "Op aanvraag",
     "contact": "okerstnacht@merodefestival.be",
-    "knop": "Vraag een optie",
+    "knop": "",
     "knoplink": "",
     "uitsnede": "boven",
     "videos": [
