@@ -829,16 +829,8 @@ window.PRODUCTIES = [
     "uitsnede": "",
     "videos": [
       {
-        "url": "https://youtu.be/jJlMzUOW33Y",
-        "titel": "Podcastreeks Muzikale wandelingen in de Merode"
-      },
-      {
-        "url": "https://youtu.be/celJMifkS4w",
-        "titel": "Salut les grues, Maarten Decombel & Toon Van Mierlo"
-      },
-      {
-        "url": "https://youtu.be/x_mN6KgqDwI",
-        "titel": "When we rocked, Laura Cortese & Bert Ruymbeek"
+        "url": "https://www.youtube.com/watch?v=w2cjGf6xxqo",
+        "titel": ""
       }
     ],
     "spotify": [],
