@@ -4,6 +4,7 @@
 
 import fs from "node:fs/promises";
 import path from "node:path";
+import { verwerkFoto } from "./foto.mjs";
 
 const TOKEN = process.env.NOTION_TOKEN;
 const AGENDA_DB = process.env.AGENDA_DB;
@@ -124,7 +125,7 @@ export function directLink(url) {
 
 // Foto’s uit Notion verlopen na een uur, dus we downloaden ze naar de site.
 // Volgorde: eerst het veld Foto (upload of ingesloten link), anders het veld Fotolink.
-// Foto’s met een doorzichtige achtergrond (PNG/WebP) blijven PNG, de rest wordt JPEG.
+// Enkel echt doorzichtige beelden blijven PNG, de rest wordt JPEG (zie foto.mjs).
 const used = new Set();
 async function haalFoto(url, sleutel) {
   url = directLink(url);
@@ -138,20 +139,8 @@ async function haalFoto(url, sleutel) {
   }
   let buf = Buffer.from(await res.arrayBuffer());
   let ext = "jpg";
-  if (sharp) {
-    const meta = await sharp(buf).metadata();
-    // Alleen echt doorzichtige foto’s blijven PNG. Schermafbeeldingen hebben vaak een alfakanaal
-    // dat helemaal ondoorzichtig is: die worden gewoon JPEG.
-    let doorzichtig = false;
-    if (meta.hasAlpha) {
-      const st = await sharp(buf).stats();
-      const alfa = st.channels[st.channels.length - 1];
-      doorzichtig = !!alfa && alfa.min < 250;
-    }
-    const img = sharp(buf).rotate().resize({ width: 1600, withoutEnlargement: true });
-    if (doorzichtig) { buf = await img.png({ compressionLevel: 9 }).toBuffer(); ext = "png"; }
-    else buf = await img.flatten({ background: "#ffffff" }).jpeg({ quality: 74, progressive: true }).toBuffer();
-  } else if (type.includes("png")) ext = "png";
+  try { if (sharp) ({ buf, ext } = await verwerkFoto(buf, sharp)); else if (type.includes("png")) ext = "png"; }
+  catch (err) { console.warn(`Foto ${sleutel} niet verwerkt (${err.message}), origineel bewaard.`); if (type.includes("png")) ext = "png"; }
   const name = sleutel + "." + ext;
   used.add(name);
   await fs.writeFile(path.join(FOTO, name), buf);
