@@ -6,6 +6,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import vm from "node:vm";
+import { T, laadTeksten, pasHomepage, seizoenOverrides, schrijfCatalogus } from "./teksten.mjs";
 
 const SITE = (process.env.SITE_URL || "https://www.merodefestival.be").replace(/\/$/, "");
 const ROOT = path.resolve("site");
@@ -18,7 +19,8 @@ const hoortHier = e => !(e.sites || []).length ? SITE_NAAM === "Merodefestival" 
 const agenda = alles.filter(hoortHier);
 const ctx = { window: {} };
 vm.runInNewContext(await fs.readFile(path.join(ROOT, "seizoen/seizoen.js"), "utf8"), ctx);
-const S = ctx.window.SEIZOEN || {};
+await laadTeksten(ROOT);
+const S = seizoenOverrides(ctx.window.SEIZOEN || {});
 
 const MAAND = ["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december"];
 const MAAND_KORT = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
@@ -111,8 +113,8 @@ function pagina(e, overige) {
   const sps = (e.spotify || []).map(spotifyEmbed).filter(Boolean);
   const kerk = /kerkconcert/i.test(e.kind);
   const route = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.adres || [e.place, e.village].filter(Boolean).join(", "))}`;
-  const ticket = e.volzet ? `<span class="soldout">Volzet</span>`
-    : e.tickets ? `<a class="btn" href="${esc(e.tickets)}">${esc(e.cta || "Koop tickets")}${e.price ? ` (${esc(e.price)})` : ""}</a>` : "";
+  const ticket = e.volzet ? `<span class="soldout">${T("concert.volzet", "Volzet")}</span>`
+    : e.tickets ? `<a class="btn" href="${esc(e.tickets)}">${esc(e.cta || T("concert.koop", "Koop tickets"))}${e.price ? ` (${esc(e.price)})` : ""}</a>` : "";
 
   return `<!DOCTYPE html>
 <html lang="nl">
@@ -143,18 +145,18 @@ function pagina(e, overige) {
 <header>
   <div class="wrap bar">
     <a class="brand" href="../index.html"><img src="../${esc(S.logo)}" alt="Merodefestival" width="82" height="56"></a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="hoofdmenu">Menu</button>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="hoofdmenu">${T("menu.menu", "Menu")}</button>
     <nav id="hoofdmenu" aria-label="Hoofdmenu">
       <ul>
-        <li><a href="../index.html#agenda">Agenda</a></li>
-        <li><a href="../index.html#festival">Festival 2027</a></li>
-        <li><a href="../index.html#beleef">Beleef de Merode</a></li>
-        <li><a href="../producties.html">Producties</a></li>
-        <li><a href="../vorige-edities.html">Vorige edities</a></li>
-        <li><a href="../index.html#nieuwsbrief">Nieuwsbrief</a></li>
+        <li><a href="../index.html#agenda">${T("menu.agenda", "Agenda")}</a></li>
+        <li><a href="../index.html#festival">${T("menu.festival", "Festival 2027")}</a></li>
+        <li><a href="../index.html#beleef">${T("menu.beleef", "Beleef de Merode")}</a></li>
+        <li><a href="../producties.html">${T("menu.producties", "Producties")}</a></li>
+        <li><a href="../vorige-edities.html">${T("menu.edities", "Vorige edities")}</a></li>
+        <li><a href="../index.html#nieuwsbrief">${T("menu.nieuwsbrief", "Nieuwsbrief")}</a></li>
       </ul>
     </nav>
-    <a class="btn" href="${esc(S.ticketlink || e.tickets || "#")}">Tickets</a>
+    <a class="btn" href="${esc(S.ticketlink || e.tickets || "#")}">${T("menu.tickets", "Tickets")}</a>
   </div>
 </header>
 
@@ -162,7 +164,7 @@ function pagina(e, overige) {
   <section class="chero" aria-labelledby="titel">
     <div class="wrap">
       <div class="chero-tekst">
-        <a class="terug" href="../index.html#agenda">← Agenda</a>
+        <a class="terug" href="../index.html#agenda">${T("concert.terug", "← Agenda")}</a>
         <p class="label datumregel">${esc(datumregel)}</p>
         ${e.sub ? `<p class="csub">${esc(e.sub)}</p>` : ""}
         <h1 id="titel">${esc(e.artist)}${e.origin ? ` <span class="herkomst">(${esc(e.origin)})</span>` : ""}</h1>
@@ -171,7 +173,7 @@ function pagina(e, overige) {
       </div>
       <figure class="cbeeld${e.foto ? " foto" : ""}">
         <img src="${esc(beeldLokaal)}" alt="${e.foto ? esc(e.fotoAlt || e.artist) : esc(S.artworkAlt || "")}">
-        ${e.foto && e.fotograaf ? `<figcaption>Foto: ${esc(e.fotograaf)}</figcaption>` : ""}
+        ${e.foto && e.fotograaf ? `<figcaption>${T("algemeen.foto", "Foto:")} ${esc(e.fotograaf)}</figcaption>` : ""}
       </figure>
     </div>
   </section>
@@ -183,37 +185,37 @@ function pagina(e, overige) {
           : alineas.length ? alineas.map(p => `<p>${esc(p)}</p>`).join("\n        ")
           : `<p>${esc(e.kind)} in ${esc(e.place)}, ${esc(e.village)}.</p>`}
         ${extraBeelden.length ? `<section class="beelden" aria-labelledby="beelden-titel">
-          <h2 class="label" id="beelden-titel">Foto’s</h2>
-          <div class="beeldgrid">${extraBeelden.map(b => `<figure><a href="../${esc(b.src)}" target="_blank" rel="noopener"><img src="../${esc(b.src)}" alt="${esc(b.alt)}" loading="lazy"></a>${b.fotograaf ? `<figcaption>Foto: ${esc(b.fotograaf)}</figcaption>` : ""}</figure>`).join("")}</div>
+          <h2 class="label" id="beelden-titel">${T("concert.fotos", "Foto’s")}</h2>
+          <div class="beeldgrid">${extraBeelden.map(b => `<figure><a href="../${esc(b.src)}" target="_blank" rel="noopener"><img src="../${esc(b.src)}" alt="${esc(b.alt)}" loading="lazy"></a>${b.fotograaf ? `<figcaption>${T("algemeen.foto", "Foto:")} ${esc(b.fotograaf)}</figcaption>` : ""}</figure>`).join("")}</div>
         </section>` : ""}
         ${yts.length || sps.length ? `<section class="luister" id="luister" aria-labelledby="luister-titel">
-          <h2 class="label" id="luister-titel">Kijk en luister</h2>
+          <h2 class="label" id="luister-titel">${T("concert.luister", "Kijk en luister")}</h2>
           ${yts.length ? `<div class="videos${yts.length > 1 ? " meer" : ""}">${yts.map((id, i) => `<div class="video"><button class="yt" type="button" data-id="${id}" aria-label="Speel video ${i + 1} af: ${esc(e.artist)}" style="background-image:url(https://i.ytimg.com/vi/${id}/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div>`).join("")}</div>` : ""}
           ${sps.length ? `<div class="spotify">${sps.map(x => `<iframe src="https://open.spotify.com/embed/${x.type}/${x.id}?utm_source=generator&amp;theme=0" title="Spotify: ${esc(e.artist)}" height="${/album|playlist|show/.test(x.type) ? 352 : 152}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`).join("")}</div>` : ""}
         </section>` : ""}
       </article>
       <aside class="praktisch">
-        <h2 class="label">Praktisch</h2>
+        <h2 class="label">${T("concert.praktisch", "Praktisch")}</h2>
         <dl>
-          <div><dt>Wanneer</dt><dd>${esc(datumregel)}</dd></div>
-          <div><dt>Waar</dt><dd>${esc(e.place)}${e.adres ? `<br>${esc(e.adres)}` : e.village ? `<br>${esc(e.village)}` : ""}<br><a href="${route}">Route</a></dd></div>
-          ${e.duur ? `<div><dt>Duur</dt><dd>${esc(e.duur)}</dd></div>` : ""}
-          ${e.price ? `<div><dt>Prijs</dt><dd>${esc(e.price)}</dd></div>` : ""}
+          <div><dt>${T("concert.wanneer", "Wanneer")}</dt><dd>${esc(datumregel)}</dd></div>
+          <div><dt>${T("concert.waar", "Waar")}</dt><dd>${esc(e.place)}${e.adres ? `<br>${esc(e.adres)}` : e.village ? `<br>${esc(e.village)}` : ""}<br><a href="${route}">${T("concert.route", "Route")}</a></dd></div>
+          ${e.duur ? `<div><dt>${T("concert.duur", "Duur")}</dt><dd>${esc(e.duur)}</dd></div>` : ""}
+          ${e.price ? `<div><dt>${T("concert.prijs", "Prijs")}</dt><dd>${esc(e.price)}</dd></div>` : ""}
           ${kerk ? (S.tickets || []).filter(([k]) => /combi/i.test(k)).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("") : ""}
         </dl>
         <div class="acties" id="acties-2">${ticket}</div>
-        <p class="ics"><a href="${e.slug}.ics" download>Zet in je agenda</a></p>
+        <p class="ics"><a href="${e.slug}.ics" download>${T("concert.ics", "Zet in je agenda")}</a></p>
       </aside>
     </div>
   </section>
 
   ${overige.length ? `<section class="donker ook" aria-labelledby="ook-titel">
     <div class="wrap">
-      <h2 id="ook-titel">Ook in de agenda</h2>
+      <h2 id="ook-titel">${T("concert.ook", "Ook in de agenda")}</h2>
       <ul class="ook-lijst">
         ${overige.map(o => { const x = d(o.start); return `<li><a href="${o.slug}.html"><span class="label">${x.getUTCDate()} ${MAAND_KORT[x.getUTCMonth()]} · ${esc(o.village)}</span><span class="naam">${esc(o.artist)}</span></a></li>`; }).join("\n        ")}
       </ul>
-      <a class="btn ghost" href="../index.html#agenda">Hele agenda</a>
+      <a class="btn ghost" href="../index.html#agenda">${T("concert.hele-agenda", "Hele agenda")}</a>
     </div>
   </section>` : ""}
 </main>
@@ -222,13 +224,13 @@ function pagina(e, overige) {
   <div class="wrap"><img class="foot-logo" src="../${esc(S.logo)}" alt="Merodefestival" width="147" height="100" loading="lazy"></div>
   <div class="wrap cols">
     <div>
-      <h3>Contact</h3>
+      <h3>${T("footer.contact", "Contact")}</h3>
       <p><a href="mailto:info@merodefestival.be">info@merodefestival.be</a></p>
       <p><a href="tel:+32498758296">0498 75 82 96</a></p>
-      <p>Merodefestival is een project van WESP vzw, BE 0863 441 738, Jozef Wautersstraat 4, 3010 Kessel-Lo</p>
+      <p>${T("footer.organisatie", "Merodefestival is een project van WESP vzw, BE 0863 441 738, Jozef Wautersstraat 4, 3010 Kessel-Lo")}</p>
     </div>
     <div>
-      <h3>Volg ons</h3>
+      <h3>${T("footer.volg", "Volg ons")}</h3>
       <ul>
         <li><a href="https://www.facebook.com/merodefestival">Facebook</a></li>
         <li><a href="https://www.instagram.com/merodefestival/">Instagram</a></li>
@@ -236,8 +238,8 @@ function pagina(e, overige) {
       </ul>
     </div>
     <div>
-      <h3>Met steun van</h3>
-      <p>De Vlaamse overheid, kunsten en erfgoed, de provincie Vlaams-Brabant, de Nationale Loterij en projectvereniging de Merode.</p>
+      <h3>${T("footer.steun-kop", "Met steun van")}</h3>
+      <p>${T("footer.steun", "De Vlaamse overheid, kunsten en erfgoed, de provincie Vlaams-Brabant, de Nationale Loterij en projectvereniging de Merode. Met de medewerking van de parochies en kerkfabrieken.")}</p>
       <p>${esc(S.credit || "")}</p>
     </div>
   </div>
@@ -250,7 +252,7 @@ function pagina(e, overige) {
   if (new Date() > einde) {
     ["acties", "acties-2"].forEach(function (id) {
       var el = document.getElementById(id);
-      if (el) el.innerHTML = '<span class="soldout">Dit concert is voorbij</span>';
+      if (el) el.innerHTML = '<span class="soldout">${esc(T("concert.voorbij", "Dit concert is voorbij")).replace(/\\/g, "\\\\").replace(/'/g, "\\'")}</span>';
     });
   }
   // Video's laden pas bij een klik (sneller, en geen YouTube-cookies vooraf).
@@ -378,29 +380,29 @@ const editiesHtml = `<!DOCTYPE html>
 <header>
   <div class="wrap bar">
     <a class="brand" href="index.html"><img src="${esc(S.logo)}" alt="Merodefestival" width="82" height="56"></a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="hoofdmenu">Menu</button>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="hoofdmenu">${T("menu.menu", "Menu")}</button>
     <nav id="hoofdmenu" aria-label="Hoofdmenu">
       <ul>
-        <li><a href="index.html#agenda">Agenda</a></li>
-        <li><a href="index.html#festival">Festival 2027</a></li>
-        <li><a href="index.html#beleef">Beleef de Merode</a></li>
-        <li><a href="producties.html">Producties</a></li>
-        <li><a href="vorige-edities.html">Vorige edities</a></li>
-        <li><a href="index.html#nieuwsbrief">Nieuwsbrief</a></li>
+        <li><a href="index.html#agenda">${T("menu.agenda", "Agenda")}</a></li>
+        <li><a href="index.html#festival">${T("menu.festival", "Festival 2027")}</a></li>
+        <li><a href="index.html#beleef">${T("menu.beleef", "Beleef de Merode")}</a></li>
+        <li><a href="producties.html">${T("menu.producties", "Producties")}</a></li>
+        <li><a href="vorige-edities.html">${T("menu.edities", "Vorige edities")}</a></li>
+        <li><a href="index.html#nieuwsbrief">${T("menu.nieuwsbrief", "Nieuwsbrief")}</a></li>
       </ul>
     </nav>
-    <a class="btn" href="${esc(S.ticketlink || "#")}">Tickets</a>
+    <a class="btn" href="${esc(S.ticketlink || "#")}">${T("menu.tickets", "Tickets")}</a>
   </div>
 </header>
 <main>
   <section class="ed-hero">
     <div class="wrap">
-      <a class="terug" href="index.html">← Homepage</a>
-      <h1>Merodefestival sinds 2015</h1>
-      <p>Na de eerste editie in 2015 mocht Merodefestival rustig groeien: elk jaar het beste van de Europese folkscene in de Meroderegio, en sinds 2017 ook een concertreeks door het jaar heen. Grasduin door meer dan tien jaar festival.</p>
-      <p class="ed-sub label">Festival</p>
+      <a class="terug" href="index.html">${T("edities.terug", "← Homepage")}</a>
+      <h1>${T("edities.titel", "Merodefestival sinds 2015")}</h1>
+      <p>${T("edities.intro", "Na de eerste editie in 2015 mocht Merodefestival rustig groeien: elk jaar het beste van de Europese folkscene in de Meroderegio, en sinds 2017 ook een concertreeks door het jaar heen. Grasduin door meer dan tien jaar festival.")}</p>
+      <p class="ed-sub label">${T("edities.festival", "Festival")}</p>
       <ul class="ed-nav">${edities.map(x => `<li><a href="#${x.jaar}">${x.jaar}</a></li>`).join("")}</ul>
-      <p class="ed-sub label">Kerkconcerten</p>
+      <p class="ed-sub label">${T("edities.kerkconcerten", "Kerkconcerten")}</p>
       <ul class="ed-nav">${seizoenen.map(z => `<li><a href="#kerk-${z.seizoen.slice(0, 4)}">${z.seizoen}</a></li>`).join("")}</ul>
     </div>
   </section>
@@ -416,22 +418,22 @@ const editiesHtml = `<!DOCTYPE html>
         <div>
           ${x.titel ? `<h2>${esc(x.titel)}</h2>` : ""}
           ${x.tekst ? `<p class="tekst">${esc(x.tekst)}</p>` : ""}
-          ${x.concerten ? `<div class="prog"><strong>${x.onvolledig ? "Op het programma onder meer" : "Concerten"}</strong><ul class="namen">${x.concerten.map(n => `<li>${esc(n)}</li>`).join("")}</ul></div>` : ""}
-          ${x.wandelingen ? `<div class="prog"><strong>Muzikale wandelingen${x.wandelplekken ? ` in ${esc(x.wandelplekken)}` : ""}</strong><ul class="namen klein">${x.wandelingen.map(n => `<li>${esc(n)}</li>`).join("")}</ul></div>` : ""}
+          ${x.concerten ? `<div class="prog"><strong>${x.onvolledig ? T("edities.programma-onvolledig", "Op het programma onder meer") : T("edities.concerten", "Concerten")}</strong><ul class="namen">${x.concerten.map(n => `<li>${esc(n)}</li>`).join("")}</ul></div>` : ""}
+          ${x.wandelingen ? `<div class="prog"><strong>${T("edities.wandelingen", "Muzikale wandelingen")}${x.wandelplekken ? ` ${T("edities.in", "in")} ${esc(x.wandelplekken)}` : ""}</strong><ul class="namen klein">${x.wandelingen.map(n => `<li>${esc(n)}</li>`).join("")}</ul></div>` : ""}
           ${(x.videos || []).length ? `<div class="videos">${x.videos.map((id, i) => videoKnop(id, `Video ${i + 1} van ${x.jaar}`)).join("")}</div>` : ""}
-          ${x.fotos ? `<p class="dank">Foto’s en video’s: met dank aan ${esc(x.fotos)}.</p>` : ""}
+          ${x.fotos ? `<p class="dank">${T("edities.dank", "Foto’s en video’s: met dank aan")} ${esc(x.fotos)}.</p>` : ""}
         </div>
       </article>`).join("\n      ")}
     </div>
   </section>
   <section class="papier kerk-archief" aria-labelledby="kerk-titel">
     <div class="wrap" style="display:block">
-      <h2 id="kerk-titel">Kerkconcerten</h2>
-      <p class="kerk-intro">Sinds 2017 brengt Merodefestival ook buiten het festival wereld- en folkmuziek naar de dorpskerken van de Merode.</p>
+      <h2 id="kerk-titel">${T("edities.kerk-titel", "Kerkconcerten")}</h2>
+      <p class="kerk-intro">${T("edities.kerk-intro", "Sinds 2017 brengt Merodefestival ook buiten het festival wereld- en folkmuziek naar de dorpskerken van de Merode.")}</p>
       <div class="kgrid">
       ${seizoenen.map(z => `<article class="kseizoen" id="kerk-${z.seizoen.slice(0, 4)}">
         ${z.brochure ? `<img class="kcover" src="${esc(z.brochure)}" alt="Brochure kerkconcerten ${esc(z.seizoen)}" loading="lazy">` : ""}
-        <h3 class="kt"><span>kerk – concerten</span><span>${esc(z.seizoen).replace(/(\d{3})(\d)/g, "$1<em>$2</em>")}</span></h3>
+        <h3 class="kt"><span>${T("edities.kerk-reeks", "kerk – concerten")}</span><span>${esc(z.seizoen).replace(/(\d{3})(\d)/g, "$1<em>$2</em>")}</span></h3>
         ${z.opmerking ? `<p class="kopm">${esc(z.opmerking)}</p>` : ""}
         <ol class="kerk-lijst">${z.concerten.map(k => `<li>
           ${k.datum ? `<span class="kd">${esc(cap(langeDatum(k.datum)))}</span>` : ""}
@@ -439,7 +441,7 @@ const editiesHtml = `<!DOCTYPE html>
           ${k.kerk ? `<span class="kk">${esc(k.kerk)}</span>` : ""}
           ${k.video ? `<div class="video kvid"><button class="yt" type="button" data-id="${k.video}" aria-label="Video: ${esc(k.artiest)}" style="background-image:url(https://i.ytimg.com/vi/${k.video}/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div>` : ""}
         </li>`).join("")}</ol>
-        ${z.onvolledig ? `<p class="kopm">Dit seizoen is nog niet volledig aangevuld.</p>` : ""}
+        ${z.onvolledig ? `<p class="kopm">${T("edities.onvolledig", "Dit seizoen is nog niet volledig aangevuld.")}</p>` : ""}
       </article>`).join("\n      ")}
       </div>
     </div>
@@ -448,9 +450,9 @@ const editiesHtml = `<!DOCTYPE html>
 <footer>
   <div class="wrap"><img class="foot-logo" src="${esc(S.logo)}" alt="Merodefestival" width="147" height="100" loading="lazy"></div>
   <div class="wrap cols">
-    <div><h3>Contact</h3><p><a href="mailto:info@merodefestival.be">info@merodefestival.be</a></p><p><a href="tel:+32498758296">0498 75 82 96</a></p><p>Merodefestival is een project van WESP vzw, BE 0863 441 738, Jozef Wautersstraat 4, 3010 Kessel-Lo</p></div>
-    <div><h3>Volg ons</h3><ul><li><a href="https://www.facebook.com/merodefestival">Facebook</a></li><li><a href="https://www.instagram.com/merodefestival/">Instagram</a></li><li><a href="https://www.youtube.com/channel/UCahKa1lM3yaWEwXdV_bBJdw">YouTube</a></li></ul></div>
-    <div><h3>Met steun van</h3><p>De Vlaamse overheid, kunsten en erfgoed, de provincie Vlaams-Brabant, de Nationale Loterij en projectvereniging de Merode.</p><p>${esc(S.credit || "")}</p></div>
+    <div><h3>${T("footer.contact", "Contact")}</h3><p><a href="mailto:info@merodefestival.be">info@merodefestival.be</a></p><p><a href="tel:+32498758296">0498 75 82 96</a></p><p>${T("footer.organisatie", "Merodefestival is een project van WESP vzw, BE 0863 441 738, Jozef Wautersstraat 4, 3010 Kessel-Lo")}</p></div>
+    <div><h3>${T("footer.volg", "Volg ons")}</h3><ul><li><a href="https://www.facebook.com/merodefestival">Facebook</a></li><li><a href="https://www.instagram.com/merodefestival/">Instagram</a></li><li><a href="https://www.youtube.com/channel/UCahKa1lM3yaWEwXdV_bBJdw">YouTube</a></li></ul></div>
+    <div><h3>${T("footer.steun-kop", "Met steun van")}</h3><p>${T("footer.steun", "De Vlaamse overheid, kunsten en erfgoed, de provincie Vlaams-Brabant, de Nationale Loterij en projectvereniging de Merode. Met de medewerking van de parochies en kerkfabrieken.")}</p><p>${esc(S.credit || "")}</p></div>
   </div>
 </footer>
 <script>
@@ -527,7 +529,7 @@ for (const b of beleef) {
   <section class="bl-hero">
     <div class="wrap">
       <div>
-        <a class="terug" href="index.html#beleef">← Beleef de Merode</a>
+        <a class="terug" href="index.html#beleef">${T("beleef.terug", "← Beleef de Merode")}</a>
         <p class="label" style="margin-top:1.5rem">${esc(b.label)}</p>
         <h1>${esc(b.titel)}</h1>
         ${b.ondertitel ? `<p class="onder">${esc(b.ondertitel)}</p>` : ""}
@@ -540,21 +542,21 @@ for (const b of beleef) {
   <section class="papier bl-inhoud">
     <div class="wrap">
       ${(b.blokken || []).length ? `<div class="bl-blokken">${b.blokken.map(k => `<div><h2>${esc(k.titel)}</h2><p>${esc(k.tekst)}</p>${(k.links || []).map(([t, u]) => `<a href="${esc(u)}">${esc(t)}</a>`).join(" · ")}</div>`).join("")}</div>` : ""}
-      ${b.tracklist ? `<div class="bl-sectie" id="luister"><h2>De tracklist</h2><p>Van elk nummer maakte Bert Huysentruyt een video in de abdij.</p>${b.spotifyEmbed ? `<iframe class="sp-album" title="${esc(b.titel)} op Spotify" src="${esc(b.spotifyEmbed)}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>` : ""}<ol class="trackvideos">${b.tracklist.map((t, i) => { const tt = typeof t === "string" ? { titel: t } : t; const [wie, wat] = tt.titel.split(" — "); return `<li>${tt.video ? ytKnop(tt.video, tt.titel) : ""}<span class="tnr">${i + 1}</span><span class="twie">${esc(wie)}</span>${wat ? `<span class="twat">${esc(wat)}</span>` : ""}</li>`; }).join("")}</ol></div>` : ""}
-      ${b.afleveringen ? `<div class="bl-sectie"><h2>De afleveringen</h2>${b.afleveringen.map(a => `<article class="afl">
-        <div><span class="nr">Aflevering ${a.nr}</span><h3>${esc(a.titel)}</h3><p class="plek">${esc(a.plek)}</p><p>${esc(a.tekst)}</p>
-          ${a.spotify ? `<div class="knoppen"><a class="btn" href="${esc(a.spotify)}">Beluister op Spotify</a>${b.apple ? `<a class="btn lijn" href="${esc(b.apple)}">Beluister op Apple Podcasts</a>` : ""}</div>` : ""}</div>
+      ${b.tracklist ? `<div class="bl-sectie" id="luister"><h2>${T("beleef.tracklist", "De tracklist")}</h2><p>${T("beleef.tracklist-uitleg", "Van elk nummer maakte Bert Huysentruyt een video in de abdij.")}</p>${b.spotifyEmbed ? `<iframe class="sp-album" title="${esc(b.titel)} op Spotify" src="${esc(b.spotifyEmbed)}" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>` : ""}<ol class="trackvideos">${b.tracklist.map((t, i) => { const tt = typeof t === "string" ? { titel: t } : t; const [wie, wat] = tt.titel.split(" — "); return `<li>${tt.video ? ytKnop(tt.video, tt.titel) : ""}<span class="tnr">${i + 1}</span><span class="twie">${esc(wie)}</span>${wat ? `<span class="twat">${esc(wat)}</span>` : ""}</li>`; }).join("")}</ol></div>` : ""}
+      ${b.afleveringen ? `<div class="bl-sectie"><h2>${T("beleef.afleveringen", "De afleveringen")}</h2>${b.afleveringen.map(a => `<article class="afl">
+        <div><span class="nr">${T("beleef.aflevering", "Aflevering")} ${a.nr}</span><h3>${esc(a.titel)}</h3><p class="plek">${esc(a.plek)}</p><p>${esc(a.tekst)}</p>
+          ${a.spotify ? `<div class="knoppen"><a class="btn" href="${esc(a.spotify)}">${T("beleef.spotify", "Beluister op Spotify")}</a>${b.apple ? `<a class="btn lijn" href="${esc(b.apple)}">${T("beleef.apple", "Beluister op Apple Podcasts")}</a>` : ""}</div>` : ""}</div>
         <div>${a.youtube ? ytKnop(a.youtube, a.titel) : (a.beeld ? `<img src="${esc(a.beeld)}" alt="${esc(a.titel + ", " + a.plek)}" loading="lazy" style="display:block;width:100%;height:auto;border-radius:3px">` : "")}</div>
       </article>`).join("")}</div>` : ""}
-      ${b.luister ? `<div class="bl-sectie" id="luister"><h2>Kijk en luister</h2>
+      ${b.luister ? `<div class="bl-sectie" id="luister"><h2>${T("beleef.luister", "Kijk en luister")}</h2>
         ${(b.luister.youtube || []).length ? `<div class="videos">${b.luister.youtube.map(id => ytKnop(id, b.titel)).join("")}</div>` : ""}
         ${b.luister.soundcloud ? `<iframe class="sc" title="${esc(b.titel)} op SoundCloud" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=${encodeURIComponent(b.luister.soundcloud)}&color=%23e8761a&visual=false"></iframe>` : ""}
       </div>` : ""}
-      ${beelden.length > 1 ? `<div class="bl-sectie"><h2>Beelden</h2><div class="galerij">${beelden.slice(1).map(x => `<img src="${esc(x.src)}" alt="${esc(x.alt || "")}" loading="lazy">`).join("")}</div></div>` : ""}
-      ${b.pers ? `<div class="bl-sectie"><h2>In de pers</h2><p>${b.pers.map(([t, u]) => `<a href="${esc(u)}">${esc(t)}</a>`).join(" · ")}</p></div>` : ""}
+      ${beelden.length > 1 ? `<div class="bl-sectie"><h2>${T("beleef.beelden", "Beelden")}</h2><div class="galerij">${beelden.slice(1).map(x => `<img src="${esc(x.src)}" alt="${esc(x.alt || "")}" loading="lazy">`).join("")}</div></div>` : ""}
+      ${b.pers ? `<div class="bl-sectie"><h2>${T("beleef.pers", "In de pers")}</h2><p>${b.pers.map(([t, u]) => `<a href="${esc(u)}">${esc(t)}</a>`).join(" · ")}</p></div>` : ""}
       ${b.extra ? `<div class="bl-sectie"><h2>${esc(b.extra.titel)}</h2><p>${esc(b.extra.tekst)}</p><p><a class="btn" href="${esc(b.extra.url)}">${esc(b.extra.knop)}</a></p></div>` : ""}
       <div class="bl-sectie"><p class="bl-credits">${esc(b.credits)}</p>
-        <h2 style="margin-top:2rem">Meer beleven</h2>
+        <h2 style="margin-top:2rem">${T("beleef.meer", "Meer beleven")}</h2>
         <ul class="meer-beleven">${beleef.filter(x => x.slug !== b.slug).map(x => `<li><a href="${x.slug}.html"><span class="label">${esc(x.label)}</span><span class="naam">${esc(x.titel)}</span></a></li>`).join("")}</ul>
       </div>
     </div>
@@ -570,9 +572,18 @@ for (const b of beleef) {
 
 
 // Sitemap voor zoekmachines
+// ---------- Homepage: sjabloon + teksten uit Notion ----------
+try {
+  const sjabloon = await fs.readFile(path.resolve("scripts/sjablonen/index.html"), "utf8");
+  await fs.writeFile(path.join(ROOT, "index.html"), pasHomepage(sjabloon));
+} catch (err) {
+  console.warn("Homepage niet bijgewerkt (sjabloon scripts/sjablonen/index.html ontbreekt?):", err.message);
+}
+
 // ---------- Producties (uit site/data/producties.json) ----------
 import { bouwProducties } from "./build-producties.mjs";
 const productiePaginas = await bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd });
+await schrijfCatalogus(path.resolve(".build/teksten-catalogus.json"));
 
 const urls = ["", "vorige-edities.html", ...beleef.map(b => `${b.slug}.html`), ...productiePaginas, ...agenda.map(e => `concert/${e.slug}.html`)];
 await fs.writeFile(path.join(ROOT, "sitemap.xml"),

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Merodefestival – folk en wereldmuziek in de kerken van de Merode</title>
+<meta name="description" content="Kerkconcerten met folk en wereldmuziek in de dorpskerken van Landschapspark de Merode, en elk Hemelvaartweekend het Merodefestival.">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="seizoen/seizoen.css">
+<link rel="stylesheet" href="css/publiek.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><img id="logo" src="seizoen/logo-oranje.png" alt="Merodefestival" width="82" height="56"></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="hoofdmenu">Menu</button>
+    <nav id="hoofdmenu" aria-label="Hoofdmenu">
+      <ul>
+        <li><a href="#agenda">Agenda</a></li>
+        <li><a href="#festival">Festival 2027</a></li>
+        <li><a href="#beleef">Beleef de Merode</a></li>
+        <li><a href="producties.html">Producties</a></li>
+        <li><a href="vorige-edities.html">Vorige edities</a></li>
+        <li><a href="#nieuwsbrief">Nieuwsbrief</a></li>
+      </ul>
+    </nav>
+    <a class="btn" id="tickets-top" href="https://wesp-vzw.pierrot.io/">Tickets</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="seizoen-titel">
+    <div class="wrap">
+      <div class="hero-text">
+        <h1 class="seizoen" id="seizoen-titel"></h1>
+        <div class="next" id="next" hidden>
+          <span class="label" id="next-when"></span>
+          <h2 id="next-artist"></h2>
+          <p class="waar" id="next-where"></p>
+          <div class="acties" id="next-acties"></div>
+        </div>
+      </div>
+      <div class="art" id="art" role="region" aria-roledescription="diavoorstelling" aria-label="Seizoensbeeld en foto’s uit de kerken">
+        <img id="artwork" class="dia actief" alt="">
+        <button class="art-pauze" id="art-pauze" type="button" hidden aria-label="Wisselende beelden pauzeren">❚❚</button>
+      </div>
+    </div>
+    <span class="credit" id="credit"></span>
+  </section>
+
+  <section class="papier" id="agenda" aria-labelledby="intro-kop">
+    <div class="wrap">
+      <aside class="intro">
+        <h2 id="intro-kop"></h2>
+        <div id="intro-tekst"></div>
+        <div class="kruisjes" aria-hidden="true">× × × × × × ×</div>
+        <dl class="prijzen" id="prijzen"></dl>
+        <a class="btn" id="intro-tickets" href="https://wesp-vzw.pierrot.io/">Tickets bestellen</a>
+      </aside>
+      <div>
+        <h2 class="label" style="font-size:1rem;margin-bottom:1.25rem;color:var(--s-papier-zacht)">Agenda</h2>
+        <ol class="events" id="events"></ol>
+        <button class="btn toon-alles" id="toon-alles" aria-expanded="false">Toon de hele agenda</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="ook-wesp" id="ook-wesp" aria-labelledby="ook-wesp-titel" hidden>
+    <div class="wrap">
+      <div class="ook-kop">
+        <h2 id="ook-wesp-titel">Ook van WESP</h2>
+        <p>Concerten in onze andere reeksen, buiten de Merode.</p>
+        <div class="ook-pijlen" aria-hidden="false">
+          <button type="button" class="pijl" id="ook-vorige" aria-label="Vorige concerten">←</button>
+          <button type="button" class="pijl" id="ook-volgende" aria-label="Volgende concerten">→</button>
+        </div>
+      </div>
+      <ul class="ook-lijst" id="ook-lijst" tabindex="0" aria-label="Concerten van WESP, schuif opzij voor meer"></ul>
+    </div>
+  </section>
+
+  <section class="fest" id="festival" aria-labelledby="festival-titel">
+    <div class="wrap fest-kop">
+      <p class="label fest-datum" id="fest-datum">Hemelvaartweekend 2027</p>
+      <h2 id="festival-titel">Merodefestival 2027</h2>
+      <p class="fest-intro">Overdag wandel je met muzikanten door de mooiste natuurgebieden van de Merode. ’s Avonds speelt internationale folk op de Citadel van Diest. Het programma volgt in het voorjaar.</p>
+      <div class="acties">
+        <a class="btn" id="fest-link" href="concert/merodefestival-2027.html">Meer over het festival</a>
+        <a class="btn ghost" href="#nieuwsbrief">Hou me op de hoogte</a>
+      </div>
+    </div>
+    <div class="wrap fest-beelden">
+      <figure><img src="img/wandel.jpg" alt="Wandelaars op een bospad in de Merode" loading="lazy"><figcaption>Overdag: muzikale wandelingen door de natuur</figcaption></figure>
+      <figure><img src="img/ovatie.jpg" alt="Muzikanten nemen applaus in ontvangst op een openluchtpodium bij avond" loading="lazy"><figcaption>’s Avonds: folk op de Citadel</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="papier edities-teaser" id="vorige-edities" aria-labelledby="edities-titel">
+    <div class="wrap">
+      <div class="edities-kop">
+        <div>
+          <h2 id="edities-titel">Sinds 2015</h2>
+          <p>Meer dan tien jaar folk in de Merode: elk jaar het beste van de Europese folkscene, en sinds 2017 ook een concertreeks door het jaar heen.</p>
+        </div>
+        <a class="btn" href="vorige-edities.html">Alle vorige edities</a>
+      </div>
+      <ol class="jaren" id="jaren"></ol>
+    </div>
+  </section>
+
+  <section class="beleef-sectie" id="beleef" aria-labelledby="beleef-titel">
+    <div class="wrap">
+      <h2 id="beleef-titel">Beleef de Merode, ook thuis</h2>
+      <p class="beleef-intro">Muziek, verhalen en wandelingen om mee te nemen.</p>
+      <ul class="beleef-grid">
+        <li><a href="ode-aan-de-merode.html"><span class="label">Boek</span><span class="naam">Ode aan de Merode</span><span class="uitleg">Negen verhalen, wandelingen, video’s en een afspeellijst.</span></a></li>
+        <li><a href="podcast.html"><span class="label">Podcast</span><span class="naam">Wandelpodcast</span><span class="uitleg">Folkmuzikanten vertellen onderweg over hun muziek, en spelen in de natuur.</span></a></li>
+        <li><a href="the-sound-of-the-abbey.html"><span class="label">Cd en vinyl</span><span class="naam">The Sound of the Abbey</span><span class="uitleg">Opnames uit de Abdij van Park, met dertien artiesten.</span></a></li>
+        <li><a href="volkscafes.html"><span class="label">Video’s</span><span class="naam">Volkscafés en volksliekes</span><span class="uitleg">Het muzikale erfgoed van de streek, in beeld.</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wesp" aria-label="Over WESP">
+    <div class="wrap">
+      <p>Merodefestival is meer dan concerten. Als folkincubator creëren, begeleiden en verbinden we folk- en wereldmuziek in Vlaanderen, met het landschap als vertrekpunt.</p>
+      <a class="btn ghost" href="https://www.wespvzw.be">Ontdek wat WESP doet</a>
+    </div>
+  </section>
+
+  <section class="nieuws" id="nieuwsbrief" aria-labelledby="nieuws-titel">
+    <div class="wrap">
+      <div>
+        <h2 id="nieuws-titel">Mis geen concert</h2>
+        <p>Nieuwe concerten en het festivalprogramma in je mailbox.</p>
+      </div>
+      <a class="btn" href="http://eepurl.com/g8U9mX">Schrijf je in</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><img class="foot-logo" src="seizoen/logo-oranje.png" alt="Merodefestival" width="147" height="100" loading="lazy"></div>
+  <div class="wrap cols">
+    <div>
+      <h3>Contact</h3>
+      <p><a href="mailto:info@merodefestival.be">info@merodefestival.be</a></p>
+      <p><a href="tel:+32498758296">0498 75 82 96</a></p>
+      <p>Merodefestival is een project van WESP vzw, BE 0863 441 738, Jozef Wautersstraat 4, 3010 Kessel-Lo</p>
+    </div>
+    <div>
+      <h3>Volg ons</h3>
+      <ul>
+        <li><a href="https://www.facebook.com/merodefestival">Facebook</a></li>
+        <li><a href="https://www.instagram.com/merodefestival/">Instagram</a></li>
+        <li><a href="https://www.youtube.com/channel/UCahKa1lM3yaWEwXdV_bBJdw">YouTube</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Met steun van</h3>
+      <p>De Vlaamse overheid, kunsten en erfgoed, de provincie Vlaams-Brabant, de Nationale Loterij en projectvereniging de Merode. Met de medewerking van de parochies en kerkfabrieken.</p>
+      <p>Artwork: <a href="http://www.reinhart.be">Reinhart Croon</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="seizoen/seizoen.js"></script>
+<script src="data/agenda.js"></script>
+<script src="data/edities.js"></script>
+<script src="data/reeksen.js"></script>
+<script src="data/beeldbank.js"></script>
+<script>
+const S = window.SEIZOEN || {};
+const ALLES = window.AGENDA || [];
+const isMerode = e => !(e.sites || []).length || e.sites.includes("Merodefestival");
+const events = ALLES.filter(isMerode);
+const esc = t => String(t ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// ---------- seizoen ----------
+// Laatste cijfer van elk jaartal in het accent, zoals in de brochure
+const jaren = esc(S.jaren || "").replace(/(\d{3})(\d)/g, "$1<em>$2</em>");
+document.getElementById("seizoen-titel").innerHTML =
+  `<span>${esc(S.titel || "")}</span><span>${jaren}</span>`;
+const art = document.getElementById("artwork");
+art.src = S.artwork; art.alt = S.artworkAlt || "";
+document.getElementById("credit").textContent = S.credit || "";
+
+// ---------- het seizoensbeeld wisselt zacht met foto’s uit de kerken (Beeldbank: onderwerp Kerkconcert + Homepage-carrousel) ----------
+(function () {
+  const box = document.getElementById("art"), credit = document.getElementById("credit"), knop = document.getElementById("art-pauze");
+  const fotos = (window.BEELDBANK || []).filter(b => b.onderwerp === "Kerkconcert" && (b.gebruik || []).includes("Homepage-carrousel"))
+    .sort((a, b) => (a.volgorde ?? 99) - (b.volgorde ?? 99));
+  if (!fotos.length) return;
+  // Uitsnede uit de Beeldbank: welk deel van de foto zichtbaar blijft
+  const UITSNEDE = { midden: "center", boven: "center top", onder: "center bottom", links: "left center", rechts: "right center" };
+  const dias = [art];
+  fotos.forEach(f => {
+    const img = document.createElement("img");
+    img.className = "dia foto-dia"; img.src = f.src; img.alt = f.alt || ""; img.loading = "lazy";
+    if (f.uitsnede === "volledig tonen") img.style.objectFit = "contain";
+    else img.style.objectPosition = UITSNEDE[f.uitsnede] || "center";
+    img.dataset.credit = f.fotograaf ? "Foto: " + f.fotograaf : "";
+    box.insertBefore(img, knop); dias.push(img);
+  });
+  let i = 0, timer = null;
+  const toon = n => {
+    dias[i].classList.remove("actief"); i = n; dias[i].classList.add("actief");
+    credit.textContent = i === 0 ? (S.credit || "") : dias[i].dataset.credit;
+  };
+  const start = () => { timer = setInterval(() => toon((i + 1) % dias.length), 6000); knop.textContent = "❚❚"; knop.setAttribute("aria-label", "Wisselende beelden pauzeren"); };
+  const stop = () => { clearInterval(timer); timer = null; knop.textContent = "▶"; knop.setAttribute("aria-label", "Wisselende beelden afspelen"); };
+  knop.hidden = false;
+  knop.addEventListener("click", () => timer ? stop() : start());
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) start(); else stop();
+})();
+document.getElementById("intro-kop").textContent = S.kop || "";
+document.getElementById("intro-tekst").innerHTML = (S.intro || []).map(p => `<p>${esc(p)}</p>`).join("");
+document.getElementById("prijzen").innerHTML = (S.tickets || []).map(([k,v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
+if (S.ticketlink) ["intro-tickets","tickets-top"].forEach(id => document.getElementById(id).href = S.ticketlink);
+
+// ---------- agenda ----------
+const MAAND = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
+const MAAND_LANG = ["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december"];
+const DAG = ["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"];
+const d = s => { const [y,m,dd] = s.split("-").map(Number); return new Date(y,m-1,dd); };
+const today = new Date(); today.setHours(0,0,0,0);
+const upcoming = events.filter(e => d(e.end || e.start) >= today).sort((a,b) => d(a.start) - d(b.start));
+
+const ticketHtml = (e, groot) => e.volzet
+  ? `<span class="soldout">Volzet</span>`
+  : e.tickets ? `<a class="btn" href="${esc(e.tickets)}">${esc(e.cta || (groot ? "Koop tickets" : "Tickets"))}${groot && e.price ? " (" + esc(e.price) + ")" : ""}</a>` : "";
+
+function whenLabel(e){
+  const s = d(e.start);
+  if (e.end && s <= today) return "Nu te zien";
+  const diff = Math.round((s - today)/86400000);
+  if (diff === 0) return "Vanavond";
+  if (diff === 1) return "Morgen";
+  const lang = `${DAG[s.getDay()]} ${s.getDate()} ${MAAND_LANG[s.getMonth()]}`;
+  return diff < 7 ? "Deze " + lang : lang.charAt(0).toUpperCase() + lang.slice(1);
+}
+
+if (upcoming.length){
+  const h = upcoming[0];
+  document.getElementById("next").hidden = false;
+  document.getElementById("next-when").textContent = "Eerstvolgende · " + whenLabel(h);
+  document.getElementById("next-artist").textContent = h.artist;
+  document.getElementById("next-where").textContent = [h.place, h.village, h.time].filter(Boolean).join(", ");
+  document.getElementById("next-acties").innerHTML = ticketHtml(h, true) +
+    (h.slug ? `<a class="btn ghost" href="concert/${esc(h.slug)}.html">Meer over dit concert</a>` : "");
+}
+
+const list = document.getElementById("events");
+list.innerHTML = upcoming.map((e,i) => {
+  const s = d(e.start), en = e.end ? d(e.end) : null;
+  const dag = en ? `${s.getDate()}–${en.getDate()}` : s.getDate();
+  const jaar = s.getFullYear() !== today.getFullYear() ? " " + s.getFullYear() : "";
+  const pagina = e.slug ? `concert/${e.slug}.html` : (e.info || "");
+  return `<li class="event${e.volzet ? " is-full" : ""}${i >= 5 ? " extra" : ""}">
+    <div class="date"><span class="d">${dag}</span><span class="m">${MAAND[s.getMonth()]}${jaar}</span></div>
+    <div class="thumb">${e.foto ? `${pagina ? `<a href="${esc(pagina)}" tabindex="-1" aria-hidden="true">` : ""}<img src="${esc(e.foto)}" alt="" loading="lazy">${pagina ? "</a>" : ""}` : ""}</div>
+    <div>
+      ${e.sub ? `<p class="sub">${esc(e.sub)}</p>` : ""}
+      <h3 class="artist">${pagina ? `<a href="${esc(pagina)}">` : ""}${esc(e.artist)}${pagina ? "</a>" : ""}${e.origin ? ` <span class="herkomst">(${esc(e.origin)})</span>` : ""}</h3>
+      <p class="meta"><span class="soort">${esc(e.kind)}</span> · ${esc([e.place, e.village].filter(Boolean).join(", "))}${e.time ? " · " + esc(e.time) : ""}</p>
+      <div class="links">
+        ${e.text ? `<details><summary>Meer info</summary>${String(e.text).split(/\n\s*\n/).map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}
+        ${pagina ? `<a href="${esc(pagina)}${(e.videos || []).length || (e.spotify || []).length ? "#luister" : ""}">${(e.videos || []).length || (e.spotify || []).length ? "Kijk en luister" : "Meer over dit concert"}</a>` : ""}
+      </div>
+    </div>
+    <div class="act">${e.price && !e.volzet ? `<span class="price">${esc(e.price)}</span>` : ""}${ticketHtml(e, false)}</div>
+  </li>`;
+}).join("");
+
+const toon = document.getElementById("toon-alles");
+if (upcoming.length <= 5) toon.hidden = true;
+toon.addEventListener("click", () => {
+  const open = list.classList.toggle("alles");
+  toon.setAttribute("aria-expanded", open);
+  toon.textContent = open ? "Toon minder" : "Toon de hele agenda";
+});
+
+// ---------- festival en vorige edities ----------
+const fest = events.find(e => /festival/i.test(e.kind) && /merodefestival/i.test(e.artist));
+if (fest) {
+  const s1 = d(fest.start), s2 = fest.end ? d(fest.end) : null;
+  document.getElementById("fest-datum").textContent = "Hemelvaartweekend · " +
+    (s2 ? `${s1.getDate()}–${s2.getDate()} ${MAAND_LANG[s2.getMonth()]} ${s2.getFullYear()}` : `${s1.getDate()} ${MAAND_LANG[s1.getMonth()]} ${s1.getFullYear()}`);
+  if (fest.slug) document.getElementById("fest-link").href = `concert/${fest.slug}.html`;
+}
+document.getElementById("jaren").innerHTML = (window.EDITIES || []).map(x =>
+  `<li><a href="vorige-edities.html#${x.jaar}"><span class="jaar">${x.jaar}</span><span class="plek">${esc(x.plek || x.titel || (x.videos ? "Foto’s en video’s" : "Geen festival"))}</span></a></li>`).join("");
+
+// ---------- ook van WESP: alle komende concerten in een schuiflijst ----------
+const andere = ALLES.filter(e => !isMerode(e) && d(e.end || e.start) >= today)
+  .sort((a,b) => d(a.start) - d(b.start));
+if (andere.length) {
+  document.getElementById("ook-wesp").hidden = false;
+  const lijst = document.getElementById("ook-lijst");
+  lijst.innerHTML = andere.map(e => {
+    const s = d(e.start);
+    const reeks = e.reeks || (e.sites || [])[0] || "";
+    const R = window.REEKSEN || {};
+    const pagina = e.info || R[e.reeks] || (e.sites || []).map(x => R[x]).find(Boolean) || e.tickets || "https://www.wespvzw.be";
+    return `<li><a href="${esc(pagina)}" target="_blank" rel="noopener">
+      <span class="ook-reeks">${esc(reeks)}</span>
+      <span class="ook-datum">${DAG[s.getDay()]} ${s.getDate()} ${MAAND_LANG[s.getMonth()]}${s.getFullYear() !== today.getFullYear() ? " " + s.getFullYear() : ""}</span>
+      <span class="ook-naam">${esc(e.artist)}</span>
+      <span class="ook-waar">${esc([e.place, e.village].filter(Boolean).join(", "))}</span>
+      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
+    </a></li>`;
+  }).join("");
+  const stap = () => lijst.querySelector("li").offsetWidth + 24;
+  document.getElementById("ook-vorige").addEventListener("click", () => lijst.scrollBy({ left: -stap() * 2, behavior: "smooth" }));
+  document.getElementById("ook-volgende").addEventListener("click", () => lijst.scrollBy({ left: stap() * 2, behavior: "smooth" }));
+}
+
+// ---------- menu ----------
+const toggle = document.querySelector(".menu-toggle"), nav = document.getElementById("hoofdmenu");
+toggle.addEventListener("click", () => { const o = nav.classList.toggle("open"); toggle.setAttribute("aria-expanded", o); });
+nav.addEventListener("click", e => { if (e.target.tagName === "A") { nav.classList.remove("open"); toggle.setAttribute("aria-expanded", false); }});
+</script>
+</body>
+</html>

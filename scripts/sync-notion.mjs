@@ -11,6 +11,8 @@ const AGENDA_DB = process.env.AGENDA_DB;
 const PRODUCTIES_DB = process.env.PRODUCTIES_DB;
 // Beeldbank: standaard de database “Beeldbank (website)”; overschrijfbaar met BEELDBANK_DB.
 const BEELDBANK_DB = process.env.BEELDBANK_DB || "4194280648e841659ebdef6307358815";
+// Teksten: standaard de database “Teksten (website)”; overschrijfbaar met TEKSTEN_DB.
+const TEKSTEN_DB = process.env.TEKSTEN_DB || "57e78e458ed5461f8166cafdb391d7af";
 if (!TOKEN || !AGENDA_DB || !PRODUCTIES_DB) {
   console.error("NOTION_TOKEN, AGENDA_DB en PRODUCTIES_DB moeten ingesteld zijn.");
   process.exit(1);
@@ -230,7 +232,7 @@ for (const r of await queryAll(PRODUCTIES_DB, [{ property: "Volgorde", direction
     geschikt: text(p["Geschikt voor"]),
     prijs: text(p.Prijs),
     contact: text(p.Contact),
-    knop: text(p.Knoptekst) || "Vraag een optie",
+    knop: text(p.Knoptekst),
     knoplink: text(p.Knoplink),
     uitsnede: text(p.Uitsnede),
     videos: regelsMetTitel(prop(p, "Video's", "Video’s")),
@@ -242,6 +244,15 @@ for (const r of await queryAll(PRODUCTIES_DB, [{ property: "Volgorde", direction
   });
 }
 await write("producties", producties);
+
+// Vaste teksten van de site (kolommen Sleutel en Tekst). Wat leeg is, valt terug op de standaardtekst in de code.
+const teksten = {};
+for (const r of await queryAll(TEKSTEN_DB, [{ property: "Sleutel", direction: "ascending" }])) {
+  const sleutel = text(r.properties.Sleutel).trim();
+  const tekst = text(r.properties.Tekst);
+  if (sleutel && tekst.trim()) teksten[sleutel] = tekst;
+}
+await write("teksten", teksten);
 
 // Beeldbank
 const beeldbank = [];
@@ -280,4 +291,4 @@ await write("beeldbank", beeldbank.map(({ concerten, ...x }) => x));
 // Foto’s die niet meer gebruikt worden opruimen
 for (const f of await fs.readdir(FOTO)) if (!used.has(f)) await fs.unlink(path.join(FOTO, f));
 
-console.log(`Klaar: ${agenda.length} agenda-items, ${producties.length} producties, ${beeldbank.length} beelden.`);
+console.log(`Klaar: ${agenda.length} agenda-items, ${producties.length} producties, ${beeldbank.length} beelden, ${Object.keys(teksten).length} teksten.`);

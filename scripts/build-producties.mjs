@@ -4,6 +4,7 @@
 
 import fs from "node:fs/promises";
 import path from "node:path";
+import { T } from "./teksten.mjs";
 
 const SOORTEN = [
   { naam: "Podiumproductie", id: "podium", titel: "Podiumproducties", meer: "Bekijk de productie →", praktisch: "Praktisch",
@@ -24,8 +25,11 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
   lijst = lijst.filter(p => p.slug && p.titel);
   if (!lijst.length) { console.log("Geen producties met webadres: sla productiepagina’s over."); return []; }
 
+  // Een tekst met lege regels wordt een reeks alinea’s
+  const alinea = t => esc(t).split(/\n{2,}/).map(x => `<p>${x.replace(/\n/g, "<br>")}</p>`).join("");
+
   const bestand = p => `productie-${p.slug}.html`;
-  const soortVan = p => SOORTEN.find(s => s.naam === p.soort) || SOORTEN[0];
+  const soortVan = p => (SOORTEN.find(s => s.naam === p.soort) || SOORTEN[0]).naam;
   const br = t => esc(t).replace(/\n/g, "<br>");
   const transp = f => /\.png$/i.test(f || "");
 
@@ -103,7 +107,14 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
   };
 
   // ---------- overzichtspagina ----------
-  const groepen = SOORTEN.map(s => ({ ...s, items: lijst.filter(p => soortVan(p) === s) })).filter(g => g.items.length);
+  const groepen = SOORTEN.map(s => ({
+    ...s,
+    titel: T(`soort.${s.id}.titel`, s.titel),
+    intro: T(`soort.${s.id}.intro`, s.intro),
+    meer: T(`soort.${s.id}.meer`, s.meer),
+    praktisch: T(`soort.${s.id}.praktisch`, s.praktisch),
+    items: lijst.filter(p => soortVan(p) === s.naam),
+  })).filter(g => g.items.length);
   const kaart = (p, g) => {
     const stijl = POSITIE[p.uitsnede] ? ` style="object-position:${POSITIE[p.uitsnede]}"` : "";
     const klasse = p.uitsnede === "volledig tonen" ? ` class="contain"` : transp(p.foto) ? ` class="transp"` : "";
@@ -115,9 +126,9 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
   const overzicht = `
   <section class="pr-hero">
     <div class="wrap" style="display:block">
-      <p class="label">Voor programmatoren</p>
-      <h1>Producties</h1>
-      <p>Concerten en programma’s die Merodefestival mee maakt en op tournee stuurt. Elke productie kan geboekt worden door cultuurcentra, festivals en organisatoren van bijzondere locaties.</p>
+      <p class="label">${esc(T("producties.label", "Voor programmatoren"))}</p>
+      <h1>${esc(T("producties.titel", "Producties"))}</h1>
+      ${alinea(T("producties.intro", "Concerten en programma’s die Merodefestival mee maakt en op tournee stuurt. Elke productie kan geboekt worden door cultuurcentra, festivals en organisatoren van bijzondere locaties."))}
     </div>
   </section>
   <section class="papier pr-sectie">
@@ -127,30 +138,31 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
     </div>
   </section>`;
   await fs.writeFile(path.join(ROOT, "producties.html"), pagina({
-    titel: "Producties", naam: "producties.html", afbeelding: S.artwork,
-    beschrijving: "Concerten, installaties, playlists en concepten op maat van Merodefestival, om te boeken voor cultuurcentra, festivals en bijzondere locaties.",
+    titel: T("producties.titel", "Producties"), naam: "producties.html", afbeelding: S.artwork,
+    beschrijving: T("producties.beschrijving", "Concerten, installaties, playlists en concepten op maat van Merodefestival, om te boeken voor cultuurcentra, festivals en bijzondere locaties."),
     body: overzicht,
   }));
 
   // ---------- detailpagina’s ----------
   for (const p of lijst) {
-    const g = soortVan(p);
+    const g = SOORTEN.map(x => ({ ...x, praktisch: T(`soort.${x.id}.praktisch`, x.praktisch) })).find(x => x.naam === soortVan(p));
     const mail = `mailto:${p.contact || "info@merodefestival.be"}?subject=${encodeURIComponent(p.titel)}`;
     const knop = p.knoplink
-      ? `<a class="btn" href="${esc(p.knoplink)}" target="_blank" rel="noopener">${esc(p.knop)}</a>`
-      : `<a class="btn" href="${mail}">${esc(p.knop)}</a>`;
+      ? `<a class="btn" href="${esc(p.knoplink)}" target="_blank" rel="noopener">${esc(p.knop || T("producties.knop-standaard", "Vraag een optie"))}</a>`
+      : `<a class="btn" href="${mail}">${esc(p.knop || T("producties.knop-standaard", "Vraag een optie"))}</a>`;
     const hero = p.foto
       ? `<figure class="cbeeld foto${transp(p.foto) ? " transp" : ""}"><img src="${esc(p.foto)}" alt="${esc(p.titel)}"></figure>`
       : `<figure class="cbeeld"><img src="${esc(S.artwork)}" alt=""></figure>`;
-    const feiten = [["Waar", p.waar], ["Vorm", p.vorm], ["Speelduur", p.speelduur], ["Periode", p.periode], ["Bezetting", p.bezetting],
-      ["Techniek", p.techniek], ["Geschikt voor", p.geschikt], ["Prijs", p.prijs]].filter(f => f[1]);
+    const V = (sleutel, standaard) => T(`veld.${sleutel}`, standaard);
+    const feiten = [[V("waar", "Waar"), p.waar], [V("vorm", "Vorm"), p.vorm], [V("speelduur", "Speelduur"), p.speelduur], [V("periode", "Periode"), p.periode],
+      [V("bezetting", "Bezetting"), p.bezetting], [V("techniek", "Techniek"), p.techniek], [V("geschikt", "Geschikt voor"), p.geschikt], [V("prijs", "Prijs"), p.prijs]].filter(f => f[1]);
     const spelers = [
       ...(p.spotify || []).map(u => spotify(u, p.titel)),
       ...(p.soundcloud || []).map(u => soundcloud(u, p.titel)),
     ].filter(Boolean).join("\n        ");
     const videos = (p.videos || []).map(video).join("");
     const luister = spelers || videos
-      ? `<section class="luister"><h2 class="label">Kijk en luister</h2>${spelers}${videos ? `<div class="pvideos">${videos}</div>` : ""}</section>`
+      ? `<section class="luister"><h2 class="label">${esc(T("producties.luister", "Kijk en luister"))}</h2>${spelers}${videos ? `<div class="pvideos">${videos}</div>` : ""}</section>`
       : "";
     const reeks = (p.fotos || []).length
       ? `<div class="galerij3${p.fotos.length < 3 ? " twee" : ""}">${p.fotos.map(f => `<figure><img src="${esc(f)}" alt="${esc(p.titel)}" loading="lazy"></figure>`).join("")}</div>`
@@ -159,7 +171,7 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
   <section class="chero">
     <div class="wrap">
       <div class="chero-tekst">
-        <a class="terug" href="producties.html">← Producties</a>
+        <a class="terug" href="producties.html">${esc(T("producties.terug", "← Producties"))}</a>
         <p class="label datumregel">${esc(p.label)}</p>
         <h1>${esc(p.titel)}</h1>
         ${p.makers ? `<p class="waar">${esc(p.makers)}</p>` : ""}
@@ -180,8 +192,8 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
         <h2 class="label">${g.praktisch}</h2>
         <dl>
           ${feiten.map(([k, v]) => `<div><dt>${k}</dt><dd>${br(v)}</dd></div>`).join("\n          ")}
-          ${(p.data || []).length ? `<div><dt>Data</dt><dd><ul class="data">${p.data.map(x => `<li>${esc(x)}</li>`).join("")}</ul></dd></div>` : ""}
-          <div><dt>Contact</dt><dd><a href="mailto:${esc(p.contact || "info@merodefestival.be")}">${esc(p.contact || "info@merodefestival.be")}</a></dd></div>
+          ${(p.data || []).length ? `<div><dt>${esc(V("data", "Data"))}</dt><dd><ul class="data">${p.data.map(x => `<li>${esc(x)}</li>`).join("")}</ul></dd></div>` : ""}
+          <div><dt>${esc(V("contact", "Contact"))}</dt><dd><a href="mailto:${esc(p.contact || "info@merodefestival.be")}">${esc(p.contact || "info@merodefestival.be")}</a></dd></div>
         </dl>
         ${p.extra ? `<p class="extra">${esc(p.extra)}</p>` : ""}
         <div class="acties">${knop}</div>
