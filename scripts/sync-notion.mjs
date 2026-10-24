@@ -140,9 +140,17 @@ async function haalFoto(url, sleutel) {
   let ext = "jpg";
   if (sharp) {
     const meta = await sharp(buf).metadata();
+    // Alleen echt doorzichtige foto’s blijven PNG. Schermafbeeldingen hebben vaak een alfakanaal
+    // dat helemaal ondoorzichtig is: die worden gewoon JPEG.
+    let doorzichtig = false;
+    if (meta.hasAlpha) {
+      const st = await sharp(buf).stats();
+      const alfa = st.channels[st.channels.length - 1];
+      doorzichtig = !!alfa && alfa.min < 250;
+    }
     const img = sharp(buf).rotate().resize({ width: 1600, withoutEnlargement: true });
-    if (meta.hasAlpha) { buf = await img.png({ compressionLevel: 9 }).toBuffer(); ext = "png"; }
-    else buf = await img.jpeg({ quality: 74, progressive: true }).toBuffer();
+    if (doorzichtig) { buf = await img.png({ compressionLevel: 9 }).toBuffer(); ext = "png"; }
+    else buf = await img.flatten({ background: "#ffffff" }).jpeg({ quality: 74, progressive: true }).toBuffer();
   } else if (type.includes("png")) ext = "png";
   const name = sleutel + "." + ext;
   used.add(name);
