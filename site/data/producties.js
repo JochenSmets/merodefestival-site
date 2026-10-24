@@ -36,7 +36,7 @@ window.PRODUCTIES = [
         "Op aanvraag"
       ]
     ],
-    "knop": "Vraag een optie",
+    "knop": "Vraag je prospectiekaart of boek de voorstelling",
     "contact": "boone@merodefestival.be",
     "data": [],
     "webadres": "rhagium-inquisitor",
@@ -193,7 +193,7 @@ window.PRODUCTIES = [
         "Op aanvraag"
       ]
     ],
-    "knop": "Vraag je prospectiekaart",
+    "knop": "Vraag je prospectiekaart of boek de voorstelling",
     "contact": "shipoffools@merodefestival.be",
     "data": [
       "Vrijdag 16 april 2027, 20.00 uur – try-out in CC De Ploter, Ternat (i.s.m. Westrand)",
@@ -494,6 +494,30 @@ window.PRODUCTIES = [
       "https://api.soundcloud.com/playlists/1967045592"
     ],
     "foto": "data/foto/40377c21f8db81038299f66ba1a9536f.jpg",
+    "uitsnede": ""
+  },
+  {
+    "titel": "Huis der Weemoed - Langdorp",
+    "soort": "Installatie",
+    "label": "Installaties",
+    "makers": "Maarten Deboes staat in voor de techniek. Opnames gebeuren door Bert Huysentruyt. Muzikanten worden gekozen in overleg. ",
+    "tekst": "",
+    "extra": "Halfweg de lange muur aan de Sint-Pieterskerk ontdek je als wandelaar of fietser een bijzondere plek: het Huis der Weemoed. Je zet je even neer, leest, luistert ... en staat verrast van het échte verhaal achter dit gebouw.\n\nHet Huis der Weemoed is een voormalig dodenhuisje dat een nieuwe bestemming kreeg als luwteplek en streekinfopunt. Het klinkt misschien wat onwenning, maar met veel respect werd het kleine gebouw opgewaardeerd tot een rustplek waar iedereen welkom is.\nJe kan er ook op een hedendaagse manier stilstaan bij rouw en afscheid. Een mystieke film en hemelse klanken helpen je troost te vinden in de herinnering aan wat was. Hiervoor ontwikkelde Merodefestival een verhalende video met muziek van Toon Van Mierlo, de stem van Reineke Van Hooreweghe en de zang van Sophie Janna. De opname was in handen van Bert Huysentruyt. ",
+    "feiten": [
+      [
+        "Prijs",
+        "Op aanvraag"
+      ]
+    ],
+    "knop": "Ook een muziekinstallatie op jouw erfgoedsite of in jouw natuurdomein? ",
+    "contact": "info@merodefestival.be",
+    "data": [],
+    "webadres": "huis-der-weemoed",
+    "lang": [],
+    "videos": [],
+    "spotify": [],
+    "soundcloud": [],
+    "foto": "data/foto/40377c21f8db80398761eecd17dc631f.jpg",
     "uitsnede": ""
   }
 ];
