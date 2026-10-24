@@ -1,6 +1,7 @@
 window.PRODUCTIES = [
   {
     "titel": "Rhagium Inquisitor",
+    "soort": "Podiumproductie",
     "label": "Nieuw album en tournee, seizoen 2027–2028",
     "makers": "Andries Boone, live in kwartet- of sextetbezetting",
     "tekst": "Op zijn vierde soloalbum versmelt Andries Boone akoestische en elektronische werelden. Viool, octaafviool, mandoline, nyckelharpa en barokmusette ontmoeten synths en sequencers, geïnspireerd door Scandinavische en Bretonse volksmuziek, de jachthoorntraditie én de elektronica van de jaren tachtig en negentig.",
@@ -82,6 +83,7 @@ window.PRODUCTIES = [
   },
   {
     "titel": "O Kerstnacht",
+    "soort": "Podiumproductie",
     "label": "Kerstprogramma 2027, 2028",
     "makers": "Eléonor & ensemble, met Philippe Laloy, Vincent Noiret en Maarten Decombel",
     "tekst": "Middeleeuwse kerstliederen in een nieuw licht. Eléonor graaft vergeten kerstliederen uit de Lage Landen op, hertaald naar eigentijds Nederlands, op het kruispunt van oude muziek, jazz en folk: een warme, kunstige kerstavond waarin verleden en heden elkaar vinden.",
@@ -162,6 +164,7 @@ window.PRODUCTIES = [
   },
   {
     "titel": "Naragonia & The Ship of Fools",
+    "soort": "Podiumproductie",
     "label": "Nieuw album en tournee, 2027–2029",
     "makers": "Naragonia, met blazers en ritmesectie",
     "tekst": "Wie zit er vandaag op het narrenschip? Na hun uitverkochte jubileumconcert groeide Naragonia uit tot een negenkoppig schip met blazers en ritmesectie. Een avond tussen ingetogen liederen over ontheemding en muziek vol veerkracht en dans.",
