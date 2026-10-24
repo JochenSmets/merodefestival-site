@@ -7,6 +7,8 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import vm from "node:vm";
 import { T, laadTeksten, pasHomepage, seizoenOverrides, schrijfCatalogus } from "./teksten.mjs";
+import { voorbouwHomepage } from "./voorbouw.mjs";
+import { maakOmleidingen } from "./omleidingen.mjs";
 
 const SITE = (process.env.SITE_URL || "https://www.merodefestival.be").replace(/\/$/, "");
 const ROOT = path.resolve("site");
@@ -67,7 +69,7 @@ function ics(e) {
     t ? `DURATION:PT2H` : `DTEND;VALUE=DATE:${(e.end || e.start).replace(/-/g, "")}`,
     `SUMMARY:${e.artist.replace(/[,;]/g, "\\$&")}`,
     `LOCATION:${[e.place, e.adres || e.village].filter(Boolean).join(", ").replace(/[,;]/g, "\\$&")}`,
-    `URL:${SITE}/concert/${e.slug}.html`,
+    `URL:${SITE}/concert/${e.slug}`,
     "END:VEVENT", "END:VCALENDAR",
   ];
   return lines.join("\r\n") + "\r\n";
@@ -123,12 +125,12 @@ function pagina(e, overige) {
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(e.artist)} – ${esc(langeDatum(e.start))} | Merodefestival</title>
 <meta name="description" content="${esc(omschrijving.slice(0, 220))}">
-<link rel="canonical" href="${SITE}/concert/${e.slug}.html">
+<link rel="canonical" href="${SITE}/concert/${e.slug}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="${esc(e.artist)}">
 <meta property="og:description" content="${esc(datumregel)}, ${esc([e.place, e.village].filter(Boolean).join(", "))}">
 <meta property="og:image" content="${esc(beeldAbs)}">
-<meta property="og:url" content="${SITE}/concert/${e.slug}.html">
+<meta property="og:url" content="${SITE}/concert/${e.slug}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
 <link rel="apple-touch-icon" href="../img/favicon.png">
@@ -316,7 +318,7 @@ const editiesHtml = `<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vorige edities | Merodefestival</title>
 <meta name="description" content="Meer dan tien jaar Merodefestival: alle edities sinds 2015, met programma, foto’s en video’s.">
-<link rel="canonical" href="${SITE}/vorige-edities.html">
+<link rel="canonical" href="${SITE}/vorige-edities">
 <meta property="og:title" content="Merodefestival sinds 2015">
 <meta property="og:image" content="${SITE}/${S.artwork}">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
@@ -563,7 +565,7 @@ for (const b of beleef) {
   </section>`;
   let kop = kopEd.replace(/<title>[^<]*<\/title>/, `<title>${esc(b.titel)} | Merodefestival</title>`)
     .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(b.ondertitel || b.titel)}">`)
-    .replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${SITE}/${b.slug}.html">`)
+    .replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${SITE}/${b.slug}">`)
     .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(b.titel)}">`)
     .replace(/<style>[\s\S]*?<\/style>/, beleefCss);
   if (hoofd) kop = kop.replace(/<meta property="og:image" content="[^"]*">/, `<meta property="og:image" content="${SITE}/${hoofd.src}">`);
@@ -572,10 +574,36 @@ for (const b of beleef) {
 
 
 // Sitemap voor zoekmachines
-// ---------- Homepage: sjabloon + teksten uit Notion ----------
+// ---------- Homepage: sjabloon + teksten uit Notion, al in de pagina opgebouwd ----------
 try {
   const sjabloon = await fs.readFile(path.resolve("scripts/sjablonen/index.html"), "utf8");
-  await fs.writeFile(path.join(ROOT, "index.html"), pasHomepage(sjabloon));
+  let hp = await voorbouwHomepage(pasHomepage(sjabloon), { ROOT, S, alles });
+  // Adres, delen op sociale media en gegevens voor zoekmachines
+  const titel = T("homepage.titel", "Merodefestival – folk en wereldmuziek in de kerken van de Merode");
+  const beschrijving = T("homepage.beschrijving", "Kerkconcerten met folk en wereldmuziek in de dorpskerken van Landschapspark de Merode, en elk Hemelvaartweekend het Merodefestival.");
+  const logo = `${SITE}/${S.logo}`;
+  const gegevens = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "Organization", "@id": `${SITE}/#organisatie`, name: "Merodefestival", legalName: "WESP vzw", url: `${SITE}/`, logo,
+        email: "info@merodefestival.be", telephone: "+32498758296", vatID: "BE0863441738",
+        address: { "@type": "PostalAddress", streetAddress: "Jozef Wautersstraat 4", postalCode: "3010", addressLocality: "Kessel-Lo", addressCountry: "BE" },
+        sameAs: ["https://www.facebook.com/merodefestival", "https://www.instagram.com/merodefestival/", "https://www.youtube.com/channel/UCahKa1lM3yaWEwXdV_bBJdw"] },
+      { "@type": "WebSite", "@id": `${SITE}/#website`, url: `${SITE}/`, name: "Merodefestival", inLanguage: "nl", publisher: { "@id": `${SITE}/#organisatie` } },
+    ],
+  };
+  const kopExtra = `<link rel="canonical" href="${SITE}/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="${esc(titel)}">
+<meta property="og:description" content="${esc(beschrijving)}">
+<meta property="og:image" content="${SITE}/${esc(S.artwork)}">
+<meta property="og:url" content="${SITE}/">
+<meta property="og:locale" content="nl_BE">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">${JSON.stringify(gegevens).replace(/</g, "\\u003c")}</script>
+`;
+  hp = hp.replace("</head>", kopExtra + "</head>");
+  await fs.writeFile(path.join(ROOT, "index.html"), hp);
 } catch (err) {
   console.warn("Homepage niet bijgewerkt (sjabloon scripts/sjablonen/index.html ontbreekt?):", err.message);
 }
@@ -585,8 +613,47 @@ import { bouwProducties } from "./build-producties.mjs";
 const productiePaginas = await bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd });
 await schrijfCatalogus(path.resolve(".build/teksten-catalogus.json"));
 
+const adres = u => (u === "" ? "" : u.replace(/\.html$/, ""));
 const urls = ["", "vorige-edities.html", ...beleef.map(b => `${b.slug}.html`), ...productiePaginas, ...agenda.map(e => `concert/${e.slug}.html`)];
+const uniek = [...new Set(urls.map(adres))];
 await fs.writeFile(path.join(ROOT, "sitemap.xml"),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${SITE}/${u}</loc></url>`).join("\n")}\n</urlset>\n`);
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${uniek.map(u => `  <url><loc>${SITE}/${u}</loc></url>`).join("\n")}\n</urlset>\n`);
+
+// Voor zoekmachines en AI-tools: welkom, met de sitemap erbij
+await fs.writeFile(path.join(ROOT, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+
+// Samenvatting in gewone tekst, handig voor AI-tools (geen standaard, kan geen kwaad)
+const komende = agenda.filter(e => (e.end || e.start) >= vandaag).slice(0, 12);
+const llms = [
+  "# Merodefestival",
+  "",
+  `> ${T("homepage.beschrijving", "Kerkconcerten met folk en wereldmuziek in de dorpskerken van Landschapspark de Merode, en elk Hemelvaartweekend het Merodefestival.")} Een project van WESP vzw, Kessel-Lo (België).`,
+  "",
+  "## Belangrijkste pagina’s",
+  `- [Agenda en kerkconcerten](${SITE}/): komende concerten`,
+  `- [Producties](${SITE}/producties): concerten, installaties, playlists en concepten op maat om te boeken`,
+  `- [Vorige edities](${SITE}/vorige-edities): alle festivals sinds 2015 en het archief van de kerkconcerten`,
+  ...beleef.map(x => `- [${x.titel}](${SITE}/${x.slug}): ${x.ondertitel || x.label}`),
+  "",
+  "## Komende concerten",
+  ...komende.map(e => `- [${e.artist}](${SITE}/concert/${e.slug}): ${langeDatum(e.start)}, ${[e.place, e.village].filter(Boolean).join(", ")}`),
+  "",
+  "## Contact",
+  "- info@merodefestival.be, 0498 75 82 96",
+  "",
+].join("\n");
+await fs.writeFile(path.join(ROOT, "llms.txt"), llms);
+
+// Oude adressen van de vorige website doorsturen
+await fs.writeFile(path.join(ROOT, "_redirects"), await maakOmleidingen({ agenda, ROOT }));
+
+// Extra beveiliging, en het testadres blijft buiten Google
+await fs.writeFile(path.join(ROOT, "_headers"), `/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+https://merodefestival-site.smetsjochen.workers.dev/*
+  X-Robots-Tag: noindex
+`);
 
 console.log(`Concertpagina’s: ${agenda.length}`);

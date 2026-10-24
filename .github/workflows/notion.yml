@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install --no-save sharp@0.33.5
+      - run: npm install --no-save sharp@0.33.5 jsdom@25
       - run: node scripts/sync-notion.mjs
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}

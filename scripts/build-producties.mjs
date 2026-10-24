@@ -99,7 +99,7 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
     let kop = kopEd
       .replace(/<title>[^<]*<\/title>/, `<title>${esc(titel)} | Merodefestival</title>`)
       .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(beschrijving)}">`)
-      .replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${SITE}/${naam}">`)
+      .replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${SITE}/${naam.replace(/\.html$/, "")}">`)
       .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(titel)}">`)
       .replace(/<meta property="og:image" content="[^"]*">/, `<meta property="og:image" content="${SITE}/${afbeelding}">`)
       .replace(/<style>[\s\S]*?<\/style>/, '<link rel="stylesheet" href="css/producties.css">');

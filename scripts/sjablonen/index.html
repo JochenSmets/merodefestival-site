@@ -237,12 +237,14 @@ const ticketHtml = (e, groot) => e.volzet
 
 function whenLabel(e){
   const s = d(e.start);
+  const lang = `${DAG[s.getDay()]} ${s.getDate()} ${MAAND_LANG[s.getMonth()]}`;
+  const vol = lang.charAt(0).toUpperCase() + lang.slice(1);
+  if (window.__PRERENDER) return vol; // vaste pagina: geen ‘vanavond’ of ‘morgen’, dat rekent de browser zelf uit
   if (e.end && s <= today) return "Nu te zien";
   const diff = Math.round((s - today)/86400000);
   if (diff === 0) return "Vanavond";
   if (diff === 1) return "Morgen";
-  const lang = `${DAG[s.getDay()]} ${s.getDate()} ${MAAND_LANG[s.getMonth()]}`;
-  return diff < 7 ? "Deze " + lang : lang.charAt(0).toUpperCase() + lang.slice(1);
+  return diff < 7 ? "Deze " + lang : vol;
 }
 
 if (upcoming.length){
