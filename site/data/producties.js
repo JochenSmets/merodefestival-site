@@ -22,10 +22,6 @@ window.PRODUCTIES = [
     "uitsnede": "boven",
     "videos": [
       {
-        "url": "https://vimeo.com/1231680612/2276477c4b",
-        "titel": "Kwartet live (Huiskamerkuren Zomergem & De Krop Kampenhout)"
-      },
-      {
         "url": "https://vimeo.com/1077103295",
         "titel": "Live in de kerk van Blauberg"
       }
@@ -89,7 +85,7 @@ window.PRODUCTIES = [
         "titel": ""
       },
       {
-        "url": "https://youtu.be/0dl6wkokTyM",
+        "url": "https://youtu.be/0dl6wkokTyM https://youtu.be/iNjHArfWKJw",
         "titel": ""
       }
     ],
@@ -558,23 +554,23 @@ window.PRODUCTIES = [
       },
       {
         "type": "p",
-        "html": "<strong>01 · Gerhagen, Tessenderlo-Ham: natuur, leven en geboorte.</strong> Een officieel stiltegebied langs de Zwarte Beek. Voorzien: een luisterpaal die zwijgt tot de bezoeker het lied activeert."
+        "html": "<strong>01 · Gerhagen, Tessenderlo-Ham: natuur, leven en geboorte.</strong> Een officieel stiltegebied langs de Zwarte Beek. "
       },
       {
         "type": "p",
-        "html": "<strong>02 · Sint-Jan-Berchmanshuis, Diest: jeugd, leren, verdwalen en terugvinden.</strong> Het geboortehuis van Jan Berchmans, patroon van de studerende jeugd. Voorzien: een compacte installatie in de bedevaartsruimte, ook voor schoolbezoeken."
+        "html": "<strong>02 · Sint-Jan-Berchmanshuis, Diest: jeugd, leren, verdwalen en terugvinden.</strong> Het geboortehuis van Jan Berchmans, patroon van de studerende jeugd. "
       },
       {
         "type": "p",
-        "html": "<strong>03 · Sint-Bavokapel, Trichelhoek (Laakdal): ziekte en zorg.</strong> Een kapel waar ouders eeuwenlang kwamen bidden voor hun zieke kinderen. Voorzien: een discrete installatie die zacht klinkt wanneer iemand binnenkomt."
+        "html": "<strong>03 · Sint-Bavokapel, Trichelhoek (Laakdal): ziekte en zorg.</strong> Een kapel waar ouders eeuwenlang kwamen bidden voor hun zieke kinderen. "
       },
       {
         "type": "p",
-        "html": "<strong>04 · Sint-Dimpnakapel, Zammel (Geel): geestelijke gezondheid.</strong> Een stille wegkapel in de streek van de gezinsverpleging. Voorzien: een kleine installatie aan een zitbank buiten."
+        "html": "<strong>04 · Sint-Dimpnakapel, Zammel (Geel): geestelijke gezondheid.</strong> Een stille wegkapel in de streek van de gezinsverpleging. "
       },
       {
         "type": "p",
-        "html": "<strong>05 · Oude Dekenij, Westerlo: oud en wijs, rechtvaardigheid.</strong> Het voormalige vredegerecht, de rechtbank van de gewone mensen. Voorzien: een luisterkamer met de volledige cyclus van zeven liederen, als onthaal- en vertrekpunt."
+        "html": "<strong>05 · Oude Dekenij, Westerlo: oud en wijs, rechtvaardigheid.</strong> Het voormalige vredegerecht, de rechtbank van de gewone mensen. "
       },
       {
         "type": "p",
@@ -622,26 +618,6 @@ window.PRODUCTIES = [
       },
       {
         "type": "h2",
-        "html": "Het traject"
-      },
-      {
-        "type": "p",
-        "html": "<strong>Najaar 2026: het schrijftraject.</strong> Elke zangeres schrijft haar lied, met Laura Cortese als klankbord."
-      },
-      {
-        "type": "p",
-        "html": "<strong>Mei 2027: het opnamekamp.</strong> Alle zangeressen komen een week samen in de Abdij van Averbode voor repetitie, opnames en een eerste concert, met muzikale wandelingen naar de plekken."
-      },
-      {
-        "type": "p",
-        "html": "<strong>Zomer 2027: release en installatie.</strong> Een cd of EP en vijf videoclips verschijnen, en de luisterplekken worden geplaatst. Het Merodepad, meer dan 150 kilometer lang, gaat vanaf 2027 open."
-      },
-      {
-        "type": "p",
-        "html": "<strong>Vanaf 2028: beheer.</strong> Een jaarlijkse onderhoudsronde."
-      },
-      {
-        "type": "h2",
         "html": "Hoe de plekken klinken"
       },
       {
@@ -659,6 +635,10 @@ window.PRODUCTIES = [
       {
         "type": "p",
         "html": "<strong>Meertalig.</strong> Songteksten en vertalingen in het Nederlands, Frans en Engels zijn ook online te lezen."
+      },
+      {
+        "type": "p",
+        "html": "<strong>Planning:</strong> realisatie in 2027 "
       }
     ],
     "foto": "data/foto/40377c21f8db81ef9548e46279d11b72.jpg",
