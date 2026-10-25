@@ -240,8 +240,8 @@ list.innerHTML = upcoming.map((e,i) => {
       <h3 class="artist">${pagina ? `<a href="${esc(pagina)}">` : ""}${esc(e.artist)}${pagina ? "</a>" : ""}${e.origin ? ` <span class="herkomst">(${esc(e.origin)})</span>` : ""}</h3>
       <p class="meta"><span class="soort">${esc(e.kind)}</span> · ${esc([e.place, e.village].filter(Boolean).join(", "))}${e.time ? " · " + esc(e.time) : ""}</p>
       <div class="links">
-        ${e.text ? `<details><summary>Meer info</summary>${String(e.text).split(/\n\s*\n/).map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}
-        ${pagina ? `<a href="${esc(pagina)}">Meer over dit concert</a>` : ""}
+        ${e.text ? `<details><summary>Korte beschrijving</summary>${String(e.text).split(/\n\s*\n/).map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}
+        ${pagina ? `<a href="${esc(pagina)}">Naar de concertpagina →</a>` : ""}
       </div>
     </div>
     <div class="act">${e.price && !e.volzet ? `<span class="price">${esc(e.price)}</span>` : ""}${ticketHtml(e, false)}</div>
