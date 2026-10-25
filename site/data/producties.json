@@ -812,7 +812,7 @@
     "titel": "Muzikale wandelingen",
     "label": "Concept op maat, wandelen met live muziek",
     "makers": "Merodefestival, met akoestische muzikanten uit de folk- en wereldmuziek",
-    "tekst": "Wandelen door een landschap, met onderweg korte optredens van akoestische muzikanten. Wij werken het concept uit op jouw plek of ergens bij ons.",
+    "tekst": "Wandelen door een landschap, met onderweg korte optredens van akoestische muzikanten. Op jouw plek of in de Merode, door ons volledig georganiseerd, ook als teambuilding of klantenevent.",
     "extra": "",
     "waar": "Op een plek naar keuze: bos, heide, dorp of erfgoedsite",
     "vorm": "Wandeling van 3 tot 8 kilometer met 2 tot 4 live optredens onderweg, voor maximaal 30 deelnemers",
@@ -821,7 +821,7 @@
     "data": [],
     "bezetting": "2 tot 4 akoestische muzikanten of groepen, in overleg gekozen",
     "techniek": "Enkel akoestisch, met respect voor de omgeving",
-    "geschikt": "Bedrijven (teambuilding en klantenevents), gemeenten en toeristische diensten, erfgoedsites en natuurdomeinen",
+    "geschikt": "Bedrijven, gemeenten en toeristische diensten, erfgoedsites en natuurdomeinen",
     "prijs": "Op aanvraag",
     "contact": "info@merodefestival.be",
     "knop": "Boek een muzikale wandeling",
@@ -842,11 +842,11 @@
       },
       {
         "type": "p",
-        "html": "Een muzikale wandeling brengt wandelaars en muzikanten samen in een landschap. Je stapt een paar kilometer door bos, heide, dorp of erfgoedsite, en onderweg word je verrast door korte optredens van akoestische muzikanten. De muziek hoort bij de plek: ze klinkt langs een waterloop, in een kapel, op een heuvel. Zo werken natuur, erfgoed en muziek samen, en prikkelt de wandeling de zintuigen."
+        "html": "Een muzikale wandeling brengt wandelaars en muzikanten samen in een landschap. Je stapt een paar kilometer door bos, heide, dorp of erfgoedsite, en onderweg klinken korte, akoestische optredens: langs een waterloop, aan een kapel, op een heuvel."
       },
       {
         "type": "p",
-        "html": "Muzikale wandelingen horen bij Merodefestival sinds de allereerste editie in 2015. Jaar na jaar werkten we routes uit door het Merodegebied, in overleg met gemeenten, terreinbeheerders en lokale partners, en leerden we wat werkt: kleine groepen, akoestische muziek en veel respect voor de omgeving."
+        "html": "Muzikale wandelingen horen bij Merodefestival sinds de eerste editie in 2015. We leerden wat werkt: kleine groepen, akoestische muziek en respect voor de omgeving."
       },
       {
         "type": "h2",
@@ -854,19 +854,27 @@
       },
       {
         "type": "p",
-        "html": "<strong>1. Kies een wandeling.</strong> Een wandeling van 3 kilometer met 2 artiesten, een wandeling van 5 kilometer met 3 artiesten, of een festivalwandeling van 7 à 8 kilometer met vier muzikale stops, zoals op het Merodefestival: ongeveer vier uur, met starts om 10, 11 en 12 uur."
+        "html": "<strong>1. Kies een wandeling.</strong>"
+      },
+      {
+        "type": "ul",
+        "html": "3 km met 2 artiesten"
+      },
+      {
+        "type": "ul",
+        "html": "5 km met 3 artiesten"
+      },
+      {
+        "type": "ul",
+        "html": "een festivalwandeling van 7 à 8 km met vier muzikale stops"
       },
       {
         "type": "p",
-        "html": "<strong>2. Kies een startpunt.</strong> We zoeken samen met jou het ideale startpunt en houden rekening met jouw praktische voorwaarden."
+        "html": "<strong>2. Kies een startpunt.</strong> We zoeken samen het ideale startpunt, rekening houdend met jouw praktische voorwaarden."
       },
       {
         "type": "p",
-        "html": "<strong>3. Geniet.</strong> Wij zorgen voor de artiesten en voor de volledige organisatie: de route, de parking en de catering, de programmatie van de muzikanten en het overleg met terreinbeheerders. Jij en je groep kunnen volop genieten."
-      },
-      {
-        "type": "p",
-        "html": "Een wandeling is bedoeld voor kleine groepen, maximaal 30 deelnemers, zodat de ervaring intiem blijft."
+        "html": "<strong>3. Geniet.</strong> Wij regelen de artiesten en de organisatie: route, parking, catering en overleg met terreinbeheerders."
       },
       {
         "type": "h2",
@@ -874,14 +882,14 @@
       },
       {
         "type": "p",
-        "html": "Op ons festival zijn de wandelingen een vaste waarde: in 2025 liepen ze langs Westmeerbeek, Langdorp, Tongerlo en Veerle-Heide. Met Landschapspark de Merode maakten we voor ‘Ode aan de Merode’ acht wandelingen in Hertberg, Averbode Bos &amp; Heide, Langdorp, Gerhagen, Eindhout, Westmeerbeek, Dassenaarde en Westerlo. En in onze wandelpodcast nemen we folkmuzikanten mee op pad, met onderweg een lied in de natuur of op een erfgoedsite."
+        "html": "In 2025 liepen de wandelingen langs Westmeerbeek, Langdorp, Tongerlo en Veerle-Heide. Voor ‘Ode aan de Merode’ maakten we acht wandelingen in het Landschapspark, en in onze wandelpodcast nemen folkmuzikanten je mee op pad."
       },
       {
         "type": "p",
         "html": "<em>Muzikale wandelingen is een concept van Merodefestival (WESP vzw), met steun van de Vlaamse overheid, kunsten &amp; erfgoed.</em>"
       }
     ],
-    "foto": "data/foto/40377c21f8db8166b0cdc71b23da9ceb.jpg",
+    "foto": "",
     "fotos": []
   }
 ]
