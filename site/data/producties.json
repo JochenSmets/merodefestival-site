@@ -812,8 +812,8 @@
     "titel": "Muzikale wandelingen",
     "label": "Concept op maat, wandelen met live muziek",
     "makers": "Merodefestival, met akoestische muzikanten uit de folk- en wereldmuziek",
-    "tekst": "Wandelen door een landschap, met onderweg korte optredens van akoestische muzikanten. Ideaal als teambuilding of klantenevent, en voor gemeenten en erfgoedsites. Wij werken het concept uit op jouw plek.",
-    "extra": "Wil je je team of klanten verrassen met een muzikale wandeling, of ze organiseren op jouw erfgoedsite? We kiezen samen het startpunt en de muzikanten.",
+    "tekst": "Wandelen door een landschap, met onderweg korte optredens van akoestische muzikanten. Wij werken het concept uit op jouw plek of ergens bij ons.",
+    "extra": "",
     "waar": "Op een plek naar keuze: bos, heide, dorp of erfgoedsite",
     "vorm": "Wandeling van 3 tot 8 kilometer met 2 tot 4 live optredens onderweg, voor maximaal 30 deelnemers",
     "speelduur": "",
@@ -842,27 +842,11 @@
       },
       {
         "type": "p",
-        "html": "Een muzikale wandeling brengt wandelaars en muzikanten samen in een landschap. Je stapt een paar kilometer door bos, heide, dorp of erfgoedsite, en onderweg word je verrast door korte optredens van akoestische muzikanten. De muziek hoort bij de plek: ze klinkt langs een waterloop, aan een kapel, op een heuvel. Zo werken natuur, erfgoed en muziek samen, en prikkelt de wandeling de zintuigen."
+        "html": "Een muzikale wandeling brengt wandelaars en muzikanten samen in een landschap. Je stapt een paar kilometer door bos, heide, dorp of erfgoedsite, en onderweg word je verrast door korte optredens van akoestische muzikanten. De muziek hoort bij de plek: ze klinkt langs een waterloop, in een kapel, op een heuvel. Zo werken natuur, erfgoed en muziek samen, en prikkelt de wandeling de zintuigen."
       },
       {
         "type": "p",
         "html": "Muzikale wandelingen horen bij Merodefestival sinds de allereerste editie in 2015. Jaar na jaar werkten we routes uit door het Merodegebied, in overleg met gemeenten, terreinbeheerders en lokale partners, en leerden we wat werkt: kleine groepen, akoestische muziek en veel respect voor de omgeving."
-      },
-      {
-        "type": "h2",
-        "html": "Voor wie"
-      },
-      {
-        "type": "p",
-        "html": "<strong>Een teambuilding of klantenevent.</strong> Stap uit de vergaderzaal en laat je team of je klanten onderdompelen in natuur, muziek en verbinding. Niets verbindt mensen meer dan een gedeelde ervaring, en klanten krijg je zo iets onverwachts dat toont dat je verder denkt dan het traditionele."
-      },
-      {
-        "type": "p",
-        "html": "<strong>Een gemeente of toeristische dienst.</strong> Een muzikale wandeling brengt streekerfgoed en natuur onder de aandacht, met lokale muzikanten en een route die bij jouw gebied past."
-      },
-      {
-        "type": "p",
-        "html": "<strong>Een erfgoedsite of natuurdomein.</strong> Laat bezoekers jouw plek op een nieuwe manier beleven, met muziek die bij de plek hoort."
       },
       {
         "type": "h2",
@@ -883,22 +867,6 @@
       {
         "type": "p",
         "html": "Een wandeling is bedoeld voor kleine groepen, maximaal 30 deelnemers, zodat de ervaring intiem blijft."
-      },
-      {
-        "type": "h2",
-        "html": "Respect voor de omgeving"
-      },
-      {
-        "type": "p",
-        "html": "Er wordt enkel akoestisch gespeeld. Voor we een gebied betreden, gaan we in overleg met de beheerder, bijvoorbeeld met Natuurpunt. Met een boeking steun je ook de muzikanten aan wie we een podium geven: jong en opkomend talent, naast ervaren namen uit de folk- en wereldmuziek."
-      },
-      {
-        "type": "h2",
-        "html": "Eerst zelf ervaren"
-      },
-      {
-        "type": "p",
-        "html": "Loop eerst zelf mee met een wandeling tijdens het Merodefestival, in het Hemelvaartweekend van 5 tot 9 mei 2027. Zo hoor, zie en voel je meteen waarom dit werkt voor jouw team, klanten of site."
       },
       {
         "type": "h2",
