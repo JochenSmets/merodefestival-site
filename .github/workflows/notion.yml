@@ -27,6 +27,11 @@ jobs:
           AGENDA_DB: ${{ secrets.AGENDA_DB }}
           PRODUCTIES_DB: ${{ secrets.PRODUCTIES_DB }}
           BEELDBANK_DB: ${{ secrets.BEELDBANK_DB }}
+      - name: Over WESP uit Notion
+        continue-on-error: true
+        run: node scripts/sync-wesp.mjs
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
       - run: node scripts/build-pages.mjs
         env:
           SITE_URL: https://www.merodefestival.be
