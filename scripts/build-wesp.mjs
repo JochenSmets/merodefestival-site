@@ -78,7 +78,7 @@ export async function bouwWesp({ ROOT, SITE, S, esc, kopEd, voetEd }) {
 
   const projecten = van("Project").map(r => `<article class="w-rij"><p class="label w-label">${esc(r.label)}</p><div><h3>${esc(r.titel)}</h3><p>${esc(r.tekst)}</p></div><div>${link(r)}</div></article>`).join("");
   const opdrachtgevers = van("Opdrachtgever").map(r => `${esc(r.titel)}${r.tekst ? ` (${esc(r.tekst)})` : ""}`).join(", ");
-  const partners = van("Partner").map(r => esc(r.titel)).join(", ");
+  const partners = van("Partner").filter(r => r.label !== "Met steun van").map(r => esc(r.titel)).join(", ");
   const team = van("Team").map(r => `<div><dt>${esc(r.titel)}</dt><dd>${esc(r.tekst).replace(/\n/g, "<br>")}</dd></div>`).join("");
 
   const sectie = (id, klasse, inhoud, extra = "") => inhoud ? `<section class="w-sec ${klasse}" id="${id}"${extra}><div class="wrap">${inhoud}</div></section>` : "";
@@ -128,7 +128,7 @@ export async function bouwWesp({ ROOT, SITE, S, esc, kopEd, voetEd }) {
   ${sectie("projecten", "donker", projecten && `${kop("wesp.projecten.kop", "Projecten en netwerk")}<div class="w-rijen">${projecten}</div>`)}
   ${sectie("team", "licht", `<div class="w-team"><div>${kop("wesp.team.kop", "Team")}<p class="w-intro">${esc(T("wesp.team.intro", "WESP draait niet op één persoon. Zo’n 40 vrijwilligers zetten mee hun schouders onder elk evenement, project of verhaal."))}</p>${team ? `<dl class="w-lijst">${team}</dl>` : ""}</div>
     <div><h2>${esc(T("wesp.contact.kop", "Contact"))}</h2><p><a href="mailto:${MAIL}">${MAIL}</a><br><a href="tel:+32498758296">${TEL}</a></p><p class="w-klein">${esc(T("wesp.contact.adres", "WESP vzw, Jozef Wautersstraat 4, 3010 Kessel-Lo, BE 0863 441 738"))}</p>
-    ${partners ? `<h3>${esc(T("wesp.partners.kop", "We werken onder meer samen met"))}</h3><p class="w-klein">${partners}.</p>` : ""}</div></div>`)}`;
+    ${partners ? `<h3>${esc(T("wesp.partners.kop", "We werken onder meer samen met"))}</h3><p class="w-klein">${partners}. <a href="partners.html">${esc(T("wesp.partners.alle", "Alle partners"))} →</a></p>` : ""}</div></div>`)}`;
 
   // ---------- pagina-opmaak ----------
   const titel = "Over WESP";

@@ -10,6 +10,8 @@ import { T, laadTeksten, pasHomepage, seizoenOverrides, schrijfCatalogus } from 
 import { voorbouwHomepage } from "./voorbouw.mjs";
 import { maakOmleidingen } from "./omleidingen.mjs";
 import { bouwWesp } from "./build-wesp.mjs";
+import { bouwInfo } from "./build-info.mjs";
+import { afwerking } from "./afwerking.mjs";
 
 const SITE = (process.env.SITE_URL || "https://www.merodefestival.be").replace(/\/$/, "");
 const ROOT = path.resolve("site");
@@ -619,7 +621,7 @@ try {
 import { bouwProducties } from "./build-producties.mjs";
 const productiePaginas = await bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd });
 const wespPaginas = await bouwWesp({ ROOT, SITE, S, esc, kopEd, voetEd });
-await schrijfCatalogus(path.resolve(".build/teksten-catalogus.json"));
+const infoPaginas = await bouwInfo({ ROOT, SITE, S, esc, kopEd, voetEd });
 
 // Extra’s voor de productiepagina’s: ‘Praktisch’ als uitrolmenu en foto’s die je kunt vergroten.
 // De pagina’s zelf blijven gewone HTML; dit komt er als aanvulling bij (css/producties-extra.css en js/producties-extra.js).
@@ -782,8 +784,11 @@ for (const f of productiePaginas.filter(x => x.startsWith("productie-") || x ===
   await fs.writeFile(pad, h);
 }
 
+// Afwerking van alle pagina’s: lettertypes, spelers met klik, statistieken, voettekst
+await afwerking({ ROOT, SITE });
+
 const adres = u => (u === "" ? "" : u.replace(/\.html$/, ""));
-const urls = ["", "vorige-edities.html", ...beleef.map(b => `${b.slug}.html`), ...productiePaginas, ...wespPaginas, ...agenda.map(e => `concert/${e.slug}.html`)];
+const urls = ["", "vorige-edities.html", ...beleef.map(b => `${b.slug}.html`), ...productiePaginas, ...wespPaginas, ...infoPaginas, ...agenda.map(e => `concert/${e.slug}.html`)];
 const uniek = [...new Set(urls.map(adres))];
 await fs.writeFile(path.join(ROOT, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${uniek.map(u => `  <url><loc>${SITE}/${u}</loc></url>`).join("\n")}\n</urlset>\n`);
@@ -814,6 +819,8 @@ const llms = [
   `- [Agenda en kerkconcerten](${SITE}/): komende concerten`,
   `- [Producties](${SITE}/producties): concerten, installaties, playlists en concepten op maat om te boeken`,
   `- [Over WESP](${SITE}/wesp): de organisatie achter Merodefestival: wat we doen, voor wie, projecten, team en contact`,
+  `- [Partners](${SITE}/partners): wie Merodefestival steunt en mee bouwt`,
+  `- [Vrienden van Merodefestival](${SITE}/vrienden-van): de werking steunen`,
   `- [Vorige edities](${SITE}/vorige-edities): alle festivals sinds 2015 en het archief van de kerkconcerten`,
   ...beleef.map(x => `- [${x.titel}](${SITE}/${x.slug}): ${x.ondertitel || x.label}`),
   "",
@@ -838,4 +845,5 @@ https://merodefestival-site.smetsjochen.workers.dev/*
   X-Robots-Tag: noindex
 `);
 
+await schrijfCatalogus(path.resolve(".build/teksten-catalogus.json"));
 console.log(`Concertpagina’s: ${agenda.length}`);

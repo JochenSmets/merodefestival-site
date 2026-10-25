@@ -1,0 +1,2 @@
+Alegreya en Alatsi zijn lettertypes onder de SIL Open Font License 1.1 (zie de LICENSE-bestanden).
+Deze map hoort in site/fonts. De stijlregels staan in site/css/fonts.css (wordt bij elke bouw aangemaakt).

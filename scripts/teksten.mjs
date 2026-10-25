@@ -12,9 +12,9 @@ const register = new Map();
 let TEKSTEN = {};
 let wijzigingen = {};
 
-const PAGINA = { menu: "Footer", footer: "Footer", wesp: "Over WESP", homepage: "Homepage", seizoen: "Homepage", concert: "Concertpagina",
+const PAGINA = { menu: "Footer", footer: "Footer", wesp: "Over WESP", statistiek: "Algemeen", speler: "Algemeen", vrienden: "Algemeen", partners: "Algemeen", privacy: "Algemeen", homepage: "Homepage", seizoen: "Homepage", concert: "Concertpagina",
   algemeen: "Algemeen", edities: "Vorige edities", beleef: "Beleef de Merode", producties: "Producties", soort: "Producties", veld: "Producties" };
-const UITLEG = { menu: "Menu bovenaan elke pagina", wesp: "Pagina Over WESP", footer: "Onderaan elke pagina", homepage: "Homepage", seizoen: "Hoofdsectie bovenaan de homepage",
+const UITLEG = { menu: "Menu bovenaan elke pagina", wesp: "Pagina Over WESP", statistiek: "Statistieken (token invullen om aan te zetten)", speler: "Spelers van Spotify en SoundCloud", vrienden: "Pagina Vrienden van Merodefestival", partners: "Pagina Partners", privacy: "Pagina Privacyverklaring", footer: "Onderaan elke pagina", homepage: "Homepage", seizoen: "Hoofdsectie bovenaan de homepage",
   concert: "Pagina van een concert", algemeen: "Op meerdere pagina’s", edities: "Pagina Vorige edities", beleef: "Pagina’s onder Beleef de Merode",
   producties: "Pagina’s onder Producties", soort: "Rubrieken op de pagina Producties", veld: "Gegevensblok bij een productie" };
 
