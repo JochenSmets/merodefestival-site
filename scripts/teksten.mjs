@@ -12,9 +12,9 @@ const register = new Map();
 let TEKSTEN = {};
 let wijzigingen = {};
 
-const PAGINA = { menu: "Footer", footer: "Footer", homepage: "Homepage", seizoen: "Homepage", concert: "Concertpagina",
+const PAGINA = { menu: "Footer", footer: "Footer", wesp: "Over WESP", homepage: "Homepage", seizoen: "Homepage", concert: "Concertpagina",
   algemeen: "Algemeen", edities: "Vorige edities", beleef: "Beleef de Merode", producties: "Producties", soort: "Producties", veld: "Producties" };
-const UITLEG = { menu: "Menu bovenaan elke pagina", footer: "Onderaan elke pagina", homepage: "Homepage", seizoen: "Hoofdsectie bovenaan de homepage",
+const UITLEG = { menu: "Menu bovenaan elke pagina", wesp: "Pagina Over WESP", footer: "Onderaan elke pagina", homepage: "Homepage", seizoen: "Hoofdsectie bovenaan de homepage",
   concert: "Pagina van een concert", algemeen: "Op meerdere pagina’s", edities: "Pagina Vorige edities", beleef: "Pagina’s onder Beleef de Merode",
   producties: "Pagina’s onder Producties", soort: "Rubrieken op de pagina Producties", veld: "Gegevensblok bij een productie" };
 
@@ -74,6 +74,7 @@ const HOMEPAGE = [
   ["menu.festival", "Festival 2027", "", ['<li><a href="#festival">{}</a></li>']],
   ["menu.beleef", "Beleef de Merode", "", ['<li><a href="#beleef">{}</a></li>']],
   ["menu.producties", "Producties", "", ['<li><a href="producties.html">{}</a></li>']],
+  ["menu.wesp", "Over WESP", "", ['<li><a href="wesp.html">{}</a></li>']],
   ["menu.edities", "Vorige edities", "", ['<li><a href="vorige-edities.html">{}</a></li>']],
   ["menu.nieuwsbrief", "Nieuwsbrief", "", ['<li><a href="#nieuwsbrief">{}</a></li>']],
   ["menu.menu", "Menu", "Knop voor het menu op een telefoon", ['<button class="menu-toggle" aria-expanded="false" aria-controls="hoofdmenu">{}</button>']],
@@ -116,7 +117,7 @@ const HOMEPAGE = [
   ["homepage.beleef4-naam", "Volkscafés en volksliekes", "Kaart 4: titel", ['<span class="naam">{}</span>']],
   ["homepage.beleef4-uitleg", "Het muzikale erfgoed van de streek, in beeld.", "Kaart 4: uitleg", ['<span class="uitleg">{}</span>']],
   ["homepage.wesp-tekst", "Merodefestival is meer dan concerten. Als folkincubator creëren, begeleiden en verbinden we folk- en wereldmuziek in Vlaanderen, met het landschap als vertrekpunt.", "Strook over WESP onderaan de homepage", [P]],
-  ["homepage.wesp-knop", "Ontdek wat WESP doet", "Knop in die strook", ['<a class="btn ghost" href="https://www.wespvzw.be">{}</a>']],
+  ["homepage.wesp-knop", "Ontdek wat WESP doet", "Knop in die strook", ['<a class="btn ghost" href="wesp.html">{}</a>']],
   ["homepage.nieuws-kop", "Mis geen concert", "Titel van de nieuwsbriefstrook", ['<h2 id="nieuws-titel">{}</h2>']],
   ["homepage.nieuws-tekst", "Nieuwe concerten en het festivalprogramma in je mailbox.", "Tekst in de nieuwsbriefstrook", [P]],
   ["homepage.nieuws-knop", "Schrijf je in", "Knop in de nieuwsbriefstrook", ['<a class="btn" href="http://eepurl.com/g8U9mX">{}</a>']],

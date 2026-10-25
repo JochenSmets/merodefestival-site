@@ -40,8 +40,8 @@ const REGELS = [
   ["/davidsfonds", ["/"]],
   ["/klasseactie", ["/"]],
   // praktische pagina’s zonder eigen plek op de nieuwe site (voorlopig naar de homepage)
-  ["/contact", ["/"]],
-  ["/partners", ["/"]],
+  ["/contact", ["/wesp", "/"]],
+  ["/partners", ["/wesp", "/"]],
   ["/vrienden-van", ["/"]],
   ["/parking", ["/"]],
   ["/de-merode-overnachten", ["/"]],

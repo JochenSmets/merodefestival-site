@@ -9,6 +9,7 @@ import vm from "node:vm";
 import { T, laadTeksten, pasHomepage, seizoenOverrides, schrijfCatalogus } from "./teksten.mjs";
 import { voorbouwHomepage } from "./voorbouw.mjs";
 import { maakOmleidingen } from "./omleidingen.mjs";
+import { bouwWesp } from "./build-wesp.mjs";
 
 const SITE = (process.env.SITE_URL || "https://www.merodefestival.be").replace(/\/$/, "");
 const ROOT = path.resolve("site");
@@ -156,6 +157,7 @@ function pagina(e, overige) {
         <li><a href="../index.html#festival">${T("menu.festival", "Festival 2027")}</a></li>
         <li><a href="../index.html#beleef">${T("menu.beleef", "Beleef de Merode")}</a></li>
         <li><a href="../producties.html">${T("menu.producties", "Producties")}</a></li>
+        <li><a href="../wesp.html">${T("menu.wesp", "Over WESP")}</a></li>
         <li><a href="../vorige-edities.html">${T("menu.edities", "Vorige edities")}</a></li>
         <li><a href="../index.html#nieuwsbrief">${T("menu.nieuwsbrief", "Nieuwsbrief")}</a></li>
       </ul>
@@ -393,6 +395,7 @@ const editiesHtml = `<!DOCTYPE html>
         <li><a href="index.html#festival">${T("menu.festival", "Festival 2027")}</a></li>
         <li><a href="index.html#beleef">${T("menu.beleef", "Beleef de Merode")}</a></li>
         <li><a href="producties.html">${T("menu.producties", "Producties")}</a></li>
+        <li><a href="wesp.html">${T("menu.wesp", "Over WESP")}</a></li>
         <li><a href="vorige-edities.html">${T("menu.edities", "Vorige edities")}</a></li>
         <li><a href="index.html#nieuwsbrief">${T("menu.nieuwsbrief", "Nieuwsbrief")}</a></li>
       </ul>
@@ -615,6 +618,7 @@ try {
 // ---------- Producties (uit site/data/producties.json) ----------
 import { bouwProducties } from "./build-producties.mjs";
 const productiePaginas = await bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd });
+const wespPaginas = await bouwWesp({ ROOT, SITE, S, esc, kopEd, voetEd });
 await schrijfCatalogus(path.resolve(".build/teksten-catalogus.json"));
 
 // Extra’s voor de productiepagina’s: ‘Praktisch’ als uitrolmenu en foto’s die je kunt vergroten.
@@ -779,7 +783,7 @@ for (const f of productiePaginas.filter(x => x.startsWith("productie-") || x ===
 }
 
 const adres = u => (u === "" ? "" : u.replace(/\.html$/, ""));
-const urls = ["", "vorige-edities.html", ...beleef.map(b => `${b.slug}.html`), ...productiePaginas, ...agenda.map(e => `concert/${e.slug}.html`)];
+const urls = ["", "vorige-edities.html", ...beleef.map(b => `${b.slug}.html`), ...productiePaginas, ...wespPaginas, ...agenda.map(e => `concert/${e.slug}.html`)];
 const uniek = [...new Set(urls.map(adres))];
 await fs.writeFile(path.join(ROOT, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${uniek.map(u => `  <url><loc>${SITE}/${u}</loc></url>`).join("\n")}\n</urlset>\n`);
@@ -809,6 +813,7 @@ const llms = [
   "## Belangrijkste pagina’s",
   `- [Agenda en kerkconcerten](${SITE}/): komende concerten`,
   `- [Producties](${SITE}/producties): concerten, installaties, playlists en concepten op maat om te boeken`,
+  `- [Over WESP](${SITE}/wesp): de organisatie achter Merodefestival: wat we doen, voor wie, projecten, team en contact`,
   `- [Vorige edities](${SITE}/vorige-edities): alle festivals sinds 2015 en het archief van de kerkconcerten`,
   ...beleef.map(x => `- [${x.titel}](${SITE}/${x.slug}): ${x.ondertitel || x.label}`),
   "",
