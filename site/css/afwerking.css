@@ -5,6 +5,10 @@
 .speler-wacht .speler-uitleg a{color:inherit}
 .speler-wacht .btn{font-size:.95rem}
 iframe.speler-geladen{display:block;width:100%;border:0;border-radius:8px}
+/* Vorige edities en kerkconcerten: eerst een overzicht, het programma klapt open op verzoek */
+.ed-klap:not(.open) .affiche,.ed-klap:not(.open) .tekst,.ed-klap:not(.open) .prog,.ed-klap:not(.open) .videos,.ed-klap:not(.open) .dank{display:none}
+.ks-klap:not(.open) .kcover,.ks-klap:not(.open) .kerk-lijst,.ks-klap:not(.open) .kopm{display:none}
+.ed-knop{margin:.5rem 0 0;background:none;border:0;padding:0;color:inherit;font-family:var(--label,system-ui);font-size:.95rem;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
 footer .steun-logo{display:block;width:200px;max-width:100%;height:auto;margin:.5rem 0 1rem}
 footer .foot-onder{margin-top:1.75rem;padding-top:1.1rem;border-top:1px solid rgba(239,231,218,.18)}
 footer .foot-links{margin:0;font-family:var(--label,system-ui);font-size:.95rem;display:flex;flex-wrap:wrap;gap:.35rem 1.5rem}

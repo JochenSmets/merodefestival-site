@@ -27,6 +27,7 @@
 .i-lijst li{display:flex;flex-direction:column}
 .i-lijst li.met-logo img{display:block;max-height:64px;width:auto}
 .i-sub{font-size:.9rem;opacity:.8}
+.i-citaat{margin:1.5rem 0;padding-left:1.1rem;border-left:3px solid var(--s-oranje);font-style:italic;font-size:1.2rem}
 .i-missie{margin:0 0 1.5rem}
 .i-missie div{padding:.8rem 0;border-top:1px solid rgba(239,231,218,.25)}
 .i-missie dt{font-family:var(--label);font-size:1rem;color:var(--s-oranje)}

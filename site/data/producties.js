@@ -377,6 +377,14 @@ window.PRODUCTIES = [
         "html": "De muzikanten dachten na, speelden en stemden hun muziek af op de ruimte. De nummers werden op een spontane manier meteen ter plaatse opgenomen. Merodefestival selecteerde de muzikanten en organiseerde het project samen met Abdij van Park. Bert Huysentruyt nam de nummers op, mixte ze en maakte van elke song een video. Pieter De Wagter van Equus Mastering verzorgde de mastering, Maarten De Nayer van Skrew Studio het ontwerp."
       },
       {
+        "type": "h2",
+        "html": "In de pers"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://damusic.be/cd/various-artists-the-sound-of-the-abbey\">Recensie op damusic.be</a> · <a href=\"https://rootsworld.com/reviews/abbey-26.shtml\">Recensie op RootsWorld</a>"
+      },
+      {
         "type": "p",
         "html": "<em>The Sound of the Abbey is een samenwerking met Abdij van Park.</em>"
       }

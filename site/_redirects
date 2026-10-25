@@ -7,8 +7,10 @@
 /klanken /productie-klanken-in-de-kapel 301
 /klanken-systeem /productie-klanken-in-de-kapel 301
 /klankenvandesteden https://klankenvandesteden.be 301
-/boek /ode-aan-de-merode 301
-/sound /the-sound-of-the-abbey 301
+/boek /productie-ode-aan-de-merode 301
+/ode-aan-de-merode /productie-ode-aan-de-merode 301
+/the-sound-of-the-abbey /productie-the-sound-of-the-abbey 301
+/sound /productie-the-sound-of-the-abbey 301
 /volksliekes /volkscafes 301
 /creaties /producties 301
 /projecten /producties 301
