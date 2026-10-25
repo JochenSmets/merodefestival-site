@@ -889,7 +889,11 @@
         "html": "<em>Muzikale wandelingen is een concept van Merodefestival (WESP vzw), met steun van de Vlaamse overheid, kunsten &amp; erfgoed.</em>"
       }
     ],
-    "foto": "",
-    "fotos": []
+    "foto": "data/foto/40377c21f8db8166b0cdc71b23da9ceb.jpg",
+    "fotos": [
+      "data/foto/40377c21f8db8166b0cdc71b23da9ceb-1.jpg",
+      "data/foto/40377c21f8db8166b0cdc71b23da9ceb-2.jpg",
+      "data/foto/40377c21f8db8166b0cdc71b23da9ceb-3.jpg"
+    ]
   }
 ]
