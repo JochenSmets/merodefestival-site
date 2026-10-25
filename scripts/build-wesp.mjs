@@ -79,7 +79,7 @@ export async function bouwWesp({ ROOT, SITE, S, esc, kopEd, voetEd }) {
   const projecten = van("Project").map(r => `<article class="w-rij"><p class="label w-label">${esc(r.label)}</p><div><h3>${esc(r.titel)}</h3><p>${esc(r.tekst)}</p></div><div>${link(r)}</div></article>`).join("");
   const opdrachtgevers = van("Opdrachtgever").map(r => `${esc(r.titel)}${r.tekst ? ` (${esc(r.tekst)})` : ""}`).join(", ");
   const partners = van("Partner").map(r => esc(r.titel)).join(", ");
-  const team = van("Team").map(r => `<div><dt>${esc(r.titel)}</dt><dd>${esc(r.tekst)}</dd></div>`).join("");
+  const team = van("Team").map(r => `<div><dt>${esc(r.titel)}</dt><dd>${esc(r.tekst).replace(/\n/g, "<br>")}</dd></div>`).join("");
 
   const sectie = (id, klasse, inhoud, extra = "") => inhoud ? `<section class="w-sec ${klasse}" id="${id}"${extra}><div class="wrap">${inhoud}</div></section>` : "";
   const kop = (sleutel, standaard) => `<h2>${esc(T(sleutel, standaard))}</h2>`;
