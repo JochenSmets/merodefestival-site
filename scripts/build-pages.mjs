@@ -617,6 +617,124 @@ import { bouwProducties } from "./build-producties.mjs";
 const productiePaginas = await bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd });
 await schrijfCatalogus(path.resolve(".build/teksten-catalogus.json"));
 
+// Extra’s voor de productiepagina’s: ‘Praktisch’ als uitrolmenu en foto’s die je kunt vergroten.
+// De pagina’s zelf blijven gewone HTML; dit komt er als aanvulling bij (css/producties-extra.css en js/producties-extra.js).
+const PRODUCTIE_EXTRA_CSS = String.raw`/* Uitrolmenu ‘Praktisch’ */
+details.uitrol{margin:0 0 1rem}
+details.uitrol>summary{display:flex;width:100%;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer;list-style:none;padding:.35rem 0;margin:0;font-size:1rem;color:var(--s-papier-zacht);text-decoration:none}
+details.uitrol[open]>summary{margin-bottom:0}
+details.uitrol>summary::-webkit-details-marker{display:none}
+details.uitrol>summary::after{content:"+";font-size:1.5rem;line-height:1;font-weight:400}
+details.uitrol[open]>summary::after{content:"\2212"}
+details.uitrol>summary:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+details.uitrol>dl{margin-top:.75rem}
+/* Foto’s vergroten */
+.lb-klik{cursor:zoom-in}
+.lb-klik:focus-visible{outline:3px solid #f6771c;outline-offset:3px}
+.lb{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:3vmin;background:rgba(15,10,7,.93)}
+.lb[hidden]{display:none}
+.lb img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:3px}
+.lb button{position:absolute;display:grid;place-items:center;width:3rem;height:3rem;border:0;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;font-size:1.8rem;line-height:1;cursor:pointer}
+.lb button:hover,.lb button:focus-visible{background:#f6771c;color:#1a120d;outline:none}
+.lb-sluit{top:1rem;right:1rem}
+.lb-vorig{left:1rem;top:50%;transform:translateY(-50%)}
+.lb-volgend{right:1rem;top:50%;transform:translateY(-50%)}
+.lb.een .lb-vorig,.lb.een .lb-volgend{display:none}
+body.lb-open{overflow:hidden}
+`;
+const PRODUCTIE_EXTRA_JS = String.raw`(function () {
+  // 1. ‘Praktisch’ als uitrolmenu: open op een groot scherm, dicht op een telefoon
+  var aside = document.querySelector("aside.praktisch");
+  if (aside) {
+    var kop = aside.querySelector("h2"), lijst = aside.querySelector("dl");
+    if (kop && lijst) {
+      var det = document.createElement("details");
+      det.className = "uitrol";
+      var sum = document.createElement("summary");
+      sum.className = "label";
+      sum.textContent = kop.textContent;
+      det.appendChild(sum);
+      det.appendChild(lijst);
+      aside.replaceChild(det, kop);
+      if (window.matchMedia && window.matchMedia("(min-width: 900px)").matches) det.open = true;
+    }
+  }
+
+  // 2. Foto’s aanklikken om ze groter te zien (pijltjes en Esc werken ook)
+  var fotos = [].slice.call(document.querySelectorAll(".cbeeld.foto img, .galerij3 img"));
+  if (!fotos.length) return;
+  var lb, beeld, idx = 0, terug, startX = null;
+  function bouw() {
+    lb = document.createElement("div");
+    lb.className = "lb" + (fotos.length < 2 ? " een" : "");
+    lb.hidden = true;
+    lb.setAttribute("role", "dialog");
+    lb.setAttribute("aria-modal", "true");
+    lb.setAttribute("aria-label", "Foto vergroot");
+    lb.innerHTML = '<button type="button" class="lb-sluit" aria-label="Sluiten">\u00d7</button>' +
+      '<button type="button" class="lb-vorig" aria-label="Vorige foto">\u2039</button>' +
+      '<img alt="">' +
+      '<button type="button" class="lb-volgend" aria-label="Volgende foto">\u203a</button>';
+    document.body.appendChild(lb);
+    beeld = lb.querySelector("img");
+    lb.addEventListener("click", function (e) { if (e.target === lb || e.target.className === "lb-sluit") sluit(); });
+    lb.querySelector(".lb-vorig").addEventListener("click", function (e) { e.stopPropagation(); toon(idx - 1); });
+    lb.querySelector(".lb-volgend").addEventListener("click", function (e) { e.stopPropagation(); toon(idx + 1); });
+    lb.addEventListener("touchstart", function (e) { startX = e.changedTouches[0].clientX; }, { passive: true });
+    lb.addEventListener("touchend", function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      startX = null;
+      if (Math.abs(dx) > 50) toon(idx + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+  }
+  function toon(i) {
+    idx = (i + fotos.length) % fotos.length;
+    var bron = fotos[idx].currentSrc || fotos[idx].src;
+    beeld.src = bron;
+    beeld.alt = fotos[idx].alt || "";
+    beeld.style.background = /\.png(\?|$)/i.test(bron) ? "#EEE2CE" : "";
+  }
+  function open(i) {
+    if (!lb) bouw();
+    terug = document.activeElement;
+    toon(i);
+    lb.hidden = false;
+    document.body.classList.add("lb-open");
+    lb.querySelector(".lb-sluit").focus();
+  }
+  function sluit() {
+    lb.hidden = true;
+    document.body.classList.remove("lb-open");
+    if (terug && terug.focus) terug.focus();
+  }
+  fotos.forEach(function (f, i) {
+    f.classList.add("lb-klik");
+    f.tabIndex = 0;
+    f.setAttribute("role", "button");
+    f.setAttribute("aria-label", (f.alt || "Foto") + ", vergroten");
+    f.addEventListener("click", function () { open(i); });
+    f.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(i); } });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (!lb || lb.hidden) return;
+    if (e.key === "Escape") sluit();
+    else if (e.key === "ArrowLeft") toon(idx - 1);
+    else if (e.key === "ArrowRight") toon(idx + 1);
+  });
+})();
+`;
+await fs.mkdir(path.join(ROOT, "js"), { recursive: true });
+await fs.writeFile(path.join(ROOT, "css/producties-extra.css"), PRODUCTIE_EXTRA_CSS);
+await fs.writeFile(path.join(ROOT, "js/producties-extra.js"), PRODUCTIE_EXTRA_JS);
+for (const f of productiePaginas.filter(x => x.startsWith("productie-"))) {
+  const pad = path.join(ROOT, f);
+  let h = await fs.readFile(pad, "utf8");
+  if (!h.includes("producties-extra.css")) h = h.replace("</head>", '<link rel="stylesheet" href="css/producties-extra.css">\n</head>');
+  if (!h.includes("producties-extra.js")) h = h.replace("</body>", '<script src="js/producties-extra.js" defer></script>\n</body>');
+  await fs.writeFile(pad, h);
+}
+
 const adres = u => (u === "" ? "" : u.replace(/\.html$/, ""));
 const urls = ["", "vorige-edities.html", ...beleef.map(b => `${b.slug}.html`), ...productiePaginas, ...agenda.map(e => `concert/${e.slug}.html`)];
 const uniek = [...new Set(urls.map(adres))];
