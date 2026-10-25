@@ -45,6 +45,33 @@
     "foto": ""
   },
   {
+    "soort": "Jaar",
+    "titel": "2022",
+    "label": "",
+    "tekst": "Bert Ruymbeek & Laura Cortese\nAndries Boone met Oscar Beerten & Marieke Van Ransbeeck\nKardemimmit (FI) met Spilar",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
+    "soort": "Verwijzing",
+    "titel": "Wie speelde er op onze podia?",
+    "label": "",
+    "tekst": "Alle artiesten die tussen 2022 en 2026 op onze podia stonden.",
+    "link": "https://docs.google.com/document/d/1IbxAt1duCJjFEJ2w3JNzZmMhSsTgPcj8NfsJP1eaRXc/edit?usp=sharing",
+    "linktekst": "Bekijk de lijst",
+    "foto": ""
+  },
+  {
+    "soort": "Residentie",
+    "titel": "De Wolfsdonk-residentie",
+    "label": "Eerste schrijfplek",
+    "tekst": "",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
     "soort": "Spoor",
     "titel": "We organiseren op erfgoed- en natuurplekken",
     "label": "Organiseren",
@@ -90,12 +117,39 @@
     "foto": ""
   },
   {
+    "soort": "Verwijzing",
+    "titel": "Hoe beleeft de muzikant het samenwerken met Merodefestival?",
+    "label": "",
+    "tekst": "De resultaten van onze bevraging bij de muzikanten waarmee we werken.",
+    "link": "https://docs.google.com/document/d/1sjdJt-mbMwy42qGZu1KVTftlpJAxivvqq9rP8S3KSCM/edit?usp=drive_link",
+    "linktekst": "Lees de resultaten",
+    "foto": ""
+  },
+  {
+    "soort": "Jaar",
+    "titel": "2023",
+    "label": "",
+    "tekst": "Damast Duo (Shalan Alhamwy & Jonas Malfliet) met Sophie Van den Eynde & Léa Besançon\nSophia Ammann: inspiratie rond de abdij van Park\nSara Salvérius: nieuwe composities voor Pendulum\nGFVP: herstart in de abdij van Averbode (Wouter Vandenabeele, Lotte Remmen, Naomi Vercauteren, Anouk Sanczuk, Jeroen Knapen)\nSiger × Northern Resonance (ZWE): Trail up North\nToon Van Mierlo & Reineke Van Hooreweghe: natuurmuziekproject Poorttaal\nWÖR × Kongero (ZWE): nieuwe samenwerking",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
+    "soort": "Residentie",
+    "titel": "De Parkabdij-residentie",
+    "label": "Site-gedreven schrijfresidentie",
+    "tekst": "",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
     "soort": "Spoor",
     "titel": "We ontwikkelen mee muzikantencarrières",
     "label": "Muzikanten",
     "tekst": "We staan naast artiesten en denken mee na over elk project.",
-    "link": "https://www.merodefestival.be/wesp#samenwerken",
-    "linktekst": "Voor muzikanten",
+    "link": "https://www.merodefestival.be/residenties",
+    "linktekst": "Onze residenties",
     "foto": ""
   },
   {
@@ -130,6 +184,24 @@
     "titel": "Denktank beleid",
     "label": "",
     "tekst": "Bart Aerts, bestuurder WESP\nShalan Alhamwy, muzikant\nTom Braes, directeur patiëntenzorg UPC Kortenberg\nJochem Daelman, coördinator HORST\nJonas Danckers, bestuurder WESP\nJolan Huygens, Muziekpublique\nPaul Lambrechts, regiomanager Limburg en Vlaams-Brabant, Herita\nIsabelle Lindemans, in eigen naam\nMirte Maes, conservator Muziekmuseum Vleeshuis\nBert Ruymbeek, muzikant\nToon Van Mierlo, muzikant\nMarc Vandemoortele, bestuurder WESP",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
+    "soort": "Jaar",
+    "titel": "2024",
+    "label": "",
+    "tekst": "Duo Deschepper–Sanczuk: Bamako Express\nAirboxes (Guus Herremans & Bert Leemans): nieuw werk\nStijn Kuppens & Myrddin\nChristy Collet met Rénélius Ensemble\nGriff Trio × Sutari (PL): Hirondel\nWannes Raps herwerkt door Reineke Van Hooreweghe, muziek van Toon Van Mierlo, orkest van veertien",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
+    "soort": "Residentie",
+    "titel": "De Abdij van Averbode-residentie",
+    "label": "Geconcentreerde retraite",
+    "tekst": "",
     "link": "",
     "linktekst": "",
     "foto": ""
@@ -180,6 +252,24 @@
     "foto": ""
   },
   {
+    "soort": "Jaar",
+    "titel": "2025",
+    "label": "",
+    "tekst": "Airboxes × Eilidh Shaw, Ross Martin & Amy Henderson (SCO): Highland Harmonies\nGFVP met Cristina Vetrone & Livia Giaffreda\nEnara Navaira (met Oscar Beerten, Rafaël De Cock, Robbe Broeckx, Wolf De Backer)\nKabál (o.a. Jo Zanders, Katrien Bos), 3’Ain en Aurélie Charneux: elk een nieuw nummer\nDerroll Adams-project: acht nieuwe songs, productie Laura Cortese, o.a. met Björn Eriksson, Meskerem Mees, Rowan Rheingans, Kaïa Kater\nAndries Boone: Rhagium Inquisitor\nAmber Haddad Trio: nieuw materiaal (december)",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
+    "soort": "Residentie",
+    "titel": "Linushoeve, DRP29 en Beddermolen",
+    "label": "Internationale productieresidentie",
+    "tekst": "",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
     "soort": "Partner",
     "titel": "Cluster",
     "label": "",
@@ -213,6 +303,24 @@
     "tekst": "Een netwerkavond voor folkprofessionals in Vlaanderen. Volgende editie op 8 juni 2027.",
     "link": "https://www.flandersfolknetwork.be",
     "linktekst": "Website",
+    "foto": ""
+  },
+  {
+    "soort": "Jaar",
+    "titel": "2026",
+    "label": "",
+    "tekst": "Hartwin & the Unfolders: nieuw materiaal\nBarbara Ardénois: in residentie\nBipolar Bows × Vinayak Nettke & Sabiha Khan (India): twee residenties\nMOTYK × Sathanao (Georgië)\nSara Salvérius: Adem\nHalva: nieuwe plannen\nMANdolinMAN met Laila Amezian & Léa Besançon: nieuwe plannen\nHuis der Weemoed: installatie en songopname rond de levensfasen, in ontwikkeling",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
+    "soort": "Residentie",
+    "titel": "De Vleeshuis-residentie",
+    "label": "Gecureerde erfgoedopdracht",
+    "tekst": "",
+    "link": "",
+    "linktekst": "",
     "foto": ""
   },
   {
