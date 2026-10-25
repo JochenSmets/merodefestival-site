@@ -81,6 +81,15 @@
     "foto": ""
   },
   {
+    "soort": "Team",
+    "titel": "Denktank beleid",
+    "label": "",
+    "tekst": "Bart Aerts, bestuurder WESP\nShalan Alhamwy, muzikant\nTom Braes, directeur patiëntenzorg UPC Kortenberg\nJochem Daelman, coördinator HORST\nJonas Danckers, bestuurder WESP\nJolan Huygens, Muziekpublique\nPaul Lambrechts, regiomanager Limburg en Vlaams-Brabant, Herita\nIsabelle Lindemans, in eigen naam\nMirte Maes, conservator Muziekmuseum Vleeshuis\nBert Ruymbeek, muzikant\nToon Van Mierlo, muzikant\nMarc Vandemoortele, bestuurder WESP",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
     "soort": "Spoor",
     "titel": "We vertellen het verhaal van de folk- en wereldmuziekscene",
     "label": "Verhalen",
