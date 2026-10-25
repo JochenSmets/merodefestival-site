@@ -12,9 +12,9 @@
 <link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/alegreya-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/alatsi-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="seizoen/seizoen.css">
 <link rel="stylesheet" href="css/publiek.css">
 <link rel="stylesheet" href="css/concert.css">
@@ -58,6 +58,7 @@
 .meer-beleven .naam{font-size:1.2rem}
 @media (max-width:820px){.bl-hero .wrap,.afl{grid-template-columns:1fr;gap:1.5rem}.tracks{columns:1}.meer-beleven{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="css/afwerking.css">
 </head>
 <body>
 <header>
@@ -99,15 +100,15 @@
       <div class="bl-sectie"><h2>De afleveringen</h2><article class="afl">
         <div><span class="nr">Aflevering 1</span><h3>Lang leve de Stips!</h3><p class="plek">De Stips, Testelt</p><p>Maurice en Vin hielden maar liefst 62 jaar café de Stips open. Op hun 87ste stopten ze, toen de coronacrisis de cafés verplicht deed sluiten.</p>
           </div>
-        <div><div class="video"><button class="yt" type="button" data-id="WtU4FgOUeQk" aria-label="Lang leve de Stips!" style="background-image:url(https://i.ytimg.com/vi/WtU4FgOUeQk/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
+        <div><div class="video"><button class="yt" type="button" data-id="WtU4FgOUeQk" aria-label="Lang leve de Stips!" style="background-image:url(data/vthumb/54a40c168adffb3d.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
       </article><article class="afl">
         <div><span class="nr">Aflevering 2</span><h3>Lang leve de Nachtegaal!</h3><p class="plek">De Nachtegaal, Ramsel</p><p>Von hield café de Nachtegaal open tot haar 92ste, tot ze in september 2022 overleed.</p>
           </div>
-        <div><div class="video"><button class="yt" type="button" data-id="9u0Ko44AG1g" aria-label="Lang leve de Nachtegaal!" style="background-image:url(https://i.ytimg.com/vi/9u0Ko44AG1g/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
+        <div><div class="video"><button class="yt" type="button" data-id="9u0Ko44AG1g" aria-label="Lang leve de Nachtegaal!" style="background-image:url(data/vthumb/2d6c19f4a0a90d4c.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
       </article><article class="afl">
         <div><span class="nr">Aflevering 3</span><h3>Lang leve café Moderne!</h3><p class="plek">Café Moderne, Deurne</p><p>Simone is 71 en houdt café Moderne nog altijd open. Het is de plek waar ‘Duune’ samenkomt, jong en oud, en het enige van de vroeger dertien cafés in Deurne dat nog bestaat.</p>
           </div>
-        <div><div class="video"><button class="yt" type="button" data-id="Jaon4n3bvuE" aria-label="Lang leve café Moderne!" style="background-image:url(https://i.ytimg.com/vi/Jaon4n3bvuE/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
+        <div><div class="video"><button class="yt" type="button" data-id="Jaon4n3bvuE" aria-label="Lang leve café Moderne!" style="background-image:url(data/vthumb/977f7ad2b45490bf.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
       </article></div>
       
       <div class="bl-sectie"><h2>Beelden</h2><div class="galerij"><img src="img/beleef/volkscafes-4.webp" alt="Von aan een tafel in café de Nachtegaal in Ramsel" loading="lazy"><img src="img/beleef/volkscafes-5.webp" alt="Simone achter de tapkast van café Moderne in Deurne" loading="lazy"></div></div>
@@ -125,8 +126,9 @@
   <div class="wrap cols">
     <div><h3>Contact</h3><p><a href="mailto:info@merodefestival.be">info@merodefestival.be</a></p><p><a href="tel:+32498758296">0498 75 82 96</a></p><p>Merodefestival is een project van WESP vzw, BE 0863 441 738, Jozef Wautersstraat 4, 3010 Kessel-Lo</p></div>
     <div><h3>Volg ons</h3><ul><li><a href="https://www.facebook.com/merodefestival">Facebook</a></li><li><a href="https://www.instagram.com/merodefestival/">Instagram</a></li><li><a href="https://www.youtube.com/channel/UCahKa1lM3yaWEwXdV_bBJdw">YouTube</a></li></ul></div>
-    <div><h3>Met steun van</h3><p>De Vlaamse overheid, kunsten en erfgoed.</p><p>Artwork: Reinhart Croon</p></div>
+    <div><h3>Met steun van</h3><a class="steun-link" href="https://www.vlaanderen.be" target="_blank" rel="noopener"><img class="steun-logo" src="img/vlaanderen-verbeelding-werkt.png" alt="Vlaanderen, verbeelding werkt" width="200" height="87" loading="lazy"></a><p>De Vlaamse overheid, kunsten en erfgoed.</p><p>Artwork: Reinhart Croon</p></div>
   </div>
+<div class="wrap foot-onder"><p class="foot-links"><a href="partners.html">Partners</a><a href="vrienden-van.html">Vrienden van Merodefestival</a><a href="wesp.html">Over WESP</a><a href="privacy.html">Privacyverklaring</a></p></div>
 </footer>
 <script>
 document.querySelectorAll(".yt").forEach(function (b) {

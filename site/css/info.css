@@ -1,0 +1,34 @@
+/* Privacy, Vrienden en Partners */
+.i-hero{padding:4rem 0 2.5rem}
+.i-hero h1{font-size:clamp(2.1rem,5vw,3.4rem);margin:.4rem 0 1rem}
+.i-lead{font-size:1.3rem;max-width:40rem;margin:0}
+.i-sec{padding:3.5rem 0}
+.i-sec .wrap{display:block}
+.i-sec.licht{background:var(--s-papier);color:var(--s-papier-inkt)}
+.i-sec.donker{background:var(--s-nacht);color:var(--s-licht)}
+.i-sec h2{font-size:clamp(1.5rem,3vw,2rem);margin:0 0 1rem}
+.i-tekst{max-width:46rem}
+.i-tekst h2{margin:2.4rem 0 .6rem}
+.i-tekst h2:first-child{margin-top:0}
+.i-tekst p,.i-tekst li{font-size:1.1rem}
+.i-tekst ul{padding-left:1.25rem}
+.i-tekst li{margin:.3rem 0}
+.i-versie{opacity:.75;font-family:var(--label);font-size:.95rem}
+.i-tekst a{text-underline-offset:3px}
+.i-sec .btn.ghost{color:inherit}
+.i-kaarten{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:1.75rem;margin:2rem 0}
+.i-kaart{border-top:3px solid var(--s-oranje);padding-top:.8rem}
+.i-kaart h3{font-size:1.4rem;margin:.2rem 0 .5rem}
+.i-kaart p{margin:.3rem 0}
+.i-steun{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}
+.i-vl-logo{display:block;width:240px;max-width:100%;height:auto}
+.i-lijst{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.9rem 2.25rem;font-size:1.15rem}
+.i-lijst a{text-underline-offset:4px}
+.i-lijst li{display:flex;flex-direction:column}
+.i-lijst li.met-logo img{display:block;max-height:64px;width:auto}
+.i-sub{font-size:.9rem;opacity:.8}
+.i-missie{margin:0 0 1.5rem}
+.i-missie div{padding:.8rem 0;border-top:1px solid rgba(239,231,218,.25)}
+.i-missie dt{font-family:var(--label);font-size:1rem;color:var(--s-oranje)}
+.i-missie dd{margin:.25rem 0 0;font-size:1.1rem}
+@media (max-width:760px){.i-steun{grid-template-columns:1fr;gap:1.5rem}.i-sec{padding:2.75rem 0}}

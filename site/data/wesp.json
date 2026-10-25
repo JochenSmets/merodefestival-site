@@ -1,5 +1,50 @@
 [
   {
+    "soort": "Partner",
+    "titel": "Vlaamse overheid, kunsten en erfgoed",
+    "label": "Met steun van",
+    "tekst": "",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
+    "soort": "Partner",
+    "titel": "Provincie Vlaams-Brabant",
+    "label": "Met steun van",
+    "tekst": "",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
+    "soort": "Partner",
+    "titel": "Nationale Loterij",
+    "label": "Met steun van",
+    "tekst": "",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
+    "soort": "Partner",
+    "titel": "Projectvereniging de Merode",
+    "label": "Met steun van",
+    "tekst": "",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
+    "soort": "Partner",
+    "titel": "Parochies en kerkfabrieken",
+    "label": "Met steun van",
+    "tekst": "met de medewerking van",
+    "link": "",
+    "linktekst": "",
+    "foto": ""
+  },
+  {
     "soort": "Spoor",
     "titel": "We organiseren op erfgoed- en natuurplekken",
     "label": "Organiseren",

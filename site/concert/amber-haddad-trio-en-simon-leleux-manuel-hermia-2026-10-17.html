@@ -16,13 +16,14 @@
 <link rel="apple-touch-icon" href="../img/favicon.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preload" href="../fonts/alegreya-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/alatsi-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/fonts.css">
 <link rel="stylesheet" href="../seizoen/seizoen.css">
 <link rel="stylesheet" href="../css/publiek.css">
 <link rel="stylesheet" href="../css/concert.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicEvent","name":"Amber Haddad Trio en Simon Leleux & Manuel Hermia","startDate":"2026-10-17T20:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Sint-Luciakerk","address":{"@type":"PostalAddress","addressLocality":"Engsbergen","addressCountry":"BE"}},"image":["https://www.merodefestival.be/seizoen/artwork.jpg"],"description":"Kerkconcert","organizer":{"@type":"Organization","name":"Merodefestival / WESP vzw","url":"https://www.merodefestival.be"},"offers":{"@type":"Offer","url":"https://wesp-vzw.pierrot.io/","availability":"https://schema.org/InStock","price":"22","priceCurrency":"EUR"}}</script>
+<link rel="stylesheet" href="../css/afwerking.css">
 </head>
 <body>
 
@@ -70,8 +71,8 @@
         
         <section class="luister" id="luister" aria-labelledby="luister-titel">
           <h2 class="label" id="luister-titel">Kijk en luister</h2>
-          <div class="videos meer"><div class="video"><button class="yt" type="button" data-id="U36qzH0NSPg" aria-label="Speel video 1 af: Amber Haddad Trio en Simon Leleux &amp; Manuel Hermia" style="background-image:url(https://i.ytimg.com/vi/U36qzH0NSPg/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div><div class="video"><button class="yt" type="button" data-id="uk_gDWZ7Xjs" aria-label="Speel video 2 af: Amber Haddad Trio en Simon Leleux &amp; Manuel Hermia" style="background-image:url(https://i.ytimg.com/vi/uk_gDWZ7Xjs/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
-          <div class="spotify"><iframe src="https://open.spotify.com/embed/artist/3AVprpd4wNwaye5KN1odk5?utm_source=generator&amp;theme=0" title="Spotify: Amber Haddad Trio en Simon Leleux &amp; Manuel Hermia" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe><iframe src="https://open.spotify.com/embed/album/07JpLKHNb2YOojBVKQ4qBU?utm_source=generator&amp;theme=0" title="Spotify: Amber Haddad Trio en Simon Leleux &amp; Manuel Hermia" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+          <div class="videos meer"><div class="video"><button class="yt" type="button" data-id="U36qzH0NSPg" aria-label="Speel video 1 af: Amber Haddad Trio en Simon Leleux &amp; Manuel Hermia" style="background-image:url(../data/vthumb/681f8534067d36a4.jpg)"><span class="play" aria-hidden="true"></span></button></div><div class="video"><button class="yt" type="button" data-id="uk_gDWZ7Xjs" aria-label="Speel video 2 af: Amber Haddad Trio en Simon Leleux &amp; Manuel Hermia" style="background-image:url(../data/vthumb/1260eed99584e178.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
+          <div class="spotify"><div class="speler-wacht" data-embed="https://open.spotify.com/embed/artist/3AVprpd4wNwaye5KN1odk5?utm_source=generator&amp;theme=0" data-titel="Spotify: Amber Haddad Trio en Simon Leleux &amp;amp; Manuel Hermia" data-hoogte="152" data-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"><p class="speler-titel">Spotify: Amber Haddad Trio en Simon Leleux &amp;amp; Manuel Hermia</p><button type="button" class="btn speler-knop">▶ Speel af via Spotify</button><p class="speler-uitleg">Pas na je klik laden we de speler van Spotify. Die ziet dan je IP-adres en kan cookies plaatsen. <a href="../privacy.html#website">Meer info</a></p></div><div class="speler-wacht" data-embed="https://open.spotify.com/embed/album/07JpLKHNb2YOojBVKQ4qBU?utm_source=generator&amp;theme=0" data-titel="Spotify: Amber Haddad Trio en Simon Leleux &amp;amp; Manuel Hermia" data-hoogte="352" data-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"><p class="speler-titel">Spotify: Amber Haddad Trio en Simon Leleux &amp;amp; Manuel Hermia</p><button type="button" class="btn speler-knop">▶ Speel af via Spotify</button><p class="speler-uitleg">Pas na je klik laden we de speler van Spotify. Die ziet dan je IP-adres en kan cookies plaatsen. <a href="../privacy.html#website">Meer info</a></p></div></div>
         </section>
       </article>
       <aside class="praktisch">
@@ -120,11 +121,12 @@
       </ul>
     </div>
     <div>
-      <h3>Met steun van</h3>
+      <h3>Met steun van</h3><a class="steun-link" href="https://www.vlaanderen.be" target="_blank" rel="noopener"><img class="steun-logo" src="../img/vlaanderen-verbeelding-werkt.png" alt="Vlaanderen, verbeelding werkt" width="200" height="87" loading="lazy"></a>
       <p>De Vlaamse overheid, kunsten en erfgoed.</p>
       <p>Artwork: Reinhart Croon</p>
     </div>
   </div>
+<div class="wrap foot-onder"><p class="foot-links"><a href="../partners.html">Partners</a><a href="../vrienden-van.html">Vrienden van Merodefestival</a><a href="../wesp.html">Over WESP</a><a href="../privacy.html">Privacyverklaring</a></p></div>
 </footer>
 
 <script>
@@ -156,5 +158,6 @@
   t.addEventListener("click", function () { var o = n.classList.toggle("open"); t.setAttribute("aria-expanded", o); });
 })();
 </script>
+<script src="../js/afwerking.js" defer></script>
 </body>
 </html>

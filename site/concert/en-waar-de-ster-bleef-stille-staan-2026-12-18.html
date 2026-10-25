@@ -16,13 +16,14 @@
 <link rel="apple-touch-icon" href="../img/favicon.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preload" href="../fonts/alegreya-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/alatsi-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/fonts.css">
 <link rel="stylesheet" href="../seizoen/seizoen.css">
 <link rel="stylesheet" href="../css/publiek.css">
 <link rel="stylesheet" href="../css/concert.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MusicEvent","name":"En waar de ster bleef stille staan","startDate":"2026-12-18T20:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Sint-Trudokerk","address":{"@type":"PostalAddress","addressLocality":"Webbekom","addressCountry":"BE"}},"image":["https://www.merodefestival.be/data/foto/40077c21f8db815ca5bbc629c93cc0f4.jpg"],"description":"Een kerstvertelling naar Felix Timmermans","organizer":{"@type":"Organization","name":"Merodefestival / WESP vzw","url":"https://www.merodefestival.be"},"offers":{"@type":"Offer","url":"https://pierrot.io/wesp-vzw/eldr","availability":"https://schema.org/SoldOut"}}</script>
+<link rel="stylesheet" href="../css/afwerking.css">
 </head>
 <body>
 
@@ -70,7 +71,7 @@
         
         <section class="luister" id="luister" aria-labelledby="luister-titel">
           <h2 class="label" id="luister-titel">Kijk en luister</h2>
-          <div class="videos"><div class="video"><button class="yt" type="button" data-id="OBTDxec_tQg" aria-label="Speel video 1 af: En waar de ster bleef stille staan" style="background-image:url(https://i.ytimg.com/vi/OBTDxec_tQg/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
+          <div class="videos"><div class="video"><button class="yt" type="button" data-id="OBTDxec_tQg" aria-label="Speel video 1 af: En waar de ster bleef stille staan" style="background-image:url(../data/vthumb/d8aa067ea7a40abe.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
           
         </section>
       </article>
@@ -120,11 +121,12 @@
       </ul>
     </div>
     <div>
-      <h3>Met steun van</h3>
+      <h3>Met steun van</h3><a class="steun-link" href="https://www.vlaanderen.be" target="_blank" rel="noopener"><img class="steun-logo" src="../img/vlaanderen-verbeelding-werkt.png" alt="Vlaanderen, verbeelding werkt" width="200" height="87" loading="lazy"></a>
       <p>De Vlaamse overheid, kunsten en erfgoed.</p>
       <p>Artwork: Reinhart Croon</p>
     </div>
   </div>
+<div class="wrap foot-onder"><p class="foot-links"><a href="../partners.html">Partners</a><a href="../vrienden-van.html">Vrienden van Merodefestival</a><a href="../wesp.html">Over WESP</a><a href="../privacy.html">Privacyverklaring</a></p></div>
 </footer>
 
 <script>

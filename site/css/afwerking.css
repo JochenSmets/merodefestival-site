@@ -1,0 +1,11 @@
+/* Afwerking: spelers met klik, voettekst */
+.speler-wacht{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.55rem;min-height:152px;margin:1rem 0;padding:1rem 1.15rem;border:1px solid rgba(127,127,127,.45);border-radius:8px;background:rgba(127,127,127,.12);box-sizing:border-box}
+.speler-wacht .speler-titel{margin:0;font-family:var(--label,system-ui);font-size:.92rem;opacity:.85}
+.speler-wacht .speler-uitleg{margin:0;font-size:.86rem;line-height:1.4;opacity:.85;max-width:44rem}
+.speler-wacht .speler-uitleg a{color:inherit}
+.speler-wacht .btn{font-size:.95rem}
+iframe.speler-geladen{display:block;width:100%;border:0;border-radius:8px}
+footer .steun-logo{display:block;width:200px;max-width:100%;height:auto;margin:.5rem 0 1rem}
+footer .foot-onder{margin-top:1.75rem;padding-top:1.1rem;border-top:1px solid rgba(239,231,218,.18)}
+footer .foot-links{margin:0;font-family:var(--label,system-ui);font-size:.95rem;display:flex;flex-wrap:wrap;gap:.35rem 1.5rem}
+footer .foot-links a{text-underline-offset:3px}

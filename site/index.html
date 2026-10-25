@@ -7,9 +7,9 @@
 <link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Alatsi&amp;family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/alegreya-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/alatsi-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="seizoen/seizoen.css">
 <link rel="stylesheet" href="css/publiek.css">
 <link rel="canonical" href="https://www.merodefestival.be/">
@@ -21,6 +21,7 @@
 <meta property="og:locale" content="nl_BE">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.merodefestival.be/#organisatie","name":"Merodefestival","legalName":"WESP vzw","url":"https://www.merodefestival.be/","logo":"https://www.merodefestival.be/seizoen/logo-oranje.png","email":"info@merodefestival.be","telephone":"+32498758296","vatID":"BE0863441738","address":{"@type":"PostalAddress","streetAddress":"Jozef Wautersstraat 4","postalCode":"3010","addressLocality":"Kessel-Lo","addressCountry":"BE"},"sameAs":["https://www.facebook.com/merodefestival","https://www.instagram.com/merodefestival/","https://www.youtube.com/channel/UCahKa1lM3yaWEwXdV_bBJdw"]},{"@type":"WebSite","@id":"https://www.merodefestival.be/#website","url":"https://www.merodefestival.be/","name":"Merodefestival","inLanguage":"nl","publisher":{"@id":"https://www.merodefestival.be/#organisatie"}}]}</script>
+<link rel="stylesheet" href="css/afwerking.css">
 </head>
 <body>
 
@@ -450,11 +451,12 @@
       </ul>
     </div>
     <div>
-      <h3>Met steun van</h3>
+      <h3>Met steun van</h3><a class="steun-link" href="https://www.vlaanderen.be" target="_blank" rel="noopener"><img class="steun-logo" src="img/vlaanderen-verbeelding-werkt.png" alt="Vlaanderen, verbeelding werkt" width="200" height="87" loading="lazy"></a>
       <p>De Vlaamse overheid, kunsten en erfgoed.</p>
       <p>Artwork: <a href="http://www.reinhart.be">Reinhart Croon</a></p>
     </div>
   </div>
+<div class="wrap foot-onder"><p class="foot-links"><a href="partners.html">Partners</a><a href="vrienden-van.html">Vrienden van Merodefestival</a><a href="wesp.html">Over WESP</a><a href="privacy.html">Privacyverklaring</a></p></div>
 </footer>
 
 <script src="seizoen/seizoen.js"></script>

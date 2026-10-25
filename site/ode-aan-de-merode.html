@@ -12,9 +12,9 @@
 <link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/alegreya-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/alatsi-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="seizoen/seizoen.css">
 <link rel="stylesheet" href="css/publiek.css">
 <link rel="stylesheet" href="css/concert.css">
@@ -58,6 +58,7 @@
 .meer-beleven .naam{font-size:1.2rem}
 @media (max-width:820px){.bl-hero .wrap,.afl{grid-template-columns:1fr;gap:1.5rem}.tracks{columns:1}.meer-beleven{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="css/afwerking.css">
 </head>
 <body>
 <header>
@@ -98,8 +99,8 @@
       
       
       <div class="bl-sectie" id="luister"><h2>Kijk en luister</h2>
-        <div class="videos"><div class="video"><button class="yt" type="button" data-id="FZ__Vy6LhIY" aria-label="Ode aan de Merode" style="background-image:url(https://i.ytimg.com/vi/FZ__Vy6LhIY/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
-        <iframe class="sc" title="Ode aan de Merode op SoundCloud" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F1967045592&color=%23e8761a&visual=false"></iframe>
+        <div class="videos"><div class="video"><button class="yt" type="button" data-id="FZ__Vy6LhIY" aria-label="Ode aan de Merode" style="background-image:url(data/vthumb/7ea5a25395a1dd77.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>
+        <div class="speler-wacht" data-embed="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Fplaylists%2F1967045592&amp;color=%23e8761a&amp;visual=false" data-titel="Ode aan de Merode op SoundCloud" data-hoogte="166" data-klasse="sc" data-allow="autoplay"><p class="speler-titel">Ode aan de Merode op SoundCloud</p><button type="button" class="btn speler-knop">▶ Speel af via SoundCloud</button><p class="speler-uitleg">Pas na je klik laden we de speler van SoundCloud. Die ziet dan je IP-adres en kan cookies plaatsen. <a href="privacy.html#website">Meer info</a></p></div>
       </div>
       <div class="bl-sectie"><h2>Beelden</h2><div class="galerij"><img src="img/beleef/boek-4.webp" alt="Boek en cd van Ode aan de Merode" loading="lazy"></div></div>
       
@@ -116,8 +117,9 @@
   <div class="wrap cols">
     <div><h3>Contact</h3><p><a href="mailto:info@merodefestival.be">info@merodefestival.be</a></p><p><a href="tel:+32498758296">0498 75 82 96</a></p><p>Merodefestival is een project van WESP vzw, BE 0863 441 738, Jozef Wautersstraat 4, 3010 Kessel-Lo</p></div>
     <div><h3>Volg ons</h3><ul><li><a href="https://www.facebook.com/merodefestival">Facebook</a></li><li><a href="https://www.instagram.com/merodefestival/">Instagram</a></li><li><a href="https://www.youtube.com/channel/UCahKa1lM3yaWEwXdV_bBJdw">YouTube</a></li></ul></div>
-    <div><h3>Met steun van</h3><p>De Vlaamse overheid, kunsten en erfgoed.</p><p>Artwork: Reinhart Croon</p></div>
+    <div><h3>Met steun van</h3><a class="steun-link" href="https://www.vlaanderen.be" target="_blank" rel="noopener"><img class="steun-logo" src="img/vlaanderen-verbeelding-werkt.png" alt="Vlaanderen, verbeelding werkt" width="200" height="87" loading="lazy"></a><p>De Vlaamse overheid, kunsten en erfgoed.</p><p>Artwork: Reinhart Croon</p></div>
   </div>
+<div class="wrap foot-onder"><p class="foot-links"><a href="partners.html">Partners</a><a href="vrienden-van.html">Vrienden van Merodefestival</a><a href="wesp.html">Over WESP</a><a href="privacy.html">Privacyverklaring</a></p></div>
 </footer>
 <script>
 document.querySelectorAll(".yt").forEach(function (b) {
@@ -137,5 +139,6 @@ document.querySelectorAll(".yt").forEach(function (b) {
 var t = document.querySelector(".menu-toggle"), n = document.getElementById("hoofdmenu");
 t.addEventListener("click", function () { var o = n.classList.toggle("open"); t.setAttribute("aria-expanded", o); });
 </script>
+<script src="js/afwerking.js" defer></script>
 </body>
 </html>

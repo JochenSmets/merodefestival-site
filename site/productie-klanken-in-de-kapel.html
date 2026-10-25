@@ -12,14 +12,15 @@
 <link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/alegreya-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/alatsi-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="seizoen/seizoen.css">
 <link rel="stylesheet" href="css/publiek.css">
 <link rel="stylesheet" href="css/concert.css">
 <link rel="stylesheet" href="css/producties.css">
 <link rel="stylesheet" href="css/producties-extra.css">
+<link rel="stylesheet" href="css/afwerking.css">
 </head>
 <body>
 <header>
@@ -68,7 +69,7 @@
       <ul class="lijst"><li><strong>Lydie Thonnard</strong>, Kapel Onze-Lieve-Vrouw-ten-Eik, Tongerlo (23 oktober 2026)</li><li><strong>Stijn Kuppens</strong>, Sint-Bavokapel, Eindhout (24 oktober 2026)</li><li><strong>Stefan Bracaval</strong>, Sint-Dimpnakapel, Zammel (17 oktober 2025)</li></ul>
       <p><em>Klanken in de kapel is een organisatie van Merodefestival, in samenwerking met Landschapspark de Merode en vzw Folkmjusic.</em></p>
       <div class="galerij3 twee"><figure><img src="data/foto/40377c21f8db8134990ee04c9a3c9d9c-1.jpg" alt="Klanken in de kapel" loading="lazy"></figure><figure><img src="data/foto/40377c21f8db8134990ee04c9a3c9d9c-2.jpg" alt="Klanken in de kapel" loading="lazy"></figure></div>
-      <section class="luister"><h2 class="label">Kijk en luister</h2><div class="pvideos"><div class="vblok"><div class="video"><button class="yt" type="button" data-id="YaFQ066EP5Y" aria-label="Speel video af: Hussein Rassim, Binti Shalabiya" style="background-image:url(https://i.ytimg.com/vi/YaFQ066EP5Y/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div><p class="vtitel">Hussein Rassim, Binti Shalabiya</p></div></div></section>
+      <section class="luister"><h2 class="label">Kijk en luister</h2><div class="pvideos"><div class="vblok"><div class="video"><button class="yt" type="button" data-id="YaFQ066EP5Y" aria-label="Speel video af: Hussein Rassim, Binti Shalabiya" style="background-image:url(data/vthumb/3199a1f2a7699196.jpg)"><span class="play" aria-hidden="true"></span></button></div><p class="vtitel">Hussein Rassim, Binti Shalabiya</p></div></div></section>
       </article>
       <aside class="praktisch">
         <h2 class="label">Praktisch</h2>
@@ -94,8 +95,9 @@
   <div class="wrap cols">
     <div><h3>Contact</h3><p><a href="mailto:info@merodefestival.be">info@merodefestival.be</a></p><p><a href="tel:+32498758296">0498 75 82 96</a></p><p>Merodefestival is een project van WESP vzw, BE 0863 441 738, Jozef Wautersstraat 4, 3010 Kessel-Lo</p></div>
     <div><h3>Volg ons</h3><ul><li><a href="https://www.facebook.com/merodefestival">Facebook</a></li><li><a href="https://www.instagram.com/merodefestival/">Instagram</a></li><li><a href="https://www.youtube.com/channel/UCahKa1lM3yaWEwXdV_bBJdw">YouTube</a></li></ul></div>
-    <div><h3>Met steun van</h3><p>De Vlaamse overheid, kunsten en erfgoed.</p><p>Artwork: Reinhart Croon</p></div>
+    <div><h3>Met steun van</h3><a class="steun-link" href="https://www.vlaanderen.be" target="_blank" rel="noopener"><img class="steun-logo" src="img/vlaanderen-verbeelding-werkt.png" alt="Vlaanderen, verbeelding werkt" width="200" height="87" loading="lazy"></a><p>De Vlaamse overheid, kunsten en erfgoed.</p><p>Artwork: Reinhart Croon</p></div>
   </div>
+<div class="wrap foot-onder"><p class="foot-links"><a href="partners.html">Partners</a><a href="vrienden-van.html">Vrienden van Merodefestival</a><a href="wesp.html">Over WESP</a><a href="privacy.html">Privacyverklaring</a></p></div>
 </footer>
 <script>
 document.querySelectorAll(".yt").forEach(function (b) {
