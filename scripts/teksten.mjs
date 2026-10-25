@@ -72,11 +72,9 @@ const P = "<p>{}</p>";
 const HOMEPAGE = [
   ["menu.agenda", "Agenda", "", ['<li><a href="#agenda">{}</a></li>']],
   ["menu.festival", "Festival 2027", "", ['<li><a href="#festival">{}</a></li>']],
-  ["menu.beleef", "Beleef de Merode", "", ['<li><a href="#beleef">{}</a></li>']],
   ["menu.producties", "Producties", "", ['<li><a href="producties.html">{}</a></li>']],
   ["menu.wesp", "Over WESP", "", ['<li><a href="wesp.html">{}</a></li>']],
   ["menu.edities", "Vorige edities", "", ['<li><a href="vorige-edities.html">{}</a></li>']],
-  ["menu.nieuwsbrief", "Nieuwsbrief", "", ['<li><a href="#nieuwsbrief">{}</a></li>']],
   ["menu.menu", "Menu", "Knop voor het menu op een telefoon", ['<button class="menu-toggle" aria-expanded="false" aria-controls="hoofdmenu">{}</button>']],
   ["menu.tickets", "Tickets", "Oranje knop rechtsboven", ['<a class="btn" id="tickets-top" href="https://wesp-vzw.pierrot.io/">{}</a>']],
   ["homepage.titel", "Merodefestival – folk en wereldmuziek in de kerken van de Merode", "Titel in het tabblad van de browser en in Google", ["<title>{}</title>"]],

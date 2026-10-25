@@ -52,20 +52,20 @@ export async function bouwInfo({ ROOT, SITE, S, esc, kopEd, voetEd }) {
   const knop = (extra = "") => `<a class="btn${extra}" href="${esc(GIFTEN)}" target="_blank" rel="noopener">${esc(T("vrienden.knop", "Word vriend"))}</a>`;
   const regels = (sleutel, standaard) => T(sleutel, standaard).split(/\n+/).map(r => r.trim()).filter(Boolean);
   const voordelen = regels("vrienden.voordelen", "Inside-informatie en updates over onze projecten.\nElk jaar een nieuwsbrief met onze successen en de impact van jouw gift.\nIn maart een fiscaal attest voor giften vanaf € 40: 30 % belastingvermindering, dus elke 40 euro kost je netto 28 euro.");
-  const missie = regels("vrienden.missie", "Traditie en vernieuwing | Folk- en wereldmuziek dragen de verhalen van generaties, maar blijven enkel relevant als ze iets zeggen over deze tijd. We breken tradities open en laten ze schitteren voor een nieuw publiek.\nVerhalen die verbinden | Verhalen vertellen, en vooral écht luisteren, brengt artiesten en publiek samen, en verschillende culturen onderling, in een wereld die polariseert.\nErfgoed en natuur | Onze concerten en concertwandelingen vinden plaats op plekken vol geschiedenis, zoals kerken en natuurgebieden.\nArtiesten centraal | Muzikanten krijgen het platform en het professionele kader om hun eigen producties te ontwikkelen en op te voeren.").map(r => { const [k, ...rest] = r.split("|"); return { kop: k.trim(), tekst: rest.join("|").trim() }; });
   const formules = van("Vriend").map(r => `<article class="i-kaart">${r.label ? `<p class="label">${esc(r.label)}</p>` : ""}<h3>${esc(r.titel)}</h3>${r.tekst ? alinea(r.tekst) : ""}${r.link ? `<a class="btn" href="${esc(href(r.link))}"${extern(r.link) ? ' target="_blank" rel="noopener"' : ""}>${esc(r.linktekst || T("vrienden.knop", "Word vriend"))}</a>` : ""}</article>`).join("");
   await pagina({
     bestand: "vrienden-van.html", canonical: "vrienden-van",
     titel: T("vrienden.titel", "Vrienden van Merodefestival"),
     beschrijving: T("vrienden.beschrijving", "Steun de werking van Merodefestival en kom dichter bij de muziek: word vriend van Merodefestival."),
     body: hero(T("vrienden.label", "Steun ons"), T("vrienden.titel", "Vrienden van Merodefestival"), T("vrienden.lead", "Steun de werking en kom dichter bij de muziek.")) +
-      sectie("licht", `<div class="i-tekst">${alinea(T("vrienden.tekst", "Als Vriend van Merodefestival ondersteun je een creatieve werkplek voor folk- en wereldmuziek. Met jouw steun investeren we in kwalitatieve concerten, muziekcreatie, eerlijk betaalde muzikanten, unieke residenties en inspirerende samenwerkingen. Want talent verdient niet alleen een podium, maar ook de omkadering en ondersteuning om te groeien."))}
+      sectie("licht", `<div class="i-tekst">${alinea(T("vrienden.tekst", "Als Vriend steun je de werking van WESP vzw, de organisatie achter Merodefestival. Met jouw steun investeren we in kwalitatieve concerten, nieuwe muziek, eerlijk betaalde muzikanten, unieke residenties en inspirerende samenwerkingen. Want talent verdient niet alleen een podium, maar ook de omkadering en ondersteuning om te groeien."))}
         <h2>${esc(T("vrienden.voordelen-kop", "Wat krijg je als Vriend?"))}</h2><ul>${voordelen.map(v => `<li>${esc(v)}</li>`).join("")}</ul>
         <p>${knop()}</p></div>
         ${formules ? `<div class="i-kaarten">${formules}</div>` : ""}`) +
-      sectie("donker", `<div class="i-tekst"><h2>${esc(T("vrienden.missie-kop", "Onze missie: erfgoed en vernieuwing in harmonie"))}</h2>
-        <dl class="i-missie">${missie.map(m => `<div><dt>${esc(m.kop)}</dt><dd>${esc(m.tekst)}</dd></div>`).join("")}</dl>
-        ${alinea(T("vrienden.slot", "Sluit je aan bij de Vrienden van Merodefestival en steun een bloeiende, professionele scene waarin traditie en vernieuwing hand in hand gaan."))}
+      sectie("donker", `<div class="i-tekst"><h2>${esc(T("vrienden.missie-kop", "Onze missie"))}</h2>
+        ${alinea(T("vrienden.missie", "WESP is dé incubator voor het folklandschap in Vlaanderen. We ondersteunen muzikanten in hun ontwikkeling, laten hen nieuwe muziek maken, bieden hen een podium op maat en leggen internationale verbindingen.\n\nWe bouwen aan een duurzame toekomst, geïnspireerd door gewortelde verhalen, erfgoed en natuur. We organiseren ontmoeting, nabijheid en verbinding met en tussen muzikanten, het genre en een breed publiek."))}
+        <blockquote class="i-citaat">${esc(T("vrienden.citaat", "Tradition is passing on the flame and not worshipping the ashes."))}</blockquote>
+        ${alinea(T("vrienden.slot", "Sluit je aan bij de Vrienden van Merodefestival en bouw mee aan een duurzame toekomst voor folk- en wereldmuziek."))}
         <p>${knop()}</p>
         <p class="i-versie">${esc(T("vrienden.vragen", "Vragen over je gift? Mail naar"))} <a href="mailto:${MAIL}">${MAIL}</a>.</p></div>`),
   });
@@ -122,6 +122,7 @@ const CSS = String.raw`/* Privacy, Vrienden en Partners */
 .i-lijst li{display:flex;flex-direction:column}
 .i-lijst li.met-logo img{display:block;max-height:64px;width:auto}
 .i-sub{font-size:.9rem;opacity:.8}
+.i-citaat{margin:1.5rem 0;padding-left:1.1rem;border-left:3px solid var(--s-oranje);font-style:italic;font-size:1.2rem}
 .i-missie{margin:0 0 1.5rem}
 .i-missie div{padding:.8rem 0;border-top:1px solid rgba(239,231,218,.25)}
 .i-missie dt{font-family:var(--label);font-size:1rem;color:var(--s-oranje)}

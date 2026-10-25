@@ -25,11 +25,9 @@
       <ul>
         <li><a href="#agenda">Agenda</a></li>
         <li><a href="#festival">Festival 2027</a></li>
-        <li><a href="#beleef">Beleef de Merode</a></li>
         <li><a href="producties.html">Producties</a></li>
         <li><a href="wesp.html">Over WESP</a></li>
         <li><a href="vorige-edities.html">Vorige edities</a></li>
-        <li><a href="#nieuwsbrief">Nieuwsbrief</a></li>
       </ul>
     </nav>
     <a class="btn" id="tickets-top" href="https://wesp-vzw.pierrot.io/">Tickets</a>
@@ -121,9 +119,9 @@
       <h2 id="beleef-titel">Beleef de Merode, ook thuis</h2>
       <p class="beleef-intro">Muziek, verhalen en wandelingen om mee te nemen.</p>
       <ul class="beleef-grid">
-        <li><a href="ode-aan-de-merode.html"><span class="label">Boek</span><span class="naam">Ode aan de Merode</span><span class="uitleg">Negen verhalen, wandelingen, video’s en een afspeellijst.</span></a></li>
+        <li><a href="productie-ode-aan-de-merode.html"><span class="label">Boek</span><span class="naam">Ode aan de Merode</span><span class="uitleg">Negen verhalen, wandelingen, video’s en een afspeellijst.</span></a></li>
         <li><a href="podcast.html"><span class="label">Podcast</span><span class="naam">Wandelpodcast</span><span class="uitleg">Folkmuzikanten vertellen onderweg over hun muziek, en spelen in de natuur.</span></a></li>
-        <li><a href="the-sound-of-the-abbey.html"><span class="label">Cd en vinyl</span><span class="naam">The Sound of the Abbey</span><span class="uitleg">Opnames uit de Abdij van Park, met dertien artiesten.</span></a></li>
+        <li><a href="productie-the-sound-of-the-abbey.html"><span class="label">Cd en vinyl</span><span class="naam">The Sound of the Abbey</span><span class="uitleg">Opnames uit de Abdij van Park, met dertien artiesten.</span></a></li>
         <li><a href="volkscafes.html"><span class="label">Video’s</span><span class="naam">Volkscafés en volksliekes</span><span class="uitleg">Het muzikale erfgoed van de streek, in beeld.</span></a></li>
       </ul>
     </div>
@@ -274,7 +272,7 @@ list.innerHTML = upcoming.map((e,i) => {
       <h3 class="artist">${pagina ? `<a href="${esc(pagina)}">` : ""}${esc(e.artist)}${pagina ? "</a>" : ""}${e.origin ? ` <span class="herkomst">(${esc(e.origin)})</span>` : ""}</h3>
       <p class="meta"><span class="soort">${esc(e.kind)}</span> · ${esc([e.place, e.village].filter(Boolean).join(", "))}${e.time ? " · " + esc(e.time) : ""}</p>
       <div class="links">
-        ${e.text ? `<details><summary>Meer info</summary>${String(e.text).split(/\n\s*\n/).map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}
+        ${e.text && !e.slug ? `<details><summary>Meer info</summary>${String(e.text).split(/\n\s*\n/).map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}
         ${pagina ? `<a href="${esc(pagina)}${(e.videos || []).length || (e.spotify || []).length ? "#luister" : ""}">${(e.videos || []).length || (e.spotify || []).length ? "Kijk en luister" : "Meer over dit concert"}</a>` : ""}
       </div>
     </div>
@@ -311,7 +309,7 @@ if (andere.length) {
     const s = d(e.start);
     const reeks = e.reeks || (e.sites || [])[0] || "";
     const R = window.REEKSEN || {};
-    const pagina = e.info || R[e.reeks] || (e.sites || []).map(x => R[x]).find(Boolean) || e.tickets || "https://www.wespvzw.be";
+    const pagina = e.info || R[e.reeks] || (e.sites || []).map(x => R[x]).find(Boolean) || e.tickets || "wesp.html";
     return `<li><a href="${esc(pagina)}" target="_blank" rel="noopener">
       <span class="ook-reeks">${esc(reeks)}</span>
       <span class="ook-datum">${DAG[s.getDay()]} ${s.getDate()} ${MAAND_LANG[s.getMonth()]}${s.getFullYear() !== today.getFullYear() ? " " + s.getFullYear() : ""}</span>

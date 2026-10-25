@@ -21,6 +21,10 @@ const CSS = String.raw`/* Afwerking: spelers met klik, voettekst */
 .speler-wacht .speler-uitleg a{color:inherit}
 .speler-wacht .btn{font-size:.95rem}
 iframe.speler-geladen{display:block;width:100%;border:0;border-radius:8px}
+/* Vorige edities en kerkconcerten: eerst een overzicht, het programma klapt open op verzoek */
+.ed-klap:not(.open) .affiche,.ed-klap:not(.open) .tekst,.ed-klap:not(.open) .prog,.ed-klap:not(.open) .videos,.ed-klap:not(.open) .dank{display:none}
+.ks-klap:not(.open) .kcover,.ks-klap:not(.open) .kerk-lijst,.ks-klap:not(.open) .kopm{display:none}
+.ed-knop{margin:.5rem 0 0;background:none;border:0;padding:0;color:inherit;font-family:var(--label,system-ui);font-size:.95rem;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
 footer .steun-logo{display:block;width:200px;max-width:100%;height:auto;margin:.5rem 0 1rem}
 footer .foot-onder{margin-top:1.75rem;padding-top:1.1rem;border-top:1px solid rgba(239,231,218,.18)}
 footer .foot-links{margin:0;font-family:var(--label,system-ui);font-size:.95rem;display:flex;flex-wrap:wrap;gap:.35rem 1.5rem}
@@ -43,6 +47,46 @@ const JS = String.raw`(function () {
     w.parentNode.replaceChild(f, w);
     f.focus();
   });
+
+  // Vorige edities en kerkconcerten: eerst een overzicht, het programma klapt open op verzoek (zonder script blijft alles zichtbaar)
+  var klapbaar = function (selector, klasse, inhoud, tekstOpen, tekstDicht, plaats) {
+    var lijst = [].slice.call(document.querySelectorAll(selector)).filter(function (a) { return a.querySelector(inhoud); });
+    var zet = function (a, open) {
+      a.classList.toggle("open", open);
+      var k = a.querySelector(".ed-knop");
+      if (k) { k.setAttribute("aria-expanded", open ? "true" : "false"); k.textContent = open ? tekstOpen : tekstDicht; }
+    };
+    lijst.forEach(function (a) {
+      a.classList.add(klasse);
+      var knop = document.createElement("button");
+      knop.type = "button"; knop.className = "ed-knop";
+      knop.addEventListener("click", function () { zet(a, !a.classList.contains("open")); });
+      plaats(a, knop);
+      zet(a, false);
+    });
+    return { lijst: lijst, zet: zet };
+  };
+  var ed = klapbaar("article.editie", "ed-klap", ".affiche,.tekst,.prog,.videos,.dank", "Toon minder", "Toon het programma", function (a, knop) {
+    var kol = a.children[1];
+    kol.insertBefore(knop, kol.querySelector(".tekst,.prog,.videos,.dank") || null);
+  });
+  var ks = klapbaar("article.kseizoen", "ks-klap", ".kerk-lijst", "Toon minder", "Toon het programma", function (a, knop) {
+    var t = a.querySelector(".kt");
+    t.parentNode.insertBefore(knop, t.nextSibling);
+  });
+  if (ed.lijst.length || ks.lijst.length) {
+    var vanHash = function () {
+      var id = location.hash.slice(1);
+      var doel = id && document.getElementById(id);
+      if (!doel) return;
+      if (doel.classList.contains("ed-klap")) ed.zet(doel, true);
+      else if (doel.classList.contains("ks-klap")) ks.zet(doel, true);
+      else return;
+      doel.scrollIntoView();
+    };
+    window.addEventListener("hashchange", vanHash);
+    vanHash();
+  }
 })();
 `;
 
@@ -183,7 +227,7 @@ export async function afwerking({ ROOT, SITE }) {
       const links = [
         [`${up}partners.html`, T("footer.link-partners", "Partners")],
         [`${up}vrienden-van.html`, T("footer.link-vrienden", "Vrienden van Merodefestival")],
-        [`${up}wesp.html`, T("footer.link-wesp", "Over WESP")],
+        [`${up}index.html#nieuwsbrief`, T("footer.link-nieuwsbrief", "Nieuwsbrief")],
         [`${up}privacy.html`, T("footer.link-privacy", "Privacyverklaring")],
       ];
       h = h.replace("</footer>", `<div class="wrap foot-onder"><p class="foot-links">${links.map(([u, t]) => `<a href="${u}">${t}</a>`).join("")}</p></div>\n</footer>`);
@@ -191,7 +235,7 @@ export async function afwerking({ ROOT, SITE }) {
 
     // stijl en script erbij
     if (!h.includes("css/afwerking.css")) h = h.replace("</head>", `<link rel="stylesheet" href="${up}css/afwerking.css">\n</head>`);
-    if (h.includes("speler-wacht") && !h.includes("js/afwerking.js")) h = h.replace("</body>", `<script src="${up}js/afwerking.js" defer></script>\n</body>`);
+    if ((h.includes("speler-wacht") || h.includes('class="editie"')) && !h.includes("js/afwerking.js")) h = h.replace("</body>", `<script src="${up}js/afwerking.js" defer></script>\n</body>`);
 
     if (h !== voor) { await fs.writeFile(pad, h); nVerwerkt++; }
   }

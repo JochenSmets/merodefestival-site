@@ -157,11 +157,9 @@ function pagina(e, overige) {
       <ul>
         <li><a href="../index.html#agenda">${T("menu.agenda", "Agenda")}</a></li>
         <li><a href="../index.html#festival">${T("menu.festival", "Festival 2027")}</a></li>
-        <li><a href="../index.html#beleef">${T("menu.beleef", "Beleef de Merode")}</a></li>
         <li><a href="../producties.html">${T("menu.producties", "Producties")}</a></li>
         <li><a href="../wesp.html">${T("menu.wesp", "Over WESP")}</a></li>
         <li><a href="../vorige-edities.html">${T("menu.edities", "Vorige edities")}</a></li>
-        <li><a href="../index.html#nieuwsbrief">${T("menu.nieuwsbrief", "Nieuwsbrief")}</a></li>
       </ul>
     </nav>
     <a class="btn" href="${esc(S.ticketlink || e.tickets || "#")}">${T("menu.tickets", "Tickets")}</a>
@@ -395,11 +393,9 @@ const editiesHtml = `<!DOCTYPE html>
       <ul>
         <li><a href="index.html#agenda">${T("menu.agenda", "Agenda")}</a></li>
         <li><a href="index.html#festival">${T("menu.festival", "Festival 2027")}</a></li>
-        <li><a href="index.html#beleef">${T("menu.beleef", "Beleef de Merode")}</a></li>
         <li><a href="producties.html">${T("menu.producties", "Producties")}</a></li>
         <li><a href="wesp.html">${T("menu.wesp", "Over WESP")}</a></li>
         <li><a href="vorige-edities.html">${T("menu.edities", "Vorige edities")}</a></li>
-        <li><a href="index.html#nieuwsbrief">${T("menu.nieuwsbrief", "Nieuwsbrief")}</a></li>
       </ul>
     </nav>
     <a class="btn" href="${esc(S.ticketlink || "#")}">${T("menu.tickets", "Tickets")}</a>
@@ -489,7 +485,12 @@ t.addEventListener("click", function () { var o = n.classList.toggle("open"); t.
 `;
 await fs.writeFile(path.join(ROOT, "vorige-edities.html"), editiesHtml);
 // ---------- Beleef de Merode (uit site/data/beleef.json) ----------
-const beleef = JSON.parse(await fs.readFile(path.join(ROOT, "data/beleef.json"), "utf8"));
+const beleefAlle = JSON.parse(await fs.readFile(path.join(ROOT, "data/beleef.json"), "utf8"));
+// Ode aan de Merode en The Sound of the Abbey zijn volwaardige producties (pagina’s onder Producties): geen aparte Beleef-pagina meer
+const NAAR_PRODUCTIE = new Set(["ode-aan-de-merode", "the-sound-of-the-abbey"]);
+const beleef = beleefAlle.filter(b => !NAAR_PRODUCTIE.has(b.slug));
+const beleefHref = slug => NAAR_PRODUCTIE.has(slug) ? `productie-${slug}.html` : `${slug}.html`;
+for (const slug of NAAR_PRODUCTIE) await fs.rm(path.join(ROOT, `${slug}.html`), { force: true });
 const [kopEd, restEd] = editiesHtml.split("<main>");
 const voetEd = restEd.split("</main>")[1];
 const ytKnop = (id, label) => `<div class="video"><button class="yt" type="button" data-id="${id}" aria-label="${esc(label)}" style="background-image:url(https://i.ytimg.com/vi/${id}/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div>`;
@@ -568,7 +569,7 @@ for (const b of beleef) {
       ${b.extra ? `<div class="bl-sectie"><h2>${esc(b.extra.titel)}</h2><p>${esc(b.extra.tekst)}</p><p><a class="btn" href="${esc(b.extra.url)}">${esc(b.extra.knop)}</a></p></div>` : ""}
       <div class="bl-sectie"><p class="bl-credits">${esc(b.credits)}</p>
         <h2 style="margin-top:2rem">${T("beleef.meer", "Meer beleven")}</h2>
-        <ul class="meer-beleven">${beleef.filter(x => x.slug !== b.slug).map(x => `<li><a href="${x.slug}.html"><span class="label">${esc(x.label)}</span><span class="naam">${esc(x.titel)}</span></a></li>`).join("")}</ul>
+        <ul class="meer-beleven">${beleefAlle.filter(x => x.slug !== b.slug).map(x => `<li><a href="${beleefHref(x.slug)}"><span class="label">${esc(x.label)}</span><span class="naam">${esc(x.titel)}</span></a></li>`).join("")}</ul>
       </div>
     </div>
   </section>`;
