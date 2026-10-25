@@ -1,0 +1,70 @@
+/* Pagina Over WESP */
+.w-hero{padding:4rem 0 3rem}
+.w-hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+.w-voorzin{margin:.5rem 0 0;font-size:1.3rem;color:var(--s-licht)}
+.w-hero h1{font-size:clamp(2.1rem,5.2vw,3.7rem);margin:1.1rem 0 1.25rem;max-width:18ch}
+.w-lead{font-size:1.3rem;color:var(--s-licht);max-width:34rem}
+.w-hero .acties{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+.radius{width:100%;max-width:480px;justify-self:center;overflow:visible}
+.radius .ring{fill:none;stroke:rgba(239,231,218,.28);stroke-width:1.5}
+.radius .core{fill:var(--s-oranje)}
+.radius .core-t{fill:var(--s-op-oranje);font-family:var(--serif);font-size:17px}
+.radius .dot{fill:var(--s-oranje)}
+.radius .place{font-family:var(--serif);font-size:19px;fill:var(--s-licht)}
+.radius .sub{font-size:14px;fill:var(--s-zand);font-family:var(--label)}
+.radius .link{stroke:var(--s-oranje);stroke-width:1;stroke-dasharray:3 5;opacity:.6}
+@media (prefers-reduced-motion:no-preference){
+  .radius .ring{transform-origin:250px 250px;animation:w-grow 1.1s ease-out both}
+  .radius .ring:nth-of-type(2){animation-delay:.15s}
+  .radius .ring:nth-of-type(3){animation-delay:.3s}
+  .radius .link,.radius .knoop{animation:w-in .9s ease-out both;animation-delay:var(--d,.8s)}
+  @keyframes w-grow{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:scale(1)}}
+  @keyframes w-in{from{opacity:0}to{opacity:1}}
+}
+@media (max-width:860px){.w-hero .wrap{grid-template-columns:1fr;gap:2rem}}
+.w-ankers{border-top:1px solid var(--s-nacht-2);border-bottom:1px solid var(--s-nacht-2);padding:.9rem 0}
+.w-ankers .wrap{display:flex;flex-wrap:wrap;gap:.5rem}
+.w-ankers a{padding:.4rem .95rem;border-radius:999px;font-family:var(--label);font-size:.95rem;text-decoration:none;box-shadow:inset 0 0 0 1.5px rgba(239,231,218,.35)}
+.w-ankers a:hover{background:var(--s-licht);color:var(--s-nacht);box-shadow:none}
+.w-sec{padding:4rem 0}
+.w-sec .wrap{display:block}
+.w-sec.licht{background:var(--s-papier);color:var(--s-papier-inkt)}
+.w-sec.donker{background:var(--s-nacht);color:var(--s-licht)}
+.w-sec.band{background:linear-gradient(rgba(28,20,15,.74),rgba(28,20,15,.86)),var(--bg) center/cover;color:var(--s-licht);padding:5rem 0}
+.w-sec h2{font-size:clamp(1.8rem,3.5vw,2.4rem);margin:0 0 1rem}
+.w-sec h3{font-size:1.35rem;margin:.9rem 0 .5rem}
+.w-intro{max-width:44rem;font-size:1.15rem;margin:0}
+.w-klein{font-size:1rem;opacity:.92;max-width:44rem}
+.w-link{display:inline-block;margin-top:.6rem;font-family:var(--label);font-size:.95rem;text-underline-offset:4px}
+.w-sec .acties{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+.w-sec.licht .btn.ghost{color:var(--s-papier-inkt)}
+.w-sporen{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.w-spoor figure,.w-col figure{margin:0}
+.w-spoor img,.w-col img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.w-spoor-tekst{border-top:3px solid var(--s-oranje);margin-top:1rem;padding-top:.5rem}
+.w-spoor h3{margin-top:.4rem}
+.w-spoor p{margin:0}
+.w-methode{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center}
+.w-pijlers,.w-lijst{margin:0}
+.w-pijlers div,.w-lijst div{padding:.65rem 0;border-top:1px solid rgba(239,231,218,.25)}
+.w-sec.licht .w-lijst div{border-top-color:var(--s-papier-lijn)}
+.w-pijlers dt,.w-lijst dt{font-family:var(--label);font-size:1rem;color:var(--s-oranje)}
+.w-sec.licht .w-lijst dt{color:var(--s-papier-zacht)}
+.w-pijlers dd,.w-lijst dd{margin:.15rem 0 0}
+.w-twee{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1.5rem}
+.w-col h3{margin-top:1.1rem}
+.w-col p{max-width:none}
+.w-rijen{margin-top:1rem}
+.w-rij{display:grid;grid-template-columns:8rem 1fr auto;gap:1.25rem;padding:1.1rem 0;border-top:1px solid rgba(239,231,218,.25);align-items:start}
+.w-rij h3{margin:0 0 .3rem}
+.w-rij p{margin:0}
+.w-rij .w-label{opacity:.8}
+.w-rij .w-link{margin-top:0}
+.w-label{margin:0}
+.w-team{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:start}
+.w-team a{color:inherit}
+@media (max-width:860px){
+  .w-sporen,.w-methode,.w-twee,.w-team{grid-template-columns:1fr;gap:1.75rem}
+  .w-rij{grid-template-columns:1fr;gap:.4rem}
+  .w-sec{padding:3rem 0}
+}
