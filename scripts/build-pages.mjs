@@ -486,11 +486,16 @@ t.addEventListener("click", function () { var o = n.classList.toggle("open"); t.
 await fs.writeFile(path.join(ROOT, "vorige-edities.html"), editiesHtml);
 // ---------- Beleef de Merode (uit site/data/beleef.json) ----------
 const beleefAlle = JSON.parse(await fs.readFile(path.join(ROOT, "data/beleef.json"), "utf8"));
-// Ode aan de Merode en The Sound of the Abbey zijn volwaardige producties (pagina’s onder Producties): geen aparte Beleef-pagina meer
-const NAAR_PRODUCTIE = new Set(["ode-aan-de-merode", "the-sound-of-the-abbey"]);
-const beleef = beleefAlle.filter(b => !NAAR_PRODUCTIE.has(b.slug));
-const beleefHref = slug => NAAR_PRODUCTIE.has(slug) ? `productie-${slug}.html` : `${slug}.html`;
-for (const slug of NAAR_PRODUCTIE) await fs.rm(path.join(ROOT, `${slug}.html`), { force: true });
+// De vroegere Beleef-pagina’s zijn volwaardige producties geworden (pagina’s onder Producties): geen aparte pagina’s meer
+const NAAR_PRODUCTIE = {
+  "ode-aan-de-merode": "productie-ode-aan-de-merode",
+  "the-sound-of-the-abbey": "productie-the-sound-of-the-abbey",
+  "podcast": "productie-wandelpodcast",
+  "volkscafes": "productie-volkscafes",
+};
+const beleef = beleefAlle.filter(b => !NAAR_PRODUCTIE[b.slug]);
+const beleefHref = slug => (NAAR_PRODUCTIE[slug] || slug) + ".html";
+for (const slug of Object.keys(NAAR_PRODUCTIE)) await fs.rm(path.join(ROOT, `${slug}.html`), { force: true });
 const [kopEd, restEd] = editiesHtml.split("<main>");
 const voetEd = restEd.split("</main>")[1];
 const ytKnop = (id, label) => `<div class="video"><button class="yt" type="button" data-id="${id}" aria-label="${esc(label)}" style="background-image:url(https://i.ytimg.com/vi/${id}/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div>`;

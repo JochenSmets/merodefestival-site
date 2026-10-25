@@ -25,6 +25,8 @@ iframe.speler-geladen{display:block;width:100%;border:0;border-radius:8px}
 .ed-klap:not(.open) .affiche,.ed-klap:not(.open) .tekst,.ed-klap:not(.open) .prog,.ed-klap:not(.open) .videos,.ed-klap:not(.open) .dank{display:none}
 .ks-klap:not(.open) .kcover,.ks-klap:not(.open) .kerk-lijst,.ks-klap:not(.open) .kopm{display:none}
 .ed-knop{margin:.5rem 0 0;background:none;border:0;padding:0;color:inherit;font-family:var(--label,system-ui);font-size:.95rem;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.ook-meer{margin:1.25rem 0 0}
+.ook-meer a{font-family:var(--label,system-ui);text-underline-offset:4px}
 footer .steun-logo{display:block;width:200px;max-width:100%;height:auto;margin:.5rem 0 1rem}
 footer .foot-onder{margin-top:1.75rem;padding-top:1.1rem;border-top:1px solid rgba(239,231,218,.18)}
 footer .foot-links{margin:0;font-family:var(--label,system-ui);font-size:.95rem;display:flex;flex-wrap:wrap;gap:.35rem 1.5rem}
@@ -89,6 +91,12 @@ const JS = String.raw`(function () {
   }
 })();
 `;
+
+// Tekens als & in een attribuut staan in de pagina als &amp;. Eerst terugzetten, daarna maar één keer opnieuw coderen: zo komt een & nooit dubbel (&amp;amp;) door.
+const decode = t => String(t ?? "")
+  .replace(/&#(\d+);/g, (m, n) => String.fromCharCode(+n))
+  .replace(/&#x([0-9a-f]+);/gi, (m, n) => String.fromCharCode(parseInt(n, 16)))
+  .replace(/&(amp|lt|gt|quot|apos);/g, (m, e) => ({ amp: "&", lt: "<", gt: ">", quot: '"', apos: "'" }[e]));
 
 const lijstHtml = async (dir, rel = "") => {
   const uit = [];
@@ -179,16 +187,16 @@ export async function afwerking({ ROOT, SITE }) {
 
     // 2. spelers pas na een klik
     h = h.replace(/<iframe\b([^>]*)>\s*<\/iframe>/gi, (m, a) => {
-      const src = attr(a, "src").replace(/&amp;/g, "&");
+      const src = decode(attr(a, "src"));
       let hostSpeler = "";
       try { hostSpeler = new URL(src).hostname; } catch { return m; }
       if (!/(^|\.)(open\.spotify\.com|w\.soundcloud\.com)$/.test(hostSpeler)) return m;
       nSpelers++;
       const dienst = dienstNaam(hostSpeler);
-      const titel = attr(a, "title") || `Speler van ${dienst}`;
-      const hoogte = attr(a, "height") || (/soundcloud/.test(hostSpeler) ? "166" : "152");
-      const klasse = attr(a, "class");
-      const allow = attr(a, "allow");
+      const titel = decode(attr(a, "title")) || `Speler van ${dienst}`;
+      const hoogte = decode(attr(a, "height")) || (/soundcloud/.test(hostSpeler) ? "166" : "152");
+      const klasse = decode(attr(a, "class"));
+      const allow = decode(attr(a, "allow"));
       const uitleg = T("speler.uitleg", "Pas na je klik laden we de speler van {dienst}. Die ziet dan je IP-adres en kan cookies plaatsen.").replace("{dienst}", dienst);
       const knopTekst = T("speler.knop", "Speel af via {dienst}").replace("{dienst}", dienst);
       const meer = T("speler.meer", "Meer info");
@@ -237,6 +245,7 @@ export async function afwerking({ ROOT, SITE }) {
     if (!h.includes("css/afwerking.css")) h = h.replace("</head>", `<link rel="stylesheet" href="${up}css/afwerking.css">\n</head>`);
     if ((h.includes("speler-wacht") || h.includes('class="editie"')) && !h.includes("js/afwerking.js")) h = h.replace("</body>", `<script src="${up}js/afwerking.js" defer></script>\n</body>`);
 
+    h = h.replace(/&amp;(amp|lt|gt|quot|#\d+);/g, "&$1;");   // vangnet: een dubbel gecodeerd teken herstellen
     if (h !== voor) { await fs.writeFile(pad, h); nVerwerkt++; }
   }
   console.log(`Afwerking: ${nVerwerkt} pagina’s bewerkt, ${nSpelers} spelers achter een klik, ${nThumbs} voorbeeldbeelden lokaal${cf || pl ? ", statistieken aan" : ", statistieken uit (nog geen token ingevuld)"}.`);

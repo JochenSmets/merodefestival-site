@@ -82,6 +82,7 @@
         </div>
       </div>
       <ul class="ook-lijst" id="ook-lijst" tabindex="0" aria-label="Concerten van WESP, schuif opzij voor meer"></ul>
+      <p class="ook-meer"><a href="wesp.html">Meer over WESP →</a></p>
     </div>
   </section>
 
@@ -98,39 +99,6 @@
     <div class="wrap fest-beelden">
       <figure><img src="img/wandel.jpg" alt="Wandelaars op een bospad in de Merode" loading="lazy"><figcaption>Overdag: muzikale wandelingen door de natuur</figcaption></figure>
       <figure><img src="img/ovatie.jpg" alt="Muzikanten nemen applaus in ontvangst op een openluchtpodium bij avond" loading="lazy"><figcaption>’s Avonds: folk op de Citadel</figcaption></figure>
-    </div>
-  </section>
-
-  <section class="papier edities-teaser" id="vorige-edities" aria-labelledby="edities-titel">
-    <div class="wrap">
-      <div class="edities-kop">
-        <div>
-          <h2 id="edities-titel">Sinds 2015</h2>
-          <p>Meer dan tien jaar folk in de Merode: elk jaar het beste van de Europese folkscene, en sinds 2017 ook een concertreeks door het jaar heen.</p>
-        </div>
-        <a class="btn" href="vorige-edities.html">Alle vorige edities</a>
-      </div>
-      <ol class="jaren" id="jaren"></ol>
-    </div>
-  </section>
-
-  <section class="beleef-sectie" id="beleef" aria-labelledby="beleef-titel">
-    <div class="wrap">
-      <h2 id="beleef-titel">Beleef de Merode, ook thuis</h2>
-      <p class="beleef-intro">Muziek, verhalen en wandelingen om mee te nemen.</p>
-      <ul class="beleef-grid">
-        <li><a href="productie-ode-aan-de-merode.html"><span class="label">Boek</span><span class="naam">Ode aan de Merode</span><span class="uitleg">Negen verhalen, wandelingen, video’s en een afspeellijst.</span></a></li>
-        <li><a href="podcast.html"><span class="label">Podcast</span><span class="naam">Wandelpodcast</span><span class="uitleg">Folkmuzikanten vertellen onderweg over hun muziek, en spelen in de natuur.</span></a></li>
-        <li><a href="productie-the-sound-of-the-abbey.html"><span class="label">Cd en vinyl</span><span class="naam">The Sound of the Abbey</span><span class="uitleg">Opnames uit de Abdij van Park, met dertien artiesten.</span></a></li>
-        <li><a href="volkscafes.html"><span class="label">Video’s</span><span class="naam">Volkscafés en volksliekes</span><span class="uitleg">Het muzikale erfgoed van de streek, in beeld.</span></a></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="wesp" aria-label="Over WESP">
-    <div class="wrap">
-      <p>Merodefestival is meer dan concerten. Als folkincubator creëren, begeleiden en verbinden we folk- en wereldmuziek in Vlaanderen, met het landschap als vertrekpunt.</p>
-      <a class="btn ghost" href="wesp.html">Ontdek wat WESP doet</a>
     </div>
   </section>
 
@@ -272,8 +240,8 @@ list.innerHTML = upcoming.map((e,i) => {
       <h3 class="artist">${pagina ? `<a href="${esc(pagina)}">` : ""}${esc(e.artist)}${pagina ? "</a>" : ""}${e.origin ? ` <span class="herkomst">(${esc(e.origin)})</span>` : ""}</h3>
       <p class="meta"><span class="soort">${esc(e.kind)}</span> · ${esc([e.place, e.village].filter(Boolean).join(", "))}${e.time ? " · " + esc(e.time) : ""}</p>
       <div class="links">
-        ${e.text && !e.slug ? `<details><summary>Meer info</summary>${String(e.text).split(/\n\s*\n/).map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}
-        ${pagina ? `<a href="${esc(pagina)}${(e.videos || []).length || (e.spotify || []).length ? "#luister" : ""}">${(e.videos || []).length || (e.spotify || []).length ? "Kijk en luister" : "Meer over dit concert"}</a>` : ""}
+        ${e.text ? `<details><summary>Meer info</summary>${String(e.text).split(/\n\s*\n/).map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}
+        ${pagina ? `<a href="${esc(pagina)}">Meer over dit concert</a>` : ""}
       </div>
     </div>
     <div class="act">${e.price && !e.volzet ? `<span class="price">${esc(e.price)}</span>` : ""}${ticketHtml(e, false)}</div>
@@ -296,8 +264,6 @@ if (fest) {
     (s2 ? `${s1.getDate()}–${s2.getDate()} ${MAAND_LANG[s2.getMonth()]} ${s2.getFullYear()}` : `${s1.getDate()} ${MAAND_LANG[s1.getMonth()]} ${s1.getFullYear()}`);
   if (fest.slug) document.getElementById("fest-link").href = `concert/${fest.slug}.html`;
 }
-document.getElementById("jaren").innerHTML = (window.EDITIES || []).map(x =>
-  `<li><a href="vorige-edities.html#${x.jaar}"><span class="jaar">${x.jaar}</span><span class="plek">${esc(x.plek || x.titel || (x.videos ? "Foto’s en video’s" : "Geen festival"))}</span></a></li>`).join("");
 
 // ---------- ook van WESP: alle komende concerten in een schuiflijst ----------
 const andere = ALLES.filter(e => !isMerode(e) && d(e.end || e.start) >= today)
