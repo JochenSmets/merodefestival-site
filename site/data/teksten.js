@@ -106,7 +106,7 @@ window.TEKSTEN = {
   "menu.producties": "Producties",
   "menu.tickets": "Tickets",
   "producties.beschrijving": "Concerten, installaties, playlists en concepten op maat van Merodefestival, om te boeken voor cultuurcentra, festivals en bijzondere locaties.",
-  "producties.intro": "Concerten en programma’s die Merodefestival mee maakt en op tournee stuurt. Elke productie kan geboekt worden door cultuurcentra, festivals en organisatoren van bijzondere locaties.",
+  "producties.intro": "Merodefestival maakt podiumproducties, installaties, concepten op maat en playlists/albums. ",
   "producties.knop-standaard": "Vraag een optie",
   "producties.luister": "Kijk en luister",
   "producties.terug": "← Producties",
