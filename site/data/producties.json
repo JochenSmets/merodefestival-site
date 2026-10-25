@@ -702,14 +702,14 @@
     "titel": "Klanken in de kapel",
     "label": "Concept op maat, solo in een kapel",
     "makers": "Merodefestival, met solomuzikanten uit folk, wereldmuziek, jazz en klassiek",
-    "tekst": "Een solomuzikant, een kapel of bijzondere kleine ruimte en een klein publiek: korte akoestische concerten die muziek en stilte verbinden. Wij regelen alles, van de afstemming met de kapel tot de coördinatie op de dag zelf.",
+    "tekst": "Eén muzikant, een kapel en een klein publiek: een korte akoestische avond waarin muziek en stilte samenkomen. Wij regelen alles, van de afstemming met de kapel tot de coördinatie op de dag zelf.",
     "extra": "Wil jij in jouw gemeente een van je beschikbare ruimtes omtoveren voor een unieke akoestische ervaring, bijvoorbeeld voor de Dag van de Stilte?",
-    "waar": "In een kapel of bijzondere kleine ruimte in jouw gemeente",
-    "vorm": "Solo-concert voor een kleine groep, in een kapel of bijzondere kleine ruimte",
+    "waar": "In een kapel of bijzondere ruimte in jouw gemeente",
+    "vorm": "Solo-concert voor een kleine groep",
     "speelduur": "45 minuten, of 2 × 45 minuten",
     "periode": "",
     "data": [],
-    "bezetting": "Eén muzikant, in overleg gekozen: wereldmuziek, folk, jazz, klassiek of een blend",
+    "bezetting": "Eén muzikant, in overleg gekozen",
     "techniek": "Akoestisch",
     "geschikt": "Gemeentebesturen, kapellen en kerkfabrieken, erfgoedsites",
     "prijs": "Op aanvraag",
@@ -732,11 +732,11 @@
       },
       {
         "type": "p",
-        "html": "Wij brengen professionele muzikanten in kapellen en andere bijzondere kleine ruimtes. Met solomuzikanten, akoestische klank en korte concerten maken we met minimale middelen een intense, verstilde luisterervaring. Enkel muziek, ruimte en publiek in balans."
+        "html": "Eén professionele muzikant speelt akoestisch in een kapel of een andere bijzondere kleine ruimte, voor een klein publiek. Met minimale middelen ontstaat zo een intense, verstilde luisterervaring: enkel muziek, ruimte en publiek."
       },
       {
         "type": "p",
-        "html": "Het is telkens één muzikant voor een kleine groep, in een intieme luistersetting. De stijl kan wereldmuziek, folk, jazz, klassiek of een blend zijn. Het resultaat is een toegankelijke en betaalbare formule die muziek en stilte verbindt, en tegelijk inzet op eerlijke verloning voor de muzikant."
+        "html": "De stijl kan wereldmuziek, folk, jazz, klassiek of een blend zijn. Een toegankelijke en betaalbare formule, met eerlijke verloning voor de muzikant."
       },
       {
         "type": "h2",
@@ -744,35 +744,23 @@
       },
       {
         "type": "p",
-        "html": "We nemen de volledige organisatie op ons:"
+        "html": "Wij nemen de organisatie volledig op ons:"
       },
       {
         "type": "ul",
-        "html": "de lokale afstemming met de kapel of de beheerder"
+        "html": "de afstemming met de kapel of de beheerder"
       },
       {
         "type": "ul",
-        "html": "de promotionele voorbereiding en de ticketing"
+        "html": "promotie en ticketing"
       },
       {
         "type": "ul",
-        "html": "alle praktische afspraken met de muzikant"
+        "html": "alle afspraken met de muzikant"
       },
       {
         "type": "ul",
-        "html": "de volledige coördinatie op de dag zelf, zowel voor de muzikant als voor de begeleiding van het publiek"
-      },
-      {
-        "type": "p",
-        "html": "We werken met verschillende muzikanten die ervaring hebben met dit intieme format."
-      },
-      {
-        "type": "h2",
-        "html": "Wat het kost"
-      },
-      {
-        "type": "p",
-        "html": "Op aanvraag. We maken graag een voorstel op maat."
+        "html": "de coördinatie op de dag zelf, voor muzikant en publiek"
       },
       {
         "type": "h2",
@@ -780,31 +768,30 @@
       },
       {
         "type": "p",
-        "html": "In ons eigen programma staan de komende avonden, bij Merodefestival € 6 per ticket:"
+        "html": "Recente avonden in ons eigen programma:"
       },
       {
         "type": "ul",
-        "html": "<strong>Lydie Thonnard</strong> in de Kapel Onze-Lieve-Vrouw-ten-Eik in Tongerlo, vrijdag 23 oktober 2026"
+        "html": "<strong>Lydie Thonnard</strong>, Kapel Onze-Lieve-Vrouw-ten-Eik, Tongerlo (23 oktober 2026)"
       },
       {
         "type": "ul",
-        "html": "<strong>Stijn Kuppens</strong> in de Sint-Bavokapel in Eindhout, zaterdag 24 oktober 2026"
+        "html": "<strong>Stijn Kuppens</strong>, Sint-Bavokapel, Eindhout (24 oktober 2026)"
       },
       {
         "type": "ul",
-        "html": "<strong>Stefan Bracaval</strong> in de Sint-Dimpnakapel in Zammel, 17 oktober 2025"
+        "html": "<strong>Stefan Bracaval</strong>, Sint-Dimpnakapel, Zammel (17 oktober 2025)"
       },
       {
         "type": "p",
-        "html": "Merodefestival organiseert in 2026 en in 2027 telkens drie eigen avonden. Voor jouw gemeente, jouw kapel of jouw erfgoedsite kan je een avond op maat boeken, bijvoorbeeld voor de Dag van de Stilte."
-      },
-      {
-        "type": "p",
-        "html": "<em>Klanken in de kapel is een organisatie van Merodefestival, in samenwerking met Landschapspark de Merode en vzw Folkmjusic.</em>"
+        "html": "<em>Klanken in de kapel is een organisatie van Merodefestival, in samenwerking met Landschapspark de Merode en Folkmusic vzw.</em>"
       }
     ],
     "foto": "data/foto/40377c21f8db8134990ee04c9a3c9d9c.jpg",
-    "fotos": []
+    "fotos": [
+      "data/foto/40377c21f8db8134990ee04c9a3c9d9c-1.jpg",
+      "data/foto/40377c21f8db8134990ee04c9a3c9d9c-2.jpg"
+    ]
   },
   {
     "slug": "muzikale-wandelingen",
