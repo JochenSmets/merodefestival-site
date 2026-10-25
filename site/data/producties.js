@@ -457,8 +457,8 @@ window.PRODUCTIES = [
     "soort": "Installatie",
     "titel": "Huis der Weemoed",
     "label": "Muziekinstallatie, Langdorp",
-    "makers": "Merodefestival, met muziek van Toon Van Mierlo, de stem van Reineke Van Hooreweghe en zang van Sophie Janna",
-    "tekst": "In een voormalig dodenhuisje aan de Sint-Pieterskerk van Langdorp staat een luwteplek waar een mystieke film en hemelse klanken troost bieden bij rouw en afscheid.",
+    "makers": "Merodefestival, met Toon Van Mierlo, Reineke Van Hooreweghe en Sophie Janna",
+    "tekst": "In een voormalig dodenhuisje aan de Sint-Pieterskerk van Langdorp bieden een mystieke film en hemelse klanken troost bij rouw en afscheid.",
     "extra": "Ook een muziekinstallatie op jouw erfgoedsite of in jouw natuurdomein? De muzikanten kiezen we in overleg met jou.",
     "waar": "Aan de lange muur van de Sint-Pieterskerk in Langdorp",
     "vorm": "Film met muziek en stemmen, via scherm en luidsprekers",
@@ -483,11 +483,7 @@ window.PRODUCTIES = [
       },
       {
         "type": "p",
-        "html": "Halfweg de lange muur aan de Sint-Pieterskerk ontdek je als wandelaar of fietser een bijzondere plek: het Huis der Weemoed. Je zet je even neer, leest, luistert ... en staat verrast van het échte verhaal achter dit gebouw."
-      },
-      {
-        "type": "p",
-        "html": "Het Huis der Weemoed is een voormalig dodenhuisje dat een nieuwe bestemming kreeg als luwteplek en streekinfopunt. Het klinkt misschien wat onwennig, maar met veel respect werd het kleine gebouw opgewaardeerd tot een rustplek waar iedereen welkom is."
+        "html": "Halfweg de lange muur aan de Sint-Pieterskerk ontdek je als wandelaar of fietser het Huis der Weemoed. Je zet je even neer, leest, luistert ... en staat verrast van het échte verhaal achter dit gebouw. Het voormalige dodenhuisje kreeg met veel respect een nieuwe bestemming als luwteplek en streekinfopunt, waar iedereen welkom is."
       },
       {
         "type": "h2",
@@ -495,19 +491,11 @@ window.PRODUCTIES = [
       },
       {
         "type": "p",
-        "html": "Je kan er ook op een hedendaagse manier stilstaan bij rouw en afscheid. Een mystieke film en hemelse klanken helpen je troost te vinden in de herinnering aan wat was."
+        "html": "Je kan er op een hedendaagse manier stilstaan bij rouw en afscheid. Een mystieke film en hemelse klanken helpen je troost te vinden in de herinnering aan wat was."
       },
       {
         "type": "p",
-        "html": "Hiervoor ontwikkelde Merodefestival een verhalende video met muziek van Toon Van Mierlo, de stem van Reineke Van Hooreweghe en de zang van Sophie Janna. De opname was in handen van Bert Huysentruyt."
-      },
-      {
-        "type": "h2",
-        "html": "Voor jouw plek"
-      },
-      {
-        "type": "p",
-        "html": "Merodefestival werkt dit graag uit voor andere erfgoedsites en natuurdomeinen. Maarten Deboes staat in voor de techniek, Bert Huysentruyt voor de opnames. De muzikanten worden gekozen in overleg."
+        "html": "Merodefestival ontwikkelde hiervoor een verhalende video met muziek en stemmen."
       }
     ],
     "foto": "data/foto/40377c21f8db80398761eecd17dc631f.jpg",
@@ -521,15 +509,15 @@ window.PRODUCTIES = [
     "titel": "Huis der Weemoed: zeven plekken, zeven liederen",
     "label": "Installatieproject, 2026–2027",
     "makers": "Merodefestival, met Laura Cortese, Toon Van Mierlo, Ward Dhoore, Reineke Van Hooreweghe en Bert Huysentruyt",
-    "tekst": "Zeven erfgoedplekken in Landschapspark de Merode, elk verbonden met een fase van een mensenleven en met een eigen lied, gezongen door vrouwenstemmen uit levende volksmuziektradities.",
+    "tekst": "Zeven erfgoedplekken in Landschapspark de Merode, elk met een eigen lied bij een fase van het leven, gezongen door zeven vrouwenstemmen uit levende volksmuziektradities.",
     "extra": "Een productie van Merodefestival (WESP vzw), in samenwerking met Landschapspark de Merode en de betrokken lokale besturen, beheerders en erfgoedpartners.",
     "waar": "Zeven plekken in Landschapspark de Merode, van Gerhagen tot Averbode",
     "vorm": "Zeven permanente installaties langs het Merodepad, met een lied per plek",
     "speelduur": "",
-    "periode": "Schrijftraject najaar 2026, opnamekamp mei 2027, installatie vanaf zomer 2027",
+    "periode": "Najaar 2026 tot zomer 2027",
     "data": [],
-    "bezetting": "Zeven stemmen: Vera Coomans, Julie Murphy, Sylvie Berger, Laura Cortese, Kapinga Gysel, Flavia Clementi en Nette Mortelmans.\nKernteam: Laura Cortese, Reineke Van Hooreweghe, Toon Van Mierlo, Ward Dhoore, Bert Huysentruyt en Jochen Smets.",
-    "techniek": "Een permanente installatie per plek, in de Merode-huisstijl, die pas klinkt wanneer de bezoeker dat kiest",
+    "bezetting": "Zeven zangeressen en een kernteam van zes, onder artistieke leiding van Laura Cortese",
+    "techniek": "Permanente installatie per plek, klinkt pas als de bezoeker dat kiest",
     "geschikt": "",
     "prijs": "",
     "contact": "info@merodefestival.be",
@@ -546,15 +534,15 @@ window.PRODUCTIES = [
       },
       {
         "type": "p",
-        "html": "Zeven erfgoedplekken in Landschapspark de Merode, elk verbonden met een fase van een mensenleven en met een eigen lied. De liederen worden gezongen door vrouwenstemmen uit levende volksmuziektradities, en blijven op de plek zelf beluisterbaar, het hele jaar door. Wie het Merodepad loopt, komt ze onderweg tegen, in de volgorde van een leven."
+        "html": "Zeven erfgoedplekken in Landschapspark de Merode, elk verbonden met een fase van een mensenleven en met een eigen lied. Wie het Merodepad loopt, komt ze onderweg tegen, in de volgorde van een leven."
       },
       {
         "type": "p",
-        "html": "Het project vertrekt van de klaagzang en de rouwzang, de oude vrouwelijke traditie van het zingen bij geboorte, ziekte, verlies en overgang, van Wales over Ierland tot de Kempen. Rouw en hoop zijn daarin geen tegenpolen, maar twee kanten van hetzelfde gevoel."
+        "html": "Het project vertrekt van de klaagzang en de rouwzang, de oude vrouwelijke traditie van het zingen bij geboorte, ziekte, verlies en overgang. Rouw en hoop zijn daarin geen tegenpolen, maar twee kanten van hetzelfde gevoel."
       },
       {
         "type": "p",
-        "html": "Het landschapspark is een van de grootste aaneengesloten open ruimtes van Vlaanderen, bekend om zijn stilte, rust en ruimte. Huis der Weemoed voegt daar één ding aan toe: een stem."
+        "html": "Het landschapspark is bekend om zijn stilte. Huis der Weemoed voegt daar één ding aan toe: een stem."
       },
       {
         "type": "h2",
@@ -562,11 +550,7 @@ window.PRODUCTIES = [
       },
       {
         "type": "p",
-        "html": "De eerste plek bestaat al. Op zondag 28 juni 2026 werd het voormalige dodenhuisje aan de Sint-Pieterskerk in Langdorp ingehuldigd, na een grondige renovatie, als luwteplek en streekinfopunt onder de naam Huis der Weemoed. Binnenin loopt permanent een artistieke film met muziek, die bezoekers op een hedendaagse manier laat stilstaan bij afscheid en rouw. Het huisje is ook de toegangspoort tot de pastorijtuin, met een stilteplek."
-      },
-      {
-        "type": "p",
-        "html": "Beelden en teksten zijn van Bert Huysentruyt en Reineke Van Hooreweghe, de muziek van Toon Van Mierlo, de dans van Dansstudio Kick-it. Dit is het referentiemodel voor de zes andere plekken: video of lied maken van een gerestaureerd gebouw een plek waar mensen iets kwijt kunnen."
+        "html": "De eerste plek bestaat al. Op 28 juni 2026 werd het voormalige dodenhuisje aan de Sint-Pieterskerk in Langdorp ingehuldigd als luwteplek en streekinfopunt, met een permanente film met muziek over afscheid en rouw. Het is het referentiemodel voor de zes andere plekken."
       },
       {
         "type": "h2",
@@ -574,23 +558,23 @@ window.PRODUCTIES = [
       },
       {
         "type": "p",
-        "html": "<strong>01 · Gerhagen, Tessenderlo-Ham: natuur, leven en geboorte.</strong> Een officieel stiltegebied langs de Zwarte Beek, een van de waardevolste natte heide- en veengebieden van Vlaanderen. Voorzien: een luisterpaal in het landschap, die zwijgt tot de bezoeker het lied zelf activeert."
+        "html": "<strong>01 · Gerhagen, Tessenderlo-Ham: natuur, leven en geboorte.</strong> Een officieel stiltegebied langs de Zwarte Beek. Voorzien: een luisterpaal die zwijgt tot de bezoeker het lied activeert."
       },
       {
         "type": "p",
-        "html": "<strong>02 · Sint-Jan-Berchmanshuis, Diest: jeugd, leren, verdwalen en terugvinden.</strong> Het geboortehuis van Jan Berchmans, patroonheilige van de studerende jeugd. Voorzien: een compacte installatie in de bedevaartsruimte binnen, ook geschikt voor schoolbezoeken."
+        "html": "<strong>02 · Sint-Jan-Berchmanshuis, Diest: jeugd, leren, verdwalen en terugvinden.</strong> Het geboortehuis van Jan Berchmans, patroon van de studerende jeugd. Voorzien: een compacte installatie in de bedevaartsruimte, ook voor schoolbezoeken."
       },
       {
         "type": "p",
-        "html": "<strong>03 · Sint-Bavokapel, Trichelhoek (Laakdal): ziekte en zorg.</strong> Een kapel waar ouders eeuwenlang kwamen bidden voor hun zieke kinderen. Voorzien: een discrete installatie die zachtjes het lied laat klinken wanneer iemand de kapel binnenkomt."
+        "html": "<strong>03 · Sint-Bavokapel, Trichelhoek (Laakdal): ziekte en zorg.</strong> Een kapel waar ouders eeuwenlang kwamen bidden voor hun zieke kinderen. Voorzien: een discrete installatie die zacht klinkt wanneer iemand binnenkomt."
       },
       {
         "type": "p",
-        "html": "<strong>04 · Sint-Dimpnakapel, Zammel (Geel): geestelijke gezondheid.</strong> Een stille wegkapel in de streek van de gezinsverpleging, een van de eerste en meest humane vormen van geestelijke gezondheidszorg. Voorzien: een kleine installatie aan een zitbank buiten, met zicht op de kapel."
+        "html": "<strong>04 · Sint-Dimpnakapel, Zammel (Geel): geestelijke gezondheid.</strong> Een stille wegkapel in de streek van de gezinsverpleging. Voorzien: een kleine installatie aan een zitbank buiten."
       },
       {
         "type": "p",
-        "html": "<strong>05 · Oude Dekenij, Westerlo: oud en wijs, rechtvaardigheid.</strong> Het voormalige vredegerecht, de rechtbank van de gewone mensen. Voorzien: een luisterkamer waar de volledige cyclus van zeven liederen te horen is, als onthaal- en vertrekpunt van het geheel."
+        "html": "<strong>05 · Oude Dekenij, Westerlo: oud en wijs, rechtvaardigheid.</strong> Het voormalige vredegerecht, de rechtbank van de gewone mensen. Voorzien: een luisterkamer met de volledige cyclus van zeven liederen, als onthaal- en vertrekpunt."
       },
       {
         "type": "p",
@@ -598,7 +582,7 @@ window.PRODUCTIES = [
       },
       {
         "type": "p",
-        "html": "<strong>07 · Abdij van Averbode: transcendentie.</strong> Een norbertijnenabdij uit 1134, nog altijd bewoond. De sluitsteen van het parcours, met een bescheiden luisterpunt in een afgebakende ruimte, buiten de liturgische ruimtes."
+        "html": "<strong>07 · Abdij van Averbode: transcendentie.</strong> Een norbertijnenabdij uit 1134, nog altijd bewoond. De sluitsteen van het parcours, met een bescheiden luisterpunt buiten de liturgische ruimtes."
       },
       {
         "type": "h2",
@@ -606,39 +590,35 @@ window.PRODUCTIES = [
       },
       {
         "type": "p",
-        "html": "Elke zangeres schrijft één lied bij één levensfase en één plek. De liederen worden individueel geschreven en daarna samen gearrangeerd."
+        "html": "Elke zangeres schrijft één lied bij één levensfase en één plek. Daarna worden de liederen samen gearrangeerd."
       },
       {
-        "type": "p",
-        "html": "<strong>Vera Coomans</strong> (Antwerpen): singer-songwriter tussen folk en chanson, de taal van het gewone verlies."
+        "type": "ul",
+        "html": "<strong>Vera Coomans</strong> (Antwerpen): singer-songwriter tussen folk en chanson"
       },
       {
-        "type": "p",
-        "html": "<strong>Julie Murphy</strong> (Wales): een van de gelauwerdste stemmen van de Keltische folk, wortelend in de traditie van het lament."
+        "type": "ul",
+        "html": "<strong>Julie Murphy</strong> (Wales): Keltische folk, wortelend in de traditie van het lament"
       },
       {
-        "type": "p",
-        "html": "<strong>Sylvie Berger</strong> (Frankrijk): medeoprichter van La Bergère, een centrale stem van de Franse volksmuziek uit de Berry en het Bourbonnais."
+        "type": "ul",
+        "html": "<strong>Sylvie Berger</strong> (Frankrijk): medeoprichter van La Bergère, Franse volksmuziek"
       },
       {
-        "type": "p",
-        "html": "<strong>Laura Cortese</strong> (Verenigde Staten, woont in België): violiste, componiste en zangeres, ook artistiek begeleider van het traject."
+        "type": "ul",
+        "html": "<strong>Laura Cortese</strong> (Verenigde Staten, woont in België): violiste, componiste en zangeres, ook artistiek begeleider"
       },
       {
-        "type": "p",
-        "html": "<strong>Kapinga Gysel</strong> (België, Congolese roots): zingt in het Nederlands, Frans en Lingala, tussen Centraal-Afrikaanse zangtraditie en Belgische urban folk."
+        "type": "ul",
+        "html": "<strong>Kapinga Gysel</strong> (België, Congolese roots): zingt in het Nederlands, Frans en Lingala"
       },
       {
-        "type": "p",
-        "html": "<strong>Flavia Clementi</strong> (Brussel): de stem van Peixe e Limão, die in uiteenlopende talen zingt."
+        "type": "ul",
+        "html": "<strong>Flavia Clementi</strong> (Brussel): de stem van Peixe e Limão"
       },
       {
-        "type": "p",
-        "html": "<strong>Nette Mortelmans</strong> (Gent): zangeres van de vroege jazz en de classic female blues, met L’Escaut Blues."
-      },
-      {
-        "type": "p",
-        "html": "Welke stem bij welke plek hoort, wordt vastgelegd bij de start van het schrijftraject."
+        "type": "ul",
+        "html": "<strong>Nette Mortelmans</strong> (Gent): vroege jazz en classic female blues, met L’Escaut Blues"
       },
       {
         "type": "h2",
@@ -646,19 +626,19 @@ window.PRODUCTIES = [
       },
       {
         "type": "p",
-        "html": "<strong>Najaar 2026: het schrijftraject.</strong> Elke zangeres schrijft haar lied vanuit haar levensfase en plek, met Laura Cortese als klankbord. In november volgen demo’s, in december liggen de liederen vast."
+        "html": "<strong>Najaar 2026: het schrijftraject.</strong> Elke zangeres schrijft haar lied, met Laura Cortese als klankbord."
       },
       {
         "type": "p",
-        "html": "<strong>Mei 2027: het opnamekamp.</strong> Alle zangeressen komen een week samen in de Abdij van Averbode voor repetitie, opnames en een eerste concert. Er zijn ook muzikale wandelingen op of bij de plekken, om te horen hoe elk lied klinkt op de plek waarvoor het geschreven is."
+        "html": "<strong>Mei 2027: het opnamekamp.</strong> Alle zangeressen komen een week samen in de Abdij van Averbode voor repetitie, opnames en een eerste concert, met muzikale wandelingen naar de plekken."
       },
       {
         "type": "p",
-        "html": "<strong>Zomer 2027: release en installatie.</strong> Een cd of EP en vijf videoclips verschijnen, en de permanente luisterplekken worden geplaatst. Het Merodepad, het meerdaagse wandeltraject van meer dan 150 kilometer, gaat vanaf 2027 open. Wie het pad in het openingsjaar loopt, kan de liederen van meet af aan onderweg tegenkomen."
+        "html": "<strong>Zomer 2027: release en installatie.</strong> Een cd of EP en vijf videoclips verschijnen, en de luisterplekken worden geplaatst. Het Merodepad, meer dan 150 kilometer lang, gaat vanaf 2027 open."
       },
       {
         "type": "p",
-        "html": "<strong>Vanaf 2028: beheer.</strong> Een jaarlijkse onderhoudsronde en een evaluatie na een volledig seizoen."
+        "html": "<strong>Vanaf 2028: beheer.</strong> Een jaarlijkse onderhoudsronde."
       },
       {
         "type": "h2",
@@ -666,31 +646,19 @@ window.PRODUCTIES = [
       },
       {
         "type": "p",
-        "html": "<strong>Stilte als vertrekpunt.</strong> Geen enkele installatie speelt continu. Elk lied wordt geactiveerd door de bezoeker of door zijn aanwezigheid, op laag volume. Het landschap blijft stil tot iemand ervoor kiest te luisteren."
+        "html": "<strong>Stilte als vertrekpunt.</strong> Geen enkele installatie speelt continu: elk lied klinkt pas als de bezoeker het activeert of binnenkomt, op laag volume."
       },
       {
         "type": "p",
-        "html": "<strong>Omkeerbaar.</strong> Alle plekken zijn erfgoed. Bevestigingen zijn niet-invasief en omkeerbaar, na overleg met eigenaar, beheerder en erfgoedinstanties."
+        "html": "<strong>Omkeerbaar.</strong> Alle plekken zijn erfgoed: bevestigingen zijn niet-invasief en omkeerbaar, in overleg met eigenaar en beheerder."
       },
       {
         "type": "p",
-        "html": "<strong>Eenheid.</strong> Alle dragers volgen de Merode-huisstijl, zodat de bezoeker de zeven plekken als één parcours herkent."
+        "html": "<strong>Eén parcours.</strong> Alle dragers volgen de Merode-huisstijl, zodat je de zeven plekken als één geheel herkent."
       },
       {
         "type": "p",
-        "html": "<strong>Meertalig en online.</strong> Songteksten en vertalingen in het Nederlands, Frans en Engels zijn ook online te lezen, ook voor bezoekers met een auditieve beperking."
-      },
-      {
-        "type": "h2",
-        "html": "Het team"
-      },
-      {
-        "type": "p",
-        "html": "Artistieke leiding en songwriting: Laura Cortese. Artistieke begeleiding, teksten en beeld: Reineke Van Hooreweghe. Arrangement en instrumentatie: Toon Van Mierlo en Ward Dhoore. Geluidstechniek, opname en beeld: Bert Huysentruyt. Productie en organisatie: Jochen Smets."
-      },
-      {
-        "type": "p",
-        "html": "<em>Huis der Weemoed is een productie van Merodefestival (WESP vzw), in samenwerking met Landschapspark de Merode en de betrokken lokale besturen, beheerders en erfgoedpartners.</em>"
+        "html": "<strong>Meertalig.</strong> Songteksten en vertalingen in het Nederlands, Frans en Engels zijn ook online te lezen."
       }
     ],
     "foto": "data/foto/40377c21f8db81ef9548e46279d11b72.jpg",
