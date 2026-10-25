@@ -144,7 +144,7 @@ section.donker{padding:4.5rem 0}
 .nieuws .btn{background:var(--s-papier-inkt);color:var(--s-papier)}
 
 footer{padding:3rem 0;font-size:1rem;color:var(--s-zand)}
-footer .foot-logo{display:block;height:64px;width:auto;margin-bottom:2rem;filter:grayscale(1) brightness(2.2);opacity:.4}
+footer .foot-logo{display:block;height:64px;width:auto;margin-bottom:2rem;filter:brightness(0) invert(1);opacity:.9}
 footer .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
 footer h3{font-family:var(--label);font-weight:400;font-size:1rem;color:var(--s-licht);margin-bottom:.5rem}
 footer p{margin:0 0 .4rem}
