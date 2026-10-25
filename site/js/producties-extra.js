@@ -1,4 +1,40 @@
 (function () {
+  // 0. Overzicht Producties: een rubriek tegelijk tonen, de eerste (Podiumproducties) bovenaan
+  var chips = document.querySelector("nav.soorten");
+  if (chips) {
+    var secties = [].slice.call(document.querySelectorAll("section.soort"));
+    var wrap = chips.parentNode;
+    var links = [].slice.call(chips.querySelectorAll("a"));
+    var totaal = 0;
+    secties.forEach(function (s) { totaal += s.querySelectorAll("li").length; });
+    var alles = document.createElement("a");
+    alles.href = "#alles";
+    alles.innerHTML = "Alles <span>" + totaal + "</span>";
+    chips.appendChild(alles);
+    links.push(alles);
+    var toonRubriek = function (id, bewaar) {
+      var gevonden = secties.some(function (s) { return s.id === id; });
+      if (id !== "alles" && !gevonden) id = secties.length ? secties[0].id : "alles";
+      secties.forEach(function (s) { s.hidden = id !== "alles" && s.id !== id; });
+      wrap.classList.toggle("enkel", id !== "alles");
+      links.forEach(function (a) {
+        var actief = a.getAttribute("href") === "#" + id;
+        a.classList.toggle("actief", actief);
+        if (actief) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+      });
+      if (bewaar && window.history && history.replaceState) history.replaceState(null, "", "#" + id);
+    };
+    chips.addEventListener("click", function (e) {
+      var a = e.target.closest ? e.target.closest("a") : null;
+      if (!a || !chips.contains(a)) return;
+      e.preventDefault();
+      toonRubriek(a.getAttribute("href").slice(1), true);
+    });
+    window.addEventListener("hashchange", function () { toonRubriek(location.hash.slice(1), false); });
+    toonRubriek(location.hash.slice(1), false);
+    if (location.hash.length > 1) window.scrollTo(0, Math.max(0, chips.getBoundingClientRect().top + window.pageYOffset - 100));
+  }
+
   // 1. ‘Praktisch’ als uitrolmenu: open op een groot scherm, dicht op een telefoon
   var aside = document.querySelector("aside.praktisch");
   if (aside) {

@@ -20,3 +20,10 @@ details.uitrol>dl{margin-top:.75rem}
 .lb-volgend{right:1rem;top:50%;transform:translateY(-50%)}
 .lb.een .lb-vorig,.lb.een .lb-volgend{display:none}
 body.lb-open{overflow:hidden}
+/* Overzicht Producties: een rubriek tegelijk */
+/* de rubrieknavigatie is een gewone balk, geen uitklapmenu zoals het hoofdmenu op een telefoon */
+.pr-sectie nav.soorten{position:static;left:auto;right:auto;top:auto;background:transparent;padding:0}
+.soorten a{cursor:pointer}
+.soorten a.actief{background:var(--s-papier-inkt);color:var(--s-papier);box-shadow:none}
+.soort[hidden]{display:none}
+.wrap.enkel>.soort{margin-top:0}
