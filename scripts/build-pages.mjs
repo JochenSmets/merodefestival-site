@@ -134,6 +134,8 @@ function pagina(e, overige) {
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
 <link rel="apple-touch-icon" href="../img/favicon.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
@@ -323,6 +325,8 @@ const editiesHtml = `<!DOCTYPE html>
 <meta property="og:image" content="${SITE}/${S.artwork}">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" href="img/favicon.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
@@ -621,6 +625,18 @@ await fs.writeFile(path.join(ROOT, "sitemap.xml"),
 
 // Voor zoekmachines en AI-tools: welkom, met de sitemap erbij
 await fs.writeFile(path.join(ROOT, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+
+// Favicon in alle gangbare maten: Google wil een veelvoud van 48 px en sommige browsers vragen /favicon.ico op
+try {
+  const sharp = (await import("sharp")).default;
+  const bron = path.join(ROOT, "img/favicon.png");
+  for (const m of [48, 192]) await sharp(bron).resize(m, m).png().toFile(path.join(ROOT, `img/favicon-${m}.png`));
+  const png = await fs.readFile(path.join(ROOT, "img/favicon-48.png"));
+  const kop = Buffer.alloc(22); // ICO met één afbeelding (48 x 48, PNG)
+  kop.writeUInt16LE(1, 2); kop.writeUInt16LE(1, 4);
+  kop[6] = 48; kop[7] = 48; kop.writeUInt16LE(1, 10); kop.writeUInt16LE(32, 12); kop.writeUInt32LE(png.length, 14); kop.writeUInt32LE(22, 18);
+  await fs.writeFile(path.join(ROOT, "favicon.ico"), Buffer.concat([kop, png]));
+} catch (err) { console.warn("Favicon-maten niet gemaakt:", err.message); }
 
 // Samenvatting in gewone tekst, handig voor AI-tools (geen standaard, kan geen kwaad)
 const komende = agenda.filter(e => (e.end || e.start) >= vandaag).slice(0, 12);
