@@ -453,6 +453,167 @@ window.PRODUCTIES = [
     "fotos": []
   },
   {
+    "slug": "wandelpodcast",
+    "soort": "Playlist",
+    "titel": "De wandelpodcast",
+    "label": "Podcast, 4 afleveringen",
+    "makers": "Merodefestival, met Lennaert Maes, Jochen Smets en Bert Huysentruyt",
+    "tekst": "Folkmuzikanten vertellen tijdens een wandeling in Landschapspark de Merode over hun muziek en brengen onderweg enkele songs in de natuur of op erfgoedsites.",
+    "extra": "",
+    "waar": "",
+    "vorm": "Wandelpodcast, 4 afleveringen",
+    "speelduur": "",
+    "periode": "",
+    "data": [],
+    "bezetting": "",
+    "techniek": "",
+    "geschikt": "",
+    "prijs": "",
+    "contact": "info@merodefestival.be",
+    "knop": "Beluister op Apple Podcasts",
+    "knoplink": "https://podcasts.apple.com/us/podcast/muzikale-wandelingen-in-landschapspark-de-merode/id1623051525",
+    "uitsnede": "",
+    "videos": [],
+    "spotify": [
+      "https://open.spotify.com/show/6J6idgbWpyW4UWitT4aWie"
+    ],
+    "soundcloud": [],
+    "lang": [
+      {
+        "type": "p",
+        "html": "We laten folkmuzikanten tijdens een wandeling in Landschapspark de Merode aan het woord over hun muzikale achtergrond, hun interesses en hun carrière, en ze vertellen wat folk voor hen betekent. Tussendoor brengen ze enkele songs in de natuur of op erfgoedsites."
+      },
+      {
+        "type": "h2",
+        "html": "De afleveringen"
+      },
+      {
+        "type": "p",
+        "html": "<strong>Aflevering 1: Laura Cortese &amp; Bert Ruymbeek</strong> · Langdorp, langs de Demer"
+      },
+      {
+        "type": "p",
+        "html": "In maart 2022 waren Laura en Bert op residentie in B&amp;B de Meren. Lennaert Maes wandelt met hen van de B&amp;B langs de Heimolen naar de Demervallei, door het dorpscentrum van Langdorp en door de bossen terug. Ze praten over hun muzikale achtergrond, de liefde, folkmuziek en hoe het Merodegebied hen inspireerde, en brengen nieuwe songs aan de Heimolen en in de kerk van Langdorp."
+      },
+      {
+        "type": "p",
+        "html": "<strong>Aflevering 2: Pascale Rubens</strong> · De Demerbroeken tussen Zichem en Testelt"
+      },
+      {
+        "type": "p",
+        "html": "Pascale Rubens, de vrouwelijke helft van Naragonia, woont zelf in de Meroderegio. Op een snikhete junidag in 2022 wandelt ze met Jochen Smets door de Demerbroeken van Zichem naar Testelt. Onderweg vertelt ze over leven en werk, over wat de balfolkscene voor haar betekent en hoe Naragonia songs schrijft. Ze brengt vier nummers solo in de natuur."
+      },
+      {
+        "type": "p",
+        "html": "<strong>Aflevering 3: Maarten Decombel</strong> · Averbode Bos &amp; Heide"
+      },
+      {
+        "type": "p",
+        "html": "In de warme zomer van 2022 wandelt gitarist en mandolaspeler Maarten Decombel met Jochen Smets door Averbode Bos &amp; Heide: van het Weefbergven naar de bijna negenhonderd jaar oude abdij en de unieke Lekdreef, en over de ruige Weefberg terug. Maarten vertelt wie hem beïnvloedde en hoe hij folkmuzikant werd, onder meer bij Spilar, Naragonia Quartet en MandolinMan."
+      },
+      {
+        "type": "p",
+        "html": "<strong>Aflevering 4: Hussein Rassim</strong> · Trichelbroek"
+      },
+      {
+        "type": "p",
+        "html": "Op een regenachtige winterdag in 2023 gaat oudspeler Hussein Rassim met Lennaert Maes op pad in het Trichelbroek. Ze wandelen langs de Nete naar de Sint-Bavokapel en via een enorme turfput en de Laak terug naar het startpunt. Hussein vertelt over zijn vlucht uit Irak, hoe hij als muzikant snel zijn weg vond in Brussel, en hoe hij in 2017 een van zijn allereerste concerten gaf in de Sint-Bavokapel."
+      },
+      {
+        "type": "p",
+        "html": "<em>Presentatie: Lennaert Maes of Jochen Smets. Opname, mix en films: Bert Huysentruyt. Montage: Bert Huysentruyt, Jochen Smets en Marc Vandemoortele. Met steun van Sabam for Culture, Landschapspark de Merode en de Vlaamse overheid (kunsten &amp; erfgoed).</em>"
+      }
+    ],
+    "foto": "data/foto/40477c21f8db815aa7aec88bb0db144f.jpg",
+    "fotos": []
+  },
+  {
+    "slug": "volkscafes",
+    "soort": "Playlist",
+    "titel": "De volkscafés van de Merode",
+    "label": "Documentaire, 3 delen",
+    "makers": "Merodefestival, met singer-songwriter Lennaert Maes",
+    "tekst": "Singer-songwriter Lennaert Maes bezoekt drie oude volkscafés in de Merode en brengt voor elke uitbater een lied: drie ontroerende portretten van elk zowat 25 minuten.",
+    "extra": "",
+    "waar": "",
+    "vorm": "Documentaire in drie delen",
+    "speelduur": "",
+    "periode": "",
+    "data": [],
+    "bezetting": "",
+    "techniek": "",
+    "geschikt": "",
+    "prijs": "",
+    "contact": "info@merodefestival.be",
+    "knop": "",
+    "knoplink": "",
+    "uitsnede": "",
+    "videos": [
+      {
+        "url": "https://youtu.be/WtU4FgOUeQk",
+        "titel": "Lang leve de Stips! (Testelt)"
+      },
+      {
+        "url": "https://youtu.be/9u0Ko44AG1g",
+        "titel": "Lang leve de Nachtegaal! (Ramsel)"
+      },
+      {
+        "url": "https://youtu.be/Jaon4n3bvuE",
+        "titel": "Lang leve café Moderne! (Deurne)"
+      }
+    ],
+    "spotify": [],
+    "soundcloud": [],
+    "lang": [
+      {
+        "type": "p",
+        "html": "Merodefestival bezoekt drie oude volkscafés van de Merode. Singer-songwriter Lennaert Maes gaat in gesprek met de uitbaters en brengt op het einde een lied voor hen. Zo ontstonden drie verstilde, ontroerende en warmmenselijke portretten van elk zowat 25 minuten, over plaatselijk erfgoed dat ons dreigt te ontglippen. Vin, Maurice, Yvonne en Simone vertellen in hun eigen sappige dialect over de rol van het café in de buurt, over het spaarkaske, geheime liefdes en teerfeesten."
+      },
+      {
+        "type": "h2",
+        "html": "De drie portretten"
+      },
+      {
+        "type": "p",
+        "html": "<strong>1. Lang leve de Stips!</strong> · De Stips, Testelt"
+      },
+      {
+        "type": "p",
+        "html": "Maurice en Vin hielden maar liefst 62 jaar café de Stips open. Op hun 87ste stopten ze, toen de coronacrisis de cafés verplicht deed sluiten."
+      },
+      {
+        "type": "p",
+        "html": "<strong>2. Lang leve de Nachtegaal!</strong> · De Nachtegaal, Ramsel"
+      },
+      {
+        "type": "p",
+        "html": "Von hield café de Nachtegaal open tot haar 92ste, tot ze in september 2022 overleed."
+      },
+      {
+        "type": "p",
+        "html": "<strong>3. Lang leve café Moderne!</strong> · Café Moderne, Deurne"
+      },
+      {
+        "type": "p",
+        "html": "Simone is 71 en houdt café Moderne nog altijd open. Het is de plek waar ‘Duune’ samenkomt, jong en oud, en het enige van de vroeger dertien cafés in Deurne dat nog bestaat."
+      },
+      {
+        "type": "h2",
+        "html": "Een opdracht"
+      },
+      {
+        "type": "p",
+        "html": "Met deze documentaires vereeuwigt Merodefestival de plekken en hun uitbaters in een filmische en muzikale ode. Vin en Yvonne zijn intussen niet meer onder ons; zij overleden enkele maanden na de opnames. Dat toont hoe belangrijk zulke tijdsdocumenten zijn. We dragen de reeks graag aan hen op."
+      },
+      {
+        "type": "p",
+        "html": "<em>Met steun van Cultuur &amp; Erfgoed de Merode, Landschapspark de Merode en de Vlaamse overheid (kunsten &amp; erfgoed).</em>"
+      }
+    ],
+    "foto": "data/foto/40477c21f8db81268b79e360e9f165a0.jpg",
+    "fotos": []
+  },
+  {
     "slug": "huis-der-weemoed",
     "soort": "Installatie",
     "titel": "Huis der Weemoed",

@@ -11,7 +11,9 @@
 /ode-aan-de-merode /productie-ode-aan-de-merode 301
 /the-sound-of-the-abbey /productie-the-sound-of-the-abbey 301
 /sound /productie-the-sound-of-the-abbey 301
-/volksliekes /volkscafes 301
+/volksliekes /productie-volkscafes 301
+/volkscafes /productie-volkscafes 301
+/podcast /productie-wandelpodcast 301
 /creaties /producties 301
 /projecten /producties 301
 /in-opdracht /producties 301
