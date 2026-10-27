@@ -11,6 +11,7 @@ import { voorbouwHomepage } from "./voorbouw.mjs";
 import { maakOmleidingen } from "./omleidingen.mjs";
 import { bouwWesp } from "./build-wesp.mjs";
 import { bouwInfo } from "./build-info.mjs";
+import { bouw404 } from "./build-404.mjs";
 import { afwerking } from "./afwerking.mjs";
 
 const SITE = (process.env.SITE_URL || "https://www.merodefestival.be").replace(/\/$/, "");
@@ -628,6 +629,7 @@ import { bouwProducties } from "./build-producties.mjs";
 const productiePaginas = await bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd });
 const wespPaginas = await bouwWesp({ ROOT, SITE, S, esc, kopEd, voetEd });
 const infoPaginas = await bouwInfo({ ROOT, SITE, S, esc, kopEd, voetEd });
+await bouw404({ ROOT, SITE, esc, kopEd, voetEd });
 
 // Extra’s voor de productiepagina’s: ‘Praktisch’ als uitrolmenu en foto’s die je kunt vergroten.
 // De pagina’s zelf blijven gewone HTML; dit komt er als aanvulling bij (css/producties-extra.css en js/producties-extra.js).
