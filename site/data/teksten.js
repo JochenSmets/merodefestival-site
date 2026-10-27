@@ -1,4 +1,10 @@
 window.TEKSTEN = {
+  "404.knop-agenda": "Naar de agenda",
+  "404.knop-home": "Naar de homepage",
+  "404.tab": "Pagina niet gevonden",
+  "404.titel": "Hier speelt niemand vanavond.",
+  "404.uitleg": "Deze pagina bestaat niet (meer). Misschien is een adres veranderd, of tikte iemand een letter te veel.",
+  "404.zinnen": "De accordeonist is verdwaald in een andere kerk.\nDeze pagina is op tournee in Zweden en komt pas in mei terug.\nZelfs de mooiste dorpskerk heeft deze pagina niet gevonden.\nHier stond vroeger iets. Nu enkel stilte en een beetje galm.\nDeze pagina stemt nog haar instrumenten.\nDe sleutel van de kerk is zoek. Deze pagina ook.\nVerkeerde zaal, verkeerde avond. De goede muziek speelt elders.",
   "algemeen.foto": "Foto:",
   "beleef.aflevering": "Aflevering",
   "beleef.afleveringen": "De afleveringen",
