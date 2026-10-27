@@ -846,6 +846,8 @@ await fs.writeFile(path.join(ROOT, "_redirects"), await maakOmleidingen({ agenda
 await fs.writeFile(path.join(ROOT, "_headers"), `/*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
 
 https://merodefestival-site.smetsjochen.workers.dev/*
   X-Robots-Tag: noindex

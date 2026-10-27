@@ -100,7 +100,7 @@ const HOMEPAGE = [
   ["homepage.festival-foto2", "’s Avonds: folk op de Citadel", "Onderschrift bij de tweede foto van het festival", ["<figcaption>{}</figcaption>"]],
   ["homepage.nieuws-kop", "Mis geen concert", "Titel van de nieuwsbriefstrook", ['<h2 id="nieuws-titel">{}</h2>']],
   ["homepage.nieuws-tekst", "Nieuwe concerten en het festivalprogramma in je mailbox.", "Tekst in de nieuwsbriefstrook", [P]],
-  ["homepage.nieuws-knop", "Schrijf je in", "Knop in de nieuwsbriefstrook", ['<a class="btn" href="http://eepurl.com/g8U9mX">{}</a>']],
+  ["homepage.nieuws-knop", "Schrijf je in", "Knop in de nieuwsbriefstrook", ['<a class="btn" href="https://eepurl.com/g8U9mX">{}</a>']],
   ["homepage.volzet", "Volzet", "Label bij een uitverkocht concert in de agenda", [">{}</span>"]],
   ["homepage.koop", "Koop tickets", "Knop bij het eerstvolgende concert", ['"{}"']],
   ["homepage.tickets-kort", "Tickets", "Knop bij een concert in de lijst", [' : "{}")']],
