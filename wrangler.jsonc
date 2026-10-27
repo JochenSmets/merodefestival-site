@@ -1,0 +1,10 @@
+{
+  // Instellingen voor de Cloudflare Worker die merodefestival.be toont.
+  // De map "site" is de website; bij een onbestaand adres toont de Worker 404.html.
+  "name": "merodefestival-site",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./site",
+    "not_found_handling": "404-page"
+  }
+}
