@@ -146,7 +146,7 @@ function pagina(e, overige) {
   // Zonder zo’n alinea staan de foto’s en video’s onder de tekst, zoals voorheen.
   const beeldenHtml = extraBeelden.length ? `<section class="beelden" aria-labelledby="beelden-titel">
           <h2 class="label" id="beelden-titel">${T("concert.fotos", "Foto’s")}</h2>
-          <div class="beeldgrid">${extraBeelden.map(b => `<figure><a href="../${esc(b.src)}" target="_blank" rel="noopener"><img src="../${esc(b.src)}" alt="${esc(b.alt)}" loading="lazy"></a>${b.fotograaf ? `<figcaption>${T("algemeen.foto", "Foto:")} ${esc(b.fotograaf)}</figcaption>` : ""}</figure>`).join("")}</div>
+          <div class="beeldrij" tabindex="0" role="group" aria-label="${T("concert.fotos-schuif", "Foto’s, schuif opzij voor meer")}">${extraBeelden.map(b => `<figure><img src="../${esc(b.src)}" alt="${esc(b.alt)}" loading="lazy">${b.fotograaf ? `<figcaption>${T("algemeen.foto", "Foto:")} ${esc(b.fotograaf)}</figcaption>` : ""}</figure>`).join("")}</div>
         </section>` : "";
   const platTekst = h => String(h || "").replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&nbsp;/g, " ").trim();
   let fotosInTekst = false;
@@ -707,6 +707,14 @@ body.lb-open{overflow:hidden}
 .soorten a.actief{background:var(--s-papier-inkt);color:var(--s-papier);box-shadow:none}
 .soort[hidden]{display:none}
 .wrap.enkel>.soort{margin-top:0}
+
+/* Fotorij op een concertpagina: kleine foto’s die je opzij schuift, aanklikken opent de fotoviewer */
+.beeldrij{display:flex;gap:.6rem;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;margin-top:.75rem;padding-bottom:.6rem;scrollbar-width:thin}
+.beeldrij:focus-visible{outline:3px solid #f6771c;outline-offset:3px}
+.beeldrij figure{flex:0 0 auto;margin:0;scroll-snap-align:start}
+.beeldrij img{display:block;height:6.5rem;width:auto;aspect-ratio:16/9;object-fit:cover;border-radius:3px;cursor:zoom-in}
+.beeldrij figcaption{font-size:.8rem;margin-top:.25rem;opacity:.75}
+@media (max-width:560px){.beeldrij img{height:5.5rem}}
 `;
 const PRODUCTIE_EXTRA_JS = String.raw`(function () {
   // 0. Overzicht Producties: een rubriek tegelijk tonen, de eerste (Podiumproducties) bovenaan
@@ -747,7 +755,7 @@ const PRODUCTIE_EXTRA_JS = String.raw`(function () {
 
   // 1. ‘Praktisch’ als uitrolmenu: open op een groot scherm, dicht op een telefoon
   var aside = document.querySelector("aside.praktisch");
-  if (aside) {
+  if (aside && !document.querySelector(".ctekst")) {
     var kop = aside.querySelector("h2"), lijst = aside.querySelector("dl");
     if (kop && lijst) {
       var det = document.createElement("details");
@@ -763,7 +771,7 @@ const PRODUCTIE_EXTRA_JS = String.raw`(function () {
   }
 
   // 2. Foto’s aanklikken om ze groter te zien (pijltjes en Esc werken ook)
-  var fotos = [].slice.call(document.querySelectorAll(".cbeeld.foto img, .galerij3 img"));
+  var fotos = [].slice.call(document.querySelectorAll(".cbeeld.foto img, .galerij3 img, .beeldrij img"));
   if (!fotos.length) return;
   var lb, beeld, idx = 0, terug, startX = null;
   function bouw() {
@@ -834,6 +842,17 @@ for (const f of productiePaginas.filter(x => x.startsWith("productie-") || x ===
   let h = await fs.readFile(pad, "utf8");
   if (!h.includes("producties-extra.css")) h = h.replace("</head>", '<link rel="stylesheet" href="css/producties-extra.css">\n</head>');
   if (!h.includes("producties-extra.js")) h = h.replace("</body>", '<script src="js/producties-extra.js" defer></script>\n</body>');
+  await fs.writeFile(pad, h);
+}
+
+// Concertpagina’s met een fotorij krijgen dezelfde fotoviewer (groter bekijken, pijltjes, vegen)
+for (const f of await fs.readdir(path.join(ROOT, "concert"))) {
+  if (!f.endsWith(".html")) continue;
+  const pad = path.join(ROOT, "concert", f);
+  let h = await fs.readFile(pad, "utf8");
+  if (!h.includes('class="beeldrij"')) continue;
+  if (!h.includes("producties-extra.css")) h = h.replace("</head>", '<link rel="stylesheet" href="../css/producties-extra.css">\n</head>');
+  if (!h.includes("producties-extra.js")) h = h.replace("</body>", '<script src="../js/producties-extra.js" defer></script>\n</body>');
   await fs.writeFile(pad, h);
 }
 
