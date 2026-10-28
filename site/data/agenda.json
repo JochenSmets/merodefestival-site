@@ -418,6 +418,38 @@
     "spotify": [],
     "webadres": "",
     "foto": "data/foto/40077c21f8db81469f3ad2c4779240b6.jpg",
+    "beelden": [
+      {
+        "src": "data/foto/40077c21f8db81469f3ad2c4779240b6-1.jpg",
+        "alt": "Griff Trio: Echo + En waar de ster bleef stille staan, foto 1",
+        "fotograaf": ""
+      },
+      {
+        "src": "data/foto/40077c21f8db81469f3ad2c4779240b6-2.jpg",
+        "alt": "Griff Trio: Echo + En waar de ster bleef stille staan, foto 2",
+        "fotograaf": ""
+      },
+      {
+        "src": "data/foto/40077c21f8db81469f3ad2c4779240b6-3.jpg",
+        "alt": "Griff Trio: Echo + En waar de ster bleef stille staan, foto 3",
+        "fotograaf": ""
+      },
+      {
+        "src": "data/foto/40077c21f8db81469f3ad2c4779240b6-4.jpg",
+        "alt": "Griff Trio: Echo + En waar de ster bleef stille staan, foto 4",
+        "fotograaf": ""
+      },
+      {
+        "src": "data/foto/40077c21f8db81469f3ad2c4779240b6-5.jpg",
+        "alt": "Griff Trio: Echo + En waar de ster bleef stille staan, foto 5",
+        "fotograaf": ""
+      },
+      {
+        "src": "data/foto/40077c21f8db81469f3ad2c4779240b6-6.jpg",
+        "alt": "Griff Trio: Echo + En waar de ster bleef stille staan, foto 6",
+        "fotograaf": ""
+      }
+    ],
     "slug": "griff-trio-2026-12-11"
   },
   {
