@@ -1007,5 +1007,240 @@
       "data/foto/40377c21f8db8166b0cdc71b23da9ceb-3.jpg"
     ],
     "verborgen": false
+  },
+  {
+    "slug": "ontdubbeling",
+    "soort": "Concept op maat",
+    "titel": "Ontdubbeling van onze kerkconcerten",
+    "label": "Concept op maat, een tweede avond in jouw kerk",
+    "makers": "Merodefestival, met de artiesten van onze kerkconcerten",
+    "tekst": "Onze kerkconcerten kunnen ook bij jou spelen. Dezelfde artiesten en hetzelfde programma als bij ons op zaterdag, op een andere avond in een kerk in jouw gemeente. Wij komen met ons team en onze techniek, jij zorgt voor het publiek.",
+    "extra": "Heeft jouw gemeente een kerk die een avond muziek verdient?",
+    "waar": "Een kerk of erfgoedsite buiten ons eigen werkgebied",
+    "vorm": "Kerkconcert met een van onze artiesten",
+    "speelduur": "Zoals het kerkconcert zelf",
+    "periode": "",
+    "data": [],
+    "bezetting": "De artiesten van het kerkconcert",
+    "techniek": "Aangepast licht en geluid, door ons meegebracht",
+    "geschikt": "Gemeentebesturen, erfgoedpartners, kerkfabrieken",
+    "prijs": "In overleg",
+    "contact": "info@merodefestival.be",
+    "knop": "Vraag een ontdubbeling aan",
+    "knoplink": "",
+    "uitsnede": "",
+    "videos": [
+      {
+        "url": "https://youtu.be/CPgwtgtKuK0",
+        "titel": "Laura Cortese’s acoustic evenings II, met Kaia Kater, Dirk Powell, Anna Massie & Nic Gareiss"
+      }
+    ],
+    "spotify": [],
+    "soundcloud": [],
+    "lang": [
+      {
+        "type": "h2",
+        "html": "Het concept"
+      },
+      {
+        "type": "p",
+        "html": "Elk seizoen programmeren we kerkconcerten met folk en wereldmuziek. Veel van onze artiesten reizen daarvoor van ver, soms uit het buitenland. Voor hen is het veel interessanter als ze tijdens hun verblijf meer dan één keer kunnen spelen."
+      },
+      {
+        "type": "p",
+        "html": "Daarom kan elk van onze kerkconcerten ook op een tweede plek spelen, in een kerk buiten onze eigen regio: bijvoorbeeld op donderdag wat bij ons op zaterdag speelt. Zo krijgt een tournee meer dan één stop, en krijgt jouw kerk een avond met artiesten die je anders niet zou zien."
+      },
+      {
+        "type": "h2",
+        "html": "Wat wij regelen"
+      },
+      {
+        "type": "p",
+        "html": "Wij komen met onze expertise en ons team naar jouw kerk:"
+      },
+      {
+        "type": "ul",
+        "html": "het programma en de afspraken met de artiesten"
+      },
+      {
+        "type": "ul",
+        "html": "aangepast licht en geluid, en de mensen die ze bedienen"
+      },
+      {
+        "type": "ul",
+        "html": "catering voor de artiesten"
+      },
+      {
+        "type": "ul",
+        "html": "de afstemming met de kerk of de beheerder"
+      },
+      {
+        "type": "ul",
+        "html": "de coördinatie op de dag zelf"
+      },
+      {
+        "type": "h2",
+        "html": "Wat jij regelt"
+      },
+      {
+        "type": "ul",
+        "html": "de kerk beschikbaar maken, en de afspraken met de kerkfabriek of beheerder"
+      },
+      {
+        "type": "ul",
+        "html": "de publiekswerking ter plekke: de gemeente informeren, verenigingen en inwoners uitnodigen, onthaal"
+      },
+      {
+        "type": "h2",
+        "html": "Samen afspreken"
+      },
+      {
+        "type": "p",
+        "html": "De kosten bepalen we samen, afhankelijk van het programma en de plek. Ook wie de ticketing doet, kiezen we in overleg: jij ter plekke, of via ons."
+      },
+      {
+        "type": "h2",
+        "html": "Zo ziet het er bij ons uit"
+      },
+      {
+        "type": "p",
+        "html": "Een paar voorbeelden uit ons eigen programma:"
+      },
+      {
+        "type": "ul",
+        "html": "<strong>Gwen Cresens &amp; Philippe Thuriot</strong>, Sint-Pieterskerk, Langdorp (14 november 2026)"
+      },
+      {
+        "type": "ul",
+        "html": "<strong>Sam Grassie, Dylan Fowler &amp; Haroun Iqbal</strong>: donderdag 3 december 2026 in de Academiezaal van Sint-Truiden (Limburg Sessies) en zaterdag 5 december 2026 in de Sint-Pieterskerk van Testelt"
+      },
+      {
+        "type": "p",
+        "html": "<em>Een organisatie van Merodefestival, samen met de lokale partner.</em>"
+      }
+    ],
+    "foto": "data/foto/40777c21f8db81f989a3de5fabf608a6.jpg",
+    "fotos": [
+      "data/foto/40777c21f8db81f989a3de5fabf608a6-l1.jpg",
+      "data/foto/40777c21f8db81f989a3de5fabf608a6-l2.jpg",
+      "data/foto/40777c21f8db81f989a3de5fabf608a6-l3.jpg"
+    ],
+    "verborgen": true
+  },
+  {
+    "slug": "festivaldag",
+    "soort": "Concept op maat",
+    "titel": "Een festivaldag op een erfgoedsite",
+    "label": "Concept op maat, een festivaldag op jouw erfgoedsite",
+    "makers": "Merodefestival, met folk- en wereldmuzikanten",
+    "tekst": "Een erfgoedsite, een dag en een programma dat bij de plek past. Wij bouwen een festivaldag rond jouw site, zoals we dat doen in de Abdij van Park en op de Citadel van Diest. Wij zorgen voor het programma en de organisatie, jij voor de plek en het publiek in jouw gemeente.",
+    "extra": "Verdient jouw erfgoedsite een festivaldag?",
+    "waar": "Een erfgoedsite, zoals een abdij, citadel of kasteel",
+    "vorm": "Festivaldag met een programma overdag en 's avonds",
+    "speelduur": "Een dag, of langer in overleg",
+    "periode": "",
+    "data": [],
+    "bezetting": "Meerdere artiesten, in overleg gekozen",
+    "techniek": "Aangepast licht en geluid, door ons meegebracht",
+    "geschikt": "Gemeentebesturen, erfgoedpartners, beheerders van erfgoedsites",
+    "prijs": "In overleg",
+    "contact": "info@merodefestival.be",
+    "knop": "Vraag een festivaldag aan",
+    "knoplink": "",
+    "uitsnede": "",
+    "videos": [],
+    "spotify": [],
+    "soundcloud": [],
+    "lang": [
+      {
+        "type": "h2",
+        "html": "Het concept"
+      },
+      {
+        "type": "p",
+        "html": "Een erfgoedsite krijgt een festivaldag: een programma op maat van de plek, met muzikanten uit folk en wereldmuziek. Zo werken we zelf. PARK festival speelt in de Abdij van Park. Merodefestival brengt overdag muzikale wandelingen door de natuur en 's avonds internationale folk op de Citadel van Diest."
+      },
+      {
+        "type": "p",
+        "html": "De plek bepaalt het programma. We kiezen de artiesten en de opbouw van de dag zo dat ze passen bij de ruimte, het verhaal en het publiek van jouw site."
+      },
+      {
+        "type": "h2",
+        "html": "Wat wij regelen"
+      },
+      {
+        "type": "p",
+        "html": "Wij komen met onze expertise en ons team naar jouw erfgoedsite:"
+      },
+      {
+        "type": "ul",
+        "html": "het programma en de afspraken met de artiesten"
+      },
+      {
+        "type": "ul",
+        "html": "de opbouw van de dag, bijvoorbeeld met muzikale wandelingen overdag en een concert 's avonds"
+      },
+      {
+        "type": "ul",
+        "html": "aangepast licht en geluid, en de mensen die ze bedienen"
+      },
+      {
+        "type": "ul",
+        "html": "catering voor de artiesten"
+      },
+      {
+        "type": "ul",
+        "html": "de afstemming met de site en de beheerder"
+      },
+      {
+        "type": "ul",
+        "html": "de coördinatie op de dag zelf"
+      },
+      {
+        "type": "h2",
+        "html": "Wat jij regelt"
+      },
+      {
+        "type": "ul",
+        "html": "de site beschikbaar maken, en de toelatingen en afspraken met de beheerder"
+      },
+      {
+        "type": "ul",
+        "html": "de publiekswerking ter plekke: de gemeente informeren, verenigingen en inwoners uitnodigen, onthaal"
+      },
+      {
+        "type": "h2",
+        "html": "Samen afspreken"
+      },
+      {
+        "type": "p",
+        "html": "De kosten bepalen we samen, afhankelijk van het programma en de plek. Ook wie de ticketing doet, kiezen we in overleg: jij ter plekke, of via ons."
+      },
+      {
+        "type": "h2",
+        "html": "Zo ziet het er bij ons uit"
+      },
+      {
+        "type": "p",
+        "html": "Twee voorbeelden uit ons eigen werk:"
+      },
+      {
+        "type": "ul",
+        "html": "<strong>PARK festival</strong>, Abdij van Park"
+      },
+      {
+        "type": "ul",
+        "html": "<strong>Merodefestival</strong>, Hemelvaartweekend (5–9 mei 2027): overdag muzikale wandelingen door de natuur van de Merode, 's avonds internationale folk op de Citadel van Diest"
+      },
+      {
+        "type": "p",
+        "html": "<em>Een organisatie van Merodefestival, samen met de beheerder van de site en de lokale partner.</em>"
+      }
+    ],
+    "foto": "data/foto/40777c21f8db811c99f7fd729c314989.jpg",
+    "fotos": [
+      "data/foto/40777c21f8db811c99f7fd729c314989-l1.jpg"
+    ],
+    "verborgen": true
   }
 ]
