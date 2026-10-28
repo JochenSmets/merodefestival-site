@@ -837,7 +837,7 @@ const PRODUCTIE_EXTRA_JS = String.raw`(function () {
 await fs.mkdir(path.join(ROOT, "js"), { recursive: true });
 await fs.writeFile(path.join(ROOT, "css/producties-extra.css"), PRODUCTIE_EXTRA_CSS);
 await fs.writeFile(path.join(ROOT, "js/producties-extra.js"), PRODUCTIE_EXTRA_JS);
-for (const f of productiePaginas.filter(x => x.startsWith("productie-") || x === "producties.html")) {
+for (const f of [...productiePaginas.filter(x => x.startsWith("productie-") || x === "producties.html"), ...(productiePaginas.verborgen || [])]) {
   const pad = path.join(ROOT, f);
   let h = await fs.readFile(pad, "utf8");
   if (!h.includes("producties-extra.css")) h = h.replace("</head>", '<link rel="stylesheet" href="css/producties-extra.css">\n</head>');

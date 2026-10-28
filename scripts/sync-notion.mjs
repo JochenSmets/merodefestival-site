@@ -165,6 +165,17 @@ async function fotoReeks(page, filesProp) {
   return out;
 }
 
+// Extra foto’s via links: één adres per regel in het veld Fotolinks (bijvoorbeeld foto’s die al op de site staan)
+async function fotoLinks(page, prop) {
+  const out = [];
+  const urls = text(prop).split(/\s+/).filter(u => /^https?:\/\//.test(u)).slice(0, 8);
+  for (const [i, url] of urls.entries()) {
+    const pad = await haalFoto(url, `${page.id.replace(/-/g, "")}-l${i + 1}`);
+    if (pad) out.push(pad);
+  }
+  return out;
+}
+
 async function write(name, data) {
   const json = JSON.stringify(data, null, 2);
   await fs.writeFile(path.join(OUT, name + ".json"), json + "\n");
@@ -241,7 +252,8 @@ for (const r of await queryAll(PRODUCTIES_DB, [{ property: "Volgorde", direction
     soundcloud: lines(p.SoundCloud),
     lang: await blokkenRijk(r.id),
     foto: await foto(r, p.Foto, p.Fotolink),
-    fotos: await fotoReeks(r, p.Foto),
+    fotos: [...(await fotoReeks(r, p.Foto)), ...(await fotoLinks(r, p.Fotolinks))],
+    verborgen: p.Verborgen?.checkbox === true,   // pagina bestaat, maar staat niet in het overzicht, de sitemap of de zoekmachines
   });
 }
 await write("producties", producties);

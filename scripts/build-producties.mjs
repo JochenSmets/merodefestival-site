@@ -28,7 +28,8 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
   // Een tekst met lege regels wordt een reeks alinea’s
   const alinea = t => esc(t).split(/\n{2,}/).map(x => `<p>${x.replace(/\n/g, "<br>")}</p>`).join("");
 
-  const bestand = p => `productie-${p.slug}.html`;
+  // Een verborgen productie staat op een eigen adres (/<webadres>), niet in het overzicht en niet in de zoekmachines
+  const bestand = p => p.verborgen ? `${p.slug}.html` : `productie-${p.slug}.html`;
   const soortVan = p => (SOORTEN.find(s => s.naam === p.soort) || SOORTEN[0]).naam;
   const br = t => esc(t).replace(/\n/g, "<br>");
   const transp = f => /\.png$/i.test(f || "");
@@ -95,7 +96,7 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
   };
 
   // ---------- gemeenschappelijke pagina-opmaak ----------
-  const pagina = ({ titel, beschrijving, naam, afbeelding, body }) => {
+  const pagina = ({ titel, beschrijving, naam, afbeelding, body, verborgen }) => {
     let kop = kopEd
       .replace(/<title>[^<]*<\/title>/, `<title>${esc(titel)} | Merodefestival</title>`)
       .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(beschrijving)}">`)
@@ -103,6 +104,7 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
       .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(titel)}">`)
       .replace(/<meta property="og:image" content="[^"]*">/, `<meta property="og:image" content="${SITE}/${afbeelding}">`)
       .replace(/<style>[\s\S]*?<\/style>/, '<link rel="stylesheet" href="css/producties.css">');
+    if (verborgen) kop = kop.replace("</head>", '<meta name="robots" content="noindex">\n</head>');
     return kop + "<main>" + body + "\n</main>" + voetEd;
   };
 
@@ -113,7 +115,7 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
     intro: T(`soort.${s.id}.intro`, s.intro),
     meer: T(`soort.${s.id}.meer`, s.meer),
     praktisch: T(`soort.${s.id}.praktisch`, s.praktisch),
-    items: lijst.filter(p => soortVan(p) === s.naam),
+    items: lijst.filter(p => !p.verborgen && soortVan(p) === s.naam),
   })).filter(g => g.items.length);
   const kaart = (p, g) => {
     const stijl = POSITIE[p.uitsnede] ? ` style="object-position:${POSITIE[p.uitsnede]}"` : "";
@@ -202,9 +204,12 @@ export async function bouwProducties({ ROOT, SITE, S, esc, kopEd, voetEd }) {
   </section>`;
     await fs.writeFile(path.join(ROOT, bestand(p)), pagina({
       titel: p.titel, naam: bestand(p), afbeelding: p.foto || S.artwork,
-      beschrijving: p.tekst || p.makers || p.titel, body,
+      beschrijving: p.tekst || p.makers || p.titel, body, verborgen: p.verborgen,
     }));
   }
   console.log(`Productiepagina’s: ${lijst.length}`);
-  return ["producties.html", ...lijst.map(bestand)];
+  // Alleen de zichtbare pagina’s horen in de sitemap; de verborgen krijgen wel dezelfde extra’s (fotoviewer)
+  const uit = ["producties.html", ...lijst.filter(p => !p.verborgen).map(bestand)];
+  uit.verborgen = lijst.filter(p => p.verborgen).map(bestand);
+  return uit;
 }
