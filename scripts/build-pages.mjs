@@ -154,7 +154,12 @@ function pagina(e, overige) {
   const tekstBlokken = (e.lang || []).map(bl => {
     if (bl.type !== "p") return bl;
     const t = platTekst(bl.html);
-    if (/^\[(?:foto['’]?s|beelden)\]$/i.test(t) && beeldenHtml && !fotosInTekst) { fotosInTekst = true; return { type: "raw", html: beeldenHtml }; }
+    if (/^\[(?:foto['’]?s|beelden)\]$/i.test(t)) {
+      // Geen foto’s (of al getoond)? Dan verdwijnt de markering, zodat er nooit "[foto's]" op de pagina staat
+      if (!beeldenHtml || fotosInTekst) return { type: "raw", html: "" };
+      fotosInTekst = true;
+      return { type: "raw", html: beeldenHtml };
+    }
     const v = t.match(/^\[video:\s*(\S+?)\s*\]$/i);
     const id = v && youtubeId(v[1]);
     if (id) {

@@ -204,6 +204,7 @@ for (const r of await queryAll(AGENDA_DB, [{ property: "Datum", direction: "asce
     spotify: lines(p.Spotify),
     webadres: text(p.Webadres),
     foto: await foto(r, p.Foto, p.Fotolink),
+    _extra: await fotoReeks(r, p.Foto),   // alle foto’s na de eerste in het veld Foto
     _id: r.id,
   });
 }
@@ -279,11 +280,14 @@ for (const r of await queryAll(BEELDBANK_DB, [{ property: "Volgorde", direction:
 // Heeft het concert zelf geen Foto/Fotolink, dan wordt de eerste beeldbankfoto de hoofdfoto.
 for (const e of agenda) {
   const b = beeldbank.filter(x => x.concerten.includes(e._id));
-  if (b.length) {
-    e.beelden = b.map(x => ({ src: x.src, alt: x.alt, fotograaf: x.fotograaf }));
-    if (!e.foto) { e.foto = b[0].src; e.fotoAlt = b[0].alt; e.fotograaf = b[0].fotograaf; }
+  // Extra foto’s in het veld Foto van het concert (na de eerste) komen vóór die uit de beeldbank
+  const extra = (e._extra || []).map((src, i) => ({ src, alt: `${e.artist}, foto ${i + 1}`, fotograaf: "" }));
+  if (b.length || extra.length) {
+    e.beelden = [...extra, ...b.map(x => ({ src: x.src, alt: x.alt, fotograaf: x.fotograaf }))];
+    if (!e.foto && b.length) { e.foto = b[0].src; e.fotoAlt = b[0].alt; e.fotograaf = b[0].fotograaf; }
   }
   delete e._id;
+  delete e._extra;
 }
 await write("agenda", agenda);
 await write("beeldbank", beeldbank.map(({ concerten, ...x }) => x));
