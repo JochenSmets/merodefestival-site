@@ -392,6 +392,14 @@
       },
       {
         "type": "p",
+        "html": "[video: https://www.youtube.com/watch?v=h7nc4_7eLFM]"
+      },
+      {
+        "type": "p",
+        "html": "[foto's]"
+      },
+      {
+        "type": "p",
         "html": "<strong>En waar de ster bleef stille staan</strong>"
       },
       {
@@ -404,7 +412,8 @@
       }
     ],
     "videos": [
-      "https://www.youtube.com/watch?v=OBTDxec_tQg"
+      "https://www.youtube.com/watch?v=OBTDxec_tQg",
+      "https://www.youtube.com/watch?v=h7nc4_7eLFM"
     ],
     "spotify": [],
     "webadres": "",
