@@ -56,7 +56,8 @@ window.PRODUCTIES = [
       }
     ],
     "foto": "data/foto/40077c21f8db819fbc38f8b8aa48730b.jpg",
-    "fotos": []
+    "fotos": [],
+    "verborgen": false
   },
   {
     "slug": "o-kerstnacht",
@@ -126,7 +127,8 @@ window.PRODUCTIES = [
       }
     ],
     "foto": "data/foto/40277c21f8db81729a07fd13517c7eb2.jpg",
-    "fotos": []
+    "fotos": [],
+    "verborgen": false
   },
   {
     "slug": "the-ship-of-fools",
@@ -195,7 +197,8 @@ window.PRODUCTIES = [
       }
     ],
     "foto": "data/foto/40277c21f8db81289845ea3bb5931bc2.jpg",
-    "fotos": []
+    "fotos": [],
+    "verborgen": false
   },
   {
     "slug": "derroll-100",
@@ -274,7 +277,8 @@ window.PRODUCTIES = [
       }
     ],
     "foto": "data/foto/40377c21f8db8114bdcbfb2b5d836410.png",
-    "fotos": []
+    "fotos": [],
+    "verborgen": false
   },
   {
     "slug": "the-sound-of-the-abbey",
@@ -390,7 +394,8 @@ window.PRODUCTIES = [
       }
     ],
     "foto": "data/foto/40377c21f8db814b941ce6e673e317c8.jpg",
-    "fotos": []
+    "fotos": [],
+    "verborgen": false
   },
   {
     "slug": "ode-aan-de-merode",
@@ -450,7 +455,8 @@ window.PRODUCTIES = [
       }
     ],
     "foto": "data/foto/40377c21f8db81038299f66ba1a9536f.png",
-    "fotos": []
+    "fotos": [],
+    "verborgen": false
   },
   {
     "slug": "wandelpodcast",
@@ -525,7 +531,8 @@ window.PRODUCTIES = [
       }
     ],
     "foto": "data/foto/40477c21f8db815aa7aec88bb0db144f.jpg",
-    "fotos": []
+    "fotos": [],
+    "verborgen": false
   },
   {
     "slug": "volkscafes",
@@ -611,7 +618,8 @@ window.PRODUCTIES = [
       }
     ],
     "foto": "data/foto/40477c21f8db81268b79e360e9f165a0.jpg",
-    "fotos": []
+    "fotos": [],
+    "verborgen": false
   },
   {
     "slug": "huis-der-weemoed",
@@ -662,7 +670,8 @@ window.PRODUCTIES = [
     "foto": "data/foto/40377c21f8db80398761eecd17dc631f.jpg",
     "fotos": [
       "data/foto/40377c21f8db80398761eecd17dc631f-1.jpg"
-    ]
+    ],
+    "verborgen": false
   },
   {
     "slug": "huis-der-weemoed-project",
@@ -807,7 +816,8 @@ window.PRODUCTIES = [
       }
     ],
     "foto": "data/foto/40377c21f8db81ef9548e46279d11b72.jpg",
-    "fotos": []
+    "fotos": [],
+    "verborgen": false
   },
   {
     "slug": "klanken-in-de-kapel",
@@ -904,7 +914,8 @@ window.PRODUCTIES = [
     "fotos": [
       "data/foto/40377c21f8db8134990ee04c9a3c9d9c-1.jpg",
       "data/foto/40377c21f8db8134990ee04c9a3c9d9c-2.jpg"
-    ]
+    ],
+    "verborgen": false
   },
   {
     "slug": "muzikale-wandelingen",
@@ -994,6 +1005,7 @@ window.PRODUCTIES = [
       "data/foto/40377c21f8db8166b0cdc71b23da9ceb-1.jpg",
       "data/foto/40377c21f8db8166b0cdc71b23da9ceb-2.jpg",
       "data/foto/40377c21f8db8166b0cdc71b23da9ceb-3.jpg"
-    ]
+    ],
+    "verborgen": false
   }
 ];
