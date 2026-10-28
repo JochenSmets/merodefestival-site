@@ -79,20 +79,39 @@ function ics(e) {
   return lines.join("\r\n") + "\r\n";
 }
 
+// Einde van het evenement voor de zoekmachines: de einddatum als die er is, anders het laatste beginuur plus de duur (of 2 uur, zoals in de agenda-export).
+function eindMoment(e) {
+  const uren = [...String(e.time || "").matchAll(/(\d{1,2})[.:](\d{2})/g)];
+  if (e.end || !uren.length) return e.end || e.start;
+  const laatste = uren[uren.length - 1];
+  let min = 120;
+  const d = String(e.duur || "");
+  const u = d.match(/(\d+(?:[.,]\d+)?)\s*(?:uur|u\b|h\b)/i), m = d.match(/(\d+)\s*min/i);
+  if (u || m) min = Math.round((u ? parseFloat(u[1].replace(",", ".")) * 60 : 0) + (m ? +m[1] : 0));
+  const [J, M, D] = e.start.split("-").map(Number);
+  const eind = new Date(Date.UTC(J, M - 1, D, +laatste[1], +laatste[2]) + min * 60000);
+  const p = n => String(n).padStart(2, "0");
+  return `${eind.getUTCFullYear()}-${p(eind.getUTCMonth() + 1)}-${p(eind.getUTCDate())}T${p(eind.getUTCHours())}:${p(eind.getUTCMinutes())}`;
+}
+
 function jsonld(e, beeld) {
   const t = tijd(e.time);
+  const voorbij = (e.end || e.start) < new Date().toISOString().slice(0, 10);
   const data = {
     "@context": "https://schema.org", "@type": "MusicEvent",
     name: e.artist,
     startDate: t ? `${e.start}T${t[0]}:${t[1]}` : e.start,
-    ...(e.end ? { endDate: e.end } : {}),
+    endDate: eindMoment(e),
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: { "@type": "Place", name: e.place, address: { "@type": "PostalAddress", addressLocality: e.village, addressCountry: "BE" } },
     image: [beeld],
     description: e.sub || e.kind,
+    // Een festival of een reeks met een einddatum heeft geen enkele uitvoerder; een concert wel
+    ...(e.end ? {} : { performer: { "@type": "PerformingGroup", name: e.artist } }),
     organizer: { "@type": "Organization", name: "Merodefestival / WESP vzw", url: SITE },
-    ...(e.tickets ? { offers: { "@type": "Offer", url: e.tickets, availability: e.volzet ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
+    // Na het concert geen ticketaanbod meer
+    ...(e.tickets && !voorbij ? { offers: { "@type": "Offer", url: e.tickets, availability: e.volzet ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
       ...(e.price && /\d/.test(e.price) ? { price: e.price.replace(/[^\d,.]/g, "").replace(",", "."), priceCurrency: "EUR" } : {}) } } : {}),
   };
   return JSON.stringify(data).replace(/</g, "\\u003c");
@@ -103,6 +122,7 @@ function blokkenHtml(bl) {
   for (const b of bl) {
     if (b.type === "li") { if (!lijst) { h += "<ul>"; lijst = true; } h += `<li>${b.html}</li>`; continue; }
     if (lijst) { h += "</ul>"; lijst = false; }
+    if (b.type === "raw") { h += b.html; continue; }
     h += b.type === "quote" ? `<blockquote>${b.html}</blockquote>` : b.type === "h" ? `<h3>${b.html}</h3>` : `<p>${b.html}</p>`;
   }
   return lijst ? h + "</ul>" : h;
@@ -115,12 +135,35 @@ function pagina(e, overige) {
   const beeldAbs = `${SITE}/${e.foto || S.artwork}`;
   const alineas = String(e.text || "").split(/\n\s*\n/).filter(Boolean);
   const omschrijving = (e.sub ? e.sub + ". " : "") + (alineas[0] || `${e.kind} in ${e.place}, ${e.village}.`);
-  const yts = (e.videos || []).map(youtubeId).filter(Boolean);
+  let yts = (e.videos || []).map(youtubeId).filter(Boolean);
   const sps = (e.spotify || []).map(spotifyEmbed).filter(Boolean);
   const kerk = /kerkconcert/i.test(e.kind);
   const route = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.adres || [e.place, e.village].filter(Boolean).join(", "))}`;
   const ticket = e.volzet ? `<span class="soldout">${T("concert.volzet", "Volzet")}</span>`
     : e.tickets ? `<a class="btn" href="${esc(e.tickets)}">${esc(e.cta || T("concert.koop", "Koop tickets"))}${e.price ? ` (${esc(e.price)})` : ""}</a>` : "";
+
+  // Foto’s en video’s midden in de tekst: een alinea [foto’s] of [video: adres] in de Notion-pagina bepaalt waar ze komen.
+  // Zonder zo’n alinea staan de foto’s en video’s onder de tekst, zoals voorheen.
+  const beeldenHtml = extraBeelden.length ? `<section class="beelden" aria-labelledby="beelden-titel">
+          <h2 class="label" id="beelden-titel">${T("concert.fotos", "Foto’s")}</h2>
+          <div class="beeldgrid">${extraBeelden.map(b => `<figure><a href="../${esc(b.src)}" target="_blank" rel="noopener"><img src="../${esc(b.src)}" alt="${esc(b.alt)}" loading="lazy"></a>${b.fotograaf ? `<figcaption>${T("algemeen.foto", "Foto:")} ${esc(b.fotograaf)}</figcaption>` : ""}</figure>`).join("")}</div>
+        </section>` : "";
+  const platTekst = h => String(h || "").replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&nbsp;/g, " ").trim();
+  let fotosInTekst = false;
+  const inlineVideos = [];
+  const tekstBlokken = (e.lang || []).map(bl => {
+    if (bl.type !== "p") return bl;
+    const t = platTekst(bl.html);
+    if (/^\[(?:foto['’]?s|beelden)\]$/i.test(t) && beeldenHtml && !fotosInTekst) { fotosInTekst = true; return { type: "raw", html: beeldenHtml }; }
+    const v = t.match(/^\[video:\s*(\S+?)\s*\]$/i);
+    const id = v && youtubeId(v[1]);
+    if (id) {
+      inlineVideos.push(id);
+      return { type: "raw", html: `<div class="videos"><div class="video"><button class="yt" type="button" data-id="${id}" aria-label="Speel video af: ${esc(e.artist)}" style="background-image:url(https://i.ytimg.com/vi/${id}/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div></div>` };
+    }
+    return bl;
+  });
+  yts = yts.filter(id => !inlineVideos.includes(id));
 
   return `<!DOCTYPE html>
 <html lang="nl">
@@ -188,13 +231,10 @@ function pagina(e, overige) {
   <section class="papier" aria-label="Over dit concert">
     <div class="wrap cgrid">
       <article class="ctekst">
-        ${(e.lang || []).length ? blokkenHtml(e.lang)
+        ${tekstBlokken.length ? blokkenHtml(tekstBlokken)
           : alineas.length ? alineas.map(p => `<p>${esc(p)}</p>`).join("\n        ")
           : `<p>${esc(e.kind)} in ${esc(e.place)}, ${esc(e.village)}.</p>`}
-        ${extraBeelden.length ? `<section class="beelden" aria-labelledby="beelden-titel">
-          <h2 class="label" id="beelden-titel">${T("concert.fotos", "Foto’s")}</h2>
-          <div class="beeldgrid">${extraBeelden.map(b => `<figure><a href="../${esc(b.src)}" target="_blank" rel="noopener"><img src="../${esc(b.src)}" alt="${esc(b.alt)}" loading="lazy"></a>${b.fotograaf ? `<figcaption>${T("algemeen.foto", "Foto:")} ${esc(b.fotograaf)}</figcaption>` : ""}</figure>`).join("")}</div>
-        </section>` : ""}
+        ${fotosInTekst ? "" : beeldenHtml}
         ${yts.length || sps.length ? `<section class="luister" id="luister" aria-labelledby="luister-titel">
           <h2 class="label" id="luister-titel">${T("concert.luister", "Kijk en luister")}</h2>
           ${yts.length ? `<div class="videos${yts.length > 1 ? " meer" : ""}">${yts.map((id, i) => `<div class="video"><button class="yt" type="button" data-id="${id}" aria-label="Speel video ${i + 1} af: ${esc(e.artist)}" style="background-image:url(https://i.ytimg.com/vi/${id}/hqdefault.jpg)"><span class="play" aria-hidden="true"></span></button></div>`).join("")}</div>` : ""}
