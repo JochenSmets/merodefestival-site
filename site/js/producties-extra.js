@@ -37,7 +37,7 @@
 
   // 1. ‘Praktisch’ als uitrolmenu: open op een groot scherm, dicht op een telefoon
   var aside = document.querySelector("aside.praktisch");
-  if (aside) {
+  if (aside && !document.querySelector(".ctekst")) {
     var kop = aside.querySelector("h2"), lijst = aside.querySelector("dl");
     if (kop && lijst) {
       var det = document.createElement("details");
@@ -53,7 +53,7 @@
   }
 
   // 2. Foto’s aanklikken om ze groter te zien (pijltjes en Esc werken ook)
-  var fotos = [].slice.call(document.querySelectorAll(".cbeeld.foto img, .galerij3 img"));
+  var fotos = [].slice.call(document.querySelectorAll(".cbeeld.foto img, .galerij3 img, .beeldrij img"));
   if (!fotos.length) return;
   var lb, beeld, idx = 0, terug, startX = null;
   function bouw() {

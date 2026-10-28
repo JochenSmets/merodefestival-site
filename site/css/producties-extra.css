@@ -27,3 +27,11 @@ body.lb-open{overflow:hidden}
 .soorten a.actief{background:var(--s-papier-inkt);color:var(--s-papier);box-shadow:none}
 .soort[hidden]{display:none}
 .wrap.enkel>.soort{margin-top:0}
+
+/* Fotorij op een concertpagina: kleine foto’s die je opzij schuift, aanklikken opent de fotoviewer */
+.beeldrij{display:flex;gap:.6rem;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;margin-top:.75rem;padding-bottom:.6rem;scrollbar-width:thin}
+.beeldrij:focus-visible{outline:3px solid #f6771c;outline-offset:3px}
+.beeldrij figure{flex:0 0 auto;margin:0;scroll-snap-align:start}
+.beeldrij img{display:block;height:6.5rem;width:auto;aspect-ratio:16/9;object-fit:cover;border-radius:3px;cursor:zoom-in}
+.beeldrij figcaption{font-size:.8rem;margin-top:.25rem;opacity:.75}
+@media (max-width:560px){.beeldrij img{height:5.5rem}}
