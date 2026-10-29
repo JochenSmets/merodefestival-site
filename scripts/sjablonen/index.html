@@ -14,6 +14,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Alatsi&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="seizoen/seizoen.css">
 <link rel="stylesheet" href="css/publiek.css">
+<style>
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.5rem}
+.filters .btn{min-height:44px;display:inline-flex;align-items:center}
+.filters .btn.ghost{background:transparent!important;color:var(--s-papier-inkt)!important;box-shadow:inset 0 0 0 1.5px currentColor}
+</style>
 </head>
 <body>
 
@@ -60,29 +65,15 @@
         <h2 id="intro-kop"></h2>
         <div id="intro-tekst"></div>
         <div class="kruisjes" aria-hidden="true">× × × × × × ×</div>
-        <dl class="prijzen" id="prijzen"></dl>
         <a class="btn" id="intro-tickets" href="https://wesp-vzw.pierrot.io/">Tickets bestellen</a>
       </aside>
       <div>
         <h2 class="label" style="font-size:1rem;margin-bottom:1.25rem;color:var(--s-papier-zacht)">Agenda</h2>
+        <div class="filters" id="filters" role="group" aria-label="Filter op reeks" hidden></div>
+        <p class="sr" id="filter-melding" aria-live="polite"></p>
         <ol class="events" id="events"></ol>
         <button class="btn toon-alles" id="toon-alles" aria-expanded="false">Toon de hele agenda</button>
       </div>
-    </div>
-  </section>
-
-  <section class="ook-wesp" id="ook-wesp" aria-labelledby="ook-wesp-titel" hidden>
-    <div class="wrap">
-      <div class="ook-kop">
-        <h2 id="ook-wesp-titel">Ook van WESP</h2>
-        <p>Concerten in onze andere reeksen, buiten de Merode.</p>
-        <div class="ook-pijlen" aria-hidden="false">
-          <button type="button" class="pijl" id="ook-vorige" aria-label="Vorige concerten">←</button>
-          <button type="button" class="pijl" id="ook-volgende" aria-label="Volgende concerten">→</button>
-        </div>
-      </div>
-      <ul class="ook-lijst" id="ook-lijst" tabindex="0" aria-label="Concerten van WESP, schuif opzij voor meer"></ul>
-      <p class="ook-meer"><a href="wesp.html">Meer over WESP →</a></p>
     </div>
   </section>
 
@@ -108,7 +99,7 @@
         <h2 id="nieuws-titel">Mis geen concert</h2>
         <p>Nieuwe concerten en het festivalprogramma in je mailbox.</p>
       </div>
-      <a class="btn" href="https://eepurl.com/g8U9mX">Schrijf je in</a>
+      <a class="btn" href="http://eepurl.com/g8U9mX">Schrijf je in</a>
     </div>
   </section>
 </main>
@@ -133,7 +124,7 @@
     <div>
       <h3>Met steun van</h3>
       <p>De Vlaamse overheid, kunsten en erfgoed, de provincie Vlaams-Brabant, de Nationale Loterij en projectvereniging de Merode. Met de medewerking van de parochies en kerkfabrieken.</p>
-      <p>Artwork: <a href="https://www.reinhart.be">Reinhart Croon</a></p>
+      <p>Artwork: <a href="http://www.reinhart.be">Reinhart Croon</a></p>
     </div>
   </div>
 </footer>
@@ -189,7 +180,6 @@ document.getElementById("credit").textContent = S.credit || "";
 })();
 document.getElementById("intro-kop").textContent = S.kop || "";
 document.getElementById("intro-tekst").innerHTML = (S.intro || []).map(p => `<p>${esc(p)}</p>`).join("");
-document.getElementById("prijzen").innerHTML = (S.tickets || []).map(([k,v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
 if (S.ticketlink) ["intro-tickets","tickets-top"].forEach(id => document.getElementById(id).href = S.ticketlink);
 
 // ---------- agenda ----------
@@ -198,7 +188,22 @@ const MAAND_LANG = ["januari","februari","maart","april","mei","juni","juli","au
 const DAG = ["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"];
 const d = s => { const [y,m,dd] = s.split("-").map(Number); return new Date(y,m-1,dd); };
 const today = new Date(); today.setHours(0,0,0,0);
-const upcoming = events.filter(e => d(e.end || e.start) >= today).sort((a,b) => d(a.start) - d(b.start));
+const upcoming = ALLES.filter(e => d(e.end || e.start) >= today).sort((a,b) => d(a.start) - d(b.start));
+
+// Adres van een concert: de eigen concertpagina, of de website van de reeks (die opent in een nieuw tabblad)
+const R = window.REEKSEN || {};
+const linkVan = e => e.slug
+  ? { href: `concert/${e.slug}.html`, extern: false }
+  : { href: e.info || R[e.reeks] || (e.sites || []).map(x => R[x]).find(Boolean) || "", extern: true };
+const EXT = `<span class="sr"> (opent een andere website)</span>`;
+// Reeksen voor de filterknoppen: een concert kan bij meer dan één knop horen (een kerkconcert van Holsbeek Sessies staat bij beide)
+const groepenVan = e => {
+  const g = [];
+  if (/festival/i.test(e.kind)) g.push("Festivals");
+  ["Holsbeek Sessies", "Limburg Sessies", "Klanken van de Steden"].forEach(r => { if (e.reeks === r || (e.sites || []).includes(r)) g.push(r); });
+  if (/kerkconcert/i.test(e.kind) || !g.length) g.push("Kerkconcerten");
+  return g;
+};
 
 const ticketHtml = (e, groot) => e.volzet
   ? `<span class="soldout">Volzet</span>`
@@ -217,44 +222,67 @@ function whenLabel(e){
 }
 
 if (upcoming.length){
-  const h = upcoming[0];
+  const h = upcoming.find(isMerode) || upcoming[0];   // de Merode is de ingangspoort
   document.getElementById("next").hidden = false;
   document.getElementById("next-when").textContent = "Eerstvolgende · " + whenLabel(h);
   document.getElementById("next-artist").textContent = h.artist;
   document.getElementById("next-where").textContent = [h.place, h.village, h.time].filter(Boolean).join(", ");
   document.getElementById("next-acties").innerHTML = ticketHtml(h, true) +
-    (h.slug ? `<a class="btn ghost" href="concert/${esc(h.slug)}.html">Meer over dit concert</a>` : "");
+    (() => { const L = linkVan(h); return L.href ? (L.extern
+      ? `<a class="btn ghost" href="${esc(L.href)}" target="_blank" rel="noopener">Meer info ↗${EXT}</a>`
+      : `<a class="btn ghost" href="${esc(L.href)}">Meer over dit concert</a>`) : ""; })();
 }
 
 const list = document.getElementById("events");
-list.innerHTML = upcoming.map((e,i) => {
+const toon = document.getElementById("toon-alles");
+let open = false;
+function toonLijst(groep) {
+  const lijst = groep === "Alle" ? upcoming : upcoming.filter(e => groepenVan(e).includes(groep));
+  list.innerHTML = lijst.map((e,i) => {
   const s = d(e.start), en = e.end ? d(e.end) : null;
   const dag = en ? `${s.getDate()}–${en.getDate()}` : s.getDate();
   const jaar = s.getFullYear() !== today.getFullYear() ? " " + s.getFullYear() : "";
-  const pagina = e.slug ? `concert/${e.slug}.html` : (e.info || "");
+  const L = linkVan(e), pagina = L.href, att = L.extern ? ' target="_blank" rel="noopener"' : "";
   return `<li class="event${e.volzet ? " is-full" : ""}${i >= 5 ? " extra" : ""}">
     <div class="date"><span class="d">${dag}</span><span class="m">${MAAND[s.getMonth()]}${jaar}</span></div>
-    <div class="thumb">${e.foto ? `${pagina ? `<a href="${esc(pagina)}" tabindex="-1" aria-hidden="true">` : ""}<img src="${esc(e.foto)}" alt="" loading="lazy">${pagina ? "</a>" : ""}` : ""}</div>
+    <div class="thumb">${e.foto ? `${pagina ? `<a href="${esc(pagina)}"${att} tabindex="-1" aria-hidden="true">` : ""}<img src="${esc(e.foto)}" alt="" loading="lazy">${pagina ? "</a>" : ""}` : ""}</div>
     <div>
       ${e.sub ? `<p class="sub">${esc(e.sub)}</p>` : ""}
-      <h3 class="artist">${pagina ? `<a href="${esc(pagina)}">` : ""}${esc(e.artist)}${pagina ? "</a>" : ""}${e.origin ? ` <span class="herkomst">(${esc(e.origin)})</span>` : ""}</h3>
+      <h3 class="artist">${pagina ? `<a href="${esc(pagina)}"${att}>` : ""}${esc(e.artist)}${pagina ? "</a>" : ""}${e.origin ? ` <span class="herkomst">(${esc(e.origin)})</span>` : ""}</h3>
       <p class="meta"><span class="soort">${esc(e.kind)}</span> · ${esc([e.place, e.village].filter(Boolean).join(", "))}${e.time ? " · " + esc(e.time) : ""}</p>
       <div class="links">
         ${e.text ? `<details><summary>Korte beschrijving</summary>${String(e.text).split(/\n\s*\n/).map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}
-        ${pagina ? `<a href="${esc(pagina)}">Naar de concertpagina →</a>` : ""}
+        ${pagina ? `<a href="${esc(pagina)}"${att}>${L.extern ? "Meer info ↗" + EXT : "Naar de concertpagina →"}</a>` : ""}
       </div>
     </div>
     <div class="act">${e.price && !e.volzet ? `<span class="price">${esc(e.price)}</span>` : ""}${ticketHtml(e, false)}</div>
   </li>`;
 }).join("");
-
-const toon = document.getElementById("toon-alles");
-if (upcoming.length <= 5) toon.hidden = true;
+  const alleen = groep !== "Alle";
+  list.classList.toggle("alles", alleen || open);
+  toon.hidden = alleen || lijst.length <= 5;
+}
 toon.addEventListener("click", () => {
-  const open = list.classList.toggle("alles");
+  open = !open;
+  list.classList.toggle("alles", open);
   toon.setAttribute("aria-expanded", open);
   toon.textContent = open ? "Toon minder" : "Toon de hele agenda";
 });
+// Knoppen per reeks
+const GROEPEN = ["Kerkconcerten", "Holsbeek Sessies", "Limburg Sessies", "Klanken van de Steden", "Festivals"].filter(g => upcoming.some(e => groepenVan(e).includes(g)));
+const filtersEl = document.getElementById("filters");
+if (GROEPEN.length > 1) {
+  filtersEl.hidden = false;
+  filtersEl.innerHTML = ["Alle", ...GROEPEN].map(g => `<button type="button" class="btn${g === "Alle" ? "" : " ghost"}" data-groep="${esc(g)}" aria-pressed="${g === "Alle"}">${esc(g === "Alle" ? "Alle concerten" : g)}</button>`).join("");
+  filtersEl.addEventListener("click", ev => {
+    const b = ev.target.closest("button[data-groep]"); if (!b) return;
+    filtersEl.querySelectorAll("button").forEach(x => { const aan = x === b; x.classList.toggle("ghost", !aan); x.setAttribute("aria-pressed", aan); });
+    toonLijst(b.dataset.groep);
+    const n = list.children.length;
+    document.getElementById("filter-melding").textContent = n + (n === 1 ? " concert" : " concerten") + " getoond";
+  });
+}
+toonLijst("Alle");
 
 // ---------- festival en vorige edities ----------
 const fest = events.find(e => /festival/i.test(e.kind) && /merodefestival/i.test(e.artist));
@@ -263,30 +291,6 @@ if (fest) {
   document.getElementById("fest-datum").textContent = "Hemelvaartweekend · " +
     (s2 ? `${s1.getDate()}–${s2.getDate()} ${MAAND_LANG[s2.getMonth()]} ${s2.getFullYear()}` : `${s1.getDate()} ${MAAND_LANG[s1.getMonth()]} ${s1.getFullYear()}`);
   if (fest.slug) document.getElementById("fest-link").href = `concert/${fest.slug}.html`;
-}
-
-// ---------- ook van WESP: alle komende concerten in een schuiflijst ----------
-const andere = ALLES.filter(e => !isMerode(e) && d(e.end || e.start) >= today)
-  .sort((a,b) => d(a.start) - d(b.start));
-if (andere.length) {
-  document.getElementById("ook-wesp").hidden = false;
-  const lijst = document.getElementById("ook-lijst");
-  lijst.innerHTML = andere.map(e => {
-    const s = d(e.start);
-    const reeks = e.reeks || (e.sites || [])[0] || "";
-    const R = window.REEKSEN || {};
-    const pagina = e.info || R[e.reeks] || (e.sites || []).map(x => R[x]).find(Boolean) || e.tickets || "wesp.html";
-    return `<li><a href="${esc(pagina)}" target="_blank" rel="noopener">
-      <span class="ook-reeks">${esc(reeks)}</span>
-      <span class="ook-datum">${DAG[s.getDay()]} ${s.getDate()} ${MAAND_LANG[s.getMonth()]}${s.getFullYear() !== today.getFullYear() ? " " + s.getFullYear() : ""}</span>
-      <span class="ook-naam">${esc(e.artist)}</span>
-      <span class="ook-waar">${esc([e.place, e.village].filter(Boolean).join(", "))}</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li>`;
-  }).join("");
-  const stap = () => lijst.querySelector("li").offsetWidth + 24;
-  document.getElementById("ook-vorige").addEventListener("click", () => lijst.scrollBy({ left: -stap() * 2, behavior: "smooth" }));
-  document.getElementById("ook-volgende").addEventListener("click", () => lijst.scrollBy({ left: stap() * 2, behavior: "smooth" }));
 }
 
 // ---------- menu ----------
