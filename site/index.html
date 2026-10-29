@@ -12,6 +12,11 @@
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="seizoen/seizoen.css">
 <link rel="stylesheet" href="css/publiek.css">
+<style>
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.5rem}
+.filters .btn{min-height:44px;display:inline-flex;align-items:center}
+.filters .btn.ghost{background:transparent!important;color:var(--s-papier-inkt)!important;box-shadow:inset 0 0 0 1.5px currentColor}
+</style>
 <link rel="canonical" href="https://www.merodefestival.be/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Merodefestival – folk en wereldmuziek in de kerken van de Merode">
@@ -68,12 +73,26 @@
         <h2 id="intro-kop">De wereld komt naar de Merode</h2>
         <div id="intro-tekst"><p>In de kerken van het Merodegebied klinkt muziek van ver en dichtbij. Van Noord-Ierland tot Zuid-Frankrijk, van Schotland tot Griekenland — elke avond een andere wereld, elke keer dezelfde bijzondere ruimtes.</p><p>Ook dit seizoen brengt Merodefestival tien kerkconcerten met folk en wereldmuziek: akoestisch, melodisch en verhalend. Muzikanten van bij ons naast internationale namen, traditie naast eigen werk.</p></div>
         <div class="kruisjes" aria-hidden="true">× × × × × × ×</div>
-        <dl class="prijzen" id="prijzen"><div><dt>Per concert</dt><dd>€ 22</dd></div></dl>
         <a class="btn" id="intro-tickets" href="https://wesp-vzw.pierrot.io/">Tickets bestellen</a>
       </aside>
       <div>
         <h2 class="label" style="font-size:1rem;margin-bottom:1.25rem;color:var(--s-papier-zacht)">Agenda</h2>
+        <div class="filters" id="filters" role="group" aria-label="Filter op reeks"><button type="button" class="btn" data-groep="Alle" aria-pressed="true">Alle concerten</button><button type="button" class="btn ghost" data-groep="Kerkconcerten" aria-pressed="false">Kerkconcerten</button><button type="button" class="btn ghost" data-groep="Holsbeek Sessies" aria-pressed="false">Holsbeek Sessies</button><button type="button" class="btn ghost" data-groep="Limburg Sessies" aria-pressed="false">Limburg Sessies</button><button type="button" class="btn ghost" data-groep="Klanken van de Steden" aria-pressed="false">Klanken van de Steden</button><button type="button" class="btn ghost" data-groep="Festivals" aria-pressed="false">Festivals</button></div>
+        <p class="sr" id="filter-melding" aria-live="polite"></p>
         <ol class="events" id="events"><li class="event">
+    <div class="date"><span class="d">29</span><span class="m">okt</span></div>
+    <div class="thumb"></div>
+    <div>
+      
+      <h3 class="artist"><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Eriksson Delcroix</a></h3>
+      <p class="meta"><span class="soort">Sessie, Holsbeek Sessies</span> · Buurthuis Nieuwrode, Holsbeek</p>
+      <div class="links">
+        
+        <a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event">
     <div class="date"><span class="d">14</span><span class="m">nov</span></div>
     <div class="thumb"><a href="concert/gwen-cresens-philippe-thuriot-2026-11-14.html" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db817dadeffb7c14864a14.jpg" alt="" loading="lazy"></a></div>
     <div>
@@ -86,7 +105,46 @@
       </div>
     </div>
     <div class="act"><span class="price">€ 22</span><a class="btn" href="https://wesp-vzw.pierrot.io/">Tickets</a></div>
-  </li><li class="event is-full">
+  </li><li class="event">
+    <div class="date"><span class="d">26</span><span class="m">nov</span></div>
+    <div class="thumb"></div>
+    <div>
+      
+      <h3 class="artist"><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Lenny &amp; de Wespen</a></h3>
+      <p class="meta"><span class="soort">Sessie, Holsbeek Sessies</span> · Buurthuis Nieuwrode, Holsbeek</p>
+      <div class="links">
+        
+        <a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event">
+    <div class="date"><span class="d">27</span><span class="m">nov</span></div>
+    <div class="thumb"></div>
+    <div>
+      <p class="sub">Tussen oost en west</p>
+      <h3 class="artist"><a href="https://www.klankenvandesteden.be" target="_blank" rel="noopener">Aram: Shahab Azinmehr, Derya Türkan &amp; Robbe Kieckens</a></h3>
+      <p class="meta"><span class="soort">Concert, Klanken van de Steden</span> · De Studio Antwerpen, Antwerpen</p>
+      <div class="links">
+        <details><summary>Korte beschrijving</summary><p>In dit project komen Midden-Oosterse en Europese klanken samen. Met kemençe, zang, andere snaarinstrumenten en percussie ontstaat een gelaagde dialoog tussen traditie en vrije interpretatie. De musici zoeken naar gemeenschappelijke lijnen in hun muzikale achtergrond. Een concert dat bruggen slaat tussen verschillende werelden.</p></details>
+        <a href="https://www.klankenvandesteden.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event">
+    <div class="date"><span class="d">3</span><span class="m">dec</span></div>
+    <div class="thumb"><a href="https://www.limburgsessies.be" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db8104bd39c89044f809af.jpg" alt="" loading="lazy"></a></div>
+    <div>
+      <p class="sub">Gitaren van hier tot daar</p>
+      <h3 class="artist"><a href="https://www.limburgsessies.be" target="_blank" rel="noopener">Sam Grassie, Dylan Fowler &amp; Haroun Iqbal</a> <span class="herkomst">(sco-wal-bel)</span></h3>
+      <p class="meta"><span class="soort">Concert, Limburg Sessies</span> · Academiezaal Sint-Truiden, Sint-Truiden</p>
+      <div class="links">
+        <details><summary>Korte beschrijving</summary><p>Sam Grassie is een jonge Schotse gitarist en singer-songwriter die furore maakt binnen de hedendaagse Angelsaksische folkscene. Welshman Dylan Fowler is een internationaal bekende grootmeester op akoestische en klassieke gitaar. Klara-twintiger Haroun Iqbal is componist en multi-instrumentalist met invloeden uit jazz, Indiase en West-Afrikaanse muziek. Samen creëren ze een uitzonderlijk gitarenconcert.</p></details>
+        <a href="https://www.limburgsessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event is-full extra">
     <div class="date"><span class="d">5</span><span class="m">dec</span></div>
     <div class="thumb"><a href="concert/sam-grassie-2026-12-05.html" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db81728dffdad5b18abc45.jpg" alt="" loading="lazy"></a></div>
     <div>
@@ -99,7 +157,7 @@
       </div>
     </div>
     <div class="act"><span class="soldout">Volzet</span></div>
-  </li><li class="event">
+  </li><li class="event extra">
     <div class="date"><span class="d">11</span><span class="m">dec</span></div>
     <div class="thumb"><a href="concert/griff-trio-2026-12-11.html" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db81469f3ad2c4779240b6.jpg" alt="" loading="lazy"></a></div>
     <div>
@@ -112,7 +170,7 @@
       </div>
     </div>
     <div class="act"><span class="price">€ 16</span><a class="btn" href="https://pierrot.io/wesp-vzw/echo-en-waar-de-ster-bleef-stille-staan">Tickets</a></div>
-  </li><li class="event is-full">
+  </li><li class="event is-full extra">
     <div class="date"><span class="d">12</span><span class="m">dec</span></div>
     <div class="thumb"><a href="concert/en-waar-de-ster-bleef-stille-staan-2026-12-12.html" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db81f8a595c6331e265dc7.jpg" alt="" loading="lazy"></a></div>
     <div>
@@ -125,7 +183,20 @@
       </div>
     </div>
     <div class="act"><span class="soldout">Volzet</span></div>
-  </li><li class="event is-full">
+  </li><li class="event extra">
+    <div class="date"><span class="d">13</span><span class="m">dec</span></div>
+    <div class="thumb"></div>
+    <div>
+      
+      <h3 class="artist"><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Laura Cortese &amp; Bert Ruymbeek</a></h3>
+      <p class="meta"><span class="soort">Kerkconcert, Holsbeek Sessies</span> · Kerk, Kortrijk-Dutsel</p>
+      <div class="links">
+        
+        <a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event is-full extra">
     <div class="date"><span class="d">18</span><span class="m">dec</span></div>
     <div class="thumb"><a href="concert/en-waar-de-ster-bleef-stille-staan-2026-12-18.html" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db815ca5bbc629c93cc0f4.jpg" alt="" loading="lazy"></a></div>
     <div>
@@ -178,6 +249,58 @@
     </div>
     <div class="act"><span class="price">€ 22</span><a class="btn" href="https://wesp-vzw.pierrot.io/">Tickets</a></div>
   </li><li class="event extra">
+    <div class="date"><span class="d">12–14</span><span class="m">jan 2027</span></div>
+    <div class="thumb"></div>
+    <div>
+      
+      <h3 class="artist"><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Kindersessies met Rémi Decker (Zigoto)</a></h3>
+      <p class="meta"><span class="soort">Kindersessie, Holsbeek Sessies</span> · Buurthuis, Holsbeek</p>
+      <div class="links">
+        
+        <a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event extra">
+    <div class="date"><span class="d">14</span><span class="m">jan 2027</span></div>
+    <div class="thumb"></div>
+    <div>
+      
+      <h3 class="artist"><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Robb Johnson</a></h3>
+      <p class="meta"><span class="soort">Sessie, Holsbeek Sessies</span> · Buurthuis, Holsbeek</p>
+      <div class="links">
+        
+        <a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event extra">
+    <div class="date"><span class="d">24</span><span class="m">jan 2027</span></div>
+    <div class="thumb"></div>
+    <div>
+      
+      <h3 class="artist"><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Bao Sissoko &amp; Haroun Iqbal</a></h3>
+      <p class="meta"><span class="soort">Kerkconcert, Holsbeek Sessies</span> · Kerk, Kortrijk-Dutsel</p>
+      <div class="links">
+        
+        <a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event extra">
+    <div class="date"><span class="d">28</span><span class="m">jan 2027</span></div>
+    <div class="thumb"><a href="https://www.limburgsessies.be" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db81268146cbea23d42b9b.jpg" alt="" loading="lazy"></a></div>
+    <div>
+      <p class="sub">Tussen County Kerry en Yorkshire</p>
+      <h3 class="artist"><a href="https://www.limburgsessies.be" target="_blank" rel="noopener">The Weaving</a> <span class="herkomst">(irl-eng)</span></h3>
+      <p class="meta"><span class="soort">Concert, Limburg Sessies</span> · Academiezaal , Sint-Truiden</p>
+      <div class="links">
+        <details><summary>Korte beschrijving</summary><p>Het jonge, talentvolle trio The Weaving bewijst dat Ierse en Engelse folk nog springlevend is. Méabh Begley (accordeon, zang), Owen Spafford (viool) en Cait Ni Riain (piano, zang) brengen muziek met wortels in Kerry, Tipperary en Yorkshire. Ze spelen dansmelodieën en liederen die ze vanuit hun eigen achtergrond benaderen, met ruimte voor samenspel en meerstemmigheid.</p></details>
+        <a href="https://www.limburgsessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event extra">
     <div class="date"><span class="d">30</span><span class="m">jan 2027</span></div>
     <div class="thumb"><a href="concert/the-weaving-2027-01-30.html" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db81f78e40d7de08f22749.jpg" alt="" loading="lazy"></a></div>
     <div>
@@ -190,6 +313,19 @@
       </div>
     </div>
     <div class="act"><span class="price">€ 22</span><a class="btn" href="https://wesp-vzw.pierrot.io/">Tickets</a></div>
+  </li><li class="event extra">
+    <div class="date"><span class="d">19</span><span class="m">feb 2027</span></div>
+    <div class="thumb"><a href="https://www.limburgsessies.be" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db8169a089ecfd79a1dbb0.jpg" alt="" loading="lazy"></a></div>
+    <div>
+      <p class="sub">Zuid-Franse stemmenstorm</p>
+      <h3 class="artist"><a href="https://www.limburgsessies.be" target="_blank" rel="noopener">La Mal Coiffée</a> <span class="herkomst">(fr)</span></h3>
+      <p class="meta"><span class="soort">Concert, Limburg Sessies</span> · Abdijsite Herkenrode, Herkenrode</p>
+      <div class="links">
+        <details><summary>Korte beschrijving</summary><p>La Mal Coiffée is een vocaal kwartet uit Zuid-Frankrijk dat zich toelegt op Occitaanse polyfonie. De groep combineert meerstemmige zang met percussie en werkt met teksten uit de regionale traditie. Hun repertoire verbindt historische bronnen met nieuwe composities. Live ligt de nadruk op ritme, taal en collectieve zang.</p></details>
+        <a href="https://www.limburgsessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
   </li><li class="event extra">
     <div class="date"><span class="d">20</span><span class="m">feb 2027</span></div>
     <div class="thumb"><a href="concert/la-mal-coiffee-2027-02-20.html" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db818496b1cf1a87e54e8c.jpg" alt="" loading="lazy"></a></div>
@@ -204,6 +340,45 @@
     </div>
     <div class="act"><span class="price">€ 22</span><a class="btn" href="https://wesp-vzw.pierrot.io/">Tickets</a></div>
   </li><li class="event extra">
+    <div class="date"><span class="d">3</span><span class="m">mrt 2027</span></div>
+    <div class="thumb"></div>
+    <div>
+      
+      <h3 class="artist"><a href="https://www.limburgsessies.be" target="_blank" rel="noopener">Troissoeur</a></h3>
+      <p class="meta"><span class="soort">Concert, Limburg Sessies</span> · Academiezaal, Sint-Truiden</p>
+      <div class="links">
+        
+        <a href="https://www.limburgsessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event extra">
+    <div class="date"><span class="d">4</span><span class="m">mrt 2027</span></div>
+    <div class="thumb"></div>
+    <div>
+      
+      <h3 class="artist"><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Vera Coomans &amp; Thomas Devos</a></h3>
+      <p class="meta"><span class="soort">Sessie, Holsbeek Sessies</span> · Buurthuis, Holsbeek</p>
+      <div class="links">
+        
+        <a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event extra">
+    <div class="date"><span class="d">5</span><span class="m">mrt 2027</span></div>
+    <div class="thumb"></div>
+    <div>
+      
+      <h3 class="artist"><a href="https://www.holsbeeksessies.be/john" target="_blank" rel="noopener">John Blek</a> <span class="herkomst">(irl)</span></h3>
+      <p class="meta"><span class="soort">Sessie, Holsbeek Sessies</span> · Buurthuis, Holsbeek</p>
+      <div class="links">
+        <details><summary>Korte beschrijving</summary><p>John Blek is een Ierse singer-songwriter uit Cork. Hij schrijft poëtische songs, gebaseerd op de Ierse, Engelse en Amerikaanse traditie, die hij solo vertolkt met zijn prachtige stem en virtuoze gitaarspel. Breekbaar en sober, maar tegelijk krachtig en melodieus.</p></details>
+        <a href="https://www.holsbeeksessies.be/john" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event extra">
     <div class="date"><span class="d">20</span><span class="m">mrt 2027</span></div>
     <div class="thumb"><a href="concert/laura-corteses-acoustic-evening-iv-2027-03-20.html" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db817c9c87e2a5913157b9.jpg" alt="" loading="lazy"></a></div>
     <div>
@@ -217,6 +392,19 @@
     </div>
     <div class="act"><span class="price">€ 22</span><a class="btn" href="https://wesp-vzw.pierrot.io/">Tickets</a></div>
   </li><li class="event extra">
+    <div class="date"><span class="d">16</span><span class="m">apr 2027</span></div>
+    <div class="thumb"><a href="https://www.limburgsessies.be" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db81e391eccfaffc69e5a6.jpg" alt="" loading="lazy"></a></div>
+    <div>
+      <p class="sub">Van Italië tot in Griekenland</p>
+      <h3 class="artist"><a href="https://www.limburgsessies.be" target="_blank" rel="noopener">Livia Giaffreda &amp; Simone Frezza, Katerina Douka &amp; Stamatis Pasopoulos</a> <span class="herkomst">(ita-gr)</span></h3>
+      <p class="meta"><span class="soort">Concert, Limburg Sessies</span> · Abdijsite Herkenrode, Herkenrode</p>
+      <div class="links">
+        <details><summary>Korte beschrijving</summary><p>Livia Giaffreda is zangeres en percussioniste met een focus op Italiaanse en mediterrane tradities, ondersteund op accordeon. Katerina Douka &amp; Stamatis Pasopoulos brengen een programma met Grieks repertoire voor zang en accordeon, met de rebetiko als middelpunt: de stedelijke volksmuziek die ontstond in de havens van het Griekse schiereiland.</p></details>
+        <a href="https://www.limburgsessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
+  </li><li class="event extra">
     <div class="date"><span class="d">17</span><span class="m">apr 2027</span></div>
     <div class="thumb"><a href="concert/livia-giaffreda-simone-frezza-2027-04-17.html" tabindex="-1" aria-hidden="true"><img src="data/foto/40077c21f8db817b8ad0f182f99978be.jpg" alt="" loading="lazy"></a></div>
     <div>
@@ -229,6 +417,19 @@
       </div>
     </div>
     <div class="act"><span class="price">€ 22</span><a class="btn" href="https://wesp-vzw.pierrot.io/">Tickets</a></div>
+  </li><li class="event extra">
+    <div class="date"><span class="d">25</span><span class="m">apr 2027</span></div>
+    <div class="thumb"></div>
+    <div>
+      
+      <h3 class="artist"><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Liesbeth Devos &amp; Gwen Cresens</a></h3>
+      <p class="meta"><span class="soort">Kerkconcert, Holsbeek Sessies</span> · Kerk, Kortrijk-Dutsel</p>
+      <div class="links">
+        
+        <a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
   </li><li class="event extra">
     <div class="date"><span class="d">5–9</span><span class="m">mei 2027</span></div>
     <div class="thumb"></div>
@@ -255,120 +456,22 @@
       </div>
     </div>
     <div class="act"><span class="price">€ 22</span><a class="btn" href="https://wesp-vzw.pierrot.io/">Tickets</a></div>
+  </li><li class="event extra">
+    <div class="date"><span class="d">4</span><span class="m">jul 2027</span></div>
+    <div class="thumb"></div>
+    <div>
+      <p class="sub">Folk en wereldmuziek in de Abdij van Park</p>
+      <h3 class="artist"><a href="https://www.parkfestival.be" target="_blank" rel="noopener">PARK Festival 2027</a></h3>
+      <p class="meta"><span class="soort">Festival, PARK Festival</span> · Abdij van Park, Heverlee</p>
+      <div class="links">
+        <details><summary>Korte beschrijving</summary><p>Een dag folk en wereldmuziek op drie podia in en rond de Abdij van Park.</p></details>
+        <a href="https://www.parkfestival.be" target="_blank" rel="noopener">Meer info ↗<span class="sr"> (opent een andere website)</span></a>
+      </div>
+    </div>
+    <div class="act"></div>
   </li></ol>
         <button class="btn toon-alles" id="toon-alles" aria-expanded="false">Toon de hele agenda</button>
       </div>
-    </div>
-  </section>
-
-  <section class="ook-wesp" id="ook-wesp" aria-labelledby="ook-wesp-titel">
-    <div class="wrap">
-      <div class="ook-kop">
-        <h2 id="ook-wesp-titel">Ook van WESP</h2>
-        <p>Concerten in onze andere reeksen, buiten de Merode.</p>
-        <div class="ook-pijlen" aria-hidden="false">
-          <button type="button" class="pijl" id="ook-vorige" aria-label="Vorige concerten">←</button>
-          <button type="button" class="pijl" id="ook-volgende" aria-label="Volgende concerten">→</button>
-        </div>
-      </div>
-      <ul class="ook-lijst" id="ook-lijst" tabindex="0" aria-label="Concerten van WESP, schuif opzij voor meer"><li><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Holsbeek Sessies</span>
-      <span class="ook-datum">donderdag 29 oktober</span>
-      <span class="ook-naam">Eriksson Delcroix</span>
-      <span class="ook-waar">Buurthuis Nieuwrode, Holsbeek</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Holsbeek Sessies</span>
-      <span class="ook-datum">donderdag 26 november</span>
-      <span class="ook-naam">Lenny &amp; de Wespen</span>
-      <span class="ook-waar">Buurthuis Nieuwrode, Holsbeek</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.klankenvandesteden.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Klanken van de Steden</span>
-      <span class="ook-datum">vrijdag 27 november</span>
-      <span class="ook-naam">Aram: Shahab Azinmehr, Derya Türkan &amp; Robbe Kieckens</span>
-      <span class="ook-waar">De Studio Antwerpen, Antwerpen</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.limburgsessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Limburg Sessies</span>
-      <span class="ook-datum">donderdag 3 december</span>
-      <span class="ook-naam">Sam Grassie, Dylan Fowler &amp; Haroun Iqbal</span>
-      <span class="ook-waar">Academiezaal Sint-Truiden, Sint-Truiden</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Holsbeek Sessies</span>
-      <span class="ook-datum">zondag 13 december</span>
-      <span class="ook-naam">Laura Cortese &amp; Bert Ruymbeek</span>
-      <span class="ook-waar">Kerk, Kortrijk-Dutsel</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Holsbeek Sessies</span>
-      <span class="ook-datum">dinsdag 12 januari 2027</span>
-      <span class="ook-naam">Kindersessies met Rémi Decker (Zigoto)</span>
-      <span class="ook-waar">Buurthuis, Holsbeek</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Holsbeek Sessies</span>
-      <span class="ook-datum">donderdag 14 januari 2027</span>
-      <span class="ook-naam">Robb Johnson</span>
-      <span class="ook-waar">Buurthuis, Holsbeek</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Holsbeek Sessies</span>
-      <span class="ook-datum">zondag 24 januari 2027</span>
-      <span class="ook-naam">Bao Sissoko &amp; Haroun Iqbal</span>
-      <span class="ook-waar">Kerk, Kortrijk-Dutsel</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.limburgsessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Limburg Sessies</span>
-      <span class="ook-datum">donderdag 28 januari 2027</span>
-      <span class="ook-naam">The Weaving</span>
-      <span class="ook-waar">Academiezaal , Sint-Truiden</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.limburgsessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Limburg Sessies</span>
-      <span class="ook-datum">vrijdag 19 februari 2027</span>
-      <span class="ook-naam">La Mal Coiffée</span>
-      <span class="ook-waar">Abdijsite Herkenrode, Herkenrode</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.limburgsessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Limburg Sessies</span>
-      <span class="ook-datum">woensdag 3 maart 2027</span>
-      <span class="ook-naam">Troissoeur</span>
-      <span class="ook-waar">Academiezaal, Sint-Truiden</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Holsbeek Sessies</span>
-      <span class="ook-datum">donderdag 4 maart 2027</span>
-      <span class="ook-naam">Vera Coomans &amp; Thomas Devos</span>
-      <span class="ook-waar">Buurthuis, Holsbeek</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.holsbeeksessies.be/john" target="_blank" rel="noopener">
-      <span class="ook-reeks">Holsbeek Sessies</span>
-      <span class="ook-datum">vrijdag 5 maart 2027</span>
-      <span class="ook-naam">John Blek</span>
-      <span class="ook-waar">Buurthuis, Holsbeek</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.limburgsessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Limburg Sessies</span>
-      <span class="ook-datum">vrijdag 16 april 2027</span>
-      <span class="ook-naam">Livia Giaffreda &amp; Simone Frezza, Katerina Douka &amp; Stamatis Pasopoulos</span>
-      <span class="ook-waar">Abdijsite Herkenrode, Herkenrode</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.holsbeeksessies.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">Holsbeek Sessies</span>
-      <span class="ook-datum">zondag 25 april 2027</span>
-      <span class="ook-naam">Liesbeth Devos &amp; Gwen Cresens</span>
-      <span class="ook-waar">Kerk, Kortrijk-Dutsel</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li><li><a href="https://www.parkfestival.be" target="_blank" rel="noopener">
-      <span class="ook-reeks">PARK Festival</span>
-      <span class="ook-datum">zondag 4 juli 2027</span>
-      <span class="ook-naam">PARK Festival 2027</span>
-      <span class="ook-waar">Abdij van Park, Heverlee</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li></ul>
-      <p class="ook-meer"><a href="wesp.html">Meer over WESP →</a></p>
     </div>
   </section>
 
@@ -394,7 +497,7 @@
         <h2 id="nieuws-titel">Mis geen concert</h2>
         <p>Nieuwe concerten en het festivalprogramma in je mailbox.</p>
       </div>
-      <a class="btn" href="https://eepurl.com/g8U9mX">Schrijf je in</a>
+      <a class="btn" href="http://eepurl.com/g8U9mX">Schrijf je in</a>
     </div>
   </section>
 </main>
@@ -419,7 +522,7 @@
     <div>
       <h3>Met steun van</h3><a class="steun-link" href="https://www.vlaanderen.be" target="_blank" rel="noopener"><img class="steun-logo" src="img/vlaanderen-verbeelding-werkt.png" alt="Vlaanderen, verbeelding werkt" width="200" height="87" loading="lazy"></a>
       <p>De Vlaamse overheid, kunsten en erfgoed.</p>
-      <p>Artwork: <a href="https://www.reinhart.be">Reinhart Croon</a></p>
+      <p>Artwork: <a href="http://www.reinhart.be">Reinhart Croon</a></p>
     </div>
   </div>
 <div class="wrap foot-onder"><p class="foot-links"><a href="partners.html">Partners</a><a href="vrienden-van.html">Vrienden van Merodefestival</a><a href="index.html#nieuwsbrief">Nieuwsbrief</a><a href="privacy.html">Privacyverklaring</a></p></div>
@@ -476,7 +579,6 @@ document.getElementById("credit").textContent = S.credit || "";
 })();
 document.getElementById("intro-kop").textContent = S.kop || "";
 document.getElementById("intro-tekst").innerHTML = (S.intro || []).map(p => `<p>${esc(p)}</p>`).join("");
-document.getElementById("prijzen").innerHTML = (S.tickets || []).map(([k,v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
 if (S.ticketlink) ["intro-tickets","tickets-top"].forEach(id => document.getElementById(id).href = S.ticketlink);
 
 // ---------- agenda ----------
@@ -485,7 +587,22 @@ const MAAND_LANG = ["januari","februari","maart","april","mei","juni","juli","au
 const DAG = ["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"];
 const d = s => { const [y,m,dd] = s.split("-").map(Number); return new Date(y,m-1,dd); };
 const today = new Date(); today.setHours(0,0,0,0);
-const upcoming = events.filter(e => d(e.end || e.start) >= today).sort((a,b) => d(a.start) - d(b.start));
+const upcoming = ALLES.filter(e => d(e.end || e.start) >= today).sort((a,b) => d(a.start) - d(b.start));
+
+// Adres van een concert: de eigen concertpagina, of de website van de reeks (die opent in een nieuw tabblad)
+const R = window.REEKSEN || {};
+const linkVan = e => e.slug
+  ? { href: `concert/${e.slug}.html`, extern: false }
+  : { href: e.info || R[e.reeks] || (e.sites || []).map(x => R[x]).find(Boolean) || "", extern: true };
+const EXT = `<span class="sr"> (opent een andere website)</span>`;
+// Reeksen voor de filterknoppen: een concert kan bij meer dan één knop horen (een kerkconcert van Holsbeek Sessies staat bij beide)
+const groepenVan = e => {
+  const g = [];
+  if (/festival/i.test(e.kind)) g.push("Festivals");
+  ["Holsbeek Sessies", "Limburg Sessies", "Klanken van de Steden"].forEach(r => { if (e.reeks === r || (e.sites || []).includes(r)) g.push(r); });
+  if (/kerkconcert/i.test(e.kind) || !g.length) g.push("Kerkconcerten");
+  return g;
+};
 
 const ticketHtml = (e, groot) => e.volzet
   ? `<span class="soldout">Volzet</span>`
@@ -504,44 +621,67 @@ function whenLabel(e){
 }
 
 if (upcoming.length){
-  const h = upcoming[0];
+  const h = upcoming.find(isMerode) || upcoming[0];   // de Merode is de ingangspoort
   document.getElementById("next").hidden = false;
   document.getElementById("next-when").textContent = "Eerstvolgende · " + whenLabel(h);
   document.getElementById("next-artist").textContent = h.artist;
   document.getElementById("next-where").textContent = [h.place, h.village, h.time].filter(Boolean).join(", ");
   document.getElementById("next-acties").innerHTML = ticketHtml(h, true) +
-    (h.slug ? `<a class="btn ghost" href="concert/${esc(h.slug)}.html">Meer over dit concert</a>` : "");
+    (() => { const L = linkVan(h); return L.href ? (L.extern
+      ? `<a class="btn ghost" href="${esc(L.href)}" target="_blank" rel="noopener">Meer info ↗${EXT}</a>`
+      : `<a class="btn ghost" href="${esc(L.href)}">Meer over dit concert</a>`) : ""; })();
 }
 
 const list = document.getElementById("events");
-list.innerHTML = upcoming.map((e,i) => {
+const toon = document.getElementById("toon-alles");
+let open = false;
+function toonLijst(groep) {
+  const lijst = groep === "Alle" ? upcoming : upcoming.filter(e => groepenVan(e).includes(groep));
+  list.innerHTML = lijst.map((e,i) => {
   const s = d(e.start), en = e.end ? d(e.end) : null;
   const dag = en ? `${s.getDate()}–${en.getDate()}` : s.getDate();
   const jaar = s.getFullYear() !== today.getFullYear() ? " " + s.getFullYear() : "";
-  const pagina = e.slug ? `concert/${e.slug}.html` : (e.info || "");
+  const L = linkVan(e), pagina = L.href, att = L.extern ? ' target="_blank" rel="noopener"' : "";
   return `<li class="event${e.volzet ? " is-full" : ""}${i >= 5 ? " extra" : ""}">
     <div class="date"><span class="d">${dag}</span><span class="m">${MAAND[s.getMonth()]}${jaar}</span></div>
-    <div class="thumb">${e.foto ? `${pagina ? `<a href="${esc(pagina)}" tabindex="-1" aria-hidden="true">` : ""}<img src="${esc(e.foto)}" alt="" loading="lazy">${pagina ? "</a>" : ""}` : ""}</div>
+    <div class="thumb">${e.foto ? `${pagina ? `<a href="${esc(pagina)}"${att} tabindex="-1" aria-hidden="true">` : ""}<img src="${esc(e.foto)}" alt="" loading="lazy">${pagina ? "</a>" : ""}` : ""}</div>
     <div>
       ${e.sub ? `<p class="sub">${esc(e.sub)}</p>` : ""}
-      <h3 class="artist">${pagina ? `<a href="${esc(pagina)}">` : ""}${esc(e.artist)}${pagina ? "</a>" : ""}${e.origin ? ` <span class="herkomst">(${esc(e.origin)})</span>` : ""}</h3>
+      <h3 class="artist">${pagina ? `<a href="${esc(pagina)}"${att}>` : ""}${esc(e.artist)}${pagina ? "</a>" : ""}${e.origin ? ` <span class="herkomst">(${esc(e.origin)})</span>` : ""}</h3>
       <p class="meta"><span class="soort">${esc(e.kind)}</span> · ${esc([e.place, e.village].filter(Boolean).join(", "))}${e.time ? " · " + esc(e.time) : ""}</p>
       <div class="links">
         ${e.text ? `<details><summary>Korte beschrijving</summary>${String(e.text).split(/\n\s*\n/).map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}
-        ${pagina ? `<a href="${esc(pagina)}">Naar de concertpagina →</a>` : ""}
+        ${pagina ? `<a href="${esc(pagina)}"${att}>${L.extern ? "Meer info ↗" + EXT : "Naar de concertpagina →"}</a>` : ""}
       </div>
     </div>
     <div class="act">${e.price && !e.volzet ? `<span class="price">${esc(e.price)}</span>` : ""}${ticketHtml(e, false)}</div>
   </li>`;
 }).join("");
-
-const toon = document.getElementById("toon-alles");
-if (upcoming.length <= 5) toon.hidden = true;
+  const alleen = groep !== "Alle";
+  list.classList.toggle("alles", alleen || open);
+  toon.hidden = alleen || lijst.length <= 5;
+}
 toon.addEventListener("click", () => {
-  const open = list.classList.toggle("alles");
+  open = !open;
+  list.classList.toggle("alles", open);
   toon.setAttribute("aria-expanded", open);
   toon.textContent = open ? "Toon minder" : "Toon de hele agenda";
 });
+// Knoppen per reeks
+const GROEPEN = ["Kerkconcerten", "Holsbeek Sessies", "Limburg Sessies", "Klanken van de Steden", "Festivals"].filter(g => upcoming.some(e => groepenVan(e).includes(g)));
+const filtersEl = document.getElementById("filters");
+if (GROEPEN.length > 1) {
+  filtersEl.hidden = false;
+  filtersEl.innerHTML = ["Alle", ...GROEPEN].map(g => `<button type="button" class="btn${g === "Alle" ? "" : " ghost"}" data-groep="${esc(g)}" aria-pressed="${g === "Alle"}">${esc(g === "Alle" ? "Alle concerten" : g)}</button>`).join("");
+  filtersEl.addEventListener("click", ev => {
+    const b = ev.target.closest("button[data-groep]"); if (!b) return;
+    filtersEl.querySelectorAll("button").forEach(x => { const aan = x === b; x.classList.toggle("ghost", !aan); x.setAttribute("aria-pressed", aan); });
+    toonLijst(b.dataset.groep);
+    const n = list.children.length;
+    document.getElementById("filter-melding").textContent = n + (n === 1 ? " concert" : " concerten") + " getoond";
+  });
+}
+toonLijst("Alle");
 
 // ---------- festival en vorige edities ----------
 const fest = events.find(e => /festival/i.test(e.kind) && /merodefestival/i.test(e.artist));
@@ -550,30 +690,6 @@ if (fest) {
   document.getElementById("fest-datum").textContent = "Hemelvaartweekend · " +
     (s2 ? `${s1.getDate()}–${s2.getDate()} ${MAAND_LANG[s2.getMonth()]} ${s2.getFullYear()}` : `${s1.getDate()} ${MAAND_LANG[s1.getMonth()]} ${s1.getFullYear()}`);
   if (fest.slug) document.getElementById("fest-link").href = `concert/${fest.slug}.html`;
-}
-
-// ---------- ook van WESP: alle komende concerten in een schuiflijst ----------
-const andere = ALLES.filter(e => !isMerode(e) && d(e.end || e.start) >= today)
-  .sort((a,b) => d(a.start) - d(b.start));
-if (andere.length) {
-  document.getElementById("ook-wesp").hidden = false;
-  const lijst = document.getElementById("ook-lijst");
-  lijst.innerHTML = andere.map(e => {
-    const s = d(e.start);
-    const reeks = e.reeks || (e.sites || [])[0] || "";
-    const R = window.REEKSEN || {};
-    const pagina = e.info || R[e.reeks] || (e.sites || []).map(x => R[x]).find(Boolean) || e.tickets || "wesp.html";
-    return `<li><a href="${esc(pagina)}" target="_blank" rel="noopener">
-      <span class="ook-reeks">${esc(reeks)}</span>
-      <span class="ook-datum">${DAG[s.getDay()]} ${s.getDate()} ${MAAND_LANG[s.getMonth()]}${s.getFullYear() !== today.getFullYear() ? " " + s.getFullYear() : ""}</span>
-      <span class="ook-naam">${esc(e.artist)}</span>
-      <span class="ook-waar">${esc([e.place, e.village].filter(Boolean).join(", "))}</span>
-      <span class="ook-meer">Meer info ↗<span class="sr"> (opent een andere website)</span></span>
-    </a></li>`;
-  }).join("");
-  const stap = () => lijst.querySelector("li").offsetWidth + 24;
-  document.getElementById("ook-vorige").addEventListener("click", () => lijst.scrollBy({ left: -stap() * 2, behavior: "smooth" }));
-  document.getElementById("ook-volgende").addEventListener("click", () => lijst.scrollBy({ left: stap() * 2, behavior: "smooth" }));
 }
 
 // ---------- menu ----------
