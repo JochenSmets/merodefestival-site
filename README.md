@@ -1,3 +1,5 @@
+HAHHAHAHHAHHAHA
+
 # merodefestival.be
 
 De website leest de **agenda** en de **producties** uit Notion. Elk uur haalt GitHub
